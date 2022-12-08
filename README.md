@@ -1,4 +1,4 @@
-# GeniusInvokationGym
+# Genius Invokation Gym
 
 一个简易的七圣召唤仿真器（如果不弃坑的话）
 
