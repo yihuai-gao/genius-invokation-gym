@@ -21,3 +21,4 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 
 顺便好奇一下为什么用invokation而不是invocation，求懂哥指点
 
+新建QQ交流群613071650，欢迎感兴趣的同学入群
