@@ -1,0 +1,2 @@
+'''Genius Invokation Game class
+'''
