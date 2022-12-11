@@ -3,6 +3,7 @@ from ..character import Character, Skill
 from ..summon import Summon
 
 class KamisatoAyaka(Character):
+    '''神里绫华'''
     def __init__(self, player_id:int, position:int):
         super().__init__('神里绫华', 'KamisatoAyaka', player_id, position)
         self.NATIONALITY = 'Inazuma'
