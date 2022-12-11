@@ -8,7 +8,7 @@ In each round: RerollDice (also happens after using some cards, e.g. 乾坤一�
 
 '''
 
-from .entity import Entity
+from .classes.entity import Entity
 from abc import ABCMeta, abstractmethod
 class Action(Entity, ABCMeta):
     def __init__(self, type:str):

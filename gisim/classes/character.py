@@ -1,17 +1,16 @@
 '''Base class of each character: abstract class
 A character in the game should be an instant of the specific character class defined in each file'''
-from ...entity import Entity
+from .entity import Entity
 from abc import ABCMeta, abstractmethod
 
 class Character(Entity, ABCMeta):
-    def __init__(self, Chinese_name:str, English_name:str, player_id:int, position:int):
+    def __init__(self, name:str, player_id:int, position:int):
         super().__init__()
         assert player_id in [1, 2], "The player_id should be either 1 or 2"
         assert position in [0, 1, 2], "The position should be on of 0(left), 1(middle), 2(right)"
         self.PLAYER_ID = player_id
         self.POSITION = position
-        self.CHINESE_NAME = Chinese_name
-        self.ENGLISH_NAME = English_name
+        self.NAME = name
         self.active = False 
         ''' Whether this character in set forward. There should be only one character in the active state for each player'''
         self.elemental_infusion = None
@@ -29,15 +28,16 @@ class Character(Entity, ABCMeta):
             assert 0 <= id <= self.skills_num - 1, f"id should be from 0 to {self.skills_num-1}"
             return self.skills[id]
         elif skill_name is not None:
-            if skill_name in self.CHINESE_SKILL_NAMES:
-                return self.skills[self.CHINESE_SKILL_NAMES.index(skill_name)]
-            elif skill_name in self.ENGLISH_SKILL_NAMES:
-                return self.skills[self.ENGLISH_SKILL_NAMES.index(skill_name)]
+            if skill_name in self.SKILL_NAMES:
+                return self.skills[self.SKILL_NAMES.index(skill_name)]
             else:
                 assert False, f"Skill {skill_name} does not exist in {self.NAME}'s skill set"
         else:
             assert skill_type is not None, "Should provide either skill id or its name"
 
+    def encode(self):
+        # TODO
+        pass
     
     @abstractmethod
     def get_all_raw_skills(self):
@@ -81,19 +81,19 @@ class Character(Entity, ABCMeta):
         
     @property
     @abstractmethod
-    def CHINESE_SKILL_NAMES(self):
-        self.CHINESE_SKILL_NAMES:list[str]
+    def SKILL_NAMES(self):
+        self.SKILL_NAMES:list[str]
         ...
         
     @property
     @abstractmethod
-    def ENGLISH_SKILL_NAMES(self):
-        self.ENGLISH_SKILL_NAMES:list[str]
+    def SKILL_NAMES(self):
+        self.SKILL_NAMES:list[str]
         ...
         
 
 class Skill(ABCMeta):
-    def __init__(self, Chinese_name:str, English_name:str, cost:dict, skill_type:str):
+    def __init__(self, name:str, cost:dict, skill_type:str):
         '''
         Args:
         cost(dict[str, int]): {element dice type(including 'Arbitrary', 'Power'):cost}; None if no cost is required 
@@ -101,8 +101,7 @@ class Skill(ABCMeta):
         '''
         skill_types = ['Normal Attack', 'Elemental Skill', 'Elemental Burst', 'Passive Skill']
         assert skill_type in skill_types, f"Skill should be one of {skill_types}, but got {skill_type}."
-        self.ENGLISH_NAME = English_name
-        self.CHINESE_NAME = Chinese_name
+        self.AME = name
         self.RAW_COST = cost
         self.TYPE = skill_type
         self.current_cost = cost

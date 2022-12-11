@@ -1,10 +1,13 @@
 '''Judger class: determine legal moves of the current state
 '''
-from .game import Game
 from .actions import Action
+
+from typing import TYPE_CHECKING
+if TYPE_CHECKING:
+    from .game import Game
 class Judge:
-    def __init__(self, game:Game):
-        self._game = game
+    def __init__(self, game:'Game'):
+        self._parent = game
     
     def publish_state(self, player:int):
         # TODO: return the current visible state for player 0(Viewer), 1, 2
@@ -14,4 +17,8 @@ class Judge:
         pass
     
     def get_legal_actions(self, player):
+        pass
+    
+    def encode(self):
+        # TODO: encode the judge status to dictionary
         pass
