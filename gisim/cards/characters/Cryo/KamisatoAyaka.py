@@ -28,6 +28,7 @@ class KamisatoAyaka(Character):
         
         passive_skill = Skill(name=self.SKILL_NAMES[3], cost=None, skill_type='Passive Skill')
         
+        self.skills = [normal_attack, elemental_skill, elemental_burst, passive_skill]
 
         
     
