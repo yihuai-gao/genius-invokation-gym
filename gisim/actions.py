@@ -51,6 +51,7 @@ class UseSkill(Action):
         self.dice_idx = dice_idx
         self.skill_target = skill_target
         # TODO: Define the protocol of the skill_target: should be able to cover all characters, attachments, status, summons, supports, etc.
+        
 class DeclareEnd(Action):
     def __init__(self):
         super().__init__("DeclareEnd")

@@ -2,7 +2,7 @@
 '''
 from .game import Game
 from .actions import Action
-class Judger:
+class Judge:
     def __init__(self, game:Game):
         self._game = game
     
