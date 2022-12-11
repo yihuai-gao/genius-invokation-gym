@@ -9,7 +9,7 @@ class PlayerArea:
     def __init__(self, deck:dict):
         self._deck = Deck(deck['cards'])
         self._hand = Hand()
-        self._element_zone = ElementZone()
+        self._element_zone = DiceZone()
         self._character_zone = CharacterZone(deck['characters'])
         self._summon_zone = SummonZone()
         self._support_zone = SupportZone()
@@ -35,9 +35,9 @@ class SupportZone:
     def __init__(self):
         self.supports = []
         
-class ElementZone:
+class DiceZone:
     def __init__(self):
-        self.elements = []
+        self.dice = []
 
 class Deck:
     def __init__(self, cards:list[str]):
