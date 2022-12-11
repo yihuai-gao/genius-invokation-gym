@@ -50,14 +50,17 @@ class Character(Entity, ABCMeta):
     @property
     @abstractmethod
     def NATIONALITY(self):
-        '''Should be either one of `Mondstadt`(蒙德), `Liyue`(璃月), `Inazuma`(稻妻), `Sumeru`(须弥)'''
+        '''Should be either one of `Mondstadt`, `Liyue`, `Inazuma`, `Sumeru`
+        应当为`蒙德`,`璃月`,`稻妻`,`须弥`中的一个'''
+
         self.NATIONALITY:str
         ...
         
     @property
     @abstractmethod
     def WEAPON_TYPE(self):
-        '''Should be either one of `bow`(弓), `claymore`(双手剑), `sword`(单手剑), `polearm`(枪), `catalyst`(法器)'''
+        '''Should be either one of `bow`, `claymore`, `sword`, `polearm`, `catalyst`
+        应当为`弓`,`双手剑`,`单手剑`,`长柄武器`,`法器`中的一个'''
         self.WEAPON_TYPE:str
         ...
     

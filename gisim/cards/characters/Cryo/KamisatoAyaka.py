@@ -1,8 +1,7 @@
 '''神里绫华'''
 from mailbox import NotEmptyError
-from ....global_config import DISPLAY_LANGUAGE
-from ....classes.character import Character, Skill
-from ....classes.summon import Summon
+from global_config import DISPLAY_LANGUAGE
+from classes import Character, Skill, Summon
 
 class KamisatoAyaka(Character):
     '''神里绫华'''
@@ -10,11 +9,13 @@ class KamisatoAyaka(Character):
         if DISPLAY_LANGUAGE == "Chinese":
             super().__init__('神里绫华', player_id, position)
             self.SKILL_NAMES = ['神里流·倾', '神里流·冰华', '神里流·霜灭', '神里流·霰步']
+            self.NATIONALITY = '稻妻'
+            self.WEAPON_TYPE = '单手剑'
         elif DISPLAY_LANGUAGE == "English":
             super().__init__('KamisatoAyaka', player_id, position)
             self.SKILL_NAMES = ['Kamisato Art: Kabuki', 'Kamisato Art: Hyouka', 'Kamisato Art: Soumetsu', 'Kamisato Art: Senho']
-        self.NATIONALITY = 'Inazuma'
-        self.WEAPON_TYPE = 'claymore'
+            self.NATIONALITY = 'Inazuma'
+            self.WEAPON_TYPE = 'sword'
         self.health_point = 10
         self.SKILLS_NUM = 4
         # Init skills
