@@ -51,7 +51,3 @@ class Deck:
         output = self.cards[:n]
         self.cards = self.cards[n:]
         return output
-        
-    def recycle_cards(self, n):
-        # TODO: what is the actual recycle algorithm?
-        pass
