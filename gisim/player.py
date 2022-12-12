@@ -1,3 +1,0 @@
-'''Player & agent APIs
-'''
-

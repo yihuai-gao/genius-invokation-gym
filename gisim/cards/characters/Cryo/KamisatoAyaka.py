@@ -17,7 +17,7 @@ class KamisatoAyaka(Character):
             self.NATIONALITY = 'Inazuma'
             self.WEAPON_TYPE = 'sword'
         self.health_point = 10
-        self.SKILLS_NUM = 4
+        self.SKILL_NUM = 4
         # Init skills
          
         normal_attack = Skill(name=self.SKILL_NAMES[0], cost={ET.CRYO:1, ET.UNALIGNED:2}, skill_type=ST.NORMAL_ATTACK)

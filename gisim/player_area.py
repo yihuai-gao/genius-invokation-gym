@@ -5,6 +5,7 @@ Note that player agents does not directly talk to this area, but through the jud
 from collections import OrderedDict
 from typing import TYPE_CHECKING
 from enum_classes import *
+from cards import get_card
 if TYPE_CHECKING:
     from .game import Game
     from .classes import Character, Summon, Support, StatusEntity
@@ -51,7 +52,7 @@ class CharacterZone:
     def __init__(self, parent:'PlayerArea', characters:list[str]):
         self._parent = parent
         assert len(characters)==3, "Number of characters should be 3"
-        self.characters:list['Character'] = [Card('character', characters[k]) for k in range(3)]
+        self.characters:list['Character'] = [get_card('character', characters[k]) for k in range(3)]
     
     def encode(self):
         return [self.characters[k].encode() for k in range(3)]
@@ -76,12 +77,13 @@ class SupportZone:
         
 class DiceZone:
     
-    def __init__(self, parent:'PlayerArea'):
+    def __init__(self, parent:'PlayerArea', random_state:RandomState):
         self._parent = parent
+        self._random_state = random_state
         self.dice:list[ET] = []
         
     def roll_dice(self, dice_num=8):
-        self.dice = 
+        self.dice = [ET(self._random_state.choice(8)) for _ in range(dice_num)]
         
     def encode(self, viewer_id):
         if viewer_id == self._parent.PLAYER_ID or viewer_id == 0:

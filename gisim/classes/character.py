@@ -23,7 +23,7 @@ class Character(Entity, ABCMeta):
             raw_skill (Skill): a Skill object with raw cost and effects (has not been affected by any discounts/enhancement)
         '''
         if id is not None:
-            assert 0 <= id <= self.skills_num - 1, f"id should be from 0 to {self.skills_num-1}"
+            assert 0 <= id <= self.SKILL_NUM - 1, f"id should be from 0 to {self.SKILL_NUM-1}"
             return self.skills[id]
         elif skill_name is not None:
             if skill_name in self.SKILL_NAMES:
@@ -70,8 +70,8 @@ class Character(Entity, ABCMeta):
         
     @property
     @abstractmethod
-    def SKILLS_NUM(self):
-        self.SKILLS_NUM:int
+    def SKILL_NUM(self):
+        self.SKILL_NUM:int
         ...
         
     @property
