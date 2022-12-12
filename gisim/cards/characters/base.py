@@ -2,7 +2,8 @@
 Basic character card classes
 """
 import re
-from typing import Any, Optional
+from collections import defaultdict
+from typing import Optional, Type
 
 from pydantic import BaseModel, Field, validator
 
@@ -11,12 +12,20 @@ from gisim.classes.enums import ElementType, Nation, SkillType
 _DEFAULT_SKILL_REGEXPS = {
     # Deals 8 Pyro DMG
     "DMG": r"^deals (\d+) ([a-z]+) dmg$",
+    # deals 1 piercing dmg to all opposing characters on standby
+    "DMGAll": r"^deals (\d+) ([a-z]+) dmg to all opposing characters on standby$",
     # This character gains Pyro Infusion
     "Inufsion": r"^this character gains ([a-z]+) (elemental )?infusion$",
     # heals this character for 2 hp
     "Heal": r"^heals this character for (\d+) hp$",
     # heals all of your characters for 4 hp
     "HealAll": r"^heals all of your characters for (\d+) hp$",
+    # summons 1 shadowsword: galloping frost
+    "Summon": r"^summons (\d+) ([a-z: -]+)$",
+    # creates 1 pyronado
+    "Create": r"^creates (\d+) ([a-z: -]+)$",
+    # this character gains niwabi enshou
+    "Buff": r"^this character gains ([a-z: -]+)$",
 }
 
 
@@ -45,10 +54,18 @@ class CharacterSkill(BaseModel):
 
         if skill_type == "Unknown":
             raise NotImplementedError(
-                f"You need to override {self.name}'s on_skill method to handle the skill text: \n    {kwargs['command']}"
+                f"You need to override <{self.id}: {self.name}>'s `on_skill` or `parse_sub_command` method to handle: \n    {kwargs['command']}"
             )
 
         return dict(type=skill_type, args=args, kwargs=kwargs)
+
+    def parse_sub_command(self, sub_command: str, full_command: str) -> dict:
+        for skill_type, regexp in _DEFAULT_SKILL_REGEXPS.items():
+            results = re.findall(regexp, sub_command)
+            if results:
+                return self._build_message(skill_type, tuple(results))
+
+        return self._build_message("Unknown", command=full_command)
 
     def parse_skill_text(self) -> None:
         """
@@ -66,13 +83,11 @@ class CharacterSkill(BaseModel):
             if not command:
                 continue
 
-            for skill_type, regexp in _DEFAULT_SKILL_REGEXPS.items():
-                results = re.findall(regexp, command)
-                if results:
-                    messages.append(self._build_message(skill_type, tuple(results)))
-                    break
-            else:
-                messages.append(self._build_message("Unknown", command=command))
+            # A command is parsable if all of its sub-commands are parsable
+            for sub_command in command.split(", "):
+                messages.append(
+                    self.parse_sub_command(sub_command, full_command=command)
+                )
 
         return messages
 
@@ -99,12 +114,13 @@ class CharacterCard(BaseModel):
 
 CHARACTER_CARDS: dict[int:CharacterCard] = {}
 CHARACTER_SKILLS: dict[int:CharacterSkill] = {}
+CHARACTER_SKILL_FACTORIES: dict[int : Type[CharacterSkill]] = defaultdict(
+    lambda: CharacterSkill
+)
 
 
-def register_character_card(
-    card: CharacterCard, override: bool = False, silent: bool = False
-):
-    if override is False and card.id in CHARACTER_CARDS and silent is False:
+def register_character_card(card: CharacterCard, override: bool = False):
+    if override is False and card.id in CHARACTER_CARDS:
         raise ValueError(
             f"Character card {card.id} already exists, use override=True to override it, or use silent=True to silence this warning"
         )
@@ -112,12 +128,23 @@ def register_character_card(
     CHARACTER_CARDS[card.id] = card
 
 
-def register_character_skill(
-    skill: CharacterSkill, override: bool = False, silent: bool = False
-):
-    if override is False and skill.id in CHARACTER_SKILLS and silent is False:
+def register_character_skill(skill: CharacterSkill, override: bool = False):
+    if override is False and skill.id in CHARACTER_SKILLS:
         raise ValueError(
             f"Character skill {skill.id} already exists, use override=True to override it, or use silent=True to silence this warning"
         )
 
     CHARACTER_SKILLS[skill.id] = skill
+
+
+def register_character_skill_factory(
+    skill_id: int,
+):
+    if skill_id in CHARACTER_SKILL_FACTORIES:
+        raise ValueError(f"Character skill factory of skill {skill_id} already exists")
+
+    def decorator(skill_factory: Type[CharacterSkill]):
+        CHARACTER_SKILL_FACTORIES[skill_id] = skill_factory
+        return skill_factory
+
+    return decorator
