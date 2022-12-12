@@ -101,7 +101,7 @@ class SkillType(Enum):
     """被动技能"""
 
 
-class Position(Enum):
+class CharacterPosition(Enum):
     """Character position"""
 
     LEFT = 0
@@ -110,7 +110,7 @@ class Position(Enum):
 
     def __add__(self, num: int):
         """Modular addition for `next-character` calculation"""
-        return Position((self.value + num) % 3)
+        return CharacterPosition((self.value + num) % 3)
 
 
 class PlayerID(Enum):

@@ -71,7 +71,7 @@ class CharacterZone:
     def __init__(self, parent: "PlayerArea", characters: list[str]):
         self._parent = parent
         assert len(characters) == 3, "Number of characters should be 3"
-        self.characters: list["CharacterEntity"] = [CharacterEntity(name, self._parent.player_id, Position(i)) for i, name in enumerate(characters)]
+        self.characters: list["CharacterEntity"] = [CharacterEntity(name, self._parent.player_id, CharacterPosition(i)) for i, name in enumerate(characters)]
 
     def encode(self):
         

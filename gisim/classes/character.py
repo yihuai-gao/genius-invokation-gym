@@ -10,7 +10,7 @@ from .entity import Entity
 
 
 class CharacterEntity(Entity):
-    def __init__(self, name: str, player_id: PlayerID, position: Position):
+    def __init__(self, name: str, player_id: PlayerID, position: CharacterPosition):
         super().__init__()
         self.player_id = player_id
         self.position = position
