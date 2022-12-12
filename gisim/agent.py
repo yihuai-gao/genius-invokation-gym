@@ -4,6 +4,7 @@ from abc import ABC, abstractmethod
 from typing import OrderedDict
 
 from gisim.actions import Action
+
 from gisim.classes.enums import PlayerID
 from gisim.game import GameInfo
 

@@ -30,8 +30,8 @@ class ElementType(Enum):
     """Same Element, only used in card cost description\n
     相同元素，仅用于卡牌描述
     """
-    UNALIGNED = -1
-    """Unaligned Element, only used in skill/card cost description\n
+    ANY = -1
+    """Any Element, only used in skill/card cost description\n
     任意元素，仅用于角色技能/卡牌描述"""
     OMNI = 0
     """Omni Element, only used in dice\n

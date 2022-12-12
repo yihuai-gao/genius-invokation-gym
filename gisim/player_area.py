@@ -5,7 +5,6 @@ Note that player agents does not directly talk to this area, but through the jud
 from collections import OrderedDict
 from typing import TYPE_CHECKING
 
-from gisim.cards.get_card import get_card
 from gisim.classes.enums import *
 
 if TYPE_CHECKING:

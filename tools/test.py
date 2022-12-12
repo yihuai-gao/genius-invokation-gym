@@ -1,11 +1,11 @@
 import subprocess as sp
 
 # Test using black and isort
-sp.run(["black", "gisim", "tools", "--check"])
-sp.run(["isort", "gisim", "tools", "--profile", "black", "--check-only"])
-
-# Test using pytest
-# sp.run(["pytest", "gisim"])
+sp.run(["black", ".", "--check"])
+sp.run(["isort", ".", "--profile", "black", "--check-only"])
 
 # Test typing using pyright
-sp.run(["pyright", "gisim"])
+sp.run(["pyright", "."])
+
+# Test using pytest
+sp.run(["pytest", "--cov", ".", "--cov-report", "xml"])
