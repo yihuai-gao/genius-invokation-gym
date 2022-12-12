@@ -21,7 +21,7 @@ class Phase(Enum):
     END_ROUND = 5
 
 
-class ET(Enum):
+class ElementType(Enum):
     """Element types (including power, arbitrary, omni)"""
 
     POWER = -3
@@ -52,7 +52,7 @@ class ET(Enum):
     """风"""
 
 
-class WT(Enum):
+class WeaponType(Enum):
     """Weapon types"""
 
     BOW = 1
@@ -84,7 +84,7 @@ class Nation(Enum):
     """丘丘人"""
 
 
-class ST(Enum):
+class SkillType(Enum):
     """Skill types"""
 
     NORMAL_ATTACK = 1

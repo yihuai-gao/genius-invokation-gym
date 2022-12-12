@@ -2,7 +2,7 @@
 A character in the game should be an instant of the specific character class defined in each file"""
 from abc import ABCMeta, abstractmethod
 
-from enum_classes import *
+from enum_classes import ElementType, Nation, PlayerID, Position, SkillType, WeaponType
 
 from .entity import Entity
 
@@ -66,7 +66,7 @@ class Character(Entity, ABCMeta):
     def WEAPON_TYPE(self):
         """Should be either one of `bow`, `claymore`, `sword`, `polearm`, `catalyst`
         应当为`弓`,`双手剑`,`单手剑`,`长柄武器`,`法器`中的一个"""
-        self.WEAPON_TYPE: WT
+        self.WEAPON_TYPE: WeaponType
         ...
 
     @property
@@ -95,7 +95,7 @@ class Character(Entity, ABCMeta):
 
 
 class Skill(ABCMeta):
-    def __init__(self, name: str, cost: dict[ET:int], skill_type: ST):
+    def __init__(self, name: str, cost: dict[ElementType:int], skill_type: SkillType):
         """
         Args:
         cost(dict[ET, int]): {ElementType:cost}; `None` if no cost is required (Please do not use empty dictionary!)
