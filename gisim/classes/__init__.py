@@ -1,4 +1,3 @@
-from .card import *
 from .character import *
 from .entity import *
 from .equipment import *
