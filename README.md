@@ -1,3 +1,10 @@
+<!--
+ Copyright (c) 2022 davidgao
+ 
+ This software is released under the MIT License.
+ https://opensource.org/licenses/MIT
+-->
+
 # Genius Invokation Gym
 
 A simple simulator of the Genius Invokation TCG in Genshin impact
@@ -13,8 +20,8 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 希望可以实现类似openai-gym的API，用于训练ai&评估卡组强度
 
 
-## Roadmap
-- [ ] Encode the game status into a dictionary
+# Roadmap
+- [x] Encode the game status into a dictionary
 - [ ] Enable `Judge` to judge validity of a proposed action
 - [ ] Define all kinds of messages in the simulator
 - [ ] Write message queue to buffer all messages
@@ -29,7 +36,7 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 
 顺便好奇一下为什么用invokation而不是invocation，求懂哥指点
 
-新建QQ交流群613071650，欢迎感兴趣的同学入群
+新建QQ交流群613071650，欢迎感兴趣的同学入群，欢迎成为Contributor！
 
 ## Works Cited
 

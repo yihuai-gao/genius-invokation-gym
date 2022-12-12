@@ -8,16 +8,17 @@ class GameStatus(Enum):
     ENDED = 2
 
 
-class InitializingPhase(Enum):
-    CHANGE_CARD = 0
-    SELECT_ACTIVE_CHARACTER = 1
-
-
-class RunningPhase(Enum):
-    BEGIN_ROUND = 0  # Including drawing cards automatically
-    ROLL_DICE = 1
-    PLAY_CARDS = 2
-    END_ROUND = 3
+class Phase(Enum):
+    CHANGE_CARD = 0 
+    '''Only happens during initialization'''
+    SELECT_ACTIVE_CHARACTER = 1 
+    '''Happens during initialization or when a character die'''
+    BEGIN_ROUND = 2
+    '''Including drawing cards automatically'''
+    ROLL_DICE = 3
+    PLAY_CARDS = 4 
+    '''Or use character skills'''
+    END_ROUND = 5
 
 
 class ET(Enum):
