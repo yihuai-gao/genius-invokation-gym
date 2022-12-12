@@ -1,8 +1,10 @@
-'''Basic card classes
-'''
+"""Basic card classes
+"""
 from .entity import Entity
+
+
 def get_card(type, id):
-    '''Get a card entity from its type and id'''
+    """Get a card entity from its type and id"""
     pass
 
 

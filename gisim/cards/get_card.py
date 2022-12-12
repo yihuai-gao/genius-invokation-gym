@@ -1,2 +1,2 @@
-def get_card(type:str, name:str):
+def get_card(type: str, name: str):
     pass
