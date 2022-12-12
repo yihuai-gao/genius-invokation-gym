@@ -1,0 +1,29 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - name: Install Dependecies
+        run: |
+          pip3 install poetry
+          poetry config virtualenvs.create false --local
+          poetry install
+      - name: Lint
+        run: |
+          isort . -c --profile black
+          black . --check
+      # - name: Static Check
+      #   run: pyright .
+      - name: Unit Tests
+        run: pytest --cov . --cov-report xml
+      - name: Upload Coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          files: coverage.xml
