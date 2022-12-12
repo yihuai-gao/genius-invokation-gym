@@ -2,13 +2,14 @@
 name = "genius-invokation-gym"
 version = "0.1.0"
 description = "A gym environment for the Genshin Genius Invokation game."
-authors = [{ name = "Genius Invokation Gym Contributors" }]
+authors = ["Genius Invokation Gym Contributors"]
 license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.10"
 pydantic = "^1.10.2"
 devtools = "^0.10.0"
+numpy = "^1.23.5"
 
 [tool.poetry.dev-dependencies]
 pyright = "^1.1.283"
