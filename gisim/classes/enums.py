@@ -22,8 +22,10 @@ class Phase(Enum):
 
 
 class ElementType(Enum):
-    """Element types (including power, arbitrary, omni)"""
+    """Element types (including power, any, omni)"""
 
+    NONE = None
+    """No element infusion/attachment"""
     POWER = -3
     """元素能量"""
     SAME = -2
@@ -65,6 +67,8 @@ class WeaponType(Enum):
     """长柄武器"""
     CATALYST = 5
     """法器"""
+    OTHER_WEAPONS = 6
+    """其他武器"""
 
 
 class Nation(Enum):

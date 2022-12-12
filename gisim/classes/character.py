@@ -18,14 +18,14 @@ class CharacterEntity(Entity):
         self.active = False
         self.alive = True
         """ Whether this character in set forward. There should be only one character in the active state for each player"""
-        self.elemental_infusion = None
+        self.elemental_infusion = ElementType.NONE
         """普通攻击元素附魔"""
-        self.elemental_attachment = None
+        self.elemental_attachment = ElementType.NONE
         """角色元素附着"""
         
         # Initialize Character from its card template
         self.id = CHARACTER_NAME2ID[name]
-        self.character_card = CHARACTER_CARDS[self.id]
+        self.character_card = CHARACTER_CARDS[self.id].copy()
         self.element_type = self.character_card.element_type
         self.nationalities = self.character_card.nations
         self.weapon_type = self.character_card.weapon_type
@@ -36,9 +36,12 @@ class CharacterEntity(Entity):
         """
         self.skill_num = len(self.skills)
         self.skill_names = [skill.name for skill in self.skills]
+        self.health_point = self.character_card.health_point
+        self.power = self.character_card.power
+        self.max_power = self.character_card.max_power
         
     def encode(self):
-        properties = ['name', 'active', 'alive', 'elemental_infusion', 'elemental_attachment']
+        properties = ['name', 'active', 'alive', 'elemental_infusion', 'elemental_attachment', 'health_point', 'power', 'max_power']
         return {key:getattr(self, key) for key in properties}
         
 
