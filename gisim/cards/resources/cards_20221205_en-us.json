@@ -119,7 +119,7 @@
             ""
           ],
           "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
-          "name": "K\u00e4tzlein Style",
+          "name": "Kätzlein Style",
           "id": "11021"
         },
         {
@@ -463,7 +463,7 @@
             ""
           ],
           "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/63c2345902423b25788f104985348cfd.png",
-          "name": "Let the Show Begin\u266a",
+          "name": "Let the Show Begin♪",
           "id": "12012"
         },
         {
@@ -483,7 +483,7 @@
             ""
           ],
           "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8da9eff0a67380b83cb6c3360e509695.png",
-          "name": "Shining Miracle\u266a",
+          "name": "Shining Miracle♪",
           "id": "12013"
         }
       ],
@@ -2407,7 +2407,7 @@
     {
       "id": 212011,
       "name": "Glorious Season",
-      "content": "<color=#FFFFFFFF>Combat Action</color>: When your active character is <color=#FFFFFFFF>Barbara</color>, equip this card.\\nAfter Barbara equips this card, immediately use <color=#FFD780FF>Let the Show Begin\u266a</color> once.\\nWhen your Barbara, who has this card equipped, is on the field, <color=#FFFFFFFF>Melody Loop</color> will allow you to spend 1 less Elemental Die the next time you use \"Switch Character.\" (Once per round)\\n(You must have Barbara in your deck to add this card to your deck.)",
+      "content": "<color=#FFFFFFFF>Combat Action</color>: When your active character is <color=#FFFFFFFF>Barbara</color>, equip this card.\\nAfter Barbara equips this card, immediately use <color=#FFD780FF>Let the Show Begin♪</color> once.\\nWhen your Barbara, who has this card equipped, is on the field, <color=#FFFFFFFF>Melody Loop</color> will allow you to spend 1 less Elemental Die the next time you use \"Switch Character.\" (Once per round)\\n(You must have Barbara in your deck to add this card to your deck.)",
       "action_type": "AcEquip",
       "rank_id": 212011,
       "cost_num1": "4",
@@ -3767,7 +3767,7 @@
     {
       "id": 312004,
       "name": "Gambler's Earrings",
-      "content": "<color=#FFFFFFFF>After an opposing character is defeated:</color> If the character this card is attached to is the active character, create <color=#FFFFFFFF>Omni Element</color> \u00d72.\\n(A character can equip a maximum of 1 Artifact)",
+      "content": "<color=#FFFFFFFF>After an opposing character is defeated:</color> If the character this card is attached to is the active character, create <color=#FFFFFFFF>Omni Element</color> ×2.\\n(A character can equip a maximum of 1 Artifact)",
       "action_type": "AcEquip",
       "rank_id": 312004,
       "cost_num1": "1",
@@ -4549,7 +4549,7 @@
     {
       "id": 322001,
       "name": "Paimon",
-      "content": "<color=#FFFFFFFF>When Action Phase begins:</color> Create <color=#FFFFFFFF>Omni Element</color> \u00d72.\\n<color=#FFFFFFFF><color=#FFFFFFFF>Usage(s)</color>: 2</color>",
+      "content": "<color=#FFFFFFFF>When Action Phase begins:</color> Create <color=#FFFFFFFF>Omni Element</color> ×2.\\n<color=#FFFFFFFF><color=#FFFFFFFF>Usage(s)</color>: 2</color>",
       "action_type": "AcSupport",
       "rank_id": 322001,
       "cost_num1": "3",
@@ -4753,7 +4753,7 @@
     {
       "id": 322007,
       "name": "Timmie",
-      "content": "<color=#FFFFFFFF>Triggers automatically once per Round:</color> This card gains <color=#FFFFFFFF>1 Pigeon</color>.\\nWhen this card gains <color=#FFFFFFFF>3 Pigeons</color>, discard this card, then draw 1 card and create <color=#FFFFFFFF>Omni Element</color> \u00d71.",
+      "content": "<color=#FFFFFFFF>Triggers automatically once per Round:</color> This card gains <color=#FFFFFFFF>1 Pigeon</color>.\\nWhen this card gains <color=#FFFFFFFF>3 Pigeons</color>, discard this card, then draw 1 card and create <color=#FFFFFFFF>Omni Element</color> ×1.",
       "action_type": "AcSupport",
       "rank_id": 322007,
       "cost_num1": "",
@@ -4787,7 +4787,7 @@
     {
       "id": 322008,
       "name": "Liben",
-      "content": "<color=#FFFFFFFF>End Phase:</color> Collect your unused Elemental Dice (Max 1 of each Elemental Type).\\n<color=#FFFFFFFF>When Action Phase begins:</color> If this card has collected 3 Elemental Dice, draw 2 cards and create <color=#FFFFFFFF>Omni Element</color> \u00d72, then discard this card.",
+      "content": "<color=#FFFFFFFF>End Phase:</color> Collect your unused Elemental Dice (Max 1 of each Elemental Type).\\n<color=#FFFFFFFF>When Action Phase begins:</color> If this card has collected 3 Elemental Dice, draw 2 cards and create <color=#FFFFFFFF>Omni Element</color> ×2, then discard this card.",
       "action_type": "AcSupport",
       "rank_id": 322008,
       "cost_num1": "",
@@ -5331,7 +5331,7 @@
     {
       "id": 331502,
       "name": "Elemental Resonance: Impetuous Winds",
-      "content": "Switch to the target character and create <color=#FFFFFFFF>Omni Element</color> \u00d71.\\n(You must have at least 2 <color=#80FFD7FF>Anemo</color> characters in your deck to add this card to your deck.)",
+      "content": "Switch to the target character and create <color=#FFFFFFFF>Omni Element</color> ×1.\\n(You must have at least 2 <color=#80FFD7FF>Anemo</color> characters in your deck to add this card to your deck.)",
       "action_type": "AcEvent",
       "rank_id": 331502,
       "cost_num1": "1",
@@ -5501,7 +5501,7 @@
     {
       "id": 332001,
       "name": "The Bestest Travel Companion!",
-      "content": "Convert the Elemental Dice spent to <color=#FFFFFFFF>Omni Element</color> \u00d72.",
+      "content": "Convert the Elemental Dice spent to <color=#FFFFFFFF>Omni Element</color> ×2.",
       "action_type": "AcEvent",
       "rank_id": 332001,
       "cost_num1": "2",
@@ -5637,7 +5637,7 @@
     {
       "id": 332005,
       "name": "I Haven't Lost Yet!",
-      "content": "Only playable if one of your characters is defeated this Round:\\nCreate <color=#FFFFFFFF>Omni Element</color> \u00d71 and your current active character gains 1 <color=#FFFFFFFF>Energy</color>.",
+      "content": "Only playable if one of your characters is defeated this Round:\\nCreate <color=#FFFFFFFF>Omni Element</color> ×1 and your current active character gains 1 <color=#FFFFFFFF>Energy</color>.",
       "action_type": "AcEvent",
       "rank_id": 332005,
       "cost_num1": "",
