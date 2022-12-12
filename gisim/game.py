@@ -1,9 +1,11 @@
 """Genius Invokation Game class
 """
 from collections import OrderedDict
+from typing import Optional
 
 from numpy.random import RandomState
 
+from gisim.actions import Action
 from gisim.classes.enums import *
 from gisim.classes.status import StatusEntity
 from gisim.classes.summon import Summon
@@ -19,8 +21,8 @@ class Game:
         self._status = GameStatus.INITIALIZING
         self._phase = Phase.CHANGE_CARD
         self._seed = seed
-        self._active_player = self._random_state.choice(
-            [1, 2]
+        self._active_player = PlayerID(
+            self._random_state.choice([1, 2])
         )  # Toss coin to determine who act first
         self.judge = Judge(self)
         self.player1_area = PlayerArea(
@@ -30,9 +32,8 @@ class Game:
             self, self._random_state, player_id=PlayerID.PLAYER2, deck=player2_deck
         )
 
-    def encode_game_info(self, viewer_id: PlayerID, use_dict=False):
-        assert viewer_id in [0, 1, 2], "viewer_id should be one of 0 (judge), 1, 2"
-        game_info_dict = OrderedDict(
+    def encode_game_info_dict(self, viewer_id: PlayerID):
+        return OrderedDict(
             {
                 "viewer_id": viewer_id,
                 "status": self._status,
@@ -42,13 +43,20 @@ class Game:
                 "player2": self.player2_area.encode(viewer_id),
             }
         )
-        if use_dict:
-            return game_info_dict
-        else:
-            return GameInfo(game_info_dict)
 
-    def get_random_state(self):
-        return self._random_state
+    def encode_game_info(self, viewer_id: Optional[PlayerID] = None):
+        """Active player by default"""
+        if viewer_id is None:
+            viewer_id = self._active_player
+        return GameInfo(self.encode_game_info_dict(viewer_id))
+
+    def step(self, action: Action):
+        # TODO
+        pass
+
+    def get_winner(self):
+        # TODO
+        pass
 
 
 class PlayerInfo:

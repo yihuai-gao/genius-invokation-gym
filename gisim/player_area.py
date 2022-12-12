@@ -72,12 +72,12 @@ class CharacterZone:
     def __init__(self, parent: "PlayerArea", characters: list[str]):
         self._parent = parent
         assert len(characters) == 3, "Number of characters should be 3"
-        self.characters: list["Character"] = [
-            get_card("character", characters[k]) for k in range(3)
-        ]
+        self.characters: list["Character"] = []
+        # TODO: Initialize characters
 
     def encode(self):
-        return [self.characters[k].encode() for k in range(3)]
+        pass
+        # return [self.characters[k].encode() for k in range(3)]
 
 
 class SummonZone:

@@ -2,6 +2,8 @@
 """
 from typing import TYPE_CHECKING
 
+from gisim.classes.enums import PlayerID
+
 from .actions import Action
 
 if TYPE_CHECKING:
@@ -12,9 +14,9 @@ class Judge:
     def __init__(self, parent: "Game"):
         self._parent = parent
 
-    def judge_action(self, player: int, action: Action):
+    def judge_action(self, player: PlayerID, action: Action):
         # TODO: judge the validity of a given action from the current state
-        pass
+        return True
 
     def get_legal_actions(self, player):
         pass
