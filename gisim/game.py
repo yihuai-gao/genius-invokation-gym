@@ -1,9 +1,9 @@
 """Genius Invokation Game class
 """
+import os
 from collections import OrderedDict
+from random import Random
 from typing import Optional
-
-from numpy.random import RandomState
 
 from gisim.classes.action import Action
 from gisim.classes.enums import *
@@ -16,13 +16,19 @@ from .player_area import PlayerArea
 
 
 class Game:
-    def __init__(self, player1_deck: dict, player2_deck: dict, seed: int = 50):
-        self._random_state = RandomState(seed)
+    def __init__(
+        self, player1_deck: dict, player2_deck: dict, seed: Optional[int] = None
+    ):
+        if seed is None:
+            # Use system random to generate a seed if not provided
+            seed = int.from_bytes(os.urandom(16), "big")
+
+        self._seed = seed
+        self._random_state = Random(seed)
         self._status = GameStatus.INITIALIZING
         self._phase = Phase.CHANGE_CARD
-        self._seed = seed
         self._active_player = PlayerID(
-            self._random_state.choice([1, 2])
+            self._random.choice([1, 2])
         )  # Toss coin to determine who act first
         self.judge = Judge(self)
         self.player1_area = PlayerArea(
