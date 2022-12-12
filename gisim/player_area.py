@@ -5,12 +5,12 @@ Note that player agents does not directly talk to this area, but through the jud
 from collections import OrderedDict
 from typing import TYPE_CHECKING
 
-from gisim.classes.enums import *
 
+from gisim.classes.enums import *
+from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_SKILLS, CHARACTER_NAME2ID
 if TYPE_CHECKING:
     from numpy.random import RandomState
-
-    from gisim.classes.character import Character
+    from classes.character import CharacterEntity
     from gisim.classes.status import StatusEntity
     from gisim.classes.summon import Summon
     from gisim.classes.support import Support
@@ -29,7 +29,7 @@ class PlayerArea:
         self.deck.shuffle()
         self._random_state = random_state
         self._parent = parent
-        self.PLAYER_ID = player_id
+        self.player_id = player_id
         self.hand = Hand(self)
         self.element_zone = DiceZone(self, random_state)
         self.character_zone = CharacterZone(self, deck["characters"])
@@ -41,7 +41,7 @@ class PlayerArea:
     def encode(self, viewer_id: PlayerID):
         return OrderedDict(
             {
-                "player_id": self.PLAYER_ID,
+                "player_id": self.player_id,
                 "deck": self.deck.encode(viewer_id),
                 "hand": self.hand.encode(viewer_id),
                 "element_zone": self.element_zone.encode(viewer_id),
@@ -62,7 +62,7 @@ class Hand:
         return {
             "length": len(self.cards),
             "items": self.cards
-            if viewer_id == self._parent.PLAYER_ID or viewer_id == 0
+            if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
 
@@ -71,12 +71,11 @@ class CharacterZone:
     def __init__(self, parent: "PlayerArea", characters: list[str]):
         self._parent = parent
         assert len(characters) == 3, "Number of characters should be 3"
-        self.characters: list["Character"] = []
-        # TODO: Initialize characters
+        self.characters: list["CharacterEntity"] = [CharacterEntity(name, self._parent.player_id, Position(i)) for i, name in enumerate(characters)]
 
     def encode(self):
-        pass
-        # return [self.characters[k].encode() for k in range(3)]
+        
+        return [self.characters[k].encode() for k in range(3)]
 
 
 class SummonZone:
@@ -110,7 +109,7 @@ class DiceZone:
         return {
             "length": len(self.dice),
             "items": self.dice
-            if viewer_id == self._parent.PLAYER_ID or viewer_id == 0
+            if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
 
@@ -137,7 +136,7 @@ class Deck:
         return {
             "length": len(self.cards),
             "items": [card for card in self.original_cards if card in self.cards]
-            if viewer_id == self._parent.PLAYER_ID or viewer_id == 0
+            if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
 

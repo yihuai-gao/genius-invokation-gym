@@ -7,7 +7,7 @@ from typing import Optional, Type
 
 from pydantic import BaseModel, Field, validator
 
-from gisim.classes.enums import ElementType, Nation, SkillType
+from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 
 _DEFAULT_SKILL_REGEXPS = {
     # Deals 8 Pyro DMG
@@ -102,6 +102,7 @@ class CharacterCard(BaseModel):
     resource: Optional[str] = None  # 图片链接
     power:int = 0
     max_power:int
+    weapon_type:WeaponType
 
     @validator("element_type")
     def element_type_validator(cls, v):
@@ -120,6 +121,8 @@ CHARACTER_SKILLS: dict[int, CharacterSkill] = {}
 CHARACTER_SKILL_FACTORIES: dict[int, Type[CharacterSkill]] = defaultdict(
     lambda: CharacterSkill
 )
+CHARACTER_NAME2ID: dict[str, int] = {}
+
 def register_character_card(card: CharacterCard, override: bool = False):
     if override is False and card.id in CHARACTER_CARDS:
         raise ValueError(
@@ -127,6 +130,7 @@ def register_character_card(card: CharacterCard, override: bool = False):
         )
 
     CHARACTER_CARDS[card.id] = card
+    CHARACTER_NAME2ID[card.name] = card.id
 
 
 def register_character_skill(skill: CharacterSkill, override: bool = False):

@@ -13,9 +13,9 @@ class StatusEntity(Entity, ABC):
             1,
             2,
         ], "The position should be on of -1(team combat status), 0(left), 1(middle), 2(right)"
-        self.PLAYER_ID = player_id
-        self.POSITION = position
-        self.NAME = name
+        self.player_id = player_id
+        self.position = position
+        self.name = name
 
     def encode(self):
         # TODO
