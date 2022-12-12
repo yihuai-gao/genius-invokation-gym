@@ -6,6 +6,7 @@ from collections import OrderedDict
 from typing import TYPE_CHECKING
 
 from cards import get_card
+
 from gisim.classes.enums import *
 
 if TYPE_CHECKING:

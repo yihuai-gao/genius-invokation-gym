@@ -2,7 +2,14 @@
 A character in the game should be an instant of the specific character class defined in each file"""
 from abc import ABCMeta, abstractmethod
 
-from gisim.classes.enums import ElementType, Nation, PlayerID, Position, SkillType, WeaponType
+from gisim.classes.enums import (
+    ElementType,
+    Nation,
+    PlayerID,
+    Position,
+    SkillType,
+    WeaponType,
+)
 
 from .entity import Entity
 
