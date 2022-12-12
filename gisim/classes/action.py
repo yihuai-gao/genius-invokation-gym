@@ -10,7 +10,9 @@ In each round: RerollDice (also happens after using some cards, e.g. 乾坤一�
 
 from abc import ABC, abstractmethod
 
-from .classes.entity import Entity
+from classes.enums import CharacterPosition
+
+from .entity import Entity
 
 
 class Action(Entity, ABC):
@@ -29,13 +31,8 @@ class Action(Entity, ABC):
 
 
 class SelectActiveCharacter(Action):
-    def __init__(self, position: int):
+    def __init__(self, position: CharacterPosition):
         super().__init__("SelectActiveCharacter")
-        assert position in [
-            0,
-            1,
-            2,
-        ], "Position of the active character should be 0, 1, 2"
         self.position = position
 
 
@@ -55,11 +52,11 @@ class RerollDice(Action):
 
 class UseSkill(Action):
     def __init__(
-        self, position: int, skill_name: str, dice_idx: list[int], skill_target
+        self, position: CharacterPosition, skill_name: str, dice_idx: list[int], skill_target
     ):
         super().__init__("UseSkill")
         assert type(skill_name) == str
-        assert position in [0, 1, 2], "Position of the user character should be 0, 1, 2"
+        assert position in [0, 1, 2], "CharacterPosition of the user character should be 0, 1, 2"
         self.skill_name = skill_name
         self._check_dice_index(dice_idx)
         self.dice_idx = dice_idx
