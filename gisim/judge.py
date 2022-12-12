@@ -2,9 +2,8 @@
 """
 from typing import TYPE_CHECKING
 
-from gisim.classes.enums import PlayerID
-
 from gisim.classes.action import Action
+from gisim.classes.enums import PlayerID
 
 if TYPE_CHECKING:
     from .game import Game

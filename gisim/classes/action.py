@@ -52,11 +52,19 @@ class RerollDice(Action):
 
 class UseSkill(Action):
     def __init__(
-        self, position: CharacterPosition, skill_name: str, dice_idx: list[int], skill_target
+        self,
+        position: CharacterPosition,
+        skill_name: str,
+        dice_idx: list[int],
+        skill_target,
     ):
         super().__init__("UseSkill")
         assert type(skill_name) == str
-        assert position in [0, 1, 2], "CharacterPosition of the user character should be 0, 1, 2"
+        assert position in [
+            0,
+            1,
+            2,
+        ], "CharacterPosition of the user character should be 0, 1, 2"
         self.skill_name = skill_name
         self._check_dice_index(dice_idx)
         self.dice_idx = dice_idx

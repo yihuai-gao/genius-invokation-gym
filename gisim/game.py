@@ -71,7 +71,9 @@ class PlayerInfo:
         self.element_zone: list[ElementType] = player_info_dict["element_zone"]["items"]
         self.summon_zone: list[Summon] = player_info_dict["summon_zone"]
         self.support_zone: list[Support] = player_info_dict["support_zone"]
-        self.combat_status_zone: list[CombatStatusEntity] = player_info_dict["combat_status_zone"]
+        self.combat_status_zone: list[CombatStatusEntity] = player_info_dict[
+            "combat_status_zone"
+        ]
 
 
 class GameInfo:

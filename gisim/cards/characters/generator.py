@@ -55,13 +55,14 @@ _SKILL_COST_MAP = {
 }
 
 _WEAPON_TYPE_MAP = {
-    "Bow": WeaponType.BOW, 
-    "Sword": WeaponType.SWORD, 
-    "Claymore": WeaponType.CLAYMORE, 
-    "Polearm": WeaponType.POLEARM, 
-    "Catalyst": WeaponType.CATALYST, 
+    "Bow": WeaponType.BOW,
+    "Sword": WeaponType.SWORD,
+    "Claymore": WeaponType.CLAYMORE,
+    "Polearm": WeaponType.POLEARM,
+    "Catalyst": WeaponType.CATALYST,
     "Other Weapons": WeaponType.OTHER_WEAPONS,
 }
+
 
 def _process_card(config: dict):
     for skill in config["role_skill_infos"]:
@@ -91,7 +92,13 @@ def _process_card(config: dict):
         health_point=int(config["hp"]),
         resource=config["resource"],
         skills=skills,
-        max_power=max([skill.costs[ElementType.POWER] for skill in skills if ElementType.POWER in skill.costs.keys()]),
+        max_power=max(
+            [
+                skill.costs[ElementType.POWER]
+                for skill in skills
+                if ElementType.POWER in skill.costs.keys()
+            ]
+        ),
         weapon_type=_WEAPON_TYPE_MAP[config["weapon"]],
     )
 
@@ -108,4 +115,3 @@ def generate_character_cards_and_skills():
 
     for i in cards:
         _process_card(i)
-   

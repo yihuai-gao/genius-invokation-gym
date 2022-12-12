@@ -5,12 +5,14 @@ Note that player agents does not directly talk to this area, but through the jud
 from collections import OrderedDict
 from typing import TYPE_CHECKING
 
-
-from gisim.classes.enums import *
-from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_SKILLS, CHARACTER_NAME2ID
 from classes.character import CharacterEntity
+
+from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
+from gisim.classes.enums import *
+
 if TYPE_CHECKING:
     from numpy.random import RandomState
+
     from gisim.classes.status import CombatStatusEntity
     from gisim.classes.summon import Summon
     from gisim.classes.support import Support
@@ -71,10 +73,13 @@ class CharacterZone:
     def __init__(self, parent: "PlayerArea", characters: list[str]):
         self._parent = parent
         assert len(characters) == 3, "Number of characters should be 3"
-        self.characters: list["CharacterEntity"] = [CharacterEntity(name, self._parent.player_id, CharacterPosition(i)) for i, name in enumerate(characters)]
+        self.characters: list["CharacterEntity"] = [
+            CharacterEntity(name, self._parent.player_id, CharacterPosition(i))
+            for i, name in enumerate(characters)
+        ]
 
     def encode(self):
-        
+
         return [self.characters[k].encode() for k in range(3)]
 
 
