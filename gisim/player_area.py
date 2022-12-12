@@ -3,17 +3,16 @@ Note that player agents does not directly talk to this area, but through the jud
 """
 
 from collections import OrderedDict
+from typing import TYPE_CHECKING
 
 from gisim.cards import get_card
-
 from gisim.classes.enums import *
 
-
-from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from numpy.random import RandomState
-    from gisim.classes.status import StatusEntity
+
     from gisim.classes.character import Character
+    from gisim.classes.status import StatusEntity
     from gisim.classes.summon import Summon
     from gisim.classes.support import Support
     from gisim.game import Game
@@ -61,7 +60,12 @@ class Hand:
         self.cards: list[str] = []
 
     def encode(self, viewer_id):
-        return {"length": len(self.cards), "items": self.cards if viewer_id == self._parent.PLAYER_ID or viewer_id == 0 else None}
+        return {
+            "length": len(self.cards),
+            "items": self.cards
+            if viewer_id == self._parent.PLAYER_ID or viewer_id == 0
+            else None,
+        }
 
 
 class CharacterZone:
@@ -104,7 +108,12 @@ class DiceZone:
         self.dice = [ElementType(self._random_state.choice(8)) for _ in range(dice_num)]
 
     def encode(self, viewer_id):
-        return {"length": len(self.dice), "items": self.dice if viewer_id == self._parent.PLAYER_ID or viewer_id == 0 else None}
+        return {
+            "length": len(self.dice),
+            "items": self.dice
+            if viewer_id == self._parent.PLAYER_ID or viewer_id == 0
+            else None,
+        }
 
 
 class Deck:
@@ -126,7 +135,12 @@ class Deck:
         return output
 
     def encode(self, viewer_id):
-        return {"length": len(self.cards), "items": [card for card in self.original_cards if card in self.cards] if viewer_id == self._parent.PLAYER_ID or viewer_id == 0 else None}
+        return {
+            "length": len(self.cards),
+            "items": [card for card in self.original_cards if card in self.cards]
+            if viewer_id == self._parent.PLAYER_ID or viewer_id == 0
+            else None,
+        }
 
 
 class StatusZone:

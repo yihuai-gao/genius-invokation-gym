@@ -52,26 +52,26 @@ class Game:
 
 
 class PlayerInfo:
-    def __init__(self, player_info_dict:OrderedDict):
+    def __init__(self, player_info_dict: OrderedDict):
         self.player_info_dict = player_info_dict
-        self.player_id:PlayerID = player_info_dict["player_id"]
-        self.hand_len:int = player_info_dict["hand"]["length"]
-        self.hand:list = player_info_dict["hand"]["items"]
-        self.deck_len:int = player_info_dict["deck"]["length"]
-        self.deck:list[str] = player_info_dict["hand"]["items"]
-        self.element_zone_len:int = player_info_dict["element_zone"]["length"]
-        self.element_zone:list[ElementType] = player_info_dict["element_zone"]["items"]
-        self.summon_zone:list[Summon] = player_info_dict["summon_zone"]
-        self.support_zone:list[Support] = player_info_dict["support_zone"]
-        self.status_zone:list[StatusEntity] = player_info_dict["status_zone"]
-        
+        self.player_id: PlayerID = player_info_dict["player_id"]
+        self.hand_len: int = player_info_dict["hand"]["length"]
+        self.hand: list = player_info_dict["hand"]["items"]
+        self.deck_len: int = player_info_dict["deck"]["length"]
+        self.deck: list[str] = player_info_dict["hand"]["items"]
+        self.element_zone_len: int = player_info_dict["element_zone"]["length"]
+        self.element_zone: list[ElementType] = player_info_dict["element_zone"]["items"]
+        self.summon_zone: list[Summon] = player_info_dict["summon_zone"]
+        self.support_zone: list[Support] = player_info_dict["support_zone"]
+        self.status_zone: list[StatusEntity] = player_info_dict["status_zone"]
+
+
 class GameInfo:
-    def __init__(self, game_info_dict:OrderedDict):
+    def __init__(self, game_info_dict: OrderedDict):
         self.game_info_dict = game_info_dict
-        self.viewer_id:PlayerID = game_info_dict["viewer_id"]
-        self.status:GameStatus = game_info_dict["status"]
-        self.phase:Phase = game_info_dict["phase"]
-        self.active_player:PlayerID = game_info_dict["active_player"]
-        self.player1:PlayerInfo = PlayerInfo(game_info_dict["player1"])
-        self.player2:PlayerInfo = PlayerInfo(game_info_dict["player2"])
-        
+        self.viewer_id: PlayerID = game_info_dict["viewer_id"]
+        self.status: GameStatus = game_info_dict["status"]
+        self.phase: Phase = game_info_dict["phase"]
+        self.active_player: PlayerID = game_info_dict["active_player"]
+        self.player1: PlayerInfo = PlayerInfo(game_info_dict["player1"])
+        self.player2: PlayerInfo = PlayerInfo(game_info_dict["player2"])

@@ -78,7 +78,7 @@ class Character(Entity, ABCMeta):
 
     @property
     @abstractmethod
-    def skills(self) -> list['Skill']:
+    def skills(self) -> list["Skill"]:
         ...
 
     @property
@@ -88,7 +88,7 @@ class Character(Entity, ABCMeta):
 
 
 class Skill(ABCMeta):
-    def __init__(self, name: str, cost: dict[ElementType,int], skill_type: SkillType):
+    def __init__(self, name: str, cost: dict[ElementType, int], skill_type: SkillType):
         """
         Args:
         cost(dict[ElementType, int]): {ElementType:cost}; `None` if no cost is required (Please do not use empty dictionary!)
