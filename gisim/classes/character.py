@@ -1,13 +1,13 @@
 """Base class of each character: abstract class
 A character in the game should be an instant of the specific character class defined in each file"""
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 from gisim.classes.enums import *
 
 from .entity import Entity
 
 
-class Character(Entity, ABCMeta):
+class Character(Entity, ABC):
     def __init__(self, name: str, player_id: PlayerID, position: Position):
         super().__init__()
         self.PLAYER_ID = player_id
@@ -87,7 +87,7 @@ class Character(Entity, ABCMeta):
         ...
 
 
-class Skill(ABCMeta):
+class Skill(ABC):
     def __init__(self, name: str, cost: dict[ElementType, int], skill_type: SkillType):
         """
         Args:

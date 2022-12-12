@@ -2,10 +2,10 @@
 """
 import logging
 import uuid
-from abc import ABCMeta
+from abc import ABC
 
 
-class Entity(ABCMeta):
+class Entity(ABC):
     def __init__(self):
         self._uuid = uuid.uuid4()
         self._logger = logging.getLogger("gisim")
