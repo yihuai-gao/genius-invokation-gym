@@ -1,0 +1,6284 @@
+{
+  "role_card_infos": [
+    {
+      "id": 1101,
+      "name": "Ganyu",
+      "element_type": "ETIce",
+      "rank_id": 1101,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "T\u00e9cnica de tiro Liutian",
+          "id": "11011"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#99FFFFFF>Da\u00f1o Cryo</color> y crea un <color=#FFFFFFFF>loto de hielo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/80d61bdb70eef0d57ca877bb39dbb0d9.png",
+          "name": "Senda de Chilin",
+          "id": "11012"
+        },
+        {
+          "skill_text": "Inflige 2 pts. de <color=#99FFFFFF>Da\u00f1o Cryo</color>, as\u00ed como <color=#FFFFFFFF>2 pts. de <color=#FFFFFFFF>Da\u00f1o Penetrante</color></color> contra todos los personajes enemigos en reserva.",
+          "skill_costs": [
+            {
+              "cost_num": "5",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Flecha helada",
+          "id": "11013"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#99FFFFFF>Da\u00f1o Cryo</color>, as\u00ed como <color=#FFFFFFFF>1 pt. de <color=#FFFFFFFF>Da\u00f1o Penetrante</color></color> contra todos los personajes enemigos en reserva, y crea una <color=#FFFFFFFF>perla de hielo sagrada</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fcda5c89f7d783e8bff69719c0d30692.png",
+          "name": "Diluvio celestial",
+          "id": "11014"
+        }
+      ],
+      "weapon": "Arco",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dec5ba575fc5720ec15b8964a826f2b5.png"
+    },
+    {
+      "id": 1102,
+      "name": "Diona",
+      "element_type": "ETIce",
+      "rank_id": 1102,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Punter\u00eda de cazador",
+          "id": "11021"
+        },
+        {
+          "skill_text": "Inflige 2 pts. de <color=#99FFFFFF>Da\u00f1o Cryo</color> y crea un <color=#FFFFFFFF>escudo de zarpas</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/90c513d6b26cc20a6ce30fb82750f2e7.png",
+          "name": "Zarpazo helado",
+          "id": "11022"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#99FFFFFF>Da\u00f1o Cryo</color>, cura 2 pts. a este personaje y crea un <color=#FFFFFFFF>campo de bruma embriagadora</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6ab5e0c2e95117950515b23a875006c0.png",
+          "name": "C\u00f3ctel asesino",
+          "id": "11023"
+        }
+      ],
+      "weapon": "Arco",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7c8b166b3254b11d33a5bc1b78fb3034.png"
+    },
+    {
+      "id": 1103,
+      "name": "Kaeya",
+      "element_type": "ETIce",
+      "rank_id": 1103,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "T\u00e9cnica de espada ceremonial",
+          "id": "11031"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#99FFFFFF>Da\u00f1o Cryo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/de0abe0fb5f2904c8695d4207f472cdb.png",
+          "name": "Golpe de escarcha",
+          "id": "11032"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#99FFFFFF>Da\u00f1o Cryo</color> y crea un <color=#FFFFFFFF>car\u00e1mbano</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f9e5cb46ba3bf6d4ec2f9e4455dc6238.png",
+          "name": "Vals g\u00e9lido",
+          "id": "11033"
+        }
+      ],
+      "weapon": "Espada ligera",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/877beb9d2fa9201737f43b12b68a7c41.png"
+    },
+    {
+      "id": 1104,
+      "name": "Chongyun",
+      "element_type": "ETIce",
+      "rank_id": 1104,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "name": "Desgracia de los demonios",
+          "id": "11041"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#99FFFFFF>Da\u00f1o Cryo</color> y crea un <color=#FFFFFFFF>campo de estratos de escarcha</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e023be3e82b38b50202ecf4d4fb0fa81.png",
+          "name": "Estratos de escarcha",
+          "id": "11042"
+        },
+        {
+          "skill_text": "Inflige 7 pts. de <color=#99FFFFFF>Da\u00f1o Cryo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/153a77400dc95c9b51733d0d0d9a4ac0.png",
+          "name": "Filo espiritual: Estrella cortanubes",
+          "id": "11043"
+        }
+      ],
+      "weapon": "Mandoble",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5e61c140b9a2e5bed18c09c8d1115150.png"
+    },
+    {
+      "id": 1105,
+      "name": "Kamisato Ayaka",
+      "element_type": "ETIce",
+      "rank_id": 1105,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "Estilo Kamisato - Elegancia",
+          "id": "11051"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#99FFFFFF>Da\u00f1o Cryo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7b59308313512c3c7350eb6a92b3ea27.png",
+          "name": "Estilo Kamisato: Flor del hielo",
+          "id": "11052"
+        },
+        {
+          "skill_text": "Inflige 4 pts. de <color=#99FFFFFF>Da\u00f1o Cryo</color> y crea una <color=#FFFFFFFF>r\u00e1faga de ventisca</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3668bb20f0b7fb4cfb1fb4162d6fa28f.png",
+          "name": "Estilo Kamisato: Devastaci\u00f3n glacial",
+          "id": "11053"
+        },
+        {
+          "skill_text": "Pasiva: cuando este personaje pasa a ser el personaje en combate, obtiene un <color=#FFFFFFFF>imbuimiento Cryo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad pasiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/959584488f20484942c1403df073f954.png",
+          "name": "Estilo Kamisato: Senda de escarcha",
+          "id": "11054"
+        }
+      ],
+      "weapon": "Espada ligera",
+      "belong_to": [
+        "Inazuma",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3c864f3a914d0de0a416e25f0234fe89.png"
+    },
+    {
+      "id": 1201,
+      "name": "B\u00e1rbara",
+      "element_type": "ETWater",
+      "rank_id": 1201,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80C0FFFF>Da\u00f1o Hydro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Murmullo del agua",
+          "id": "12011"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80C0FFFF>Da\u00f1o Hydro</color> y crea unos <color=#FFFFFFFF>c\u00edrculos mel\u00f3dicos</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/63c2345902423b25788f104985348cfd.png",
+          "name": "Que empiece el concierto \u266a",
+          "id": "12012"
+        },
+        {
+          "skill_text": "Cura 4 pts. a todos tus personajes.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8da9eff0a67380b83cb6c3360e509695.png",
+          "name": "Milagro brillante \u266a",
+          "id": "12013"
+        }
+      ],
+      "weapon": "Catalizador",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9e4098dbdaac941957fb3af0e34bac6e.png"
+    },
+    {
+      "id": 1202,
+      "name": "Xingchiu",
+      "element_type": "ETWater",
+      "rank_id": 1202,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "T\u00e9cnica de espada Guhua",
+          "id": "12021"
+        },
+        {
+          "skill_text": "Inflige 2 pts. de <color=#80C0FFFF>Da\u00f1o Hydro</color> y crea unas <color=#FFFFFFFF>espadas de lluvia</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5578cdac2dd8187149544e0898ddf1fd.png",
+          "name": "Lluvia torrencial mortal",
+          "id": "12022"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80C0FFFF>Da\u00f1o Hydro</color> y crea una <color=#FFFFFFFF>espada arco\u00edris</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/41d0bb68b4558ff4583b48268b5ecb1b.png",
+          "name": "Sable de lluvia",
+          "id": "12023"
+        }
+      ],
+      "weapon": "Espada ligera",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4fed2d8054aa757b8081d5cfc8dbc5e5.png"
+    },
+    {
+      "id": 1203,
+      "name": "Mona",
+      "element_type": "ETWater",
+      "rank_id": 1203,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80C0FFFF>Da\u00f1o Hydro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Destino revelado",
+          "id": "12031"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80C0FFFF>Da\u00f1o Hydro</color> y crea una <color=#FFFFFFFF>ilusi\u00f3n</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c821ff150eb08b2512e3bfa39c19b20d.png",
+          "name": "Espejismo del agua",
+          "id": "12032"
+        },
+        {
+          "skill_text": "Inflige 4 pts. de <color=#80C0FFFF>Da\u00f1o Hydro</color> y crea una <color=#FFFFFFFF>burbuja ilusoria</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bd9c6c5db4f7cfd3ce555aaa00a4a1dd.png",
+          "name": "\u00d3rbita divina",
+          "id": "12033"
+        },
+        {
+          "skill_text": "Pasiva: <color=#FFFFFFFF>Cuando este personaje est\u00e1 en combate y cambias de personaje</color>, dicho cambio se considera una <color=#FFFFFFFF>acci\u00f3n r\u00e1pida</color> en vez de una <color=#FFFFFFFF>acci\u00f3n de combate</color> (1 vez por ronda).",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad pasiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6c924aed33d3b0cbdcd6b280c2b52631.png",
+          "name": "Torrente ilusorio",
+          "id": "12034"
+        }
+      ],
+      "weapon": "Catalizador",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e6031f667a1da4f83bc75ab5a5e868a0.png"
+    },
+    {
+      "id": 1301,
+      "name": "Diluc",
+      "element_type": "ETFire",
+      "rank_id": 1301,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "name": "Espada templada",
+          "id": "13011"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#FF9999FF>Da\u00f1o Pyro</color>. Por cada tercera vez que se use esta habilidad en una ronda, inflige da\u00f1o +2.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/31863c524d54277f038d60c77c8a85ef.png",
+          "name": "Filo ardiente",
+          "id": "13012"
+        },
+        {
+          "skill_text": "Inflige 8 pts. de <color=#FF9999FF>Da\u00f1o Pyro</color> y este personaje obtiene un <color=#FFFFFFFF>imbuimiento Pyro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/441499b2202e58aa6df0ebbd21bb4f67.png",
+          "name": "Amanecer",
+          "id": "13013"
+        }
+      ],
+      "weapon": "Mandoble",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c00f19ba52c4497b81f1654c705240b8.png"
+    },
+    {
+      "id": 1302,
+      "name": "Xiangling",
+      "element_type": "ETFire",
+      "rank_id": 1302,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eff1794fed54da5f9132873f84b6f41c.png",
+          "name": "Kung-Fu pasta",
+          "id": "13021"
+        },
+        {
+          "skill_text": "Invoca a <color=#FFFFFFFF>Guoba</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5a6d6002064487f449b61a96300a79b8.png",
+          "name": "Ataque de Guoba",
+          "id": "13022"
+        },
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FF9999FF>Da\u00f1o Pyro</color> y crea un <color=#FFFFFFFF>Pyronado</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4a5ced0f3db7bd4a0553f837544ecb99.png",
+          "name": "Pyronado",
+          "id": "13023"
+        }
+      ],
+      "weapon": "Lanza",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f6f310d5276e6d7656eb5b42913ec8b0.png"
+    },
+    {
+      "id": 1303,
+      "name": "Bennett",
+      "element_type": "ETFire",
+      "rank_id": 1303,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "Espada de la suerte",
+          "id": "13031"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#FF9999FF>Da\u00f1o Pyro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3b102a63444d271b250d9b199568bd79.png",
+          "name": "Sobrecarga de pasi\u00f3n",
+          "id": "13032"
+        },
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FF9999FF>Da\u00f1o Pyro</color> y crea un <color=#FFFFFFFF>c\u00edrculo de apoyo moral</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a0063dea821a2e70e3ad6d8731e65c44.png",
+          "name": "Aventura maravillosa",
+          "id": "13033"
+        }
+      ],
+      "weapon": "Espada ligera",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6d539b8c4ec001cf0e651bf2af3b828d.png"
+    },
+    {
+      "id": 1305,
+      "name": "Yoimiya",
+      "element_type": "ETFire",
+      "rank_id": 1305,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Pirotecnia",
+          "id": "13051"
+        },
+        {
+          "skill_text": "Este personaje entra en el estado de <color=#FFFFFFFF>nitrofogata</color> (esta habilidad no genera Energ\u00eda).",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bd53cae9bde22c0efae9e696adf58b3b.png",
+          "name": "Danza de la p\u00f3lvora",
+          "id": "13052"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#FF9999FF>Da\u00f1o Pyro</color> y crea una <color=#FFFFFFFF>ascua dorada</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a7ce012f5ae1e409862e6b98c3367391.png",
+          "name": "Saxifraga de oro",
+          "id": "13053"
+        }
+      ],
+      "weapon": "Arco",
+      "belong_to": [
+        "Inazuma",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/55c408c3b086c396d35a734e0ac61691.png"
+    },
+    {
+      "id": 1401,
+      "name": "Fischl",
+      "element_type": "ETThunder",
+      "rank_id": 1401,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Flechas del juicio",
+          "id": "14011"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#FFACFFFF>Da\u00f1o Electro</color> e invoca a <color=#FFFFFFFF>Oz</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4b4b654a14e8ca726e105af1666f4fc4.png",
+          "name": "Vig\u00eda de la noche",
+          "id": "14012"
+        },
+        {
+          "skill_text": "Inflige 4 pts. de <color=#FFACFFFF>Da\u00f1o Electro</color>, as\u00ed como 2 pts. de <color=#FFFFFFFF><color=#FFFFFFFF>Da\u00f1o Penetrante</color></color> contra todos los personajes en reserva enemigos.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51f354b2f813bfc1de68460be40d435.png",
+          "name": "Ilusi\u00f3n nocturna",
+          "id": "14013"
+        }
+      ],
+      "weapon": "Arco",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b9dbb5a2cf9c0ceb63443f7409d19fe7.png"
+    },
+    {
+      "id": 1402,
+      "name": "Razor",
+      "element_type": "ETThunder",
+      "rank_id": 1402,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "name": "Colmillo de acero",
+          "id": "14021"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#FFACFFFF>Da\u00f1o Electro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efb029187262b0892b0a85a7be3c81c6.png",
+          "name": "Garra y trueno",
+          "id": "14022"
+        },
+        {
+          "skill_text": "Inflige 5 pts. de <color=#FFACFFFF>Da\u00f1o Electro</color> y este personaje entra en el estado de <color=#FFFFFFFF>lobo interior</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/43720b9540661d37f397adddc08f984d.png",
+          "name": "Colmillo rel\u00e1mpago",
+          "id": "14023"
+        }
+      ],
+      "weapon": "Mandoble",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/00e87c7e7518713e3bc65c12068c598a.png"
+    },
+    {
+      "id": 1403,
+      "name": "Keching",
+      "element_type": "ETThunder",
+      "rank_id": 1403,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "Estilo Yunlai",
+          "id": "14031"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#FFACFFFF>Da\u00f1o Electro</color> y crea una carta de <color=#FFFFFFFF>Cu\u00f1a rel\u00e1mpago</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eb94518489d930ab5fa02434b64b206e.png",
+          "name": "Retorno estelar",
+          "id": "14032"
+        },
+        {
+          "skill_text": "Inflige 4 pts. de <color=#FFACFFFF>Da\u00f1o Electro</color>, as\u00ed como <color=#FFFFFFFF>3 pts. de <color=#FFFFFFFF>Da\u00f1o Penetrante</color></color> contra todos los personajes en reserva enemigos.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4caa9b938cb1e72fa2cf4dca79b51fb8.png",
+          "name": "Paseo celestial",
+          "id": "14033"
+        }
+      ],
+      "weapon": "Espada ligera",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f6f3d3d3b183e676f9912dfec572b237.png"
+    },
+    {
+      "id": 1404,
+      "name": "Cyno",
+      "element_type": "ETThunder",
+      "rank_id": 1404,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eff1794fed54da5f9132873f84b6f41c.png",
+          "name": "Lanza de la invocaci\u00f3n",
+          "id": "14041"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#FFACFFFF>Da\u00f1o Electro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/70d35fde5a93ea9706b5c82e223ed57c.png",
+          "name": "Rito secreto: Gu\u00eda de las almas abismales",
+          "id": "14042"
+        },
+        {
+          "skill_text": "Inflige 4 pts. de <color=#FFACFFFF>Da\u00f1o Electro</color>.\\nNivel de la posesi\u00f3n de <color=#FFFFFFFF>abrecaminos del juramento</color> +2.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/df77d411c3039ab4c7455f62aa0fe43c.png",
+          "name": "Rito sagrado: Celeridad lupina",
+          "id": "14043"
+        },
+        {
+          "skill_text": "Pasiva: cuando comienza el combate, este personaje obtiene el efecto de <color=#FFFFFFFF>Abrecaminos del juramento</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad pasiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3fee355d6f0090f9079b6a8bd15dd839.png",
+          "name": "Castigo de la ley",
+          "id": "14044"
+        }
+      ],
+      "weapon": "Lanza",
+      "belong_to": [
+        "Sumeru",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1c0359bdc24635a0808ca2046f00793f.png"
+    },
+    {
+      "id": 1501,
+      "name": "Sacarosa",
+      "element_type": "ETWind",
+      "rank_id": 1501,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80FFD7FF>Da\u00f1o Anemo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Creaci\u00f3n del esp\u00edritu del viento",
+          "id": "15011"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#80FFD7FF>Da\u00f1o Anemo</color> y obliga al rival a que su personaje cambie al anterior.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6c091fa8a5b6e71ad8b876dd1e45e407.png",
+          "name": "Creaci\u00f3n del esp\u00edritu del viento: Experimento 6308",
+          "id": "15012"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80FFD7FF>Da\u00f1o Anemo</color> e invoca un <color=#FFFFFFFF>gran esp\u00edritu del viento</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/38cc0d7de9627cf89d3f19c326d2e890.png",
+          "name": "Creaci\u00f3n prohibida del esp\u00edritu del viento: Isomorfo 75 tipo II",
+          "id": "15013"
+        }
+      ],
+      "weapon": "Catalizador",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0bef56ba7c462ad8c593096ba6e3af81.png"
+    },
+    {
+      "id": 1502,
+      "name": "Jean",
+      "element_type": "ETWind",
+      "rank_id": 1502,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "T\u00e9cnica de espada Favonius",
+          "id": "15021"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#80FFD7FF>Da\u00f1o Anemo</color> y obliga al rival a que su personaje cambie al siguiente.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/906be849304f62b87b34122e050333b8.png",
+          "name": "Filo de ventisca",
+          "id": "15022"
+        },
+        {
+          "skill_text": "Vida +2 a todos tus personajes. Crea un <color=#FFFFFFFF>campo de dientes de le\u00f3n</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dfc823559c0cfa4f6febda9d9ea32d60.png",
+          "name": "Brisa de Dandelion",
+          "id": "15023"
+        }
+      ],
+      "weapon": "Espada ligera",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1a51029f206394310232b449839464be.png"
+    },
+    {
+      "id": 1601,
+      "name": "Ninguang",
+      "element_type": "ETRock",
+      "rank_id": 1601,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 1 pt. de <color=#FFE699FF>Da\u00f1o Geo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Lanzamiento centelleante",
+          "id": "16011"
+        },
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFE699FF>Da\u00f1o Geo</color> y crea una <color=#FFFFFFFF>pantalla de jade</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2bd0da27a460a5cd1b552c13180ecb5e.png",
+          "name": "Pantalla de jade",
+          "id": "16012"
+        },
+        {
+          "skill_text": "Inflige 6 pts. de <color=#FFE699FF>Da\u00f1o Geo</color>. Si la <color=#FFFFFFFF>pantalla de jade</color> est\u00e1 en combate, da\u00f1o +2.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e7fcd17292e0f2c5c3aa10434f454f0a.png",
+          "name": "Devastaestrellas",
+          "id": "16013"
+        }
+      ],
+      "weapon": "Catalizador",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/be2f95433c64c62c9788b081f8115ec5.png"
+    },
+    {
+      "id": 1602,
+      "name": "Noelle",
+      "element_type": "ETRock",
+      "rank_id": 1602,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "name": "T\u00e9cnica de espada Favonius - Criada",
+          "id": "16021"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#FFE699FF>Da\u00f1o Geo</color> y crea un <color=#FFFFFFFF>recubrimiento Geo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/46096c958f0cce3073cac75e540eec9d.png",
+          "name": "Guardiana del coraz\u00f3n",
+          "id": "16022"
+        },
+        {
+          "skill_text": "Inflige 4 pts. de <color=#FFE699FF>Da\u00f1o Geo</color> y este personaje entra en el estado de <color=#FFFFFFFF>Hora de limpiar</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2a78695dc2147234a2bb70c6fa13543c.png",
+          "name": "Hora de limpiar",
+          "id": "16023"
+        }
+      ],
+      "weapon": "Mandoble",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5f52fdb0a80066e8ba65578962fc305e.png"
+    },
+    {
+      "id": 1701,
+      "name": "Collei",
+      "element_type": "ETGrass",
+      "rank_id": 1701,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Elogio de la arquer\u00eda",
+          "id": "17011"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#7EC236FF>Da\u00f1o Dendro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/31c6bae6d30b2389e9717f5aa00bb617.png",
+          "name": "Caricia de las flores",
+          "id": "17012"
+        },
+        {
+          "skill_text": "Inflige 2 pts. de <color=#7EC236FF>Da\u00f1o Dendro</color> e invoca a <color=#FFFFFFFF>Colle\u00e1mbar</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/aeb8db26f8f3fe637353801bdf1407c7.png",
+          "name": "Secreto miauravilloso",
+          "id": "17013"
+        }
+      ],
+      "weapon": "Arco",
+      "belong_to": [
+        "Sumeru",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efddc4c03c5f0997fbe5ef31ac70a505.png"
+    },
+    {
+      "id": 2201,
+      "name": "Oce\u00e1nida - Rhodeia",
+      "element_type": "ETWater",
+      "rank_id": 2201,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80C0FFFF>Da\u00f1o Hydro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Marejada",
+          "id": "22011"
+        },
+        {
+          "skill_text": "Crea 1 <color=#FFFFFFFF>animal hidromim\u00e9tico</color> al azar. Priorizar\u00e1 la creaci\u00f3n de un tipo diferente a los ya existentes.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f25ce524e9fb01340a45dcf85c72b6f2.png",
+          "name": "Invocaci\u00f3n hidromim\u00e9tica",
+          "id": "22012"
+        },
+        {
+          "skill_text": "Crea 2 <color=#FFFFFFFF>animales hidromim\u00e9ticos</color> al azar. Priorizar\u00e1 la creaci\u00f3n de tipos diferentes a los ya existentes.",
+          "skill_costs": [
+            {
+              "cost_num": "5",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/62bc1e938e36a78b18a85f7b2f7ed3b0.png",
+          "name": "Diversidad salvaje",
+          "id": "22013"
+        },
+        {
+          "skill_text": "Inflige 2 pts. de <color=#80C0FFFF>Da\u00f1o Hydro</color>. Por cada invocaci\u00f3n que hayas creado, da\u00f1o +2.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0f148384285f60cf949d5d9b34f8fa92.png",
+          "name": "Marejada torrencial",
+          "id": "22014"
+        }
+      ],
+      "weapon": "Otras armas",
+      "belong_to": [
+        "Monstruo",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/90422150d3267bdf9ec9a6535a7b001f.png"
+    },
+    {
+      "id": 2202,
+      "name": "Soldado Fatui - Doncella del Espejo",
+      "element_type": "ETWater",
+      "rank_id": 2202,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80C0FFFF>Da\u00f1o Hydro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Hidrobomba",
+          "id": "22021"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#80C0FFFF>Da\u00f1o Hydro</color> y el personaje objetivo entra en estado de <color=#FFFFFFFF>refracci\u00f3n</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/02e8a759adb9dd6f7862f18a638cefcb.png",
+          "name": "Explosi\u00f3n acu\u00e1tica",
+          "id": "22022"
+        },
+        {
+          "skill_text": "Inflige 5 pts. de <color=#80C0FFFF>Da\u00f1o Hydro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e968bcf122be55187bd11a6bc3ce8c7f.png",
+          "name": "Reflejo ondulado",
+          "id": "22023"
+        }
+      ],
+      "weapon": "Otras armas",
+      "belong_to": [
+        "Fatui",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9ffdee8d345bec9dca1946902df5969a.png"
+    },
+    {
+      "id": 2301,
+      "name": "Soldado Fatui - Recaudador Pyro",
+      "element_type": "ETFire",
+      "rank_id": 2301,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "name": "Pu\u00f1alada",
+          "id": "23011"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#FF9999FF>Da\u00f1o Pyro</color> y este personaje entra en el estado de <color=#FFFFFFFF>sigilo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4b3d7470c2443c3438fcc7e86ff69dcc.png",
+          "name": "Acecho",
+          "id": "23012"
+        },
+        {
+          "skill_text": "Inflige 5 pts. de <color=#FF9999FF>Da\u00f1o Pyro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f58850c0fa15b11271c164ae7e249785.png",
+          "name": "Filos incineradores",
+          "id": "23013"
+        },
+        {
+          "skill_text": "Pasiva: cuando comienza el combate, este personaje entra en el estado de <color=#FFFFFFFF>sigilo</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad pasiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/52db57120e52fb2584a696c34b38aac9.png",
+          "name": "Maestro del sigilo",
+          "id": "23014"
+        }
+      ],
+      "weapon": "Otras armas",
+      "belong_to": [
+        "Fatui",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/95bd6d63973f827cf93db1ca11886b44.png"
+    },
+    {
+      "id": 2501,
+      "name": "Oni Espadach\u00edn",
+      "element_type": "ETWind",
+      "rank_id": 2501,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "name": "Ichimonji",
+          "id": "25011"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#80FFD7FF>Da\u00f1o Anemo</color> e invoca un <color=#FFFFFFFF>Espadach\u00edn sombr\u00edo: Viento solitario</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/697861409887f41bf4b5c90f2f3815ff.png",
+          "name": "Filo ventoso",
+          "id": "25012"
+        },
+        {
+          "skill_text": "Inflige 1 pt. de <color=#99FFFFFF>Da\u00f1o Cryo</color> e invoca un <color=#FFFFFFFF>Espadach\u00edn sombr\u00edo: Escarcha veloz</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/95c0d647c78c6058bfbd352a44fd4911.png",
+          "name": "Asalto de escarcha",
+          "id": "25013"
+        },
+        {
+          "skill_text": "Inflige 4 pts. de <color=#80FFD7FF>Da\u00f1o Anemo</color> y activa los efectos de todas tus invocaciones <color=#FFFFFFFF>Espadach\u00edn sombr\u00edo</color> (no consume sus usos).",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/51a851b66792a160e211ff84020d3610.png",
+          "name": "Emulaci\u00f3n de corte Tengu",
+          "id": "25014"
+        }
+      ],
+      "weapon": "Otras armas",
+      "belong_to": [
+        "Monstruo",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efad8cd6d5bd6907341115e050f69b86.png"
+    },
+    {
+      "id": 2601,
+      "name": "Lawachurl Acorazado",
+      "element_type": "ETRock",
+      "rank_id": 2601,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "name": "Plama Lawa",
+          "id": "26011"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dba642d3d9f4dc42820168db15b95de2.png",
+          "name": "Movo Lawa",
+          "id": "26012"
+        },
+        {
+          "skill_text": "Inflige 5 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/418ae77cc4622a67d6286b4be44ff910.png",
+          "name": "Upa Shato",
+          "id": "26013"
+        },
+        {
+          "skill_text": "Pasiva: cuando comienza el combate, este personaje obtiene los efectos de <color=#FFFFFFFF>geoarmadura</color> y <color=#FFFFFFFF>robustez rocosa</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad pasiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/058b86d139526b2518ce20e3badbb4ef.png",
+          "name": "Encantamiento: geoarmadura",
+          "id": "26014"
+        }
+      ],
+      "weapon": "Otras armas",
+      "belong_to": [
+        "Monstruo",
+        "Hilichurl",
+        ""
+      ],
+      "hp": "8",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/721a409699b498d66b64bdc212a21c74.png"
+    },
+    {
+      "id": 2701,
+      "name": "Espantohongo Plumaverde",
+      "element_type": "ETGrass",
+      "rank_id": 2701,
+      "role_skill_infos": [
+        {
+          "skill_text": "Inflige 2 pts. de <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Ataque Normal",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "name": "Danza del rey f\u00fangico",
+          "id": "27011"
+        },
+        {
+          "skill_text": "Inflige 3 pts. de <color=#7EC236FF>Da\u00f1o Dendro</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad Elemental",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/121e09032218105e54a51cbd1c2ce731.png",
+          "name": "Nube de esporas inestable",
+          "id": "27012"
+        },
+        {
+          "skill_text": "Inflige 4 pts. de <color=#7EC236FF>Da\u00f1o Dendro</color> y consume todas las cargas de <color=#FFFFFFFF>revitalizaci\u00f3n</color>. Por cada carga: da\u00f1o actual +1.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Habilidad Definitiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f7843567c0056ab7fe1132d9875d2c26.png",
+          "name": "Plumaje majestuoso",
+          "id": "27013"
+        },
+        {
+          "skill_text": "Pasiva: cuando comienza el combate, este personaje obtiene el efecto de <color=#FFFFFFFF>revitalizaci\u00f3n</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Habilidad pasiva",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fc3e95c05191996151a572a15b3a99fb.png",
+          "name": "Revitalizaci\u00f3n",
+          "id": "27014"
+        }
+      ],
+      "weapon": "Otras armas",
+      "belong_to": [
+        "Monstruo",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bd089cefb123e25131de1932395dde26.png"
+    }
+  ],
+  "action_card_infos": [
+    {
+      "id": 211011,
+      "name": "Coraz\u00f3n indiviso",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Ganyu</color>.\\nTras ello, Ganyu usa una vez <color=#FFD780FF>Flecha helada</color> de inmediato.\\nCuando Ganyu usa <color=#FFFFFFFF>Flecha helada</color> mientras tiene esta carta equipada, si us\u00f3 esta habilidad anteriormente durante el duelo, inflige <color=#99FFFFFF>Da\u00f1o Cryo</color> +1. Adem\u00e1s, inflige 3 pts. de <color=#FFFFFFFF>Da\u00f1o Penetrante</color> contra los personajes enemigos en reserva.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Ganyu en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 211011,
+      "cost_num1": "5",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/47c8e7895ae24c822873f185b6b30384.png"
+    },
+    {
+      "id": 211021,
+      "name": "Ronroneo glacial",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Diona</color>.\\nTras ello, Diona usa una vez <color=#FFD780FF>Zarpazo helado</color> de inmediato.\\nCuando Diona tiene esta carta equipada, el <color=#FFFFFFFF>escudo de zarpas</color> que crea otorga <color=#FFFFFFFF>escudo</color> +1.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Diona en tu mazo.",
+      "action_type": "AcEquip",
+      "rank_id": 211021,
+      "cost_num1": "4",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e1416b5c54b9b65004dc783c8757522f.png"
+    },
+    {
+      "id": 211031,
+      "name": "Espada de sangre fr\u00eda",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Kaeya</color>.\\nTras ello, Kaeya usa una vez <color=#FFD780FF>Golpe de escarcha</color> de inmediato.\\nCuando Kaeya usa <color=#FFFFFFFF>Golpe de escarcha</color> mientras tiene esta carta equipada, obtiene Vida +2 (1 vez por ronda).\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Kaeya en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 211031,
+      "cost_num1": "4",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e8c4d2e639de2d80c164ef19a9510f15.png"
+    },
+    {
+      "id": 211041,
+      "name": "Respiraci\u00f3n inalterable",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Chongyun</color>.\\nTras ello, Chongyun usa una vez <color=#FFD780FF>Estratos de escarcha</color> de inmediato.\\nCuando Chongyun tiene esta carta equipada, el <color=#FFFFFFFF>campo de estratos de escarcha</color> que crea produce los siguientes efectos: <color=#FFFFFFFF>duraci\u00f3n de rondas</color> inicial de campo de estratos de escarcha +1. Da\u00f1o de <color=#FFFFFFFF>Ataques Normales</color> +1 para tus personajes que usan espada ligera, mandoble o lanza.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Chongyun en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 211041,
+      "cost_num1": "4",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d2f6adf65b19c503957cdfd5197bf6c7.png"
+    },
+    {
+      "id": 211051,
+      "name": "Edicto helado",
+      "content": "Cuando <color=#FFFFFFFF>Kamisato Ayaka</color> obtiene un <color=#FFFFFFFF>imbuimiento Cryo</color> mientras tiene esta carta equipada, inflige <color=#99FFFFFF><color=#99FFFFFF>Da\u00f1o Cryo</color></color> +1.\\nAl cambiar a Kamisato Ayaka mientras tiene esta carta equipada, gastas un dado elemental menos (1 vez por ronda).\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Kamisato Ayaka en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 211051,
+      "cost_num1": "2",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4d6cf66cc2bd1fea199439dc424a131f.png"
+    },
+    {
+      "id": 212011,
+      "name": "Momento de gloria",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>B\u00e1rbara</color>.\\nTras ello, B\u00e1rbara usa una vez <color=#FFD780FF>Que empiece el concierto \u266a</color> de inmediato.\\nCuando B\u00e1rbara est\u00e1 en el campo de batalla mientras tiene esta carta equipada, los <color=#FFFFFFFF>c\u00edrculos mel\u00f3dicos</color> hacen que gastes 1 dado elemental menos al llevar a cabo una acci\u00f3n de cambio de personaje (1 vez por ronda).\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a B\u00e1rbara en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 212011,
+      "cost_num1": "4",
+      "cost_type1_icon": "12",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c7ae77e556eb0f61f0980b2732c45c06.png"
+    },
+    {
+      "id": 212021,
+      "name": "Lluvia sobre mojado",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Xingchiu</color>.\\nTras ello, Xingchiu usa una vez <color=#FFD780FF>Lluvia torrencial mortal</color> de inmediato.\\nCuando Xingchiu crea <color=#FFFFFFFF>espadas de lluvia</color> mientras tiene esta carta equipada, n\u00famero de <color=#FFFFFFFF>usos</color> inicial de espadas de lluvia +1.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Xingchiu en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 212021,
+      "cost_num1": "4",
+      "cost_type1_icon": "12",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/72dc8e77ccb94c82b0477fe54b2f3f7b.png"
+    },
+    {
+      "id": 212031,
+      "name": "Profec\u00eda de sumersi\u00f3n",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Mona</color>.\\nTras ello, Mona usa una vez <color=#FFD780FF>\u00d3rbita divina</color> de inmediato.\\nCuando Mona est\u00e1 en combate mientras tiene esta carta equipada, cualquier <color=#80C0FFFF>Reacci\u00f3n Elemental Hydro</color> provocada por ti inflige da\u00f1o +2.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Mona en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 212031,
+      "cost_num1": "3",
+      "cost_type1_icon": "12",
+      "cost_num2": "3",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/954255e33d91711e15f70e2a5fc4d471.png"
+    },
+    {
+      "id": 213011,
+      "name": "Flujo llameante",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Diluc</color>.\\nTras ello, Diluc usa una vez <color=#FFD780FF>Filo ardiente</color> de inmediato.\\nLa segunda vez que Diluc use <color=#FFFFFFFF>Filo ardiente</color> en una ronda mientras tiene esta carta equipada, consume 1 <color=#FF9999FF>dado Pyro</color> menos.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Diluc en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 213011,
+      "cost_num1": "3",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b0684cc862916abb8de607a51b30146e.png"
+    },
+    {
+      "id": 213021,
+      "name": "Fuego cruzado",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Xiangling</color>.\\nTras ello, Xiangling usa una vez <color=#FFD780FF>Ataque de Guoba</color> de inmediato.\\nCuando Xiangling usa <color=#FFFFFFFF>Ataque de Guoba</color> mientras tiene esta carta equipada, tambi\u00e9n infligir\u00e1 1 pt. de <color=#FF9999FF>Da\u00f1o Pyro</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Xiangling en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 213021,
+      "cost_num1": "4",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d8117eeed0f9d0b6a643edab827a9660.png"
+    },
+    {
+      "id": 213031,
+      "name": "Visi\u00f3n de aventura",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Bennett</color>.\\nTras ello, Bennett usa una vez <color=#FFD780FF>Aventura maravillosa</color> de inmediato.\\nCuando Bennett crea un <color=#FFFFFFFF>c\u00edrculo de apoyo moral</color> mientras tiene esta carta equipada, el aumento de da\u00f1o se activar\u00e1 siempre, sin tener en cuenta limitaciones de Vida.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Bennett en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 213031,
+      "cost_num1": "4",
+      "cost_type1_icon": "13",
+      "cost_num2": "2",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/38b3de96a59d907de002fc3945eac139.png"
+    },
+    {
+      "id": 213051,
+      "name": "Lluvia de meteoros Naganohara",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Yoimiya</color>.\\nTras ello, Yoimiya usa una vez <color=#FFD780FF>Danza de la p\u00f3lvora</color> de inmediato.\\nCuando Yoimiya entra en el estado de <color=#FFFFFFFF>nitrofogata</color> mientras tiene esta carta equipada, inflige <color=#FF9999FF>Da\u00f1o Pyro</color> +1.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Yoimiya en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 213051,
+      "cost_num1": "2",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8c94946ce10566dbac8e3b9f8e940bb3.png"
+    },
+    {
+      "id": 214011,
+      "name": "Cuervo devoraestrellas",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Fischl</color>.\\nTras ello, Fischl usa una vez <color=#FFD780FF>Vig\u00eda de la noche</color> de inmediato.\\nCuando Fischl invoca a <color=#FFFFFFFF>Oz</color> mientras tiene esta carta equipada, tras usar un <color=#FFFFFFFF>Ataque Normal</color>, Fischl inflige 2 pts. de <color=#FFACFFFF>Da\u00f1o Electro</color>. Esto consume <color=#FFFFFFFF>usos</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Fischl en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 214011,
+      "cost_num1": "3",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ab875a421d04f1d478710a0d008d7c4a.png"
+    },
+    {
+      "id": 214021,
+      "name": "Despertar",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Razor</color>.\\nTras ello, Razor usa una vez <color=#FFD780FF>Garra y trueno</color> de inmediato.\\nCuando Razor <color=#FFFFFFFF>usa Garra y trueno</color> mientras tiene esta carta equipada, uno de tus personajes Electro obtiene Energ\u00eda +1 (se dar\u00e1 prioridad al personaje en combate).\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Razor en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 214021,
+      "cost_num1": "4",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2c5bc5400e8a57a1112520f18ad7321b.png"
+    },
+    {
+      "id": 214031,
+      "name": "Penitencia del trueno",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Keching</color>.\\nTras ello, Keching usa una vez <color=#FFD780FF>Retorno estelar</color> de inmediato.\\nCuando Keching tiene esta carta equipada, su <color=#FFFFFFFF>imbuimiento Electro</color> produce los siguientes efectos: <color=#FFFFFFFF>duraci\u00f3n de rondas</color> de imbuimiento Electro +1 y el personaje inflige <color=#FFACFFFF>Da\u00f1o Electro</color> +1.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Keching en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 214031,
+      "cost_num1": "3",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/52c1de49129738f61d8e0eff7ec47cff.png"
+    },
+    {
+      "id": 214041,
+      "name": "Juicio de la pluma",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Cyno</color>.\\nTras ello, Cyno usa una vez <color=#FFD780FF>Rito secreto: Gu\u00eda de las almas abismales</color> de inmediato.\\nCuando la posesi\u00f3n de <color=#FFFFFFFF>abrecaminos del juramento</color> de Cyno alcanza el nivel 3 o 5 mientras tiene esta carta equipada, al usar <color=#FFFFFFFF>Rito secreto: Gu\u00eda de las almas abismales</color> inflige da\u00f1o +1.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Cyno en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 214041,
+      "cost_num1": "3",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9236fbf043df960137c91ab99340e312.png"
+    },
+    {
+      "id": 215011,
+      "name": "Entrop\u00eda ca\u00f3tica",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Sacarosa</color>.\\nTras ello, Sacarosa usa una vez <color=#FFD780FF>Creaci\u00f3n prohibida del esp\u00edritu del viento: Isomorfo 75 tipo II</color> de inmediato.\\nCuando Sacarosa tiene esta carta equipada, si el <color=#FFFFFFFF>gran esp\u00edritu del viento</color> ha cambiado a otro elemento, inflige Da\u00f1o Elemental +1.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Sacarosa en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 215011,
+      "cost_num1": "3",
+      "cost_type1_icon": "17",
+      "cost_num2": "2",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a5aac435470025e43269160f96bc7c9e.png"
+    },
+    {
+      "id": 215021,
+      "name": "Reino de Dandelion",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Jean</color>.\\nTras ello, Jean usa una vez <color=#FFD780FF>Brisa de Dandelion</color> de inmediato.\\nCuando Jean est\u00e1 en el campo de batalla mientras tiene esta carta equipada, el <color=#FFFFFFFF>campo de dientes de le\u00f3n</color> hace que inflijas <color=#80FFD7FF><color=#80FFD7FF>Da\u00f1o Anemo</color></color> +1.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Jean en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 215021,
+      "cost_num1": "4",
+      "cost_type1_icon": "17",
+      "cost_num2": "3",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ed539a5fe7e48519126c935b0c0140c4.png"
+    },
+    {
+      "id": 216011,
+      "name": "Reserva estrat\u00e9gica",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Ninguang</color>.\\nTras ello, Ninguang usa una vez <color=#FFD780FF>Pantalla de jade</color> de inmediato.\\nCuando Ninguang est\u00e1 en el campo de batalla mientras tiene esta carta equipada, la <color=#FFFFFFFF>pantalla de jade</color> hace que inflijas <color=#FFE699FF><color=#FFE699FF>Da\u00f1o Geo</color></color> +1.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Ninguang en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 216011,
+      "cost_num1": "4",
+      "cost_type1_icon": "15",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a5ecda6e325efb344e7e077352cbe834.png"
+    },
+    {
+      "id": 216021,
+      "name": "Yo te cubro",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Noelle</color>.\\nTras ello, Noelle usa una vez <color=#FFD780FF>Guardiana del coraz\u00f3n</color> de inmediato.\\nCuando Noelle crea un <color=#FFFFFFFF>recubrimiento Geo</color> mientras tiene esta carta equipada y usa un <color=#FFFFFFFF>Ataque Normal</color>, todos tus personajes obtienen Vida +1 (1 vez por ronda).\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Noelle en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 216021,
+      "cost_num1": "3",
+      "cost_type1_icon": "15",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9d7e1c7e174103ef69610f30a4eef269.png"
+    },
+    {
+      "id": 217011,
+      "name": "Retorno foli\u00e1ceo",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es <color=#FFFFFFFF>Collei</color>.\\nTras ello, Collei usa una vez <color=#FFD780FF>Caricia de las flores</color> de inmediato.\\nSi, durante la ronda, Collei ha usado <color=#FFFFFFFF>Caricia de las flores</color> mientras tiene esta carta equipada, y alguno de tus personajes causa una <color=#7EC236FF>Reacci\u00f3n Elemental Dendro</color> por medio de una habilidad, inflige 1 pt. de <color=#7EC236FF>Da\u00f1o Dendro</color> (1 vez por ronda).\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a Collei en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 217011,
+      "cost_num1": "3",
+      "cost_type1_icon": "16",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a388c8bdf22b02b1bb1d2e2fbc94cb2b.png"
+    },
+    {
+      "id": 222011,
+      "name": "Corriente desenfrenada",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es la <color=#FFFFFFFF>Oce\u00e1nida - Rhodeia</color>.\\nTras ello, la Oce\u00e1nida - Rhodeia usa una vez <color=#FFD780FF>Marejada torrencial</color> de inmediato.\\nCuando la Oce\u00e1nida - Rhodeia libera <color=#FFFFFFFF>Marejada torrencial</color> mientras tiene esta carta equipada, n\u00famero de <color=#FFFFFFFF>usos</color> de todas tus invocaciones +1.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a la Oce\u00e1nida - Rhodeia en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 222011,
+      "cost_num1": "4",
+      "cost_type1_icon": "12",
+      "cost_num2": "3",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/580a01c97ddb6f0a7c13b4979811a076.png"
+    },
+    {
+      "id": 222021,
+      "name": "Jaula de espejos",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es la <color=#FFFFFFFF>Soldado Fatui - Doncella del Espejo</color>.\\nTras ello, la Soldado Fatui - Doncella del Espejo usa una vez <color=#FFD780FF>Explosi\u00f3n acu\u00e1tica</color> de inmediato.\\nCuando la Soldado Fatui - Doncella del Espejo tiene esta carta equipada, la <color=#FFFFFFFF>refracci\u00f3n</color> que crea produce los siguientes efectos: <color=#FFFFFFFF>duraci\u00f3n de rondas</color> inicial de refracci\u00f3n +1 y el personaje bajo su efecto gasta 1 dado elemental m\u00e1s al cambiar de personaje.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes a la Soldado Fatui - Doncella del Espejo en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 222021,
+      "cost_num1": "4",
+      "cost_type1_icon": "12",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/70bdb94530bd142767e4e27e555e4eed.png"
+    },
+    {
+      "id": 223011,
+      "name": "Recuperaci\u00f3n completa",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es el <color=#FFFFFFFF>Soldado Fatui - Recaudador Pyro</color>.\\nTras ello, el Soldado Fatui - Recaudador Pyro usa una vez <color=#FFD780FF>Acecho</color> de inmediato.\\nCuando el Soldado Fatui - Recaudador Pyro entra en el estado de <color=#FFFFFFFF>sigilo</color> mientras tiene esta carta equipada, produce los siguientes efectos: n\u00famero de <color=#FFFFFFFF>usos</color> +1 y el <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color> infligido por el personaje se convierte en <color=#FF9999FF>Da\u00f1o Pyro</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes al Soldado Fatui - Recaudador Pyro en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 223011,
+      "cost_num1": "3",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/79de5814ae7ce1faafd337cc6aacbf07.png"
+    },
+    {
+      "id": 225011,
+      "name": "Trascendencia aut\u00f3mata",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es el <color=#FFFFFFFF>Oni Espadach\u00edn</color>.\\nTras ello, el Oni Espadach\u00edn usa una vez <color=#FFD780FF>Filo ventoso</color> de inmediato.\\nCuando el Oni Espadach\u00edn usa <color=#FFFFFFFF>Filo ventoso</color> mientras tiene esta carta equipada, cambias a tu siguiente personaje. Tras usar <color=#FFFFFFFF>Asalto de escarcha</color>, cambias a tu anterior personaje.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes al Oni Espadach\u00edn en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 225011,
+      "cost_num1": "3",
+      "cost_type1_icon": "17",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fa52163556a9b026ab8eb53cb7b9045c.png"
+    },
+    {
+      "id": 226011,
+      "name": "Refundici\u00f3n: Geoarmadura",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es el <color=#FFFFFFFF>Lawachurl Acorazado</color>.\\nTras ello, el Lawachurl Acorazado usa una vez <color=#FFD780FF>Upa Shato</color> de inmediato.\\nCuando el Lawachurl Acorazado derrota a un personaje enemigo mientras tiene esta carta equipada, vuelve a entrar en los estados de <color=#FFFFFFFF>geoarmadura</color> y <color=#FFFFFFFF>robustez rocosa</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes al Lawachurl Acorazado en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 226011,
+      "cost_num1": "4",
+      "cost_type1_icon": "15",
+      "cost_num2": "2",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a8101906389983db75c167dac16dec21.png"
+    },
+    {
+      "id": 227011,
+      "name": "Propagaesporas",
+      "content": "<color=#FFFFFFFF>Acci\u00f3n de combate</color>: esta carta se equipa cuando el personaje en combate es el <color=#FFFFFFFF>Espantohongo Plumaverde</color>.\\nTras ello, el Espantohongo Plumaverde usa una vez <color=#FFD780FF>Nube de esporas inestable</color> de inmediato.\\nCuando el Espantohongo Plumaverde tiene esta carta equipada, puede acumular 1 carga adicional de revitalizaci\u00f3n.\\nSolo puedes a\u00f1adir esta carta al mazo si tienes al Espantohongo Plumaverde en \u00e9l.",
+      "action_type": "AcEquip",
+      "rank_id": 227011,
+      "cost_num1": "3",
+      "cost_type1_icon": "16",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talento"
+        },
+        {
+          "id": "2",
+          "text": "Acci\u00f3n de combate"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7681527ff3e18426f275347b2d4817b2.png"
+    },
+    {
+      "id": 311101,
+      "name": "Gu\u00eda M\u00e1gica",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan catalizador</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311101,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "202",
+          "text": "Catalizador"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a85e24e19d8d895f5cf51ddab9212c87.png"
+    },
+    {
+      "id": 311102,
+      "name": "Memorias de Sacrificios",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\n<color=#FFFFFFFF>Cuando el personaje usa una Habilidad Elemental</color>, se crea un dado elemental de su mismo elemento (1 vez por ronda).\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan catalizador</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311102,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "202",
+          "text": "Catalizador"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d1c5794631a2e19c1aa985d102f546e5.png"
+    },
+    {
+      "id": 311103,
+      "name": "Pergamino Celestial",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\n<color=#FFFFFFFF>Una vez por ronda:</color> da\u00f1o de Ataque Normal +1.\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan catalizador</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311103,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "202",
+          "text": "Catalizador"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6ec96e78504a0fb3292721d480cbed42.png"
+    },
+    {
+      "id": 311201,
+      "name": "Arco de Cuervo",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan arco</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311201,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "204",
+          "text": "Arco"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0939061540227e749fdcb03bdd3770cf.png"
+    },
+    {
+      "id": 311202,
+      "name": "Arco del Sacrificio",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\n<color=#FFFFFFFF>Cuando el personaje usa una Habilidad Elemental</color>, se crea un dado elemental de su mismo elemento (1 vez por ronda).\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan arco</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311202,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "204",
+          "text": "Arco"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/98a95d057ec93e97e0e90c3a2e9985c3.png"
+    },
+    {
+      "id": 311203,
+      "name": "Alas Celestiales",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\n<color=#FFFFFFFF>Una vez por ronda:</color> da\u00f1o de Ataque Normal +1.\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan arco</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311203,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "204",
+          "text": "Arco"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eb1c1b8d7bb8df363633b272f366b794.png"
+    },
+    {
+      "id": 311301,
+      "name": "Espada de Hierro Blanco",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan mandoble</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311301,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "203",
+          "text": "Mandoble"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bf3c1abdc800510f40f1819ff5365c3c.png"
+    },
+    {
+      "id": 311302,
+      "name": "Gran Espada de Sacrificio",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\n<color=#FFFFFFFF>Cuando el personaje usa una Habilidad Elemental</color>, se crea un dado elemental de su mismo elemento (1 vez por ronda).\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan mandoble</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311302,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "203",
+          "text": "Mandoble"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8a879e5d756a07a0cde3ba42311f9790.png"
+    },
+    {
+      "id": 311303,
+      "name": "L\u00e1pida del Lobo",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\nAl atacar a un objetivo con 6 o menos pts. de Vida, da\u00f1o infligido +2 adicional.\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan mandoble</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311303,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "203",
+          "text": "Mandoble"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9fc2fb800874212c3cce32b28ee6de5f.png"
+    },
+    {
+      "id": 311401,
+      "name": "Borla Blanca",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan lanza</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311401,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "205",
+          "text": "Lanza"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6f37ed4fbb3f495f94396f2ba51cc292.png"
+    },
+    {
+      "id": 311402,
+      "name": "Lanza L\u00edtica",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\nAl entrar en el campo de batalla, esta carta otorga <color=#FFFFFFFF>1 pt. de <color=#FFFFFFFF>escudo</color> al personaje que la lleve equipada</color> por cada personaje de Liyue que haya en el equipo (acumulable hasta 3 pts.).\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan lanza</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311402,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "205",
+          "text": "Lanza"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a00bc7daebd6a3fbb05981e7c4fde8e7.png"
+    },
+    {
+      "id": 311403,
+      "name": "P\u00faa Celestial",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\n<color=#FFFFFFFF>Una vez por ronda:</color> da\u00f1o de Ataque Normal +1.\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan lanza</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311403,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "205",
+          "text": "Lanza"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/65849e70884e45188e0658abf44caa7f.png"
+    },
+    {
+      "id": 311501,
+      "name": "Espada del Viajero",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan espada ligera</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311501,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "201",
+          "text": "Espada ligera"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9dbbcddd4d69ae1683ba8b62ae50bb6a.png"
+    },
+    {
+      "id": 311502,
+      "name": "Espada de Sacrificio",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\n<color=#FFFFFFFF>Cuando el personaje usa una Habilidad Elemental</color>, se crea un dado elemental de su mismo elemento (1 vez por ronda).\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan espada ligera</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311502,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "201",
+          "text": "Espada ligera"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bc60d80dfa83f779b01845ec46ad636e.png"
+    },
+    {
+      "id": 311503,
+      "name": "Aquila Favonia",
+      "content": "<color=#FFFFFFFF>Da\u00f1o +1</color>.\\n<color=#FFFFFFFF>Cuando el rival utiliza una habilidad</color>, si el personaje que ha obtenido este efecto est\u00e1 en combate, obtiene Vida +1 (hasta 2 veces por ronda).\\nSolo pueden llevarla equipada los <color=#FFFFFFFF>personajes que usan espada ligera</color>. Cada personaje solo puede llevar equipada 1 arma.",
+      "action_type": "AcEquip",
+      "rank_id": 311503,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Arma"
+        },
+        {
+          "id": "201",
+          "text": "Espada ligera"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dbecaf6c9c38016aa04dc1ad090de10a.png"
+    },
+    {
+      "id": 312001,
+      "name": "Bandana del Aventurero",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa un Ataque Normal</color>, obtiene Vida +1 (hasta 3 veces por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312001,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/537d9c9398945da9a85bc5d3bfd7c00a.png"
+    },
+    {
+      "id": 312002,
+      "name": "Tiara de Plata del Afortunado",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una Habilidad Elemental</color>, obtiene Vida +2 (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312002,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4ecb7e631b9faa929d538dfdcba97892.png"
+    },
+    {
+      "id": 312003,
+      "name": "Pa\u00f1uelo de la M\u00e9dica Itinerante",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una Habilidad Definitiva</color>, todos tus personajes obtienen Vida +1 (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312003,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/34da5173304f9d8162cf29792a29c314.png"
+    },
+    {
+      "id": 312004,
+      "name": "Aretes de la Jugadora",
+      "content": "<color=#FFFFFFFF>Cuando el personaje enemigo es derrotado</color>, si el personaje que tiene esta carta equipada es el personaje en combate, crea 2 <color=#FFFFFFFF>omnidados</color>.\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312004,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5375d721bee781f8a1c7189134631bde.png"
+    },
+    {
+      "id": 312005,
+      "name": "Gorra del Instructor",
+      "content": "<color=#FFFFFFFF>Cuando el personaje provoca una Reacci\u00f3n Elemental</color>, crea 1 dado elemental del mismo tipo elemental que ese personaje (hasta 3 veces por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312005,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db71657f341ea66c63cce583306697e0.png"
+    },
+    {
+      "id": 312006,
+      "name": "Diadema del Exiliado",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una Habilidad Definitiva</color>, todos tus personajes en reserva obtienen <color=#FFFFFFFF>Energ\u00eda</color> +1 (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312006,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/07f949af51f955188f7a76868afec4d2.png"
+    },
+    {
+      "id": 312101,
+      "name": "Eco de la Escarcha",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#99FFFFFF>dado Cryo</color> menos (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312101,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0a87ecadbc664295b0a6d8887a0245e4.png"
+    },
+    {
+      "id": 312102,
+      "name": "N\u00f3mada del Invierno",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#99FFFFFF>dado Cryo</color> menos (1 vez por ronda).\\nDurante la <color=#FFFFFFFF>fase de lanzamiento</color>, 2 de los dados elementales iniciales que lances siempre ser\u00e1n <color=#99FFFFFF>Cryo</color>.\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312102,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4ac494b7dabb571ba3175c97e133efca.png"
+    },
+    {
+      "id": 312201,
+      "name": "Gorro de Capit\u00e1n Manchado de Vino",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#80C0FFFF>dado Hydro</color> menos (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312201,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d330bf2e825d0611adbd31165a2988a3.png"
+    },
+    {
+      "id": 312202,
+      "name": "Coraz\u00f3n de las Profundidades",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#80C0FFFF>dado Hydro</color> menos (1 vez por ronda).\\nDurante la <color=#FFFFFFFF>fase de lanzamiento</color>, 2 de los dados elementales iniciales que lances siempre ser\u00e1n <color=#80C0FFFF>Hydro</color>.\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312202,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/94f5da40c8f4dabec67094c9ba33f398.png"
+    },
+    {
+      "id": 312301,
+      "name": "Sombrero Abrasador de la Bruja",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#FF9999FF>dado Pyro</color> menos (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312301,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/414e93b5089718722e2c754c328017cb.png"
+    },
+    {
+      "id": 312302,
+      "name": "Bruja Carmes\u00ed en Llamas",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#FF9999FF>dado Pyro</color> menos (1 vez por ronda).\\nDurante la <color=#FFFFFFFF>fase de lanzamiento</color>, 2 de los dados elementales iniciales que lances siempre ser\u00e1n <color=#FF9999FF>Pyro</color>.\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312302,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/072a95811cce4b7cde82b7125f948153.png"
+    },
+    {
+      "id": 312401,
+      "name": "Corona del Invocador de Truenos",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#FFACFFFF>dado Electro</color> menos (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312401,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/aa14c1d68f06aee6e56af6c5561d5c62.png"
+    },
+    {
+      "id": 312402,
+      "name": "Furia del Trueno",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#FFACFFFF>dado Electro</color> menos (1 vez por ronda).\\nDurante la <color=#FFFFFFFF>fase de lanzamiento</color>, 2 de los dados elementales iniciales que lances siempre ser\u00e1n <color=#FFACFFFF>Electro</color>.\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312402,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d0a4bac703c65e7cc7760e251e6bfcb.png"
+    },
+    {
+      "id": 312501,
+      "name": "Sombrero de la Cazadora Verde Esmeralda",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#80FFD7FF>dado Anemo</color> menos (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312501,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/17b36e554ad3b25234313228f7cf0697.png"
+    },
+    {
+      "id": 312502,
+      "name": "Sombra Verde Esmeralda",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#80FFD7FF>dado Anemo</color> menos (1 vez por ronda).\\nDurante la <color=#FFFFFFFF>fase de lanzamiento</color>, 2 de los dados elementales iniciales que lances siempre ser\u00e1n <color=#80FFD7FF>Anemo</color>.\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312502,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/74f346d6221d9c06b40677177706dcd8.png"
+    },
+    {
+      "id": 312601,
+      "name": "M\u00e1scara de Basalto Inerte",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#FFE699FF>dado Geo</color> menos (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312601,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/cee410a612a0951dff5f7998ee221742.png"
+    },
+    {
+      "id": 312602,
+      "name": "Petra Arcaica",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#FFE699FF>dado Geo</color> menos (1 vez por ronda).\\nDurante la <color=#FFFFFFFF>fase de lanzamiento</color>, 2 de los dados elementales iniciales que lances siempre ser\u00e1n <color=#FFE699FF>Geo</color>.\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312602,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f3b570dda5890b6660abc11f8091ade0.png"
+    },
+    {
+      "id": 312701,
+      "name": "Corona L\u00e1urea",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#99FF88FF>dado Dendro</color> menos (1 vez por ronda).\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312701,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db4f9b3efc9976dbfc872086b8d88cbc.png"
+    },
+    {
+      "id": 312702,
+      "name": "Recuerdos del Bosque",
+      "content": "<color=#FFFFFFFF>Cuando el personaje usa una habilidad o se equipa un talento</color>, gasta 1 <color=#99FF88FF>dado Dendro</color> menos (1 vez por ronda).\\nDurante la <color=#FFFFFFFF>fase de lanzamiento</color>, 2 de los dados elementales iniciales que lances siempre ser\u00e1n <color=#99FF88FF>Dendro</color>.\\nCada personaje solo puede llevar equipado 1 artefacto.",
+      "action_type": "AcEquip",
+      "rank_id": 312702,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefacto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/84842576ae51a40f7447ff943ef5e1ca.png"
+    },
+    {
+      "id": 321001,
+      "name": "Puerto de Liyue",
+      "content": "<color=#FFFFFFFF>Fase final:</color> toma 2 cartas.\\nN\u00famero de <color=#FFFFFFFF>usos</color>: 2",
+      "action_type": "AcSupport",
+      "rank_id": 321001,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Ubicaci\u00f3n"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b845964f3adbb8985b3185de51121e6a.png"
+    },
+    {
+      "id": 321002,
+      "name": "Biblioteca de los Caballeros de Favonius",
+      "content": "<color=#FFFFFFFF>Al entrar en el campo de batalla</color>, escoge cualquier dado elemental para relanzarlo.\\n<color=#FFFFFFFF>Fase de lanzamiento:</color> obtienes otra oportunidad para relanzar.",
+      "action_type": "AcSupport",
+      "rank_id": 321002,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Ubicaci\u00f3n"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/38c552f8de603be63d73fd2b79091206.png"
+    },
+    {
+      "id": 321003,
+      "name": "C\u00e1mara de Jade",
+      "content": "<color=#FFFFFFFF>Fase de lanzamiento:</color> 2 de los dados elementales iniciales que lances siempre ser\u00e1n del mismo tipo elemental que tu personaje en combate.",
+      "action_type": "AcSupport",
+      "rank_id": 321003,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Ubicaci\u00f3n"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3e19d5c01bf6d0d9ef6e6282be5fc440.png"
+    },
+    {
+      "id": 321004,
+      "name": "Vi\u00f1edo del Amanecer",
+      "content": "<color=#FFFFFFFF>Cuando llevas a cabo una acci\u00f3n de cambio personaje</color>, gastas 1 dado elemental menos (1 vez por ronda).",
+      "action_type": "AcSupport",
+      "rank_id": 321004,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Ubicaci\u00f3n"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7867c76111398c7f6345c5429778eee1.png"
+    },
+    {
+      "id": 321005,
+      "name": "Posada Wangshu",
+      "content": "<color=#FFFFFFFF>Fase final:</color> Tu personaje en reserva que m\u00e1s da\u00f1o haya recibido obtiene Vida +2.\\n<color=#FFFFFFFF>N\u00famero de <color=#FFFFFFFF>usos</color>: 2</color>.",
+      "action_type": "AcSupport",
+      "rank_id": 321005,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Ubicaci\u00f3n"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7f3bc4a66a1f9972d6b1f02bcfe425da.png"
+    },
+    {
+      "id": 321006,
+      "name": "Catedral de Favonius",
+      "content": "<color=#FFFFFFFF>Fase final:</color> Tu personaje en combate obtiene Vida +2.\\n<color=#FFFFFFFF>N\u00famero de <color=#FFFFFFFF>usos</color>: 2</color>.",
+      "action_type": "AcSupport",
+      "rank_id": 321006,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Ubicaci\u00f3n"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b44c09e722a0c411553a070eca10a159.png"
+    },
+    {
+      "id": 322001,
+      "name": "Paimon",
+      "content": "<color=#FFFFFFFF>Al principio de la fase de acciones</color>, crea 2 <color=#FFFFFFFF>omnidados</color>.\\n<color=#FFFFFFFF>N\u00famero de <color=#FFFFFFFF>usos</color>: 2</color>.",
+      "action_type": "AcSupport",
+      "rank_id": 322001,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db7d26573b704b6505679e4f8d74eb07.png"
+    },
+    {
+      "id": 322002,
+      "name": "Katheryne",
+      "content": "<color=#FFFFFFFF>Cuando cambias de personaje</color>, dicho cambio se considera una <color=#FFFFFFFF>acci\u00f3n r\u00e1pida</color> en vez de una <color=#FFFFFFFF>acci\u00f3n de combate</color> (1 vez por ronda).",
+      "action_type": "AcSupport",
+      "rank_id": 322002,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fb7562041775d44f9b874a657d71c238.png"
+    },
+    {
+      "id": 322003,
+      "name": "Timaeus",
+      "content": "Al entrar en el campo de batalla, otorga 2 materiales sintetizados.\\n<color=#FFFFFFFF>Fase final:</color> otorga 1 material sintetizado.\\n<color=#FFFFFFFF>Al jugar una carta de artefacto</color>, si es posible, gasta una cantidad de materiales sintetizados equivalente al coste del artefacto para equiparlo sin ning\u00fan coste (1 vez por ronda).",
+      "action_type": "AcSupport",
+      "rank_id": 322003,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/992692db4e9bcf92b0571e73313b6714.png"
+    },
+    {
+      "id": 322004,
+      "name": "Wagner",
+      "content": "Al entrar en el campo de batalla, otorga 2 prototipos de forja.\\n<color=#FFFFFFFF>Fase final:</color> otorga 1 prototipo de forja.\\n<color=#FFFFFFFF>Al jugar una carta de arma</color>, si es posible, gasta una cantidad de prototipos de forja equivalente al coste del arma para equiparla sin ning\u00fan coste (1 vez por ronda).",
+      "action_type": "AcSupport",
+      "rank_id": 322004,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3fd5f4a8a3e92f7254e832e119728e96.png"
+    },
+    {
+      "id": 322005,
+      "name": "Chef Mao",
+      "content": "<color=#FFFFFFFF>Tras jugar una carta de comida</color>, crea 1 dado elemental aleatorio (1 vez por ronda).",
+      "action_type": "AcSupport",
+      "rank_id": 322005,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/af07ead58a533d3a60868c713c27fca4.png"
+    },
+    {
+      "id": 322006,
+      "name": "Gordi",
+      "content": "<color=#FFFFFFFF>Al jugar una carta de apoyo de ubicaci\u00f3n</color>, gastas 2 dados elementales menos (1 vez por ronda).",
+      "action_type": "AcSupport",
+      "rank_id": 322006,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0c1afc4b96fda2d052a09ca364da79e3.png"
+    },
+    {
+      "id": 322007,
+      "name": "Timmie",
+      "content": "<color=#FFFFFFFF>Se activa autom\u00e1ticamente 1 vez por ronda:</color> esta carta acumula <color=#FFFFFFFF>1 paloma</color>.\\nSi esta carta ha acumulado <color=#FFFFFFFF>3 palomas</color>, toma 1 carta, crea 1 <color=#FFFFFFFF>omnidado</color> y se descarta.",
+      "action_type": "AcSupport",
+      "rank_id": 322007,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/94dbfc0531ac4e258940a9c6e0950a28.png"
+    },
+    {
+      "id": 322008,
+      "name": "Liben",
+      "content": "<color=#FFFFFFFF>Fase final:</color> recoge los dados elementales que no hayas usado (como m\u00e1ximo, 1 de cada tipo).\\n<color=#FFFFFFFF>Al principio de la fase de acciones</color>, si ya has recogido 3 dados elementales por este medio, descarta esta carta, toma 2 cartas y crea 2 <color=#FFFFFFFF>omnidados</color>.",
+      "action_type": "AcSupport",
+      "rank_id": 322008,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9ea108ce4cc9b11ad65573ad2d507196.png"
+    },
+    {
+      "id": 322009,
+      "name": "Chang el Noveno",
+      "content": "Despu\u00e9s de que alg\u00fan personaje de cualquiera de los jugadores inflija <color=#FFFFFFFF>Da\u00f1o F\u00edsico</color>, <color=#FFFFFFFF>Da\u00f1o Penetrante</color> o cause una <color=#FFFFFFFF>Reacci\u00f3n Elemental</color> tras usar una habilidad, esta carta acumula <color=#FFFFFFFF>1 carga de inspiraci\u00f3n</color>.\\nSi esta carta ha acumulado <color=#FFFFFFFF>3 cargas de inspiraci\u00f3n</color>, tomas 2 cartas y se descarta.",
+      "action_type": "AcSupport",
+      "rank_id": 322009,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/92b3cf38a18c2314dbec4c46a629ba42.png"
+    },
+    {
+      "id": 322010,
+      "name": "Ellin",
+      "content": "<color=#FFFFFFFF>Cuando tu personaje usa una habilidad que ya haya sido utilizada en esta ronda</color>, gastas 1 dado elemental menos (1 vez por ronda).",
+      "action_type": "AcSupport",
+      "rank_id": 322010,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/18200092294453a833bbeefb64ba511e.png"
+    },
+    {
+      "id": 322011,
+      "name": "Tian Lengua de acero",
+      "content": "<color=#FFFFFFFF>Fase final:</color> uno de tus personajes que no tenga la Energ\u00eda al m\u00e1ximo obtiene <color=#FFFFFFFF>Energ\u00eda</color> +1 (se dar\u00e1 prioridad al personaje en combate).\\n<color=#FFFFFFFF>N\u00famero de <color=#FFFFFFFF>usos</color>: 2</color>.",
+      "action_type": "AcSupport",
+      "rank_id": 322011,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2fd219ef9d68a9d15a1ba5965233ffdc.png"
+    },
+    {
+      "id": 322012,
+      "name": "Liu Su",
+      "content": "<color=#FFFFFFFF>Cuando cambias de personaje</color>, si el personaje entrante no tiene <color=#FFFFFFFF>Energ\u00eda</color>, obtiene <color=#FFFFFFFF>Energ\u00eda</color> +1 (1 vez por ronda).\\n<color=#FFFFFFFF>N\u00famero de <color=#FFFFFFFF>usos</color>: 2</color>.",
+      "action_type": "AcSupport",
+      "rank_id": 322012,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Acompa\u00f1ante"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/260f8abb74f2760962aefc8ea932f143.png"
+    },
+    {
+      "id": 323001,
+      "name": "Transmutador param\u00e9trico",
+      "content": "<color=#FFFFFFFF>Despu\u00e9s de que alg\u00fan personaje de cualquiera de los jugadores usen una habilidad</color>, si infligen Da\u00f1o Elemental, esta carta acumula <color=#FFFFFFFF>1 carga de transmutaci\u00f3n</color>.\\nSi esta carta ha acumulado <color=#FFFFFFFF>3 cargas de transmutaci\u00f3n</color>, crea 3 dados elementales distintos y se descarta.",
+      "action_type": "AcSupport",
+      "rank_id": 323001,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "102",
+          "text": "Objeto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/07ab70e19810c449f0b5d99e09081861.png"
+    },
+    {
+      "id": 323002,
+      "name": "Bolsita nutritiva",
+      "content": "<color=#FFFFFFFF>Al entrar en el campo de batalla</color>, saca 1 carta de comida al azar del mazo.\\n<color=#FFFFFFFF>Al jugar una carta de comida</color>, saca 1 carta de comida al azar del mazo (1 vez por ronda).",
+      "action_type": "AcSupport",
+      "rank_id": 323002,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "102",
+          "text": "Objeto"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a70e9287dde09182a722b812f4714766.png"
+    },
+    {
+      "id": 331101,
+      "name": "Consonancia elemental: Hielo entrelazado",
+      "content": "Crea 1 <color=#99FFFFFF>dado Cryo</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#99FFFFFF>Cryo</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331101,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e3ab100c8ca4d73035f9895b53d50993.png"
+    },
+    {
+      "id": 331102,
+      "name": "Consonancia elemental: Hielo fragmentado",
+      "content": "En esta ronda, tu personaje en combate actual inflige da\u00f1o +2 con su siguiente ataque.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#99FFFFFF>Cryo</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331102,
+      "cost_num1": "1",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/52779dcfcc6ba6a05b10d3ef133863f4.png"
+    },
+    {
+      "id": 331201,
+      "name": "Consonancia elemental: Agua entrelazada",
+      "content": "Crea 1 <color=#80C0FFFF>dado Hydro</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#80C0FFFF>Hydro</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331201,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/77defc79598f6bccce1bb572cc2bb2bc.png"
+    },
+    {
+      "id": 331202,
+      "name": "Consonancia elemental: Agua medicinal",
+      "content": "El personaje en combate obtiene Vida +2. Todos tus personajes en reserva obtienen Vida +1.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#80C0FFFF>Hydro</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331202,
+      "cost_num1": "1",
+      "cost_type1_icon": "12",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/901d5c47b4ad3b43fa0532d2211003bf.png"
+    },
+    {
+      "id": 331301,
+      "name": "Consonancia elemental: Fuego entrelazado",
+      "content": "Crea 1 <color=#FF9999FF>dado Pyro</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#FF9999FF>Pyro</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331301,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ac8ad60bf5dd362cbc8463f0313b7ac2.png"
+    },
+    {
+      "id": 331302,
+      "name": "Consonancia elemental: Llamas fervientes",
+      "content": "La pr\u00f3xima vez que tu personaje en combate actual cause una <color=#FF9999FF>Reacci\u00f3n Elemental Pyro</color> en esta ronda, da\u00f1o infligido +3.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#FF9999FF>Pyro</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331302,
+      "cost_num1": "1",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/cd9cf0223ca3f3f701a7cc0872aba1b8.png"
+    },
+    {
+      "id": 331401,
+      "name": "Consonancia elemental: Rayos entrelazados",
+      "content": "Crea 1 <color=#FFACFFFF>dado Electro</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#FFACFFFF>Electro</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331401,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9c459bb91099364db76d6341a28d711a.png"
+    },
+    {
+      "id": 331402,
+      "name": "Consonancia elemental: Alto voltaje",
+      "content": "Uno de tus personajes que no tenga la Energ\u00eda al m\u00e1ximo obtiene <color=#FFFFFFFF>Energ\u00eda</color> +1 (se dar\u00e1 prioridad al personaje en combate).\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#FFACFFFF>Electro</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331402,
+      "cost_num1": "1",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5704ca82488fdcf936a92fbe43dab3a7.png"
+    },
+    {
+      "id": 331501,
+      "name": "Consonancia elemental: Viento entrelazado",
+      "content": "Crea 1 <color=#80FFD7FF>dado Anemo</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#80FFD7FF>Anemo</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331501,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5cb623640ce25ffad3139b700e16742b.png"
+    },
+    {
+      "id": 331502,
+      "name": "Consonancia elemental: Vientos impetuosos",
+      "content": "Cambia al personaje objetivo y crea 1 <color=#FFFFFFFF>omnidado</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#80FFD7FF>Anemo</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331502,
+      "cost_num1": "1",
+      "cost_type1_icon": "17",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/62e6bff59dfed1727f9d6ab5dc17dfc5.png"
+    },
+    {
+      "id": 331601,
+      "name": "Consonancia elemental: Rocas entrelazadas",
+      "content": "Crea 1 <color=#FFE699FF>dado Geo</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#FFE699FF>Geo</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331601,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/68143fb2321cfd0e825507644bddfbd0.png"
+    },
+    {
+      "id": 331602,
+      "name": "Consonancia elemental: Roca resistente",
+      "content": "En esta ronda, si la pr\u00f3xima vez que tu personaje inflija <color=#FFE699FF>Da\u00f1o Geo</color> hay activo un estado en combate que otorgue alg\u00fan <color=#FFFFFFFF>escudo</color>, <color=#FFFFFFFF>escudo</color> +3.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#FFE699FF>Geo</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331602,
+      "cost_num1": "1",
+      "cost_type1_icon": "15",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/030d866b1d04c66dac181f348afe5277.png"
+    },
+    {
+      "id": 331701,
+      "name": "Consonancia elemental: Vegetaci\u00f3n entrelazada",
+      "content": "Crea 1 <color=#99FF88FF>dado Dendro</color>.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#99FF88FF>Dendro</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331701,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e277fb9bd8666758b95a2db4fb460f19.png"
+    },
+    {
+      "id": 331702,
+      "name": "Consonancia elemental: Planta trepadora",
+      "content": "La pr\u00f3xima vez que causes una Reacci\u00f3n Elemental en esta ronda, da\u00f1o infligido +2.\\nAdem\u00e1s, al crear en el campo de batalla <color=#FFFFFFFF>una reacci\u00f3n de llama ardiente, n\u00facleo dendro o campo catal\u00edtico</color>, obtienes 1 <color=#FFFFFFFF>uso</color> adicional.\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 personajes <color=#99FF88FF>Dendro</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 331702,
+      "cost_num1": "1",
+      "cost_type1_icon": "16",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Consonancia elemental"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9451d0edf2f7683db502955bf0083f6a.png"
+    },
+    {
+      "id": 332001,
+      "name": "\u00a1La mejor compa\u00f1era de viaje!",
+      "content": "Gasta 2 dados elementales para convertirlos en 2 <color=#FFFFFFFF>omnidados</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 332001,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efb74ea1ef50b6cc01d254a79c43c662.png"
+    },
+    {
+      "id": 332002,
+      "name": "Relevo",
+      "content": "<color=#FFFFFFFF>La pr\u00f3xima vez que lleves a cabo una acci\u00f3n de cambio personaje</color>, gastas 1 dado elemental menos.",
+      "action_type": "AcEvent",
+      "rank_id": 332002,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3e95232b50289b947ed129e8f19bed28.png"
+    },
+    {
+      "id": 332003,
+      "name": "El universo, jugado a los dados",
+      "content": "Escoge cualquier dado para <color=#FFFFFFFF>relanzarlo</color>. Se puede relanzar un m\u00e1ximo de 2 veces.",
+      "action_type": "AcEvent",
+      "rank_id": 332003,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/33573a4ae35d7ca5ec8c2d449b935069.png"
+    },
+    {
+      "id": 332004,
+      "name": "Planificaci\u00f3n t\u00e1ctica",
+      "content": "Toma 2 cartas.",
+      "action_type": "AcEvent",
+      "rank_id": 332004,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/66f9759e17f89bd51d3a6154bb723b68.png"
+    },
+    {
+      "id": 332005,
+      "name": "\u00a1No o\u00ed la campana!",
+      "content": "Solo se puede jugar si alguno de tus personajes ha sido derrotado en esta ronda .\\nCrea 1 <color=#FFFFFFFF>omnidado</color> y tu personaje en combate actual obtiene <color=#FFFFFFFF>Energ\u00eda</color> +1.",
+      "action_type": "AcEvent",
+      "rank_id": 332005,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/05ae574ceebb8daf03b204ff613b41af.png"
+    },
+    {
+      "id": 332006,
+      "name": "\u00a1D\u00e9jemelo a m\u00ed!",
+      "content": "<color=#FFFFFFFF>La pr\u00f3xima vez que cambies de personaje</color>, dicho cambio se considerar\u00e1 una <color=#FFFFFFFF>acci\u00f3n r\u00e1pida</color> en vez de una <color=#FFFFFFFF>acci\u00f3n de combate</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 332006,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4c8f69645fd9216ba316ce92fcf7e4d5.png"
+    },
+    {
+      "id": 332007,
+      "name": "Retorno de la grulla",
+      "content": "<color=#FFFFFFFF>La pr\u00f3xima vez que uses una habilidad</color>, tu siguiente personaje en reserva entrar\u00e1 en el campo de batalla.",
+      "action_type": "AcEvent",
+      "rank_id": 332007,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8ea589fb6fd78cc97b5da6c939f69abc.png"
+    },
+    {
+      "id": 332008,
+      "name": "Presagio estelar",
+      "content": "Tu personaje en combate actual <color=#FFFFFFFF>obtiene <color=#FFFFFFFF>Energ\u00eda</color> +1</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 332008,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b028594c2715a91c7f82371cc08a060a.png"
+    },
+    {
+      "id": 332009,
+      "name": "T\u00e9cnica de la caliza",
+      "content": "Transfiere 1 pt. de <color=#FFFFFFFF>Energ\u00eda</color> de hasta 2 personajes en reserva a tu personaje en combate.",
+      "action_type": "AcEvent",
+      "rank_id": 332009,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ee9d0ec0a60b374f542ab81f2ee5d667.png"
+    },
+    {
+      "id": 332010,
+      "name": "Maestro de armas",
+      "content": "Transfiere 1 carta de equipamiento de arma equipada en alguno de tus personajes a otro personaje que use un arma del mismo tipo.",
+      "action_type": "AcEvent",
+      "rank_id": 332010,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8ca2cc1382679c0aa8af94aea2184e07.png"
+    },
+    {
+      "id": 332011,
+      "name": "Bendici\u00f3n de la reliquia divina",
+      "content": "Transfiere 1 carta de equipamiento de artefacto equipada en alguno de tus personajes a otro personaje.",
+      "action_type": "AcEvent",
+      "rank_id": 332011,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/972d1798e8f820f6b99a78796583e213.png"
+    },
+    {
+      "id": 332012,
+      "name": "T\u00e9cnica costurera",
+      "content": "Escoge una de tus invocaciones para aumentar en 1 su n\u00famero de <color=#FFFFFFFF>usos</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 332012,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5a6801f382aabbaf758a2d3711aad172.png"
+    },
+    {
+      "id": 332013,
+      "name": "Despedida",
+      "content": "Escoge una invocaci\u00f3n enemiga para destruirla.",
+      "action_type": "AcEvent",
+      "rank_id": 332013,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3063c1a3627af9d64da78b0702c4aa7e.png"
+    },
+    {
+      "id": 332014,
+      "name": "Juramento protector",
+      "content": "Destruye todas las invocaciones, incluyendo las tuyas y las del enemigo.",
+      "action_type": "AcEvent",
+      "rank_id": 332014,
+      "cost_num1": "4",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/20b7c2c4a90218cd6633870321eb4984.png"
+    },
+    {
+      "id": 332015,
+      "name": "Llamado del abismo",
+      "content": "\u00a1Llama 1 <color=#FFFFFFFF>invocaci\u00f3n de Hilichurl aleatoria</color>!\\nSolo puedes a\u00f1adir esta carta al mazo si en \u00e9l hay al menos 2 monstruos.",
+      "action_type": "AcEvent",
+      "rank_id": 332015,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a466ec4208c54c9139b2de6d6903f863.png"
+    },
+    {
+      "id": 333001,
+      "name": "Guoba de Jueyun",
+      "content": "El personaje objetivo inflige da\u00f1o +1 en su pr\u00f3ximo <color=#FFFFFFFF>Ataque Normal</color> en esta ronda.\\nCada personaje solo puede consumir 1 comida por ronda.",
+      "action_type": "AcEvent",
+      "rank_id": 333001,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Comida"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c2414b928eaa3e09abe0d922f72dfc69.png"
+    },
+    {
+      "id": 333002,
+      "name": "Tentaci\u00f3n de Adeptus",
+      "content": "El personaje objetivo inflige da\u00f1o +3 en su pr\u00f3xima <color=#FFFFFFFF>Habilidad Definitiva</color> en esta ronda.\\nCada personaje solo puede consumir 1 comida por ronda.",
+      "action_type": "AcEvent",
+      "rank_id": 333002,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Comida"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/01a88b782c2833e2860913027b24346c.png"
+    },
+    {
+      "id": 333003,
+      "name": "Estrellitas de loto",
+      "content": "El personaje objetivo recibe da\u00f1o -3 la pr\u00f3xima vez que reciba da\u00f1o esta ronda.\\nCada personaje solo puede consumir 1 comida por ronda.",
+      "action_type": "AcEvent",
+      "rank_id": 333003,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Comida"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ebab50237f2b856ea33401a2b06999f7.png"
+    },
+    {
+      "id": 333004,
+      "name": "Pollo ahumado del Norte",
+      "content": "El pr\u00f3ximo <color=#FFFFFFFF>Ataque Normal</color> del personaje objetivo consume 1 <color=#FFFFFFFF>dado indefinido</color> menos.\\nCada personaje solo puede consumir 1 comida por ronda.",
+      "action_type": "AcEvent",
+      "rank_id": 333004,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Comida"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/987a5e903a720cd5ec8024f88bd299df.png"
+    },
+    {
+      "id": 333005,
+      "name": "Pollo asado con miel",
+      "content": "El personaje objetivo obtiene Vida +1.\\nCada personaje solo puede consumir 1 comida por ronda.",
+      "action_type": "AcEvent",
+      "rank_id": 333005,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Comida"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/195564a6365bdfcd05e5858cdcf8f276.png"
+    },
+    {
+      "id": 333006,
+      "name": "Tortilla de papas de Mondstadt",
+      "content": "El personaje objetivo obtiene Vida +2.\\nCada personaje solo puede consumir 1 comida por ronda.",
+      "action_type": "AcEvent",
+      "rank_id": 333006,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Comida"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7bf2632305786051e53fa5d1ed5c373a.png"
+    },
+    {
+      "id": 333007,
+      "name": "Pizza de champi\u00f1ones",
+      "content": "El personaje objetivo obtiene Vida +1. Adem\u00e1s, obtiene Vida +1 adicional en la fase final durante 2 rondas.\\nCada personaje solo puede consumir 1 comida por ronda.",
+      "action_type": "AcEvent",
+      "rank_id": 333007,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Comida"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db557ed89fa84667f8c02c6b3a97a910.png"
+    },
+    {
+      "id": 333008,
+      "name": "Rollitos de carne y menta",
+      "content": "Antes de que termine esta ronda, todos los <color=#FFFFFFFF>Ataques Normales</color> del personaje objetivo consumen 1 <color=#FFFFFFFF>dado indefinido</color> menos.\\nCada personaje solo puede consumir 1 comida por ronda.",
+      "action_type": "AcEvent",
+      "rank_id": 333008,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Comida"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bc693d751427336349b8726589546c26.png"
+    }
+  ]
+}

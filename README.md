@@ -28,7 +28,7 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 - [ ] Add respond method to every character, summon, status
 - [ ] Put all parts together
 
-# Logs
+## Logs
 
 12.9 update: 应该会采用[rlcard](https://github.com/datamllab/rlcard)相近的API接口进行设计，参考[DouZero](https://github.com/kwai/DouZero)，目前正在调研中
 
@@ -37,3 +37,8 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 顺便好奇一下为什么用invokation而不是invocation，求懂哥指点
 
 新建QQ交流群613071650，欢迎感兴趣的同学入群，欢迎成为Contributor！
+
+## Works Cited
+
+[RLCard: A Toolkit for Reinforcement Learning in Card Games](https://github.com/datamllab/rlcard)  
+[DouZero: Mastering DouDizhu with Self-Play Deep Reinforcement Learning](https://github.com/kwai/DouZero)
