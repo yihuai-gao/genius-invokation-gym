@@ -8,9 +8,9 @@ import os
 from gisim.classes.enums import ElementType, Nation, SkillType
 
 from .base import (
+    CHARACTER_SKILL_FACTORIES,
     CHARACTER_SKILLS,
     CharacterCard,
-    CharacterSkill,
     register_character_card,
     register_character_skill,
 )
@@ -57,8 +57,10 @@ _SKILL_COST_MAP = {
 
 def _process_card(config: dict) -> CharacterCard:
     for skill in config["role_skill_infos"]:
-        skill = CharacterSkill(
-            id=int(skill["id"]),
+        skill_id = int(skill["id"])
+
+        skill_instance = CHARACTER_SKILL_FACTORIES[skill_id](
+            id=skill_id,
             name=skill["name"],
             types=[_SKILL_TYPE_MAP[i] for i in skill["type"] if i],
             text=skill["skill_text"],
@@ -70,8 +72,7 @@ def _process_card(config: dict) -> CharacterCard:
             resource=skill["resource"],
         )
 
-        # Do not override existing skills
-        register_character_skill(skill, override=False, silent=True)
+        register_character_skill(skill_instance, override=False)
 
     card = CharacterCard(
         id=int(config["id"]),
@@ -83,7 +84,7 @@ def _process_card(config: dict) -> CharacterCard:
         skills=[CHARACTER_SKILLS[int(i["id"])] for i in config["role_skill_infos"]],
     )
 
-    register_character_card(card, override=False, silent=False)
+    register_character_card(card, override=False)
 
 
 def generate_character_cards_and_skills():
