@@ -1,9 +1,9 @@
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
 from .entity import Entity
 
 
-class StatusEntity(Entity, ABCMeta):
+class StatusEntity(Entity, ABC):
     def __init__(self, name: str, player_id: int, position: int):
         super().__init__()
         assert player_id in [1, 2], "The player_id should be either 1 or 2"

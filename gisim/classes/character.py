@@ -1,20 +1,13 @@
 """Base class of each character: abstract class
 A character in the game should be an instant of the specific character class defined in each file"""
-from abc import ABCMeta, abstractmethod
+from abc import ABC, abstractmethod
 
-from gisim.classes.enums import (
-    ElementType,
-    Nation,
-    PlayerID,
-    Position,
-    SkillType,
-    WeaponType,
-)
+from gisim.classes.enums import *
 
 from .entity import Entity
 
 
-class Character(Entity, ABCMeta):
+class Character(Entity, ABC):
     def __init__(self, name: str, player_id: PlayerID, position: Position):
         super().__init__()
         self.PLAYER_ID = player_id
@@ -61,51 +54,44 @@ class Character(Entity, ABCMeta):
 
     @property
     @abstractmethod
-    def NATIONALITY(self):
+    def NATIONALITY(self) -> Nation:
         """Should be either one of `Mondstadt`, `Liyue`, `Inazuma`, `Sumeru`, `Monster`, `Fatui`, `Hilichurl`
         应当为`蒙德`,`璃月`,`稻妻`,`须弥`,`魔物`,`愚人众`,`丘丘人`中的一个"""
-
-        self.NATIONALITY: Nation
         ...
 
     @property
     @abstractmethod
-    def WEAPON_TYPE(self):
+    def WEAPON_TYPE(self) -> WeaponType:
         """Should be either one of `bow`, `claymore`, `sword`, `polearm`, `catalyst`
         应当为`弓`,`双手剑`,`单手剑`,`长柄武器`,`法器`中的一个"""
-        self.WEAPON_TYPE: WeaponType
         ...
 
     @property
     @abstractmethod
-    def health_point(self):
-        health_point: int
+    def health_point(self) -> int:
         ...
 
     @property
     @abstractmethod
-    def SKILL_NUM(self):
-        self.SKILL_NUM: int
+    def SKILL_NUM(self) -> int:
         ...
 
     @property
     @abstractmethod
-    def skills(self):
-        self.skills: list[Skill]
+    def skills(self) -> list["Skill"]:
         ...
 
     @property
     @abstractmethod
-    def SKILL_NAMES(self):
-        self.SKILL_NAMES: list[str]
+    def SKILL_NAMES(self) -> list[str]:
         ...
 
 
-class Skill(ABCMeta):
-    def __init__(self, name: str, cost: dict[ElementType:int], skill_type: SkillType):
+class Skill(ABC):
+    def __init__(self, name: str, cost: dict[ElementType, int], skill_type: SkillType):
         """
         Args:
-        cost(dict[ET, int]): {ElementType:cost}; `None` if no cost is required (Please do not use empty dictionary!)
+        cost(dict[ElementType, int]): {ElementType:cost}; `None` if no cost is required (Please do not use empty dictionary!)
         skill_type(bool): passive skill which can only be triggered
         """
         self.NAME = name
