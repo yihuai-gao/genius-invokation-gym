@@ -2,8 +2,10 @@
 name = "genius-invokation-gym"
 version = "0.1.0"
 description = "A gym environment for the Genshin Genius Invokation game."
-authors = ["Genius Invokation Gym Contributors"]
+authors = ["Genius Invokation Gym Contributors <any@example.com>"]
 license = "MIT"
+readme = "README.md"
+packages = [{ include = "gisim" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
