@@ -2,10 +2,10 @@
 from mailbox import NotEmptyError
 from global_config import DISPLAY_LANGUAGE
 from classes import Character, Skill, Summon
-
+from enum_classes import *
 class KamisatoAyaka(Character):
     '''神里绫华'''
-    def __init__(self, player_id:int, position:int):
+    def __init__(self, player_id:PlayerID, position:Position):
         if DISPLAY_LANGUAGE == "Chinese":
             super().__init__('神里绫华', player_id, position)
             self.SKILL_NAMES = ['神里流·倾', '神里流·冰华', '神里流·霜灭', '神里流·霰步']
@@ -20,13 +20,13 @@ class KamisatoAyaka(Character):
         self.SKILLS_NUM = 4
         # Init skills
          
-        normal_attack = Skill(name=self.SKILL_NAMES[0], cost={'Cryo':1, 'Arbitrary':2}, skill_type='Normal Attack')
+        normal_attack = Skill(name=self.SKILL_NAMES[0], cost={ET.CRYO:1, ET.UNALIGNED:2}, skill_type=ST.NORMAL_ATTACK)
         
-        elemental_skill = Skill(name=self.SKILL_NAMES[1], cost={'Cryo':3}, skill_type='Elemental Skill')
+        elemental_skill = Skill(name=self.SKILL_NAMES[1], cost={ET.CRYO:3}, skill_type=ST.ELEMENTAL_SKILL)
         
-        elemental_burst = Skill(name=self.SKILL_NAMES[2], cost={'Cryo':3, 'Power': 3}, skill_type='Elemental Burst')
+        elemental_burst = Skill(name=self.SKILL_NAMES[2], cost={ET.CRYO:3, ET.POWRE: 3}, skill_type=ST.ELEMENTAL_BURST)
         
-        passive_skill = Skill(name=self.SKILL_NAMES[3], cost=None, skill_type='Passive Skill')
+        passive_skill = Skill(name=self.SKILL_NAMES[3], cost=None, skill_type=ST.PASSIVE_SKILL)
         
         self.skills = [normal_attack, elemental_skill, elemental_burst, passive_skill]
 

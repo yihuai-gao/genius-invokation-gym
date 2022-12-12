@@ -2,12 +2,10 @@
 A character in the game should be an instant of the specific character class defined in each file'''
 from .entity import Entity
 from abc import ABCMeta, abstractmethod
-
+from enum_classes import *
 class Character(Entity, ABCMeta):
-    def __init__(self, name:str, player_id:int, position:int):
+    def __init__(self, name:str, player_id:PlayerID, position:Position):
         super().__init__()
-        assert player_id in [1, 2], "The player_id should be either 1 or 2"
-        assert position in [0, 1, 2], "The position should be on of 0(left), 1(middle), 2(right)"
         self.PLAYER_ID = player_id
         self.POSITION = position
         self.NAME = name
@@ -50,10 +48,10 @@ class Character(Entity, ABCMeta):
     @property
     @abstractmethod
     def NATIONALITY(self):
-        '''Should be either one of `Mondstadt`, `Liyue`, `Inazuma`, `Sumeru`
-        应当为`蒙德`,`璃月`,`稻妻`,`须弥`中的一个'''
+        '''Should be either one of `Mondstadt`, `Liyue`, `Inazuma`, `Sumeru`, `Monster`, `Fatui`, `Hilichurl`
+        应当为`蒙德`,`璃月`,`稻妻`,`须弥`,`魔物`,`愚人众`,`丘丘人`中的一个'''
 
-        self.NATIONALITY:str
+        self.NATIONALITY:Nation
         ...
         
     @property
@@ -61,7 +59,7 @@ class Character(Entity, ABCMeta):
     def WEAPON_TYPE(self):
         '''Should be either one of `bow`, `claymore`, `sword`, `polearm`, `catalyst`
         应当为`弓`,`双手剑`,`单手剑`,`长柄武器`,`法器`中的一个'''
-        self.WEAPON_TYPE:str
+        self.WEAPON_TYPE:WT
         ...
     
     @property
@@ -88,23 +86,15 @@ class Character(Entity, ABCMeta):
         self.SKILL_NAMES:list[str]
         ...
         
-    @property
-    @abstractmethod
-    def SKILL_NAMES(self):
-        self.SKILL_NAMES:list[str]
-        ...
-        
 
 class Skill(ABCMeta):
-    def __init__(self, name:str, cost:dict, skill_type:str):
+    def __init__(self, name:str, cost:dict[ET:int], skill_type:ST):
         '''
         Args:
-        cost(dict[str, int]): {element dice type(including 'Arbitrary', 'Power'):cost}; None if no cost is required 
-        passive(bool): passive skill which can only be triggered
+        cost(dict[ET, int]): {ElementType:cost}; `None` if no cost is required (Please do not use empty dictionary!)
+        skill_type(bool): passive skill which can only be triggered
         '''
-        skill_types = ['Normal Attack', 'Elemental Skill', 'Elemental Burst', 'Passive Skill']
-        assert skill_type in skill_types, f"Skill should be one of {skill_types}, but got {skill_type}."
-        self.AME = name
+        self.NAME = name
         self.RAW_COST = cost
         self.TYPE = skill_type
         self.current_cost = cost

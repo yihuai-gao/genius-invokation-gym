@@ -3,20 +3,19 @@ Note that player agents does not directly talk to this area, but through the jud
 '''
 
 from collections import OrderedDict
-from .cards.card import Card
-
 from typing import TYPE_CHECKING
+from enum_classes import *
 if TYPE_CHECKING:
     from .game import Game
     from .classes import Character, Summon, Support, StatusEntity
     from numpy.random import RandomState
 
 class PlayerArea:
-    def __init__(self, parent:'Game', random_state:'RandomState', player_id:int, deck:dict):
-        self._deck = Deck(self, random_state, deck['cards'])
+    def __init__(self, parent:'Game', random_state:'RandomState', player_id:'PlayerID', deck:dict):
+        self.deck = Deck(self, random_state, deck['cards'])
+        self.deck.shuffle()
         self._random_state = random_state
         self._parent = parent
-        assert player_id in [0, 1, 2], "player_id should be one of 0 (viewer), 1, 2"
         self.PLAYER_ID = player_id
         self.hand = Hand(self)
         self.element_zone = DiceZone(self, random_state)
@@ -26,9 +25,9 @@ class PlayerArea:
         self.status_zone = StatusZone(self)
         '''For team combat status only. The status entities of the single character belong to the `CharacterStatus` of the `CharacterZone`'''
         
-    def encode(self, viewer_id):
+    def encode(self, viewer_id:PlayerID):
         return OrderedDict({'player_id':self.PLAYER_ID, 
-                'deck':self._deck.encode(viewer_id), 
+                'deck':self.deck.encode(viewer_id), 
                 'hand':self.hand.encode(viewer_id),
                 'element_zone':self.element_zone.encode(viewer_id), 
                 'character_zone':self.character_zone.encode(),
@@ -36,7 +35,6 @@ class PlayerArea:
                 'support_zone':self.support_zone.encode(),
                 'stats_zone':self.status_zone.encode()
                 })
-        
         
         
 class Hand:
@@ -77,9 +75,13 @@ class SupportZone:
         return [support.encode() for support in self.supports]
         
 class DiceZone:
+    
     def __init__(self, parent:'PlayerArea'):
         self._parent = parent
-        self.dice = []
+        self.dice:list[ET] = []
+        
+    def roll_dice(self, dice_num=8):
+        self.dice = 
         
     def encode(self, viewer_id):
         if viewer_id == self._parent.PLAYER_ID or viewer_id == 0:
