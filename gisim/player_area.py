@@ -3,16 +3,20 @@ Note that player agents does not directly talk to this area, but through the jud
 """
 
 from collections import OrderedDict
-from typing import TYPE_CHECKING
 
-from cards import get_card
+from gisim.cards import get_card
+
 from gisim.classes.enums import *
 
+
+from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     from numpy.random import RandomState
-
-    from .classes import Character, StatusEntity, Summon, Support
-    from .game import Game
+    from gisim.classes.status import StatusEntity
+    from gisim.classes.character import Character
+    from gisim.classes.summon import Summon
+    from gisim.classes.support import Support
+    from gisim.game import Game
 
 
 class PlayerArea:
@@ -46,7 +50,7 @@ class PlayerArea:
                 "character_zone": self.character_zone.encode(),
                 "summon_zone": self.summon_zone.encode(),
                 "support_zone": self.support_zone.encode(),
-                "stats_zone": self.status_zone.encode(),
+                "status_zone": self.status_zone.encode(),
             }
         )
 
@@ -54,13 +58,10 @@ class PlayerArea:
 class Hand:
     def __init__(self, parent: "PlayerArea"):
         self._parent = parent
-        self.cards = []
+        self.cards: list[str] = []
 
     def encode(self, viewer_id):
-        if viewer_id == self._parent.PLAYER_ID or viewer_id == 0:
-            return self.cards
-        else:
-            return {"length": len(self.cards)}
+        return {"length": len(self.cards), "items": self.cards if viewer_id == self._parent.PLAYER_ID or viewer_id == 0 else None}
 
 
 class CharacterZone:
@@ -97,16 +98,13 @@ class DiceZone:
     def __init__(self, parent: "PlayerArea", random_state: RandomState):
         self._parent = parent
         self._random_state = random_state
-        self.dice: list[ET] = []
+        self.dice: list[ElementType] = []
 
     def roll_dice(self, dice_num=8):
-        self.dice = [ET(self._random_state.choice(8)) for _ in range(dice_num)]
+        self.dice = [ElementType(self._random_state.choice(8)) for _ in range(dice_num)]
 
     def encode(self, viewer_id):
-        if viewer_id == self._parent.PLAYER_ID or viewer_id == 0:
-            return self.dice
-        else:
-            return {"length": len(self.dice)}
+        return {"length": len(self.dice), "items": self.dice if viewer_id == self._parent.PLAYER_ID or viewer_id == 0 else None}
 
 
 class Deck:
@@ -128,10 +126,7 @@ class Deck:
         return output
 
     def encode(self, viewer_id):
-        if viewer_id == self._parent.PLAYER_ID or viewer_id == 0:
-            return [card for card in self.original_cards if card in self.cards]
-        else:
-            return {"length": len(self.cards)}
+        return {"length": len(self.cards), "items": [card for card in self.original_cards if card in self.cards] if viewer_id == self._parent.PLAYER_ID or viewer_id == 0 else None}
 
 
 class StatusZone:

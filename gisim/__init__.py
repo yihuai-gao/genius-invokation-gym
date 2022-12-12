@@ -1,8 +1,8 @@
 import pkg_resources
-from agent import *
-from game import *
+from agent import Agent
+from game import Game
 from global_config import *
-from judge import *
+from judge import Judge
 
 __author__ = "David Gao"
 __email__ = "davidgao1013@gmail.com"

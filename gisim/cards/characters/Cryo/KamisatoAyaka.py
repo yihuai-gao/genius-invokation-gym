@@ -1,9 +1,11 @@
 """神里绫华"""
 from mailbox import NotEmptyError
 
-from classes import Character, Skill, Summon
-from gisim.classes.enums import *
+from gisim.classes.character import Character, Skill
+from gisim.classes.summon import Summon
 from global_config import DISPLAY_LANGUAGE
+
+from gisim.classes.enums import *
 
 
 class KamisatoAyaka(Character):
@@ -31,22 +33,22 @@ class KamisatoAyaka(Character):
 
         normal_attack = Skill(
             name=self.SKILL_NAMES[0],
-            cost={ET.CRYO: 1, ET.UNALIGNED: 2},
-            skill_type=ST.NORMAL_ATTACK,
+            cost={ElementType.CRYO: 1, ElementType.UNALIGNED: 2},
+            skill_type=SkillType.NORMAL_ATTACK,
         )
 
         elemental_skill = Skill(
-            name=self.SKILL_NAMES[1], cost={ET.CRYO: 3}, skill_type=ST.ELEMENTAL_SKILL
+            name=self.SKILL_NAMES[1], cost={ElementType.CRYO: 3}, skill_type=SkillType.ELEMENTAL_SKILL
         )
 
         elemental_burst = Skill(
             name=self.SKILL_NAMES[2],
-            cost={ET.CRYO: 3, ET.POWRE: 3},
-            skill_type=ST.ELEMENTAL_BURST,
+            cost={ElementType.CRYO: 3, ElementType.POWRE: 3},
+            skill_type=SkillType.ELEMENTAL_BURST,
         )
 
         passive_skill = Skill(
-            name=self.SKILL_NAMES[3], cost=None, skill_type=ST.PASSIVE_SKILL
+            name=self.SKILL_NAMES[3], cost=None, skill_type=SkillType.PASSIVE_SKILL
         )
 
         self.skills = [normal_attack, elemental_skill, elemental_burst, passive_skill]
