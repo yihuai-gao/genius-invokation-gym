@@ -8,9 +8,9 @@ from typing import TYPE_CHECKING
 
 from gisim.classes.enums import *
 from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_SKILLS, CHARACTER_NAME2ID
+from classes.character import CharacterEntity
 if TYPE_CHECKING:
     from numpy.random import RandomState
-    from classes.character import CharacterEntity
     from gisim.classes.status import StatusEntity
     from gisim.classes.summon import Summon
     from gisim.classes.support import Support
