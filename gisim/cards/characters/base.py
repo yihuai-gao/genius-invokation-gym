@@ -100,6 +100,8 @@ class CharacterCard(BaseModel):
     health_point: int = 10
     skills: list[CharacterSkill]
     resource: Optional[str] = None  # 图片链接
+    power:int = 0
+    max_power:int
 
     @validator("element_type")
     def element_type_validator(cls, v):
@@ -107,18 +109,17 @@ class CharacterCard(BaseModel):
             ElementType.POWER,
             ElementType.SAME,
             ElementType.ANY,
+            ElementType.OMNI,
         ], "Element type should only be one of the 7 elements"
 
         return v
 
 
-CHARACTER_CARDS: dict[int:CharacterCard] = {}
-CHARACTER_SKILLS: dict[int:CharacterSkill] = {}
-CHARACTER_SKILL_FACTORIES: dict[int : Type[CharacterSkill]] = defaultdict(
+CHARACTER_CARDS: dict[int, CharacterCard] = {}
+CHARACTER_SKILLS: dict[int, CharacterSkill] = {}
+CHARACTER_SKILL_FACTORIES: dict[int, Type[CharacterSkill]] = defaultdict(
     lambda: CharacterSkill
 )
-
-
 def register_character_card(card: CharacterCard, override: bool = False):
     if override is False and card.id in CHARACTER_CARDS:
         raise ValueError(
