@@ -1,0 +1,6284 @@
+{
+  "role_card_infos": [
+    {
+      "id": 1101,
+      "name": "Ganyu",
+      "element_type": "ETIce",
+      "rank_id": 1101,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Himmlische Schie\u00dfkunst",
+          "id": "11011"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#99FFFFFF>Kryo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Eislotos</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/80d61bdb70eef0d57ca877bb39dbb0d9.png",
+          "name": "Spuren des Qilins",
+          "id": "11012"
+        },
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#99FFFFFF>Kryo-SCH</color>, f\u00fcgt allen inaktiven Figuren des Gegners <color=#FFFFFFFF>2 Pkt. <color=#FFFFFFFF>durchdringenden SCH</color></color> zu.",
+          "skill_costs": [
+            {
+              "cost_num": "5",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Frostbl\u00fctenpfeil",
+          "id": "11013"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#99FFFFFF>Kryo-SCH</color>, f\u00fcgt allen inaktiven Figuren deines Gegners <color=#FFFFFFFF>1 Pkt. <color=#FFFFFFFF>durchdringenden SCH</color></color> zu, erschafft 1 <color=#FFFFFFFF>Eisseelenperle</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fcda5c89f7d783e8bff69719c0d30692.png",
+          "name": "B\u00e4ndigender Niederschlag",
+          "id": "11014"
+        }
+      ],
+      "weapon": "Bogen",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dec5ba575fc5720ec15b8964a826f2b5.png"
+    },
+    {
+      "id": 1102,
+      "name": "Diona",
+      "element_type": "ETIce",
+      "rank_id": 1102,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Schie\u00dfkunst der J\u00e4ger",
+          "id": "11021"
+        },
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#99FFFFFF>Kryo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Pfoten-Schild</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/90c513d6b26cc20a6ce30fb82750f2e7.png",
+          "name": "Eistatzen",
+          "id": "11022"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#99FFFFFF>Kryo-SCH</color>, stellt 2 LP der Figur wieder her, erschafft 1 <color=#FFFFFFFF>K\u00e4ltedunstfeld</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6ab5e0c2e95117950515b23a875006c0.png",
+          "name": "Eisgek\u00fchlter Branntwein",
+          "id": "11023"
+        }
+      ],
+      "weapon": "Bogen",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7c8b166b3254b11d33a5bc1b78fb3034.png"
+    },
+    {
+      "id": 1103,
+      "name": "Kaeya",
+      "element_type": "ETIce",
+      "rank_id": 1103,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "Rituelle Schwertkunst",
+          "id": "11031"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#99FFFFFF>Kryo-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/de0abe0fb5f2904c8695d4207f472cdb.png",
+          "name": "K\u00e4lteatem",
+          "id": "11032"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#99FFFFFF>Kryo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Eiszapfen</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f9e5cb46ba3bf6d4ec2f9e4455dc6238.png",
+          "name": "Kreis aus Eis",
+          "id": "11033"
+        }
+      ],
+      "weapon": "Einh\u00e4nder",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/877beb9d2fa9201737f43b12b68a7c41.png"
+    },
+    {
+      "id": 1104,
+      "name": "Chongyun",
+      "element_type": "ETIce",
+      "rank_id": 1104,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "name": "Ausl\u00f6schung des B\u00f6sen",
+          "id": "11041"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#99FFFFFF>Kryo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Schichtfrost-Feld</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e023be3e82b38b50202ecf4d4fb0fa81.png",
+          "name": "Schichtfrost",
+          "id": "11042"
+        },
+        {
+          "skill_text": "Verursacht 7 Pkt. <color=#99FFFFFF>Kryo-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/153a77400dc95c9b51733d0d0d9a4ac0.png",
+          "name": "Wolken teilender Stern",
+          "id": "11043"
+        }
+      ],
+      "weapon": "Zweih\u00e4nder",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5e61c140b9a2e5bed18c09c8d1115150.png"
+    },
+    {
+      "id": 1105,
+      "name": "Kamisato Ayaka",
+      "element_type": "ETIce",
+      "rank_id": 1105,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "Kamisato-Stil \u2013 Naname",
+          "id": "11051"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#99FFFFFF>Kryo-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7b59308313512c3c7350eb6a92b3ea27.png",
+          "name": "Kamisato-Stil \u2013 Hyouka",
+          "id": "11052"
+        },
+        {
+          "skill_text": "Verursacht 4 Pkt. <color=#99FFFFFF>Kryo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Frostflocke Seki no To</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3668bb20f0b7fb4cfb1fb4162d6fa28f.png",
+          "name": "Kamisato-Stil \u2013 Soumetsu",
+          "id": "11053"
+        },
+        {
+          "skill_text": "Passiv \u2013 Verleiht dieser Figur beim Einwechseln als aktive Figur die <color=#FFFFFFFF>Kryo-Kraft</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Passive F\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/959584488f20484942c1403df073f954.png",
+          "name": "Kamisato-Stil \u2013 Senho",
+          "id": "11054"
+        }
+      ],
+      "weapon": "Einh\u00e4nder",
+      "belong_to": [
+        "Inazuma",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3c864f3a914d0de0a416e25f0234fe89.png"
+    },
+    {
+      "id": 1201,
+      "name": "Barbara",
+      "element_type": "ETWater",
+      "rank_id": 1201,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80C0FFFF>Hydro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Stille Wasser",
+          "id": "12011"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80C0FFFF>Hydro-SCH</color>, erschafft 1 <color=#FFFFFFFF>Singender Kreis</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/63c2345902423b25788f104985348cfd.png",
+          "name": "Die Darbietung beginnt \u266a",
+          "id": "12012"
+        },
+        {
+          "skill_text": "Stellt all deinen Figuren 4 LP wieder her.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8da9eff0a67380b83cb6c3360e509695.png",
+          "name": "Glitzerndes Wunder \u266a",
+          "id": "12013"
+        }
+      ],
+      "weapon": "Katalysator",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9e4098dbdaac941957fb3af0e34bac6e.png"
+    },
+    {
+      "id": 1202,
+      "name": "Xingqiu",
+      "element_type": "ETWater",
+      "rank_id": 1202,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "Guhua-Schwertkunst",
+          "id": "12021"
+        },
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#80C0FFFF>Hydro-SCH</color>, verleiht der Figur das <color=#80C0FFFF>Hydro-Attribut</color>, erschafft 1 <color=#FFFFFFFF>Regenschwert</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5578cdac2dd8187149544e0898ddf1fd.png",
+          "name": "Wolkenbruch",
+          "id": "12022"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80C0FFFF>Hydro-SCH</color>, verleiht der Figur das <color=#80C0FFFF>Hydro-Attribut</color>, erschafft 1 <color=#FFFFFFFF>Regenbogentechnik</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/41d0bb68b4558ff4583b48268b5ecb1b.png",
+          "name": "Regen und Bogen",
+          "id": "12023"
+        }
+      ],
+      "weapon": "Einh\u00e4nder",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4fed2d8054aa757b8081d5cfc8dbc5e5.png"
+    },
+    {
+      "id": 1203,
+      "name": "Mona",
+      "element_type": "ETWater",
+      "rank_id": 1203,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80C0FFFF>Hydro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Unumg\u00e4ngliches Schicksal",
+          "id": "12031"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80C0FFFF>Hydro-SCH</color>, erschafft 1 <color=#FFFFFFFF>Trugbild</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c821ff150eb08b2512e3bfa39c19b20d.png",
+          "name": "Trugbilder im Wasser",
+          "id": "12032"
+        },
+        {
+          "skill_text": "Verursacht 4 Pkt. <color=#80C0FFFF>Hydro-SCH</color>, erschafft 1 <color=#FFFFFFFF>Blasenschatten</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bd9c6c5db4f7cfd3ce555aaa00a4a1dd.png",
+          "name": "Vorbestimmte Laufbahn",
+          "id": "12033"
+        },
+        {
+          "skill_text": "Passiv \u2013 <color=#FFFFFFFF>Beim Wechseln deiner Figuren, wenn aber Mona jetzt die aktive Figur ist:</color> Dieser Wechsel gilt nicht als \u201e<color=#FFFFFFFF>Kampfaktion</color>\u201c, sondern als \u201e<color=#FFFFFFFF>Schnellaktion</color>\u201c (1-mal pro Runde).",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Passive F\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6c924aed33d3b0cbdcd6b280c2b52631.png",
+          "name": "Irref\u00fchrende Str\u00f6mung",
+          "id": "12034"
+        }
+      ],
+      "weapon": "Katalysator",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e6031f667a1da4f83bc75ab5a5e868a0.png"
+    },
+    {
+      "id": 1301,
+      "name": "Diluc",
+      "element_type": "ETFire",
+      "rank_id": 1301,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "name": "Geh\u00e4rteter Stahl",
+          "id": "13011"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#FF9999FF>Pyro-SCH</color>. Schaden +2, wenn diese F\u00e4higkeit zum 3. Mal in 1 Runde angewendet wird.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/31863c524d54277f038d60c77c8a85ef.png",
+          "name": "Sengende Klinge",
+          "id": "13012"
+        },
+        {
+          "skill_text": "Verursacht 8 Pkt. <color=#FF9999FF>Pyro-SCH</color>, verleiht der Figur die <color=#FFFFFFFF>Pyro-Kraft</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/441499b2202e58aa6df0ebbd21bb4f67.png",
+          "name": "D\u00e4mmerung",
+          "id": "13013"
+        }
+      ],
+      "weapon": "Zweih\u00e4nder",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c00f19ba52c4497b81f1654c705240b8.png"
+    },
+    {
+      "id": 1302,
+      "name": "Xiangling",
+      "element_type": "ETFire",
+      "rank_id": 1302,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eff1794fed54da5f9132873f84b6f41c.png",
+          "name": "Geb\u00e4ckgefecht",
+          "id": "13021"
+        },
+        {
+          "skill_text": "Erschafft 1 <color=#FFFFFFFF>Guoba</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5a6d6002064487f449b61a96300a79b8.png",
+          "name": "Guoba, erscheine!",
+          "id": "13022"
+        },
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FF9999FF>Pyro-SCH</color>, erschafft 1 <color=#FFFFFFFF>Feuerrad</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4a5ced0f3db7bd4a0553f837544ecb99.png",
+          "name": "Feuerrad",
+          "id": "13023"
+        }
+      ],
+      "weapon": "Stangenwaffe",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f6f310d5276e6d7656eb5b42913ec8b0.png"
+    },
+    {
+      "id": 1303,
+      "name": "Bennett",
+      "element_type": "ETFire",
+      "rank_id": 1303,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "Gl\u00fccksbringer",
+          "id": "13031"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#FF9999FF>Pyro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3b102a63444d271b250d9b199568bd79.png",
+          "name": "\u00dcberschw\u00e4nglichkeit",
+          "id": "13032"
+        },
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FF9999FF>Pyro-SCH</color>, erschafft 1 <color=#FFFFFFFF>Feld der Aufmunterung</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a0063dea821a2e70e3ad6d8731e65c44.png",
+          "name": "Fantastische Reise",
+          "id": "13033"
+        }
+      ],
+      "weapon": "Einh\u00e4nder",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6d539b8c4ec001cf0e651bf2af3b828d.png"
+    },
+    {
+      "id": 1305,
+      "name": "Yoimiya",
+      "element_type": "ETFire",
+      "rank_id": 1305,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Aufbrausendes Feuerwerk",
+          "id": "13051"
+        },
+        {
+          "skill_text": "Erh\u00e4lt selbst <color=#FFFFFFFF>Niwabi Enshou</color>. (Diese F\u00e4higkeit gew\u00e4hrt keine Aufladung.)",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bd53cae9bde22c0efae9e696adf58b3b.png",
+          "name": "Niwabi-Feuertanz",
+          "id": "13052"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#FF9999FF>Pyro-SCH</color>, erschafft 1 <color=#FFFFFFFF>Ryuukin-Lohe</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a7ce012f5ae1e409862e6b98c3367391.png",
+          "name": "Ryuukin-Steinbrech",
+          "id": "13053"
+        }
+      ],
+      "weapon": "Bogen",
+      "belong_to": [
+        "Inazuma",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/55c408c3b086c396d35a734e0ac61691.png"
+    },
+    {
+      "id": 1401,
+      "name": "Fischl",
+      "element_type": "ETThunder",
+      "rank_id": 1401,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Pfeil der Vergebung",
+          "id": "14011"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#FFACFFFF>Elektro-SCH</color>, erschafft 1 <color=#FFFFFFFF>Oz</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4b4b654a14e8ca726e105af1666f4fc4.png",
+          "name": "Schutz der Dunkelheit",
+          "id": "14012"
+        },
+        {
+          "skill_text": "Verursacht 4 Pkt. <color=#FFACFFFF>Elektro-SCH</color>, f\u00fcgt allen inaktiven Figuren des Gegners 2 Pkt. <color=#FFFFFFFF><color=#FFFFFFFF>durchdringenden SCH</color></color> zu.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51f354b2f813bfc1de68460be40d435.png",
+          "name": "Mitternachtstraum",
+          "id": "14013"
+        }
+      ],
+      "weapon": "Bogen",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b9dbb5a2cf9c0ceb63443f7409d19fe7.png"
+    },
+    {
+      "id": 1402,
+      "name": "Razor",
+      "element_type": "ETThunder",
+      "rank_id": 1402,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "name": "St\u00e4hlernes Kreuz",
+          "id": "14021"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#FFACFFFF>Elektro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efb029187262b0892b0a85a7be3c81c6.png",
+          "name": "Klauen und Donner",
+          "id": "14022"
+        },
+        {
+          "skill_text": "Verursacht 5 Pkt. <color=#FFACFFFF>Elektro-SCH</color>, erh\u00e4lt selbst <color=#FFFFFFFF>Blitzwolf</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/43720b9540661d37f397adddc08f984d.png",
+          "name": "Blitzklauen",
+          "id": "14023"
+        }
+      ],
+      "weapon": "Zweih\u00e4nder",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/00e87c7e7518713e3bc65c12068c598a.png"
+    },
+    {
+      "id": 1403,
+      "name": "Keqing",
+      "element_type": "ETThunder",
+      "rank_id": 1403,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "Schwertkunst aus den Wolken",
+          "id": "14031"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#FFACFFFF>Elektro-SCH</color>, erschafft die Karte <color=#FFFFFFFF>Donnerkeil</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eb94518489d930ab5fa02434b64b206e.png",
+          "name": "R\u00fcckkehr der Sterne",
+          "id": "14032"
+        },
+        {
+          "skill_text": "Verursacht 4 Pkt. <color=#FFACFFFF>Elektro-SCH</color>, f\u00fcgt allen inaktiven Figuren des Gegners <color=#FFFFFFFF>3 Pkt. <color=#FFFFFFFF>durchdringenden SCH</color></color> zu.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4caa9b938cb1e72fa2cf4dca79b51fb8.png",
+          "name": "Himmelswanderung",
+          "id": "14033"
+        }
+      ],
+      "weapon": "Einh\u00e4nder",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f6f3d3d3b183e676f9912dfec572b237.png"
+    },
+    {
+      "id": 1404,
+      "name": "Cyno",
+      "element_type": "ETThunder",
+      "rank_id": 1404,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eff1794fed54da5f9132873f84b6f41c.png",
+          "name": "Speertechnik der Beschw\u00f6rer",
+          "id": "14041"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#FFACFFFF>Elektro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/70d35fde5a93ea9706b5c82e223ed57c.png",
+          "name": "Geheimer Ritus \u2013 Abgr\u00fcndiger Seelenwanderer",
+          "id": "14042"
+        },
+        {
+          "skill_text": "Verursacht 4 Pkt. <color=#FFACFFFF>Elektro-SCH</color>,\\nVerwandlungstufe von <color=#FFFFFFFF>Paktverschworener Pfadkl\u00e4rer</color> +2.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/df77d411c3039ab4c7455f62aa0fe43c.png",
+          "name": "Heiliger Ritus \u2013 Schnelligkeit des Wolfs",
+          "id": "14043"
+        },
+        {
+          "skill_text": "Passiv \u2013 Erh\u00e4lt zu Beginn des Kampfes <color=#FFFFFFFF>Paktverschworener Pfadkl\u00e4rer</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Passive F\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3fee355d6f0090f9079b6a8bd15dd839.png",
+          "name": "Gesetzestreuer Vollstrecker",
+          "id": "14044"
+        }
+      ],
+      "weapon": "Stangenwaffe",
+      "belong_to": [
+        "Sumeru",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1c0359bdc24635a0808ca2046f00793f.png"
+    },
+    {
+      "id": 1501,
+      "name": "Saccharose",
+      "element_type": "ETWind",
+      "rank_id": 1501,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80FFD7FF>Anemo-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Vereinfachte Windseelenschaffung",
+          "id": "15011"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#80FFD7FF>Anemo-SCH</color>, wechselt die vorige Figur deines Gegners zwangsweise zur aktiven Figur.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6c091fa8a5b6e71ad8b876dd1e45e407.png",
+          "name": "Windseelenschaffung \u2013 Experiment 6308",
+          "id": "15012"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80FFD7FF>Anemo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Gro\u00dfe Windseele</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/38cc0d7de9627cf89d3f19c326d2e890.png",
+          "name": "Verbotene Windseelenschaffung \u2013 Isomorpher Typ 75-II",
+          "id": "15013"
+        }
+      ],
+      "weapon": "Katalysator",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0bef56ba7c462ad8c593096ba6e3af81.png"
+    },
+    {
+      "id": 1502,
+      "name": "Jean",
+      "element_type": "ETWind",
+      "rank_id": 1502,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "name": "Favonius-Schwertkunst",
+          "id": "15021"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#80FFD7FF>Anemo-SCH</color>, wechselt die n\u00e4chste Figur deines Gegners zwangsweise zur aktiven Figur.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/906be849304f62b87b34122e050333b8.png",
+          "name": "Luftdruckschwert",
+          "id": "15022"
+        },
+        {
+          "skill_text": "Stellt allen deinen Figuren 2 LP wieder her, erschafft 1 <color=#FFFFFFFF>L\u00f6wenzahnfeld</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dfc823559c0cfa4f6febda9d9ea32d60.png",
+          "name": "L\u00f6wenzahnbrise",
+          "id": "15023"
+        }
+      ],
+      "weapon": "Einh\u00e4nder",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1a51029f206394310232b449839464be.png"
+    },
+    {
+      "id": 1601,
+      "name": "Ningguang",
+      "element_type": "ETRock",
+      "rank_id": 1601,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#FFE699FF>Geo-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Teure Geschosse",
+          "id": "16011"
+        },
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFE699FF>Geo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Jadeschirm</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2bd0da27a460a5cd1b552c13180ecb5e.png",
+          "name": "Jadeschirm",
+          "id": "16012"
+        },
+        {
+          "skill_text": "Verursacht 6 Pkt. <color=#FFE699FF>Geo-SCH</color>; diesmaliger Schaden +2, wenn <color=#FFFFFFFF>Jadeschirm</color> auf dem Feld ist.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e7fcd17292e0f2c5c3aa10434f454f0a.png",
+          "name": "Sternensplitter",
+          "id": "16013"
+        }
+      ],
+      "weapon": "Katalysator",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/be2f95433c64c62c9788b081f8115ec5.png"
+    },
+    {
+      "id": 1602,
+      "name": "Noelle",
+      "element_type": "ETRock",
+      "rank_id": 1602,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "name": "Favonius-Schwertkunst \u2013 Magd",
+          "id": "16021"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#FFE699FF>Geo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Geo-Panzer</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/46096c958f0cce3073cac75e540eec9d.png",
+          "name": "Brustpanzer",
+          "id": "16022"
+        },
+        {
+          "skill_text": "Verursacht 4 Pkt. <color=#FFE699FF>Geo-SCH</color>, erh\u00e4lt selbst <color=#FFFFFFFF>Gro\u00dfreinigung</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2a78695dc2147234a2bb70c6fa13543c.png",
+          "name": "Gro\u00dfreinigung",
+          "id": "16023"
+        }
+      ],
+      "weapon": "Zweih\u00e4nder",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5f52fdb0a80066e8ba65578962fc305e.png"
+    },
+    {
+      "id": 1701,
+      "name": "Collei",
+      "element_type": "ETGrass",
+      "rank_id": 1701,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "name": "Der Anbeterin Schie\u00dfkunst",
+          "id": "17011"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#7EC236FF>Dendro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/31c6bae6d30b2389e9717f5aa00bb617.png",
+          "name": "Der K\u00e4mpferin Laub",
+          "id": "17012"
+        },
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#7EC236FF>Dendro-SCH</color>, erschafft 1 <color=#FFFFFFFF>Cuilein-Anbar</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/aeb8db26f8f3fe637353801bdf1407c7.png",
+          "name": "Geheimer Katzenschatz",
+          "id": "17013"
+        }
+      ],
+      "weapon": "Bogen",
+      "belong_to": [
+        "Sumeru",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efddc4c03c5f0997fbe5ef31ac70a505.png"
+    },
+    {
+      "id": 2201,
+      "name": "Okeanide Rhodeia",
+      "element_type": "ETWater",
+      "rank_id": 2201,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80C0FFFF>Hydro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Anstieg",
+          "id": "22011"
+        },
+        {
+          "skill_text": "Erschafft 1 zuf\u00e4lligen Typ von <color=#FFFFFFFF>Hydro-Phantom</color> (bevorzugt den Typ anders als die bereits existierenden).",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f25ce524e9fb01340a45dcf85c72b6f2.png",
+          "name": "Wasserwandlung",
+          "id": "22012"
+        },
+        {
+          "skill_text": "Erschafft 2 zuf\u00e4llige Typen von <color=#FFFFFFFF>Hydro-Phantom</color> (bevorzugt den Typ anders als die bereits existierenden).",
+          "skill_costs": [
+            {
+              "cost_num": "5",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/62bc1e938e36a78b18a85f7b2f7ed3b0.png",
+          "name": "Myriaden der Wildnis",
+          "id": "22013"
+        },
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#80C0FFFF>Hydro-SCH</color>. Jede eigene Beschw\u00f6rung erh\u00f6ht den diesmaligen Schaden um 2 Pkt.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0f148384285f60cf949d5d9b34f8fa92.png",
+          "name": "Gezeiten und Sintflut",
+          "id": "22014"
+        }
+      ],
+      "weapon": "Andere Waffen",
+      "belong_to": [
+        "Monster",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/90422150d3267bdf9ec9a6535a7b001f.png"
+    },
+    {
+      "id": 2202,
+      "name": "Fatui \u2013 Spiegeljungfrau",
+      "element_type": "ETWater",
+      "rank_id": 2202,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80C0FFFF>Hydro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Wassergeschosse",
+          "id": "22021"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#80C0FFFF>Hydro-SCH</color>, verleiht dem Ziel den Zustand <color=#FFFFFFFF>Wasserspiegelscherben</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/02e8a759adb9dd6f7862f18a638cefcb.png",
+          "name": "Wasserschwapp",
+          "id": "22022"
+        },
+        {
+          "skill_text": "Verursacht 5 Pkt. <color=#80C0FFFF>Hydro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "12"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e968bcf122be55187bd11a6bc3ce8c7f.png",
+          "name": "Spiegelbrechung",
+          "id": "22023"
+        }
+      ],
+      "weapon": "Andere Waffen",
+      "belong_to": [
+        "Fatui",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9ffdee8d345bec9dca1946902df5969a.png"
+    },
+    {
+      "id": 2301,
+      "name": "Fatui \u2013 Pyro-Schuldeneintreiber",
+      "element_type": "ETFire",
+      "rank_id": 2301,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "name": "Dolchsto\u00df",
+          "id": "23011"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#FF9999FF>Pyro-SCH</color>, erh\u00e4lt selbst <color=#FFFFFFFF>Einschleichen</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4b3d7470c2443c3438fcc7e86ff69dcc.png",
+          "name": "Zeitlicher Angriff",
+          "id": "23012"
+        },
+        {
+          "skill_text": "Verursacht 5 Pkt. <color=#FF9999FF>Pyro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f58850c0fa15b11271c164ae7e249785.png",
+          "name": "Flammende Klinge",
+          "id": "23013"
+        },
+        {
+          "skill_text": "Passiv \u2013 Erh\u00e4lt zu Beginn des Kampfes <color=#FFFFFFFF>Einschleichen</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Passive F\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/52db57120e52fb2584a696c34b38aac9.png",
+          "name": "Schleichmeister",
+          "id": "23014"
+        }
+      ],
+      "weapon": "Andere Waffen",
+      "belong_to": [
+        "Fatui",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/95bd6d63973f827cf93db1ca11886b44.png"
+    },
+    {
+      "id": 2501,
+      "name": "Maguu Kenki",
+      "element_type": "ETWind",
+      "rank_id": 2501,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "name": "Ichimonji",
+          "id": "25011"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#80FFD7FF>Anemo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Schwertschatten \u2013 Einsamer Sturm</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/697861409887f41bf4b5c90f2f3815ff.png",
+          "name": "Einsamer Sturm",
+          "id": "25012"
+        },
+        {
+          "skill_text": "Verursacht 1 Pkt. <color=#99FFFFFF>Kryo-SCH</color>, erschafft 1 <color=#FFFFFFFF>Schwertschatten \u2013 Galoppierender Frost</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "11"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/95c0d647c78c6058bfbd352a44fd4911.png",
+          "name": "Frostiger Schatten",
+          "id": "25013"
+        },
+        {
+          "skill_text": "Verursacht 4 Pkt. <color=#80FFD7FF>Anemo-SCH</color>, l\u00f6st den Effekt aller eigenen Beschw\u00f6rungen von <color=#FFFFFFFF>Schwertschatten</color> aus (Kein Verbrauch ihrer Einsatzm\u00f6glichkeiten).",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "17"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/51a851b66792a160e211ff84020d3610.png",
+          "name": "Maschineller Tengu-Feger",
+          "id": "25014"
+        }
+      ],
+      "weapon": "Andere Waffen",
+      "belong_to": [
+        "Monster",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efad8cd6d5bd6907341115e050f69b86.png"
+    },
+    {
+      "id": 2601,
+      "name": "Steinhaut-Lawachurl",
+      "element_type": "ETRock",
+      "rank_id": 2601,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "name": "Plama Lawa",
+          "id": "26011"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dba642d3d9f4dc42820168db15b95de2.png",
+          "name": "Movo Lawa",
+          "id": "26012"
+        },
+        {
+          "skill_text": "Verursacht 5 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "15"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/418ae77cc4622a67d6286b4be44ff910.png",
+          "name": "Upa Shato",
+          "id": "26013"
+        },
+        {
+          "skill_text": "Passiv \u2013 Erh\u00e4lt zu Beginn des Kampfes <color=#FFFFFFFF>Steinhaut</color> und <color=#FFFFFFFF>Kraft des best\u00e4ndigen Gesteins</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Passive F\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/058b86d139526b2518ce20e3badbb4ef.png",
+          "name": "D\u00e4monischer Zustand: Steinhaut",
+          "id": "26014"
+        }
+      ],
+      "weapon": "Andere Waffen",
+      "belong_to": [
+        "Monster",
+        "Hilichurl",
+        ""
+      ],
+      "hp": "8",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/721a409699b498d66b64bdc212a21c74.png"
+    },
+    {
+      "id": 2701,
+      "name": "Gefiederte Pilzbestie",
+      "element_type": "ETGrass",
+      "rank_id": 2701,
+      "role_skill_infos": [
+        {
+          "skill_text": "Verursacht 2 Pkt. <color=#FFFFFFFF>phys. SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Standardangriff",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "name": "Pilzk\u00f6nig-Tanz",
+          "id": "27011"
+        },
+        {
+          "skill_text": "Verursacht 3 Pkt. <color=#7EC236FF>Dendro-SCH</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elementarf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/121e09032218105e54a51cbd1c2ce731.png",
+          "name": "Instabile Sporenwolke",
+          "id": "27012"
+        },
+        {
+          "skill_text": "Verursacht 4 Pkt. <color=#7EC236FF>Dendro-SCH</color>, verbraucht alle Stapelungen von <color=#FFFFFFFF>Aktivierungsstimulus</color>, jede Stapelung erh\u00f6ht den diesmaligen Schaden um 1.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "16"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Spezialf\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f7843567c0056ab7fe1132d9875d2c26.png",
+          "name": "Majest\u00e4tische Schwanzfedern",
+          "id": "27013"
+        },
+        {
+          "skill_text": "Passiv \u2013 Erh\u00e4lt zu Beginn des Kampfes <color=#FFFFFFFF>Aktivierungsstimulus</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Passive F\u00e4higkeit",
+            ""
+          ],
+          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fc3e95c05191996151a572a15b3a99fb.png",
+          "name": "Aktivierungsstimulus",
+          "id": "27014"
+        }
+      ],
+      "weapon": "Andere Waffen",
+      "belong_to": [
+        "Monster",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bd089cefb123e25131de1932395dde26.png"
+    }
+  ],
+  "action_card_infos": [
+    {
+      "id": 211011,
+      "name": "Eintracht",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Ganyu</color>, ist diese Karte anzulegen.\\nLegt Ganyu sie an, wird sofort 1-mal <color=#FFD780FF>Frostbl\u00fctenpfeil</color> angewendet.\\nWendet Ganyu ausger\u00fcstet mit dieser Karte <color=#FFFFFFFF>Frostbl\u00fctenpfeil</color> an: Verursachter <color=#99FFFFFF>Kryo-SCH</color> +1, falls diese F\u00e4higkeit bereits in dem Duell angewendet wurde, und f\u00fcgt nun allen inaktiven Figuren des Gegners 3 Pkt. <color=#FFFFFFFF>durchdringenden SCH</color> zu.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Ganyu enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 211011,
+      "cost_num1": "5",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/47c8e7895ae24c822873f185b6b30384.png"
+    },
+    {
+      "id": 211021,
+      "name": "Eiskalte Pfoten",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Diona</color>, ist diese Karte anzulegen.\\nLegt Diona sie an, wird sofort 1-mal <color=#FFD780FF>Eistatzen</color> angewendet.\\nErschafft Diona ausger\u00fcstet mit dieser Karte 1 <color=#FFFFFFFF>Pfoten-Schild</color>: St\u00e4rke vom erschaffenen <color=#FFFFFFFF>Schild</color> +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Diona enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 211021,
+      "cost_num1": "4",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e1416b5c54b9b65004dc783c8757522f.png"
+    },
+    {
+      "id": 211031,
+      "name": "Grausames Schwert",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Kaeya</color>, ist diese Karte anzulegen.\\nLegt Kaeya sie an, wird sofort 1-mal <color=#FFD780FF>K\u00e4lteatem</color> angewendet.\\nWendet Kaeya ausger\u00fcstet mit dieser Karte <color=#FFFFFFFF>K\u00e4lteatem</color> an: Stellt ihm selbst 2 LP wieder her (1-mal pro Runde).\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Kaeya enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 211031,
+      "cost_num1": "4",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e8c4d2e639de2d80c164ef19a9510f15.png"
+    },
+    {
+      "id": 211041,
+      "name": "Atemtechnik",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Chongyun</color>, ist diese Karte anzulegen.\\nLegt Chongyun sie an, wird sofort 1-mal <color=#FFD780FF>Schichtfrost</color> angewendet.\\nErschafft Chongyun ausger\u00fcstet mit dieser Karte 1 <color=#FFFFFFFF>Schichtfrost-Feld</color>:\\nSeine anf\u00e4ngliche <color=#FFFFFFFF>Dauer (Runden)</color> +1, SCH vom <color=#FFFFFFFF>Standardangriff</color> durch deine Figuren mit Einh\u00e4nder, Zweih\u00e4nder und Stangenwaffe +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Chongyun enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 211041,
+      "cost_num1": "4",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d2f6adf65b19c503957cdfd5197bf6c7.png"
+    },
+    {
+      "id": 211051,
+      "name": "Kanten-Senmyou-Segen",
+      "content": "Erschafft <color=#FFFFFFFF>Kamisato Ayaka</color> ausger\u00fcstet mit dieser Karte die <color=#FFFFFFFF>Kryo-Kraft</color>, <color=#99FFFFFF><color=#99FFFFFF>Kryo-SCH</color></color> durch die davon betroffene Figur +1.\\nBeim Einwechseln von Kamisato Ayaka, die diese Karte angelegt hat: Elementarw\u00fcrfel-Verbrauch -1 (1-mal pro Runde).\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Kamisato Ayaka enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 211051,
+      "cost_num1": "2",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4d6cf66cc2bd1fea199439dc424a131f.png"
+    },
+    {
+      "id": 212011,
+      "name": "Glanzvolle Jahreszeit",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Barbara</color>, ist diese Karte anzulegen.\\nLegt Barbara sie an, wird sofort 1-mal <color=#FFD780FF>Die Darbietung beginnt \u266a</color> angewendet.\\nIst Barbara ausger\u00fcstet mit dieser Karte auf dem Feld, hat ihr <color=#FFFFFFFF>Singender Kreis</color> folgende Wirkung: Dein Elementarw\u00fcrfel-Verbrauch zum Figurenwechsel -1 (1-mal pro Runde).\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Barbara enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 212011,
+      "cost_num1": "4",
+      "cost_type1_icon": "12",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c7ae77e556eb0f61f0980b2732c45c06.png"
+    },
+    {
+      "id": 212021,
+      "name": "Nachgeschmack",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Xingqiu</color>, ist diese Karte anzulegen.\\nLegt Xingqiu sie an, wird sofort 1-mal <color=#FFD780FF>Wolkenbruch</color> angewendet.\\nErschafft Xingqiu ausger\u00fcstet mit dieser Karte 1 <color=#FFFFFFFF>Regenschwert</color>: Seine anf\u00e4ngliche <color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color> +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Xingqiu enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 212021,
+      "cost_num1": "4",
+      "cost_type1_icon": "12",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/72dc8e77ccb94c82b0477fe54b2f3f7b.png"
+    },
+    {
+      "id": 212031,
+      "name": "Prophezeiung des Untergangs",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Mona</color>, ist diese Karte anzulegen.\\nLegt Mona sie an, wird sofort 1-mal <color=#FFD780FF>Vorbestimmte Laufbahn</color> angewendet.\\nIst Mona ausger\u00fcstet mit dieser Karte deine aktive Figur: Erh\u00f6ht den SCH der <color=#80C0FFFF>Hydro-Reaktionen</color> durch deine Figuren zus\u00e4tzlich um 2 Pkt.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Mona enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 212031,
+      "cost_num1": "3",
+      "cost_type1_icon": "12",
+      "cost_num2": "3",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/954255e33d91711e15f70e2a5fc4d471.png"
+    },
+    {
+      "id": 213011,
+      "name": "Flie\u00dfende Flamme",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Diluc</color>, ist diese Karte anzulegen.\\nLegt Diluc sie an, wird sofort 1-mal <color=#FFD780FF>Sengende Klinge</color> angewendet.\\nWendet Diluc ausger\u00fcstet mit dieser Karte in einer Runde zum 2. Mal <color=#FFFFFFFF>Sengende Klinge</color> an: <color=#FF9999FF>Pyro-W\u00fcrfel</color>-Verbrauch -1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Diluc enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 213011,
+      "cost_num1": "3",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b0684cc862916abb8de607a51b30146e.png"
+    },
+    {
+      "id": 213021,
+      "name": "Kreuzfeuer",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Xiangling</color>, ist diese Karte anzulegen.\\nLegt Xiangling sie an, wird sofort 1-mal <color=#FFD780FF>Guoba, erscheine!</color> angewendet.\\nWendet Xiangling ausger\u00fcstet mit dieser Karte <color=#FFFFFFFF>Guoba, erscheine!</color> an: Verursacht sie auch selber 1 Pkt. <color=#FF9999FF>Pyro-SCH</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Xiangling enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 213021,
+      "cost_num1": "4",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d8117eeed0f9d0b6a643edab827a9660.png"
+    },
+    {
+      "id": 213031,
+      "name": "Lust auf Abenteuer",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Bennett</color>, ist diese Karte anzulegen.\\nLegt Bennett sie an, wird sofort 1-mal <color=#FFD780FF>Fantastische Reise</color> angewendet.\\nErschafft Bennett ausger\u00fcstet mit dieser Karte 1 <color=#FFFFFFFF>Feld der Aufmunterung</color>: Sein SCH-Bonus ist nun auf Dauer in Wirkung und frei von der LP-Beschr\u00e4nkung.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Bennett enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 213031,
+      "cost_num1": "4",
+      "cost_type1_icon": "13",
+      "cost_num2": "2",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/38b3de96a59d907de002fc3945eac139.png"
+    },
+    {
+      "id": 213051,
+      "name": "Naganohara-Meteorstrom",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Yoimiya</color>, ist diese Karte anzulegen.\\nLegt Yoimiya sie an, wird sofort 1-mal <color=#FFD780FF>Niwabi-Feuertanz</color> angewendet.\\nNach Ausl\u00f6sen von <color=#FFFFFFFF>Niwabi Enshou</color> verursacht Yoimiya ausger\u00fcstet mit dieser Karte zus\u00e4tzlich 1 Pkt. <color=#FF9999FF>Pyro-SCH</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Yoimiya enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 213051,
+      "cost_num1": "2",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8c94946ce10566dbac8e3b9f8e940bb3.png"
+    },
+    {
+      "id": 214011,
+      "name": "Sterneverschlinger",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Fischl</color>, ist diese Karte anzulegen.\\nLegt Fischl sie an, wird sofort 1-mal <color=#FFD780FF>Schutz der Dunkelheit</color> angewendet.\\nErschafft Fischl ausger\u00fcstet mit dieser Karte 1 <color=#FFFFFFFF>Oz</color>: Verursacht nach <color=#FFFFFFFF>Standardangriffen</color> von Fischl 2 Pkt. <color=#FFACFFFF>Elektro-SCH</color>. (Kostet <color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color>)\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Fischl enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 214011,
+      "cost_num1": "3",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ab875a421d04f1d478710a0d008d7c4a.png"
+    },
+    {
+      "id": 214021,
+      "name": "Erwachen",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Razor</color>, ist diese Karte anzulegen.\\nLegt Razor sie an, wird sofort 1-mal <color=#FFD780FF>Klauen und Donner</color> angewendet.\\nNachdem Razor ausger\u00fcstet mit dieser Karte <color=#FFFFFFFF>Klauen und Donner angewendet hat</color>, erh\u00e4lt 1 deiner Elektro-Figuren 1 Pkt. Aufladung. (Priorit\u00e4t f\u00fcr die aktive Figur)\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Razor enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 214021,
+      "cost_num1": "4",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2c5bc5400e8a57a1112520f18ad7321b.png"
+    },
+    {
+      "id": 214031,
+      "name": "Donnernde Strafe",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Keqing</color>, ist diese Karte anzulegen.\\nLegt Keqing sie an, wird sofort 1-mal <color=#FFD780FF>R\u00fcckkehr der Sterne</color> angewendet.\\nErschafft Keqing ausger\u00fcstet mit dieser Karte 1 <color=#FFFFFFFF>Elektro-Kraft</color>:\\nSeine anf\u00e4ngliche <color=#FFFFFFFF>Dauer (Runden)</color> +1, <color=#FFACFFFF>Elektro-SCH</color> durch die davon betroffene Figur +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Keqingenth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 214031,
+      "cost_num1": "3",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/52c1de49129738f61d8e0eff7ec47cff.png"
+    },
+    {
+      "id": 214041,
+      "name": "Urteil der Federn",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Cyno</color>, ist diese Karte anzulegen.\\nLegt Cyno sie an, wird sofort 1-mal <color=#FFD780FF>Geheimer Ritus \u2013 Abgr\u00fcndiger Seelenwanderer</color> angewendet.\\nWendet Cyno ausger\u00fcstet mit dieser Karte bei der Verwandlungsstufe 3 oder 5 von <color=#FFFFFFFF>Paktverschworener Pfadkl\u00e4rer</color> <color=#FFFFFFFF>Geheimer Ritus \u2013 Abgr\u00fcndiger Seelenwanderer</color> an: Erh\u00f6ht den verursachten SCH zus\u00e4tzlich um 1 Pkt.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Cyno enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 214041,
+      "cost_num1": "3",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9236fbf043df960137c91ab99340e312.png"
+    },
+    {
+      "id": 215011,
+      "name": "Chaotische Entropie",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Saccharose</color>, ist diese Karte anzulegen.\\nLegt Saccharose sie an, wird sofort 1-mal <color=#FFD780FF>Verbotene Windseelenschaffung \u2013 Isomorpher Typ 75-II</color> angewendet.\\nErschafft Saccharose ausger\u00fcstet mit dieser Karte 1 <color=#FFFFFFFF>Gro\u00dfe Windseele</color>, die bereits zu einem anderen Element umgewandelt wurde: Entsprechender Elementar-SCH durch deine Figuren +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Saccharose enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 215011,
+      "cost_num1": "3",
+      "cost_type1_icon": "17",
+      "cost_num2": "2",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a5aac435470025e43269160f96bc7c9e.png"
+    },
+    {
+      "id": 215021,
+      "name": "Reich des L\u00f6wenzahns",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Jean</color>, ist diese Karte anzulegen.\\nLegt Jean sie an, wird sofort 1-mal <color=#FFD780FF>L\u00f6wenzahnbrise</color> angewendet.\\nIst Jean ausger\u00fcstet mit dieser Karte auf dem Feld, hat ihr <color=#FFFFFFFF>L\u00f6wenzahnfeld</color> folgende Wirkung: <color=#80FFD7FF><color=#80FFD7FF>Anemo-SCH</color></color> durch deine Figuren +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Jean enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 215021,
+      "cost_num1": "4",
+      "cost_type1_icon": "17",
+      "cost_num2": "3",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ed539a5fe7e48519126c935b0c0140c4.png"
+    },
+    {
+      "id": 216011,
+      "name": "R\u00fccklagen f\u00fcr alle F\u00e4lle",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Ningguang</color>, ist diese Karte anzulegen.\\nLegt Ningguang sie an, wird sofort 1-mal <color=#FFD780FF>Jadeschirm</color> angewendet.\\nIst Ningguang ausger\u00fcstet mit dieser Karte auf dem Feld, hat ihr <color=#FFFFFFFF>Jadeschirm</color> folgende Wirkung: <color=#FFE699FF><color=#FFE699FF>Geo-SCH</color></color> durch deine Figuren +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Ningguang enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 216011,
+      "cost_num1": "4",
+      "cost_type1_icon": "15",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a5ecda6e325efb344e7e077352cbe834.png"
+    },
+    {
+      "id": 216021,
+      "name": "F\u00fcrsorgliche Unterst\u00fctzung",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Noelle</color>, ist diese Karte anzulegen.\\nLegt Noelle sie an, wird sofort 1-mal <color=#FFD780FF>Brustpanzer</color> angewendet.\\nErschafft Noelle ausger\u00fcstet mit dieser Karte 1 <color=#FFFFFFFF>Geo-Panzer</color>, wird nach Noelles <color=#FFFFFFFF>Standardangriff</color> all deinen Figuren 1 LP wiederhergestellt (1-mal pro Runde).\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Noelle enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 216021,
+      "cost_num1": "3",
+      "cost_type1_icon": "15",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9d7e1c7e174103ef69610f30a4eef269.png"
+    },
+    {
+      "id": 217011,
+      "name": "Wiederkehr des fliegenden Laubs",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Collei</color>, ist diese Karte anzulegen.\\nLegt Collei sie an, wird sofort 1-mal <color=#FFD780FF>Der K\u00e4mpferin Laub</color> angewendet.\\nNachdem Collei ausger\u00fcstet mit dieser Karte <color=#FFFFFFFF>Der K\u00e4mpferin Laub</color> angewendet hat und F\u00e4higkeiten deiner Figuren in derselben Runde <color=#7EC236FF>Dendro-Reaktionen</color> ausgel\u00f6st haben: Verursacht 1 Pkt. <color=#7EC236FF>Dendro-SCH</color> (1-mal pro Runde).\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Collei enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 217011,
+      "cost_num1": "3",
+      "cost_type1_icon": "16",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a388c8bdf22b02b1bb1d2e2fbc94cb2b.png"
+    },
+    {
+      "id": 222011,
+      "name": "Ungebremste Str\u00f6me",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Okeanide Rhodeia</color>, ist diese Karte anzulegen.\\nLegt Okeanide Rhodeia sie an, wird sofort 1-mal <color=#FFD780FF>Gezeiten und Sintflut</color> angewendet.\\nWendet Okeanide Rhodeia ausger\u00fcstet mit dieser Karte <color=#FFFFFFFF>Gezeiten und Sintflut</color> an: <color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color> aller deiner Beschw\u00f6rungen +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Okeanide Rhodeia enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 222011,
+      "cost_num1": "4",
+      "cost_type1_icon": "12",
+      "cost_num2": "3",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/580a01c97ddb6f0a7c13b4979811a076.png"
+    },
+    {
+      "id": 222021,
+      "name": "Spiegelk\u00e4fig",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Fatui \u2013 Spiegeljungfrau</color>, ist diese Karte anzulegen.\\nLegt Fatui \u2013 Spiegeljungfrau sie an, wird sofort 1-mal <color=#FFD780FF>Wasserschwapp</color> angewendet.\\nErschafft Fatui \u2013 Spiegeljungfrau ausger\u00fcstet mit dieser Karte <color=#FFFFFFFF>Wasserspiegelscherben</color>:\\nIhre anf\u00e4ngliche <color=#FFFFFFFF>Dauer (Runden)</color> +1. Wechselt die davon betroffene Figur zu einer anderen, Elementarw\u00fcrfel-Verbrauch +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Fatui \u2013 Spiegeljungfrau enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 222021,
+      "cost_num1": "4",
+      "cost_type1_icon": "12",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/70bdb94530bd142767e4e27e555e4eed.png"
+    },
+    {
+      "id": 223011,
+      "name": "Komplett beglichen",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Fatui \u2013 Pyro-Schuldeneintreiber</color>, ist diese Karte anzulegen.\\nLegt Fatui \u2013 Pyro-Schuldeneintreiber sie an, wird sofort 1-mal <color=#FFD780FF>Zeitlicher Angriff</color> angewendet.\\nErschafft Fatui \u2013 Pyro-Schuldeneintreiber ausger\u00fcstet mit dieser Karte <color=#FFFFFFFF>Einschleichen</color>:\\nSeine <color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color> +1. <color=#FFFFFFFF>Phys. SCH</color> durch die davon betroffene Figur wird nun <color=#FF9999FF>Pyro-SCH</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Fatui \u2013 Pyro-Schuldeneintreiber enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 223011,
+      "cost_num1": "3",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/79de5814ae7ce1faafd337cc6aacbf07.png"
+    },
+    {
+      "id": 225011,
+      "name": "Maschinelle Geschicklichkeit",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Maguu Kenki</color>, ist diese Karte anzulegen.\\nLegt Maguu Kenki sie an, wird sofort 1-mal <color=#FFD780FF>Einsamer Sturm</color> angewendet.\\nHat Maguu Kenki ausger\u00fcstet mit dieser Karte <color=#FFFFFFFF>Einsamer Sturm</color> angewendet, wechselt deine n\u00e4chste Figur zur aktiven Figur; hat er stattdessen <color=#FFFFFFFF>Frostiger Schatten</color> angewendet, wechselt deine vorige Figur zur aktiven Figur.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Maguu Kenki enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 225011,
+      "cost_num1": "3",
+      "cost_type1_icon": "17",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fa52163556a9b026ab8eb53cb7b9045c.png"
+    },
+    {
+      "id": 226011,
+      "name": "Erneut geh\u00e4rtet: Steinhaut",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Steinhaut-Lawachurl</color>, ist diese Karte anzulegen.\\nLegt Steinhaut-Lawachurl sie an, wird sofort 1-mal <color=#FFD780FF>Upa Shato</color> angewendet.\\nSchaltet Steinhaut-Lawachurl ausger\u00fcstet mit dieser Karte 1 gegnerische Figur aus, wird ihm erneut <color=#FFFFFFFF>Steinhaut</color> und <color=#FFFFFFFF>Kraft des best\u00e4ndigen Gesteins</color> verliehen.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Steinhaut-Lawachurl enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 226011,
+      "cost_num1": "4",
+      "cost_type1_icon": "15",
+      "cost_num2": "2",
+      "cost_type2_icon": "1",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a8101906389983db75c167dac16dec21.png"
+    },
+    {
+      "id": 227011,
+      "name": "Sporenvermehrung",
+      "content": "<color=#FFFFFFFF>Kampfaktion</color>: Ist deine aktive Figur <color=#FFFFFFFF>Gefiederte Pilzbestie</color>, ist diese Karte anzulegen.\\nLegt Gefiederte Pilzbestie sie an, wird sofort 1-mal <color=#FFD780FF>Instabile Sporenwolke</color> angewendet.\\nH\u00f6chstmenge der Aktivierungsstimulus-Stapelungen f\u00fcr Gefiederte Pilzbestie ausger\u00fcstet mit dieser Karte +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das Gefiederte Pilzbestie enth\u00e4lt.)",
+      "action_type": "AcEquip",
+      "rank_id": 227011,
+      "cost_num1": "3",
+      "cost_type1_icon": "16",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Kampfaktion"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7681527ff3e18426f275347b2d4817b2.png"
+    },
+    {
+      "id": 311101,
+      "name": "Magief\u00fchrer",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\n(Nur f\u00fcr <color=#FFFFFFFF>Katalysatornutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311101,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "202",
+          "text": "Katalysator"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a85e24e19d8d895f5cf51ddab9212c87.png"
+    },
+    {
+      "id": 311102,
+      "name": "Opferrituale",
+      "content": "<color=#FFFFFFFF>Schaden durch die Figur +1</color>.\\n<color=#FFFFFFFF>Nach Anwenden der Elementarf\u00e4higkeit durch die Figur:</color> Erschafft 1 W\u00fcrfel von dem Element dieser Figur (1-mal pro Runde).\\n(Nur f\u00fcr <color=#FFFFFFFF>Katalysatornutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311102,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "202",
+          "text": "Katalysator"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d1c5794631a2e19c1aa985d102f546e5.png"
+    },
+    {
+      "id": 311103,
+      "name": "Himmelsatlas",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\n<color=#FFFFFFFF>1-mal pro Runde:</color> Erh\u00f6ht den Standardangriff-SCH dieser Figur zus\u00e4tzlich um 1 Pkt.\\n(Nur f\u00fcr <color=#FFFFFFFF>Katalysatornutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311103,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "202",
+          "text": "Katalysator"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6ec96e78504a0fb3292721d480cbed42.png"
+    },
+    {
+      "id": 311201,
+      "name": "Rabenbogen",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\n(Nur f\u00fcr <color=#FFFFFFFF>Bogennutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311201,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "204",
+          "text": "Bogen"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0939061540227e749fdcb03bdd3770cf.png"
+    },
+    {
+      "id": 311202,
+      "name": "Opferbogen",
+      "content": "<color=#FFFFFFFF>Schaden durch die Figur +1</color>.\\n<color=#FFFFFFFF>Nach Anwenden der Elementarf\u00e4higkeit durch die Figur:</color> Erschafft 1 W\u00fcrfel von dem Element dieser Figur (1-mal pro Runde).\\n(Nur f\u00fcr <color=#FFFFFFFF>Bogennutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311202,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "204",
+          "text": "Bogen"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/98a95d057ec93e97e0e90c3a2e9985c3.png"
+    },
+    {
+      "id": 311203,
+      "name": "Himmelsfl\u00fcgel",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\n<color=#FFFFFFFF>1-mal pro Runde:</color> Erh\u00f6ht den Standardangriff-SCH dieser Figur zus\u00e4tzlich um 1 Pkt.\\n(Nur f\u00fcr <color=#FFFFFFFF>Bogennutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311203,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "204",
+          "text": "Bogen"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eb1c1b8d7bb8df363633b272f366b794.png"
+    },
+    {
+      "id": 311301,
+      "name": "Wei\u00dfes Eisengro\u00dfschwert",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\n(Nur f\u00fcr <color=#FFFFFFFF>Zweih\u00e4ndernutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311301,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "203",
+          "text": "Zweih\u00e4nder"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bf3c1abdc800510f40f1819ff5365c3c.png"
+    },
+    {
+      "id": 311302,
+      "name": "Opfergro\u00dfschwert",
+      "content": "<color=#FFFFFFFF>Schaden durch die Figur +1</color>.\\n<color=#FFFFFFFF>Nach Anwenden der Elementarf\u00e4higkeit durch die Figur:</color> Erschafft 1 W\u00fcrfel von dem Element dieser Figur (1-mal pro Runde).\\n(Nur f\u00fcr <color=#FFFFFFFF>Zweih\u00e4ndernutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311302,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "203",
+          "text": "Zweih\u00e4nder"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8a879e5d756a07a0cde3ba42311f9790.png"
+    },
+    {
+      "id": 311303,
+      "name": "Wolfsgrab",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\nSind die LP des Ziels nicht mehr als 6 Pkt.: Erh\u00f6ht den SCH zus\u00e4tzlich um 2 Pkt.\\n(Nur f\u00fcr <color=#FFFFFFFF>Zweih\u00e4ndernutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311303,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "203",
+          "text": "Zweih\u00e4nder"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9fc2fb800874212c3cce32b28ee6de5f.png"
+    },
+    {
+      "id": 311401,
+      "name": "Wei\u00dfe Quaste",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\n(Nur f\u00fcr <color=#FFFFFFFF>Stangenwaffennutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311401,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "205",
+          "text": "Stangenwaffe"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6f37ed4fbb3f495f94396f2ba51cc292.png"
+    },
+    {
+      "id": 311402,
+      "name": "Millelithenlanze",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\nBeim Ausspielen: Verleiht der damit ausger\u00fcsteten Figur f\u00fcr jede Figur aus Liyue in der Truppe <color=#FFFFFFFF>1 Pkt. <color=#FFFFFFFF>Schild</color></color> (max. 3 Pkt.).\\n(Nur f\u00fcr <color=#FFFFFFFF>Stangenwaffennutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311402,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "205",
+          "text": "Stangenwaffe"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a00bc7daebd6a3fbb05981e7c4fde8e7.png"
+    },
+    {
+      "id": 311403,
+      "name": "Himmelsgrat",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\n<color=#FFFFFFFF>1-mal pro Runde:</color> Erh\u00f6ht den Standardangriffe-SCH dieser Figur zus\u00e4tzlich um 1 Pkt.\\n(Nur f\u00fcr <color=#FFFFFFFF>Stangenwaffennutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311403,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "205",
+          "text": "Stangenwaffe"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/65849e70884e45188e0658abf44caa7f.png"
+    },
+    {
+      "id": 311501,
+      "name": "Reiseschwert",
+      "content": "<color=#FFFFFFFF>SCH durch die Figur +1</color>.\\n(Nur f\u00fcr <color=#FFFFFFFF>Einh\u00e4ndernutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311501,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "201",
+          "text": "Einh\u00e4nder"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9dbbcddd4d69ae1683ba8b62ae50bb6a.png"
+    },
+    {
+      "id": 311502,
+      "name": "Opferschwert",
+      "content": "<color=#FFFFFFFF>Schaden durch die Figur +1</color>.\\n<color=#FFFFFFFF>Nach Anwenden der Elementarf\u00e4higkeit durch die Figur:</color> Erschafft 1 W\u00fcrfel von dem Element dieser Figur (1-mal pro Runde).\\n(Nur f\u00fcr <color=#FFFFFFFF>Einh\u00e4ndernutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311502,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "201",
+          "text": "Einh\u00e4nder"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bc60d80dfa83f779b01845ec46ad636e.png"
+    },
+    {
+      "id": 311503,
+      "name": "Windfalke",
+      "content": "<color=#FFFFFFFF>Schaden durch die Figur +1</color>.\\n<color=#FFFFFFFF>Nach Anwenden der F\u00e4higkeit durch gegnerische Figuren:</color> Stellt der damit ausger\u00fcsteten Figur 1 LP wieder her (max. 2-mal pro Runde).\\n(Nur f\u00fcr <color=#FFFFFFFF>Einh\u00e4ndernutzer</color> anlegbar, und zwar max. 1 Waffe.)",
+      "action_type": "AcEquip",
+      "rank_id": 311503,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "3",
+          "text": "Waffe"
+        },
+        {
+          "id": "201",
+          "text": "Einh\u00e4nder"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dbecaf6c9c38016aa04dc1ad090de10a.png"
+    },
+    {
+      "id": 312001,
+      "name": "Kopftuch eines Abenteurers",
+      "content": "<color=#FFFFFFFF>Nach Anwenden von Standardangriffen durch die Figur:</color> Stellt selbst 1 LP wieder her (max. 3-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312001,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/537d9c9398945da9a85bc5d3bfd7c00a.png"
+    },
+    {
+      "id": 312002,
+      "name": "Silberner Gl\u00fcckshaarreif",
+      "content": "<color=#FFFFFFFF>Nach Anwenden von Elementarf\u00e4higkeiten durch die Figur:</color> Stellt selbst 2 LP wieder her (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312002,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4ecb7e631b9faa929d538dfdcba97892.png"
+    },
+    {
+      "id": 312003,
+      "name": "Wanderarzttuch",
+      "content": "<color=#FFFFFFFF>Nach Anwenden von Spezialf\u00e4higkeiten durch die Figur:</color> Stellt allen deiner Figuren 1 LP wieder her (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312003,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/34da5173304f9d8162cf29792a29c314.png"
+    },
+    {
+      "id": 312004,
+      "name": "Gl\u00fccksspiel-Ohrringe",
+      "content": "<color=#FFFFFFFF>Wird eine gegnerische Figur ausgeschaltet:</color> Erschafft 2 <color=#FFFFFFFF>Omni-W\u00fcrfel</color>.\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312004,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5375d721bee781f8a1c7189134631bde.png"
+    },
+    {
+      "id": 312005,
+      "name": "Ausbilderhut",
+      "content": "<color=#FFFFFFFF>Nach Ausl\u00f6sen von Elementarreaktionen durch die Figur:</color> Erschafft 1 W\u00fcrfel von dem Element dieser Figur (max. 3-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312005,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db71657f341ea66c63cce583306697e0.png"
+    },
+    {
+      "id": 312006,
+      "name": "Haarreif des Verbannten",
+      "content": "<color=#FFFFFFFF>Nach Anwenden von Spezialf\u00e4higkeiten durch die Figur:</color> Verleiht all deinen inaktiven Figuren 1 Pkt. <color=#FFFFFFFF>Aufladung</color> (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312006,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/07f949af51f955188f7a76868afec4d2.png"
+    },
+    {
+      "id": 312101,
+      "name": "Echo des Eisbrechers",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#99FFFFFF>Kryo-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312101,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0a87ecadbc664295b0a6d8887a0245e4.png"
+    },
+    {
+      "id": 312102,
+      "name": "Im Schnee irrender Recke",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#99FFFFFF>Kryo-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n<color=#FFFFFFFF>W\u00fcrfelphase:</color> 2 <color=#99FFFFFF>Kryo-W\u00fcrfel</color> im 1. W\u00fcrfelergebnis garantiert.\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312102,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4ac494b7dabb571ba3175c97e133efca.png"
+    },
+    {
+      "id": 312201,
+      "name": "Weinverschmierte Kapit\u00e4nsm\u00fctze",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#80C0FFFF>Hydro-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312201,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d330bf2e825d0611adbd31165a2988a3.png"
+    },
+    {
+      "id": 312202,
+      "name": "Tief im Herzen",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#80C0FFFF>Hydro-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n<color=#FFFFFFFF>W\u00fcrfelphase:</color> 2 <color=#80C0FFFF>Hydro-W\u00fcrfel</color> im 1. W\u00fcrfelergebnis garantiert.\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312202,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/94f5da40c8f4dabec67094c9ba33f398.png"
+    },
+    {
+      "id": 312301,
+      "name": "Brennender Hexenhut",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#FF9999FF>Pyro-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312301,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/414e93b5089718722e2c754c328017cb.png"
+    },
+    {
+      "id": 312302,
+      "name": "Brennende Pyro-Hexe",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#FF9999FF>Pyro-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n<color=#FFFFFFFF>W\u00fcrfelphase:</color> 2 <color=#FF9999FF>Pyro-W\u00fcrfel</color> im 1. W\u00fcrfelergebnis garantiert.\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312302,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/072a95811cce4b7cde82b7125f948153.png"
+    },
+    {
+      "id": 312401,
+      "name": "Donnerkrone",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#FFACFFFF>Elektro-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312401,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/aa14c1d68f06aee6e56af6c5561d5c62.png"
+    },
+    {
+      "id": 312402,
+      "name": "Donnernder Zorn",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#FFACFFFF>Elektro-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n<color=#FFFFFFFF>W\u00fcrfelphase:</color> 2 <color=#FFACFFFF>Elektro-W\u00fcrfel</color> im 1. W\u00fcrfelergebnis garantiert.\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312402,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d0a4bac703c65e7cc7760e251e6bfcb.png"
+    },
+    {
+      "id": 312501,
+      "name": "Feldj\u00e4gerhut",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#80FFD7FF>Anemo-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312501,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/17b36e554ad3b25234313228f7cf0697.png"
+    },
+    {
+      "id": 312502,
+      "name": "Gr\u00fcnlicher Schatten",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#80FFD7FF>Anemo-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n<color=#FFFFFFFF>W\u00fcrfelphase:</color> 2 <color=#80FFD7FF>Anemo-W\u00fcrfel</color> im 1. W\u00fcrfelergebnis garantiert.\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312502,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/74f346d6221d9c06b40677177706dcd8.png"
+    },
+    {
+      "id": 312601,
+      "name": "Maske des starren Gesteins",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#FFE699FF>Geo-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312601,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/cee410a612a0951dff5f7998ee221742.png"
+    },
+    {
+      "id": 312602,
+      "name": "Archaischer Fels",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#FFE699FF>Geo-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n<color=#FFFFFFFF>W\u00fcrfelphase:</color> 2 <color=#FFE699FF>Geo-W\u00fcrfel</color> im 1. W\u00fcrfelergebnis garantiert.\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312602,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f3b570dda5890b6660abc11f8091ade0.png"
+    },
+    {
+      "id": 312701,
+      "name": "Unsch\u00e4tzbarer Lorbeerkranz",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#99FF88FF>Dendro-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312701,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db4f9b3efc9976dbfc872086b8d88cbc.png"
+    },
+    {
+      "id": 312702,
+      "name": "Erinnerungen des tiefen Waldes",
+      "content": "<color=#FFFFFFFF>Beim Anwenden der F\u00e4higkeiten oder Anlegen vom \u201eTalent\u201c durch die Figur:</color> <color=#99FF88FF>Dendro-W\u00fcrfel</color>-Verbrauch -1 (1-mal pro Runde).\\n<color=#FFFFFFFF>W\u00fcrfelphase:</color> 2 <color=#99FF88FF>Dendro-W\u00fcrfel</color> im 1. W\u00fcrfelergebnis garantiert.\\n(Jede Figur kann max. 1 Artefakt anlegen.)",
+      "action_type": "AcEquip",
+      "rank_id": 312702,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "4",
+          "text": "Artefakt"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/84842576ae51a40f7447ff943ef5e1ca.png"
+    },
+    {
+      "id": 321001,
+      "name": "Hafen von Liyue",
+      "content": "<color=#FFFFFFFF>Endphase:</color> 2 Karten ziehen.\\n<color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color>: 2",
+      "action_type": "AcSupport",
+      "rank_id": 321001,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Spielfeld"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b845964f3adbb8985b3185de51121e6a.png"
+    },
+    {
+      "id": 321002,
+      "name": "Ordensbibliothek",
+      "content": "<color=#FFFFFFFF>Beim Ausspielen:</color> Eine beliebige Anzahl von Elementarw\u00fcrfeln erneut werfen.\\n<color=#FFFFFFFF>W\u00fcrfelphase:</color> M\u00f6glichkeit zum erneuten Wurf +1.",
+      "action_type": "AcSupport",
+      "rank_id": 321002,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Spielfeld"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/38c552f8de603be63d73fd2b79091206.png"
+    },
+    {
+      "id": 321003,
+      "name": "Jadegemach",
+      "content": "<color=#FFFFFFFF>W\u00fcrfelphase:</color> Garantiert 2 W\u00fcrfel vom Element deiner aktiven Figur im 1. W\u00fcrfelergebnis.",
+      "action_type": "AcSupport",
+      "rank_id": 321003,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Spielfeld"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3e19d5c01bf6d0d9ef6e6282be5fc440.png"
+    },
+    {
+      "id": 321004,
+      "name": "Weingut Morgenr\u00f6te",
+      "content": "<color=#FFFFFFFF>Beim Wechseln deiner Figuren:</color> Elementarw\u00fcrfel-Verbrauch -1 (1-mal pro Runde).",
+      "action_type": "AcSupport",
+      "rank_id": 321004,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Spielfeld"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7867c76111398c7f6345c5429778eee1.png"
+    },
+    {
+      "id": 321005,
+      "name": "Gasthaus Wangshu",
+      "content": "<color=#FFFFFFFF>Endphase:</color> Stellt deiner inaktiven Figur, die den meisten SCH erlitten hat, 2 LP wieder her.\\n<color=#FFFFFFFF><color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color>: 2</color>",
+      "action_type": "AcSupport",
+      "rank_id": 321005,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Spielfeld"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7f3bc4a66a1f9972d6b1f02bcfe425da.png"
+    },
+    {
+      "id": 321006,
+      "name": "Favonius-Kathedrale",
+      "content": "<color=#FFFFFFFF>Endphase:</color> Stellt deiner aktiven Figur 2 LP wieder her.\\n<color=#FFFFFFFF><color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color>: 2</color>",
+      "action_type": "AcSupport",
+      "rank_id": 321006,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "104",
+          "text": "Spielfeld"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b44c09e722a0c411553a070eca10a159.png"
+    },
+    {
+      "id": 322001,
+      "name": "Paimon",
+      "content": "<color=#FFFFFFFF>Zu Beginn der Zugphase:</color> Erschafft 2 <color=#FFFFFFFF>Omni-W\u00fcrfel</color>.\\n<color=#FFFFFFFF><color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color>: 2</color>",
+      "action_type": "AcSupport",
+      "rank_id": 322001,
+      "cost_num1": "3",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db7d26573b704b6505679e4f8d74eb07.png"
+    },
+    {
+      "id": 322002,
+      "name": "Katheryne",
+      "content": "<color=#FFFFFFFF>Beim Wechseln deiner Figuren:</color> Dieser Wechsel gilt nicht als \u201e<color=#FFFFFFFF>Kampfaktion</color>\u201c, sondern als \u201e<color=#FFFFFFFF>Schnellaktion</color>\u201c (1-mal pro Runde).",
+      "action_type": "AcSupport",
+      "rank_id": 322002,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fb7562041775d44f9b874a657d71c238.png"
+    },
+    {
+      "id": 322003,
+      "name": "Timaeus",
+      "content": "Bringt, sobald er das Feld betritt, 2 Materialien.\\n<color=#FFFFFFFF>Endphase:</color> Erzeugt 1 Material.\\n<color=#FFFFFFFF>Beim Ausspielen von \u201eArtefakt\u201c-Ausr\u00fcstungskarte:</color> Verbraucht, wenn m\u00f6glich, Materialien in H\u00f6he der Gesamtkosten zum Anlegen von diesem Artefakt, ohne dabei Elementarw\u00fcrfel zu kosten (1-mal pro Runde).",
+      "action_type": "AcSupport",
+      "rank_id": 322003,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/992692db4e9bcf92b0571e73313b6714.png"
+    },
+    {
+      "id": 322004,
+      "name": "Wagner",
+      "content": "Bringt, sobald er das Feld betritt, 2 unbearbeitete Waffen.\\n<color=#FFFFFFFF>Endphase:</color> Erzeugt 1 unbearbeitete Waffe.\\n<color=#FFFFFFFF>Beim Ausspielen von \u201eWaffe\u201c-Ausr\u00fcstungskarte:</color> Verbraucht, wenn m\u00f6glich, unbearbeitete Waffen in H\u00f6he der Gesamtkosten zum Anlegen dieser Waffe, ohne dir dabei Elementarw\u00fcrfel zu kosten (1-mal pro Runde).",
+      "action_type": "AcSupport",
+      "rank_id": 322004,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3fd5f4a8a3e92f7254e832e119728e96.png"
+    },
+    {
+      "id": 322005,
+      "name": "Koch Mao",
+      "content": "<color=#FFFFFFFF>Nach Ausspielen einer \u201eGericht\u201c-Ereigniskarte:</color> Erschafft 1 W\u00fcrfel eines zuf\u00e4lligen Elements (1-mal pro Runde).",
+      "action_type": "AcSupport",
+      "rank_id": 322005,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/af07ead58a533d3a60868c713c27fca4.png"
+    },
+    {
+      "id": 322006,
+      "name": "Knolle",
+      "content": "<color=#FFFFFFFF>Beim Ausspielen einer \u201eSpielfeld\u201c-Unterst\u00fctzungskarte: </color>Elementarw\u00fcrfel-Verbrauch -2 (1-mal pro Runde).",
+      "action_type": "AcSupport",
+      "rank_id": 322006,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0c1afc4b96fda2d052a09ca364da79e3.png"
+    },
+    {
+      "id": 322007,
+      "name": "Timmie",
+      "content": "<color=#FFFFFFFF>Wirkt automatisch 1-mal pro Runde:</color> Sammelt <color=#FFFFFFFF>1 Taube</color>.\\nWenn bereits <color=#FFFFFFFF>3 Tauben</color> gesammelt, wird diese Karte abgeworfen: Zieht 1 Karte, erschafft 1 <color=#FFFFFFFF>Omni-W\u00fcrfel</color>.",
+      "action_type": "AcSupport",
+      "rank_id": 322007,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/94dbfc0531ac4e258940a9c6e0950a28.png"
+    },
+    {
+      "id": 322008,
+      "name": "Liben",
+      "content": "<color=#FFFFFFFF>Endphase:</color> Sammelt deine unverbrauchten Elementarw\u00fcrfel auf (max. 1 von jeder Art).\\n<color=#FFFFFFFF>Zu Beginn der Zugphase:</color> Wenn bereits 3 Elementarw\u00fcrfel aufgesammelt, zieht 2 Karten, erschafft 2 <color=#FFFFFFFF>Omni-W\u00fcrfel</color>, danach wird diese Karte abgeworfen.",
+      "action_type": "AcSupport",
+      "rank_id": 322008,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9ea108ce4cc9b11ad65573ad2d507196.png"
+    },
+    {
+      "id": 322009,
+      "name": "Chang IX.",
+      "content": "<color=#FFFFFFFF>Nach Anwenden der F\u00e4higkeiten einer Figur auf dem Spielfeld:</color> Sammelt beim Verursachen des <color=#FFFFFFFF>phys. SCH</color> und <color=#FFFFFFFF>durchdringenden SCH</color> oder Ausl\u00f6sen von <color=#FFFFFFFF>Elementarreaktionen</color> <color=#FFFFFFFF>1 Einfall</color>.\\nWenn <color=#FFFFFFFF>3 Einf\u00e4lle</color> gesammelt, wird diese Karte abgeworfen: Zieht 2 Karten.",
+      "action_type": "AcSupport",
+      "rank_id": 322009,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/92b3cf38a18c2314dbec4c46a629ba42.png"
+    },
+    {
+      "id": 322010,
+      "name": "Ellin",
+      "content": "<color=#FFFFFFFF>Wendet deine Figur eine in dieser Runde bereits angewendete F\u00e4higkeit an:</color> Elementarw\u00fcrfel-Verbrauch -1 (1-mal pro Runde).",
+      "action_type": "AcSupport",
+      "rank_id": 322010,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/18200092294453a833bbeefb64ba511e.png"
+    },
+    {
+      "id": 322011,
+      "name": "Tian mit der eisernen Zunge",
+      "content": "<color=#FFFFFFFF>Endphase:</color> Eine deiner Figuren, deren Spezialf\u00e4higkeit noch nicht voll aufgeladen ist, erh\u00e4lt 1 Pkt. <color=#FFFFFFFF>Aufladung</color>. (Priorit\u00e4t f\u00fcr die aktive Figur)\\n<color=#FFFFFFFF><color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color>: 2</color>",
+      "action_type": "AcSupport",
+      "rank_id": 322011,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2fd219ef9d68a9d15a1ba5965233ffdc.png"
+    },
+    {
+      "id": 322012,
+      "name": "Liu Su",
+      "content": "<color=#FFFFFFFF>Nach Wechseln deiner Figuren:</color> Wechselt zu einer deiner Figuren ohne <color=#FFFFFFFF>Aufladung</color>, erh\u00e4lt diese Figur 1 Pkt. <color=#FFFFFFFF>Aufladung</color> (1-mal pro Runde).\\n<color=#FFFFFFFF><color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color>: 2</color>",
+      "action_type": "AcSupport",
+      "rank_id": 322012,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "103",
+          "text": "Gef\u00e4hrte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/260f8abb74f2760962aefc8ea932f143.png"
+    },
+    {
+      "id": 323001,
+      "name": "Parameterwandler",
+      "content": "<color=#FFFFFFFF>Nach Anwenden der F\u00e4higkeiten einer Figur auf dem Spielfeld:</color> Hat sie Elementar-SCH verursacht, sammelt 1 <color=#FFFFFFFF>Wandlungsfortschritt</color>.\\nWenn 3 <color=#FFFFFFFF>Wandlungsfortschritte</color> gesammelt, wird diese Karte abgeworfen: Erschafft dabei 3 W\u00fcrfel verschiedener Elemente.",
+      "action_type": "AcSupport",
+      "rank_id": 323001,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "102",
+          "text": "Objekte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/07ab70e19810c449f0b5d99e09081861.png"
+    },
+    {
+      "id": 323002,
+      "name": "Praktischer Nahrungsbeutel",
+      "content": "<color=#FFFFFFFF>Beim Ausspielen:</color> Zieht 1 zuf\u00e4llige \u201eGericht\u201c-Ereigniskarte aus dem Deck.\\n<color=#FFFFFFFF>Beim Ausspielen einer deiner \u201eGericht\u201c-Ereigniskarten:</color> Zieht 1 zuf\u00e4llige \u201eGericht\u201c-Ereigniskarte aus dem Deck (max. 1-mal pro Runde).",
+      "action_type": "AcSupport",
+      "rank_id": 323002,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "102",
+          "text": "Objekte"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a70e9287dde09182a722b812f4714766.png"
+    },
+    {
+      "id": 331101,
+      "name": "Elementarer Einklang \u2013 Geb\u00fcndeltes Eis",
+      "content": "Erschafft 1 <color=#99FFFFFF>Kryo-W\u00fcrfel</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#99FFFFFF>Kryo</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331101,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e3ab100c8ca4d73035f9895b53d50993.png"
+    },
+    {
+      "id": 331102,
+      "name": "Elementarer Einklang \u2013 Zerspringendes Eis",
+      "content": "N\u00e4chster Schaden durch deine aktuelle aktive Figur in dieser Runde +2.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#99FFFFFF>Kryo</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331102,
+      "cost_num1": "1",
+      "cost_type1_icon": "11",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/52779dcfcc6ba6a05b10d3ef133863f4.png"
+    },
+    {
+      "id": 331201,
+      "name": "Elementarer Einklang \u2013 Geb\u00fcndeltes Wasser",
+      "content": "Erschafft 1 <color=#80C0FFFF>Hydro-W\u00fcrfel</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#80C0FFFF>Hydro</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331201,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/77defc79598f6bccce1bb572cc2bb2bc.png"
+    },
+    {
+      "id": 331202,
+      "name": "Elementarer Einklang \u2013 Heilendes Wasser",
+      "content": "Stellt deiner aktiven Figur 2 LP wieder her und dann all deinen inaktiven Figuren 1 LP wieder her.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#80C0FFFF>Hydro</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331202,
+      "cost_num1": "1",
+      "cost_type1_icon": "12",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/901d5c47b4ad3b43fa0532d2211003bf.png"
+    },
+    {
+      "id": 331301,
+      "name": "Elementarer Einklang \u2013 Geb\u00fcndeltes Feuer",
+      "content": "Erschafft 1 <color=#FF9999FF>Pyro-W\u00fcrfel</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#FF9999FF>Pyro</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331301,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ac8ad60bf5dd362cbc8463f0313b7ac2.png"
+    },
+    {
+      "id": 331302,
+      "name": "Elementarer Einklang \u2013 Aufrichtiges Feuer",
+      "content": "Das n\u00e4chste Mal in dieser Runde, wenn deine aktuelle aktive Figur eine der <color=#FF9999FF>Pyro-Reaktionen</color> ausl\u00f6st: Verursachter Schaden +3.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#FF9999FF>Pyro</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331302,
+      "cost_num1": "1",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/cd9cf0223ca3f3f701a7cc0872aba1b8.png"
+    },
+    {
+      "id": 331401,
+      "name": "Elementarer Einklang \u2013 Geb\u00fcndelter Blitz",
+      "content": "Erschafft 1 <color=#FFACFFFF>Elektro-W\u00fcrfel</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#FFACFFFF>Elektro</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331401,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9c459bb91099364db76d6341a28d711a.png"
+    },
+    {
+      "id": 331402,
+      "name": "Elementarer Einklang \u2013 Energiereicher Blitz",
+      "content": "Eine deiner Figuren, deren Spezialf\u00e4higkeit noch nicht voll aufgeladen ist, erh\u00e4lt 1 Pkt. <color=#FFFFFFFF>Aufladung</color>. (Priorit\u00e4t f\u00fcr die aktive Figur)\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#FFACFFFF>Elektro</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331402,
+      "cost_num1": "1",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5704ca82488fdcf936a92fbe43dab3a7.png"
+    },
+    {
+      "id": 331501,
+      "name": "Elementarer Einklang \u2013 Geb\u00fcndelter Wind",
+      "content": "Erschafft 1 <color=#80FFD7FF>Anemo-W\u00fcrfel</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#80FFD7FF>Anemo</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331501,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5cb623640ce25ffad3139b700e16742b.png"
+    },
+    {
+      "id": 331502,
+      "name": "Elementarer Einklang \u2013 Ungest\u00fcmer Wind",
+      "content": "Wechselt zur gew\u00e4hlten Figur, erschafft 1 <color=#FFFFFFFF>Omni-W\u00fcrfel</color>\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#80FFD7FF>Anemo</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331502,
+      "cost_num1": "1",
+      "cost_type1_icon": "17",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/62e6bff59dfed1727f9d6ab5dc17dfc5.png"
+    },
+    {
+      "id": 331601,
+      "name": "Elementarer Einklang \u2013 Geb\u00fcndeltes Gestein",
+      "content": "Erschafft 1 <color=#FFE699FF>Geo-W\u00fcrfel</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#FFE699FF>Geo</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331601,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/68143fb2321cfd0e825507644bddfbd0.png"
+    },
+    {
+      "id": 331602,
+      "name": "Elementarer Einklang \u2013 Best\u00e4ndiges Gestein",
+      "content": "Das n\u00e4chste Mal in dieser Runde, wenn eine deiner Figuren <color=#FFE699FF>Geo-SCH</color> verursacht hat: Verleiht 1 bestehenden Kampfstatus \u201e<color=#FFFFFFFF>Schild</color>\u201c deiner Seite zus\u00e4tzlich 3 Pkt. <color=#FFFFFFFF>Schild</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#FFE699FF>Geo</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331602,
+      "cost_num1": "1",
+      "cost_type1_icon": "15",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/030d866b1d04c66dac181f348afe5277.png"
+    },
+    {
+      "id": 331701,
+      "name": "Elementarer Einklang \u2013 Geb\u00fcndeltes Gras",
+      "content": "Erschafft 1 <color=#99FF88FF>Dendro-W\u00fcrfel</color>.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#99FF88FF>Dendro</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331701,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e277fb9bd8666758b95a2db4fb460f19.png"
+    },
+    {
+      "id": 331702,
+      "name": "Elementarer Einklang \u2013 \u00dcberwucherndes Gras",
+      "content": "Das n\u00e4chste Mal in dieser Runde, wenn deine Figuren Elementarreaktionen ausl\u00f6sen: Verursachter SCH +2.\\n<color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color> von <color=#FFFFFFFF>Loderndes Feuer, Dendro-Kern und Wildwuchsfeld</color> je +1.\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 <color=#99FF88FF>Dendro</color>-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 331702,
+      "cost_num1": "1",
+      "cost_type1_icon": "16",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "105",
+          "text": "Elementarer Einklang"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9451d0edf2f7683db502955bf0083f6a.png"
+    },
+    {
+      "id": 332001,
+      "name": "Allerbeste Reisegef\u00e4hrtin!",
+      "content": "Verbraucht 2 Elementarw\u00fcrfel, damit sie 2 <color=#FFFFFFFF>Omni-W\u00fcrfel</color> werden.",
+      "action_type": "AcEvent",
+      "rank_id": 332001,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efb74ea1ef50b6cc01d254a79c43c662.png"
+    },
+    {
+      "id": 332002,
+      "name": "Schichtwechsel",
+      "content": "<color=#FFFFFFFF>Beim n\u00e4chsten Wechsel deiner Figuren:</color> Elementarw\u00fcrfel-Verbrauch -1.",
+      "action_type": "AcEvent",
+      "rank_id": 332002,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3e95232b50289b947ed129e8f19bed28.png"
+    },
+    {
+      "id": 332003,
+      "name": "Umwerfendes W\u00fcrfeln",
+      "content": "Eine beliebige Anzahl von Elementarw\u00fcrfeln <color=#FFFFFFFF>erneut werfen</color> (max. 2-mal).",
+      "action_type": "AcEvent",
+      "rank_id": 332003,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/33573a4ae35d7ca5ec8c2d449b935069.png"
+    },
+    {
+      "id": 332004,
+      "name": "Gewinnstrategie",
+      "content": "2 Karten ziehen.",
+      "action_type": "AcEvent",
+      "rank_id": 332004,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/66f9759e17f89bd51d3a6154bb723b68.png"
+    },
+    {
+      "id": 332005,
+      "name": "Noch nicht verloren!",
+      "content": "Wird eine deiner Figuren in dieser Runde ausgeschaltet, ist diese Karte auszuspielen:\\nErschafft 1 <color=#FFFFFFFF>Omni-W\u00fcrfel</color>, deine aktuelle Figur erh\u00e4lt 1 Pkt. <color=#FFFFFFFF>Aufladung</color>.",
+      "action_type": "AcEvent",
+      "rank_id": 332005,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/05ae574ceebb8daf03b204ff613b41af.png"
+    },
+    {
+      "id": 332006,
+      "name": "\u00dcberlass das mir!",
+      "content": "<color=#FFFFFFFF>Beim n\u00e4chsten Wechsel deiner Figuren:</color> Dieser Wechsel gilt nicht als \u201e<color=#FFFFFFFF>Kampfaktion</color>\u201c, sondern als \u201e<color=#FFFFFFFF>Schnellaktion</color>\u201c.",
+      "action_type": "AcEvent",
+      "rank_id": 332006,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4c8f69645fd9216ba316ce92fcf7e4d5.png"
+    },
+    {
+      "id": 332007,
+      "name": "Heimkehr des Kranichs",
+      "content": "<color=#FFFFFFFF>Das n\u00e4chste Mal, wenn du eine F\u00e4higkeit angewendet hast:</color> Wechselt danach deine n\u00e4chste inaktive Figur zur aktiven.",
+      "action_type": "AcEvent",
+      "rank_id": 332007,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8ea589fb6fd78cc97b5da6c939f69abc.png"
+    },
+    {
+      "id": 332008,
+      "name": "Gestirn-Vorzeichen",
+      "content": "Deine aktuelle aktive Figur <color=#FFFFFFFF>erh\u00e4lt 1 Pkt. <color=#FFFFFFFF>Aufladung</color></color>.",
+      "action_type": "AcEvent",
+      "rank_id": 332008,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b028594c2715a91c7f82371cc08a060a.png"
+    },
+    {
+      "id": 332009,
+      "name": "Calx-Technik",
+      "content": "\u00dcbertr\u00e4gt jeweils 1 Pkt. <color=#FFFFFFFF>Aufladung</color> von h\u00f6chstens 2 deiner inaktiven Figuren zu deiner aktiven Figur.",
+      "action_type": "AcEvent",
+      "rank_id": 332009,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ee9d0ec0a60b374f542ab81f2ee5d667.png"
+    },
+    {
+      "id": 332010,
+      "name": "Ausgekl\u00fcgelte Bewaffnung",
+      "content": "Verlegt 1 \u201eWaffe\u201c-Ausr\u00fcstungskarte von einer deiner Figuren zu einer deiner anderen Figuren, die denselben Waffentyp verwendet.",
+      "action_type": "AcEvent",
+      "rank_id": 332010,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8ca2cc1382679c0aa8af94aea2184e07.png"
+    },
+    {
+      "id": 332011,
+      "name": "Segensspruch zur Schatzwanderung",
+      "content": "Verlegt 1 \u201eArtefakt\u201c-Ausr\u00fcstungskarte von einer deiner Figuren zu einer deiner anderen Figuren.",
+      "action_type": "AcEvent",
+      "rank_id": 332011,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/972d1798e8f820f6b99a78796583e213.png"
+    },
+    {
+      "id": 332012,
+      "name": "Flink, flick, Fleck",
+      "content": "<color=#FFFFFFFF>Einsatzm\u00f6glichkeit</color> deiner gew\u00e4hlten Beschw\u00f6rung +1.",
+      "action_type": "AcEvent",
+      "rank_id": 332012,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5a6801f382aabbaf758a2d3711aad172.png"
+    },
+    {
+      "id": 332013,
+      "name": "Lebe wohl!",
+      "content": "Schaltet die gew\u00e4hlte Beschw\u00f6rung deines Gegners aus.",
+      "action_type": "AcEvent",
+      "rank_id": 332013,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3063c1a3627af9d64da78b0702c4aa7e.png"
+    },
+    {
+      "id": 332014,
+      "name": "Eid des Schutzes",
+      "content": "Schaltet alle Beschw\u00f6rungen aus. (Auch deine!)",
+      "action_type": "AcEvent",
+      "rank_id": 332014,
+      "cost_num1": "4",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/20b7c2c4a90218cd6633870321eb4984.png"
+    },
+    {
+      "id": 332015,
+      "name": "Ruf des Abgrunds",
+      "content": "Erschafft 1 <color=#FFFFFFFF>zuf\u00e4llige Hilichurl-Beschw\u00f6rung</color>!\\n(Diese Karte kann nur einem Deck hinzugef\u00fcgt werden, das mind. 2 Monster-Figuren enth\u00e4lt.)",
+      "action_type": "AcEvent",
+      "rank_id": 332015,
+      "cost_num1": "2",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a466ec4208c54c9139b2de6d6903f863.png"
+    },
+    {
+      "id": 333001,
+      "name": "Jueyun-Schinkenreis",
+      "content": "SCH mit dem n\u00e4chsten <color=#FFFFFFFF>Standardangriff</color> durch die gew\u00e4hlte Figur in dieser Runde +1.\\n(Jede Figur kann max. 1-mal pro Runde Gericht essen.)",
+      "action_type": "AcEvent",
+      "rank_id": 333001,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Gericht"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c2414b928eaa3e09abe0d922f72dfc69.png"
+    },
+    {
+      "id": 333002,
+      "name": "Versuchung der Adepten",
+      "content": "SCH mit der n\u00e4chsten <color=#FFFFFFFF>Spezialf\u00e4higkeit</color> durch die gew\u00e4hlte Figur in dieser Runde +3.\\n(Jede Figur kann max. 1-mal pro Runde Gericht essen.)",
+      "action_type": "AcEvent",
+      "rank_id": 333002,
+      "cost_num1": "2",
+      "cost_type1_icon": "10",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Gericht"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/01a88b782c2833e2860913027b24346c.png"
+    },
+    {
+      "id": 333003,
+      "name": "Knusperlotos",
+      "content": "N\u00e4chster SCH an der gew\u00e4hlten Figur in dieser Runde -3.\\n(Jede Figur kann max. 1-mal pro Runde Gericht essen.)",
+      "action_type": "AcEvent",
+      "rank_id": 333003,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Gericht"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ebab50237f2b856ea33401a2b06999f7.png"
+    },
+    {
+      "id": 333004,
+      "name": "R\u00e4uchergefl\u00fcgel nach Art des Nordens",
+      "content": "<color=#FFFFFFFF>W\u00fcrfel (beliebig)</color>-Verbrauch f\u00fcr den n\u00e4chsten <color=#FFFFFFFF>Standardangriff</color> durch die gew\u00e4hlte Figur in dieser Runde -1.\\n(Jede Figur kann max. 1-mal pro Runde Gericht essen.)",
+      "action_type": "AcEvent",
+      "rank_id": 333004,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Gericht"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/987a5e903a720cd5ec8024f88bd299df.png"
+    },
+    {
+      "id": 333005,
+      "name": "S\u00fc\u00df mariniertes H\u00fchnchen",
+      "content": "Stellt der gew\u00e4hlten Figur 1 LP wieder her.\\n(Jede Figur kann max. 1-mal pro Runde Gericht essen.)",
+      "action_type": "AcEvent",
+      "rank_id": 333005,
+      "cost_num1": "",
+      "cost_type1_icon": "",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Gericht"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/195564a6365bdfcd05e5858cdcf8f276.png"
+    },
+    {
+      "id": 333006,
+      "name": "Kartoffelpuffer nach Mondstadt-Art",
+      "content": "Stellt der gew\u00e4hlten Figur 2 LP wieder her.\\n(Jede Figur kann max. 1-mal pro Runde Gericht essen.)",
+      "action_type": "AcEvent",
+      "rank_id": 333006,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Gericht"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7bf2632305786051e53fa5d1ed5c373a.png"
+    },
+    {
+      "id": 333007,
+      "name": "Pilzza",
+      "content": "Stellt der gew\u00e4hlten Figur 1 LP wieder her. 1 Pkt. zus\u00e4tzliche Heilung in Endphasen der n\u00e4chsten 2 Runden.\\n(Jede Figur kann max. 1-mal pro Runde Gericht essen.)",
+      "action_type": "AcEvent",
+      "rank_id": 333007,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Gericht"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db557ed89fa84667f8c02c6b3a97a910.png"
+    },
+    {
+      "id": 333008,
+      "name": "Minzr\u00f6llchen",
+      "content": "<color=#FFFFFFFF>W\u00fcrfel (beliebig)</color>-Verbrauch f\u00fcr alle <color=#FFFFFFFF>Standardangriffe</color> durch die gew\u00e4hlte Figur vor Ende dieser Runde -1.\\n(Jede Figur kann max. 1-mal pro Runde Gericht essen.)",
+      "action_type": "AcEvent",
+      "rank_id": 333008,
+      "cost_num1": "1",
+      "cost_type1_icon": "3",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "101",
+          "text": "Gericht"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bc693d751427336349b8726589546c26.png"
+    }
+  ]
+}
