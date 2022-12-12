@@ -22,7 +22,7 @@ class CharacterEntity(Entity):
         """普通攻击元素附魔"""
         self.elemental_attachment = ElementType.NONE
         """角色元素附着"""
-        
+
         # Initialize Character from its card template
         self.id = CHARACTER_NAME2ID[name]
         self.character_card = CHARACTER_CARDS[self.id].copy()
@@ -39,11 +39,19 @@ class CharacterEntity(Entity):
         self.health_point = self.character_card.health_point
         self.power = self.character_card.power
         self.max_power = self.character_card.max_power
-        
+
     def encode(self):
-        properties = ['name', 'active', 'alive', 'elemental_infusion', 'elemental_attachment', 'health_point', 'power', 'max_power']
-        return {key:getattr(self, key) for key in properties}
-        
+        properties = [
+            "name",
+            "active",
+            "alive",
+            "elemental_infusion",
+            "elemental_attachment",
+            "health_point",
+            "power",
+            "max_power",
+        ]
+        return {key: getattr(self, key) for key in properties}
 
     def get_raw_skill(self, id=None, skill_name=None, skill_type=None):
         """Get the character's skill through either id (0, 1, 2, ...), name (str), or skill_type
@@ -64,7 +72,6 @@ class CharacterEntity(Entity):
                 ), f"Skill {skill_name} does not exist in {self.name}'s skill set"
         else:
             assert skill_type is not None, "Should provide either skill id or its name"
-
 
 
 class Skill(ABC):

@@ -100,9 +100,9 @@ class CharacterCard(BaseModel):
     health_point: int = 10
     skills: list[CharacterSkill]
     resource: Optional[str] = None  # 图片链接
-    power:int = 0
-    max_power:int
-    weapon_type:WeaponType
+    power: int = 0
+    max_power: int
+    weapon_type: WeaponType
 
     @validator("element_type")
     def element_type_validator(cls, v):
@@ -122,6 +122,7 @@ CHARACTER_SKILL_FACTORIES: dict[int, Type[CharacterSkill]] = defaultdict(
     lambda: CharacterSkill
 )
 CHARACTER_NAME2ID: dict[str, int] = {}
+
 
 def register_character_card(card: CharacterCard, override: bool = False):
     if override is False and card.id in CHARACTER_CARDS:

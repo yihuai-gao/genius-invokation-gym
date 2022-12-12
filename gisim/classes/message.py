@@ -1,109 +1,140 @@
-'''Message classes for communication and calculation
-'''
+"""Message classes for communication and calculation
+"""
 
 from abc import ABC, abstractmethod
+
 from .entity import Entity
 from .enums import PlayerID
 
+
 class Message(Entity, ABC):
-    '''Abstract base class of different kinds of messages'''
-    
-    def __init__(self, sender_id:PlayerID, priority:int):
+    """Abstract base class of different kinds of messages"""
+
+    def __init__(self, sender_id: PlayerID, priority: int):
         self.sender_id = sender_id
         self.priority = priority
-        
+
     @abstractmethod
     def encode(self):
         ...
 
+
 # Game status related
 # A lot of entities will be responded by these messages
 
+
 class RoundStartMsg(Message):
     """Send from Judge"""
+
     pass
+
 
 class RoundEndMsg(Message):
     """Send from Judge"""
+
     pass
 
 
 # Player action related.
-# After player agent submits an `Action`, `game.judge` will first check its validity 
+# After player agent submits an `Action`, `game.judge` will first check its validity
 # then convert the action to the corresponding message.
+
 
 class ChangeCardsMsg(Message):
     """Send from Agent(through Judge)/Card/Support/...
     Include only drawing cards."""
+
     pass
-  
+
+
 class RollDiceMsg(Message):
     """Send from Agent(through Judge)/Card"""
+
     pass
+
 
 class ChangeCharacterMsg(Message):
     """Send from Agent(through Judge)/Character(Skill, Elemental Reaction)"""
+
     pass
-        
+
+
 class UseCardMsg(Message):
     """Send from Agent(through Judge)"""
+
     pass
+
 
 class UseSkillMsg(Message):
     """Send from Agent(through Judge)"""
+
     pass
+
 
 class ElementTuningMsg(Message):
     """Send from Agent(through Judge)
     元素调和"""
+
     pass
 
 
-
-# Hp related 
+# Hp related
 # This kind of message is usually responded by a lot of entities, from the current character/summon to its target
+
 
 class GenerateDamageMsg(Message):
     """Send from Character(Skill)/Character Status/Summon/Combat Status"""
+
     pass
+
 
 class HurtMsg(Message):
     """Send from Character/Summon who is being attacked and all other effects are already calculated"""
+
     pass
+
 
 class RecoverHpMsg(Message):
     """Send from Card/Character(Skill)/Equipment/Support/Summon/..."""
+
     pass
+
 
 class ElementalReactionMsg(Message):
     """Send from Character(under attack)/Summon"""
+
     pass
+
 
 class CharacterKilledMsg(Message):
     """Send from Character(under attack)"""
-    pass
 
+    pass
 
 
 # Entity-related
 
+
 class GenerateSummonMsg(Message):
     pass
+
 
 class RemoveSummonMsg(Message):
     pass
 
+
 class GenerateSupportMsg(Message):
     pass
+
 
 class GenerateCharacterStatusMsg(Message):
     pass
 
+
 class GenerateCombatStatusMsg(Message):
     pass
 
+
 class GenerateEquipmentMsg(Message):
     "Usually generated from Cards"
-    pass 
-
-
+    pass
