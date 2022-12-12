@@ -2,8 +2,9 @@
 from mailbox import NotEmptyError
 
 from classes import Character, Skill, Summon
-from gisim.classes.enums import *
 from global_config import DISPLAY_LANGUAGE
+
+from gisim.classes.enums import *
 
 
 class KamisatoAyaka(Character):
