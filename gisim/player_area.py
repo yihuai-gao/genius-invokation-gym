@@ -3,6 +3,7 @@ Note that player agents does not directly talk to this area, but through the jud
 """
 
 from collections import OrderedDict
+from random import Random
 from typing import TYPE_CHECKING
 
 from classes.character import CharacterEntity
@@ -11,8 +12,6 @@ from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER
 from gisim.classes.enums import *
 
 if TYPE_CHECKING:
-    from numpy.random import RandomState
-
     from gisim.classes.status import CombatStatusEntity
     from gisim.classes.summon import Summon
     from gisim.classes.support import Support
@@ -23,7 +22,7 @@ class PlayerArea:
     def __init__(
         self,
         parent: "Game",
-        random_state: "RandomState",
+        random_state: "Random",
         player_id: "PlayerID",
         deck: dict,
     ):
@@ -102,7 +101,7 @@ class SupportZone:
 
 
 class DiceZone:
-    def __init__(self, parent: "PlayerArea", random_state: "RandomState"):
+    def __init__(self, parent: "PlayerArea", random_state: Random):
         self._parent = parent
         self._random_state = random_state
         self.dice: list[ElementType] = []
@@ -120,9 +119,7 @@ class DiceZone:
 
 
 class Deck:
-    def __init__(
-        self, parent: "PlayerArea", random_state: "RandomState", cards: list[str]
-    ):
+    def __init__(self, parent: "PlayerArea", random_state: Random, cards: list[str]):
         self._parent = parent
         self._random_state = random_state
         self.original_cards = cards
