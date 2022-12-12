@@ -21,9 +21,9 @@ jobs:
           black . --check
       # - name: Static Check
       #   run: pyright .
-      - name: Unit Tests
-        run: pytest --cov . --cov-report xml
-      - name: Upload Coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: coverage.xml
+      # - name: Unit Tests
+      #   run: pytest --cov . --cov-report xml
+      # - name: Upload Coverage to Codecov
+      #   uses: codecov/codecov-action@v3
+      #   with:
+      #     files: coverage.xml
