@@ -11,7 +11,7 @@ from gisim.game import GameInfo
 
 class Agent(ABC):
     def __init__(self, player_id: PlayerID):
-        self.PLAYER_ID = player_id
+        self.player_id = player_id
 
     @abstractmethod
     def take_action(self, game_info: OrderedDict) -> Action:
