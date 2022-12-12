@@ -2,8 +2,9 @@
 """
 from collections import OrderedDict
 
-from enum_classes import *
 from numpy.random import RandomState
+
+from gisim.classes.enums import *
 
 from .judge import Judge
 from .player_area import PlayerArea

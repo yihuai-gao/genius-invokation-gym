@@ -23,6 +23,7 @@ ALL_LANGUAGES = [
     "ru-ru",
 ]
 
+
 def fetch_cards():
     i18n_data = {}
 
@@ -37,6 +38,7 @@ def fetch_cards():
 
     return i18n_data
 
+
 def json_traverse(data, path=""):
     """
     Traverse all nodes in the JSON data and yield them.
@@ -50,21 +52,27 @@ def json_traverse(data, path=""):
     elif isinstance(data, list):
         for idx, item in enumerate(data):
             yield from json_traverse(item, f"{path}.{idx}")
-    
+
+
 def process_i18n(data):
     i18n = {}
 
     for lang in ALL_LANGUAGES:
         i18n[lang] = {}
 
-        for (_, i), (_, j) in zip(json_traverse(data["en-us"]), json_traverse(data[lang])):
+        for (_, i), (_, j) in zip(
+            json_traverse(data["en-us"]), json_traverse(data[lang])
+        ):
             if i != j:
                 if i in i18n[lang] and i18n[lang][i] != j:
-                    raise ValueError(f"Duplicate translation for {i}: {i18n[lang][i]} and {j}")
+                    raise ValueError(
+                        f"Duplicate translation for {i}: {i18n[lang][i]} and {j}"
+                    )
 
                 i18n[lang][i] = j
-    
+
     return data["en-us"], i18n
+
 
 if __name__ == "__main__":
     print("Fetching cards...")
@@ -72,12 +80,12 @@ if __name__ == "__main__":
 
     print("Processing cards...")
     english_cards, i18n_data = process_i18n(cards)
-    
+
     base_path = Path("gisim/cards/resources/")
 
     with open(base_path / "cards_20221205_en-us.json", "w") as f:
         json.dump(english_cards, f, indent=2, ensure_ascii=False)
-    
+
     with open(base_path / "cards_20221205_i18n.json", "w") as f:
         json.dump(i18n_data, f, indent=2, ensure_ascii=False)
 

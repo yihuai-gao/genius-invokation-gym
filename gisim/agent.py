@@ -4,7 +4,7 @@ from abc import ABCMeta, abstractmethod
 from typing import OrderedDict
 
 from actions import *
-from enum_classes import PlayerID
+from gisim.classes.enums import PlayerID
 
 
 class Agent(ABCMeta):
