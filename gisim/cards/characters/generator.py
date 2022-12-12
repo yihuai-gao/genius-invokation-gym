@@ -5,6 +5,8 @@ This files will generate character cards from "gisim/cards/resources/cards_20221
 import json
 import os
 
+from gisim.classes.enums import ElementType, Nation, SkillType
+
 from .base import (
     CHARACTER_SKILLS,
     CharacterCard,
@@ -12,7 +14,6 @@ from .base import (
     register_character_card,
     register_character_skill,
 )
-from gisim.classes.enums import ElementType, Nation, SkillType
 
 _ELEMENT_TYPE_MAP = {
     "ETIce": ElementType.CRYO,
