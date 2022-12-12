@@ -11,7 +11,7 @@ from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_SKILLS, CHARACTER_
 from classes.character import CharacterEntity
 if TYPE_CHECKING:
     from numpy.random import RandomState
-    from gisim.classes.status import StatusEntity
+    from gisim.classes.status import CombatStatusEntity
     from gisim.classes.summon import Summon
     from gisim.classes.support import Support
     from gisim.game import Game
@@ -35,7 +35,7 @@ class PlayerArea:
         self.character_zone = CharacterZone(self, deck["characters"])
         self.summon_zone = SummonZone(self)
         self.support_zone = SupportZone(self)
-        self.status_zone = StatusZone(self)
+        self.combat_status_zone = CombatStatusZone(self)
         """For team combat status only. The status entities of the single character belong to the `CharacterStatus` of the `CharacterZone`"""
 
     def encode(self, viewer_id: PlayerID):
@@ -48,7 +48,7 @@ class PlayerArea:
                 "character_zone": self.character_zone.encode(),
                 "summon_zone": self.summon_zone.encode(),
                 "support_zone": self.support_zone.encode(),
-                "status_zone": self.status_zone.encode(),
+                "combat_status_zone": self.combat_status_zone.encode(),
             }
         )
 
@@ -141,10 +141,10 @@ class Deck:
         }
 
 
-class StatusZone:
+class CombatStatusZone:
     def __init__(self, parent: "PlayerArea"):
         self._parent = parent
-        self.status_entities: list["StatusEntity"] = []
+        self.status_entities: list["CombatStatusEntity"] = []
 
     def encode(self):
         return [status_entity.encode() for status_entity in self.status_entities]
