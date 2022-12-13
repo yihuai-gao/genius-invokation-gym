@@ -37,25 +37,23 @@ class AttackOnlyAgent(Agent):
     def __init__(self, player_id: PlayerID):
         super().__init__(player_id)
 
-    def take_action(self, game_info: GameInfo) -> Action:
+    def take_action(self, game_info: GameInfo):
         if game_info.status == GameStatus.INITIALIZING:
             if game_info.phase == GamePhase.CHANGE_CARD:
-                return ChangeCardsAction([])
+                return ChangeCardsAction(cards_idx=[])
             elif game_info.phase == GamePhase.SELECT_ACTIVE_CHARACTER:
-                return ChangeCharacterAction(CharacterPosition.MIDDLE)
-            elif game_info.phase == GamePhase.ROLL_DICE:
-                return RollDiceAction([])
+                return ChangeCharacterAction(position=CharacterPosition.MIDDLE)
 
         elif game_info.status == GameStatus.RUNNING:
             if game_info.phase == GamePhase.ROLL_DICE:
-                return RollDiceAction([])
+                return RollDiceAction(dice_idx=[])
             elif game_info.phase == GamePhase.PLAY_CARDS:
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
                 character_info = player_info.character_zone[active_pos.value]
                 character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_info.name]]
                 character_element = character_card.element_type
-                current_dice = player_info.element_zone
+                current_dice = player_info.dice_zone
                 skill_names = [skill.name for skill in character_card.skills]
                 if (
                     len(current_dice) >= 3
@@ -82,10 +80,15 @@ class AttackOnlyAgent(Agent):
                     else:
                         dice_idx = unaligned + (correct + omni)[: 3 - len(unaligned)]
                     return UseSkillAction(
-                        active_pos,
-                        skill_names[0],
-                        dice_idx,
-                        game_info.get_opponent_info().active_character_position,
+                        user_position=active_pos,
+                        skill_name=skill_names[0],
+                        dice_idx=dice_idx,
+                        skill_target=[
+                            (
+                                ~self.player_id,
+                                game_info.get_opponent_info().active_character_position,
+                            )
+                        ],
                     )
 
                 else:
@@ -98,4 +101,4 @@ class AttackOnlyAgent(Agent):
                     for k, character in enumerate(characters)
                     if character.alive
                 ]
-                return ChangeCharacterAction(alive_positions[0])
+                return ChangeCharacterAction(position=alive_positions[0])

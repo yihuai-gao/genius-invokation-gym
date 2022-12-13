@@ -36,7 +36,7 @@ class PlayerArea:
         self._parent = parent
         self.player_id = player_id
         self.hand = Hand(self)
-        self.element_zone = DiceZone(self, random_state)
+        self.dice_zone = DiceZone(self, random_state)
         self.character_zone = CharacterZone(self, deck["characters"])
         self.summon_zone = SummonZone(self)
         self.support_zone = SupportZone(self)
@@ -50,7 +50,7 @@ class PlayerArea:
                 "declared_end": self.declare_end,
                 "deck": self.deck.encode(viewer_id),
                 "hand": self.hand.encode(viewer_id),
-                "element_zone": self.element_zone.encode(viewer_id),
+                "dice_zone": self.dice_zone.encode(viewer_id),
                 "character_zone": self.character_zone.encode(),
                 "summon_zone": self.summon_zone.encode(),
                 "support_zone": self.support_zone.encode(),
