@@ -13,12 +13,12 @@ class GamePhase(Enum):
     """Only happens during initialization"""
     SELECT_ACTIVE_CHARACTER = 1
     """Happens during initialization or when a character die"""
-    BEGIN_ROUND = 2
+    ROUND_BEGIN = 2
     """Including drawing cards automatically"""
     ROLL_DICE = 3
     PLAY_CARDS = 4
     """Or use character skills"""
-    END_ROUND = 5
+    ROUND_END = 5
 
 
 class ElementType(Enum):
@@ -136,8 +136,7 @@ class PlayerID(Enum):
 class MsgPriority(IntEnum): 
     '''Higher priority is with lower value (appears earlier in this Enum)
     Usually there is at most one message for each class in the message queue.'''
-    PLAYER_ACTION = auto()
-    '''ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning'''
+
     CHARACTER_DIED = auto()
     '''Highest priority, will trigger player to change their card or game end'''
     HP_CHANGING = auto()
@@ -147,40 +146,13 @@ class MsgPriority(IntEnum):
     Note that some reactions only modifies the damage but not generate additional effect.'''
     ENTITY_GENERATION = auto()
     '''Generate or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipemnt, etc.'''
+    PLAYER_ACTION = auto()
+    '''ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning'''
     GAME_STATUS = auto()
     '''RoundStart, RoundEnd'''
-
-
-class MsgType(Enum):
-    RoundBegin = auto()
-    RoundEnd = auto()
-    ChangeCards = auto()
-    RollDice = auto()
-    ChangeCharacter = auto()
-    UseCard = auto()
-    UseSkill = auto()
-    ElementalTuning = auto()
-    GenerateDamage = auto()
-    Hurt = auto()
-    RecoverHp = auto()
-    ElementalReactionEffect = auto()
-    CharacterDied = auto()
-    GenerateSummon = auto()
-    RemoveSummon = auto()
-    GenerateSupport = auto()
-    GenerateCharacterStatus = auto()
-    GenerateCombatStatus = auto()
-    GenerateEquipment = auto()
     
     
-class ActionType(Enum):
-    ChangeCharacter = auto()
-    ChangeCards = auto()
-    RollDice = auto()
-    UseSkill = auto()
-    DeclareEnd = auto()
-    UseCard = auto()
-    ElementalTuning = auto()
+
     
 class CardType(Enum):
     ARTIFACT = auto()
@@ -190,3 +162,13 @@ class CardType(Enum):
     FOOD = auto()
     NORMAL_EVENT = auto()
     ANY = auto()
+    
+class RegionType(Enum):
+    CHARACTER_ZONE = auto()
+    ACTIVE_CHARACTER = auto()
+    SUPPORT_ZONE = auto()
+    SUMMON_ZONE = auto()
+    HAND = auto()
+    DECK = auto()
+    COMBAT_STATUS_ZONE = auto()
+

@@ -82,7 +82,7 @@ class CharacterEntity(Entity):
     def handle_message(self, msg_queue: PriorityQueue):
         msg = msg_queue.queue[0]
         updated = False
-        if msg.message_type == MsgType.UseSkill:
+        if isinstance(msg, UseSkillMsg):
             msg:UseSkillMsg
             if msg.user_position == self.position:
                 msg_queue.get() # Destroy this message
