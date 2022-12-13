@@ -60,7 +60,6 @@ _WEAPON_TYPE_MAP = {
     "Claymore": WeaponType.CLAYMORE,
     "Polearm": WeaponType.POLEARM,
     "Catalyst": WeaponType.CATALYST,
-    "Other Weapons": WeaponType.OTHER_WEAPONS,
 }
 
 
