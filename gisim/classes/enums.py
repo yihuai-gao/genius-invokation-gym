@@ -1,4 +1,4 @@
-from enum import Enum
+from enum import Enum, IntEnum, auto
 from logging import getLogger
 
 
@@ -129,3 +129,19 @@ class PlayerID(Enum):
         logger = getLogger("gisim")
         logger.warning("You are taking the opponent of the spectator!")
         return self
+
+
+class MessagePriority(IntEnum): 
+    '''Higher priority is with higher value (appears lower)
+    Usually there is at most one message for each class in the message queue.'''
+    GAME_STATUS = auto()
+    '''RoundStart, RoundEnd'''
+    PLAYER_ACTION = auto()
+    '''ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning'''
+    ENTITY_GENERATION = auto()
+    '''Generate or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipemnt, etc.'''
+    ELEMENTAL_REACTION_EFFECT = auto()
+    '''Including Frozen, Overloaded, Swirl, Crystalize, Quicken, Burning, Bloom, Crystallize
+    Note that some reactions only modifies the damage but not generate additional effect.'''
+    HP_CHANGING = auto()
+    '''GenerateDamage, Hurt, RecoverHp'''
