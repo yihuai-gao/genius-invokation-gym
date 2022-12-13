@@ -2,8 +2,11 @@
 A character in the game should be an instant of the specific character class defined in each file"""
 from abc import ABC, abstractmethod
 
-from cards.characters.base import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
-
+from gisim.cards.characters.base import (
+    CHARACTER_CARDS,
+    CHARACTER_NAME2ID,
+    CHARACTER_SKILLS,
+)
 from gisim.classes.enums import *
 
 from .entity import Entity
