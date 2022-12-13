@@ -25,7 +25,7 @@ class ElementType(Enum):
     """Element types (including power, any, omni)"""
 
     NONE = None
-    """No element infusion/attachment"""
+    """No element infusion/attachment; also used in normal attack"""
     POWER = -3
     """元素能量"""
     SAME = -2
@@ -52,6 +52,8 @@ class ElementType(Enum):
     """草"""
     ANEMO = 7
     """风"""
+    PIERCE = 10
+    """穿透伤害"""
 
 
 class WeaponType(Enum):
@@ -132,21 +134,21 @@ class PlayerID(Enum):
 
 
 class MsgPriority(IntEnum): 
-    '''Higher priority is with higher value (appears lower)
+    '''Higher priority is with lower value (appears earlier in this Enum)
     Usually there is at most one message for each class in the message queue.'''
-    GAME_STATUS = auto()
-    '''RoundStart, RoundEnd'''
-    PLAYER_ACTION = auto()
-    '''ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning'''
-    ENTITY_GENERATION = auto()
-    '''Generate or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipemnt, etc.'''
+    CHARACTER_DIED = auto()
+    '''Highest priority, will trigger player to change their card or game end'''
+    HP_CHANGING = auto()
+    '''GenerateDamage, Hurt, RecoverHp'''
     ELEMENTAL_REACTION_EFFECT = auto()
     '''Including Frozen, Overloaded, Swirl, Crystalize, Quicken, Burning, Bloom, Crystallize
     Note that some reactions only modifies the damage but not generate additional effect.'''
-    HP_CHANGING = auto()
-    '''GenerateDamage, Hurt, RecoverHp'''
-    CHARACTER_DIED = auto()
-    '''Highest priority, will trigger player to change their card or game end'''
+    ENTITY_GENERATION = auto()
+    '''Generate or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipemnt, etc.'''
+    PLAYER_ACTION = auto()
+    '''ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning'''
+    GAME_STATUS = auto()
+    '''RoundStart, RoundEnd'''
 
 
 class MsgType(Enum):
