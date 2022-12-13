@@ -136,6 +136,8 @@ class PlayerID(Enum):
 class MsgPriority(IntEnum): 
     '''Higher priority is with lower value (appears earlier in this Enum)
     Usually there is at most one message for each class in the message queue.'''
+    PLAYER_ACTION = auto()
+    '''ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning'''
     CHARACTER_DIED = auto()
     '''Highest priority, will trigger player to change their card or game end'''
     HP_CHANGING = auto()
@@ -145,8 +147,6 @@ class MsgPriority(IntEnum):
     Note that some reactions only modifies the damage but not generate additional effect.'''
     ENTITY_GENERATION = auto()
     '''Generate or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipemnt, etc.'''
-    PLAYER_ACTION = auto()
-    '''ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning'''
     GAME_STATUS = auto()
     '''RoundStart, RoundEnd'''
 
@@ -171,3 +171,22 @@ class MsgType(Enum):
     GenerateCharacterStatus = auto()
     GenerateCombatStatus = auto()
     GenerateEquipment = auto()
+    
+    
+class ActionType(Enum):
+    ChangeCharacter = auto()
+    ChangeCards = auto()
+    RollDice = auto()
+    UseSkill = auto()
+    DeclareEnd = auto()
+    UseCard = auto()
+    ElementalTuning = auto()
+    
+class CardType(Enum):
+    ARTIFACT = auto()
+    TALENT = auto()
+    WEAPON = auto()
+    ELEMENTAL_RESONANCE = auto()
+    FOOD = auto()
+    NORMAL_EVENT = auto()
+    ANY = auto()
