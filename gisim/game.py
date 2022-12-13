@@ -77,6 +77,11 @@ class Game:
 
         if isinstance(action, ChangeCharacterAction):
             action = cast(ChangeCharacterAction, action)
+            cost_msg = ChangeCharacterCostMsg(
+                sender_id=active_player, position=action.position
+            )
+            self.msg_queue.put(cost_msg)
+            self.process_msg_queue()
             msg = ChangeCharacterMsg(sender_id=active_player, position=action.position)
             self.msg_queue.put(msg)
 
@@ -94,14 +99,14 @@ class Game:
 
         elif isinstance(action, RollDiceAction):
             action = cast(RollDiceAction, action)
-            self.player_area[active_player].element_zone.reroll_dice(action.dice_idx)
+            self.player_area[active_player].dice_zone.reroll_dice(action.dice_idx)
 
         elif isinstance(action, DeclareEndAction):
             self.player_area[active_player].declare_end = True
 
         elif isinstance(action, UseCardAction):
             action = cast(UseCardAction, action)
-            self.player_area[active_player].element_zone.remove_dice(action.dice_idx)
+            self.player_area[active_player].dice_zone.remove_dice(action.dice_idx)
             msg = UseCardMsg(
                 sender_id=active_player,
                 card_idx=action.card_idx,
@@ -111,11 +116,11 @@ class Game:
 
         elif isinstance(action, ElementalTuningAction):
             action = cast(ElementalTuningAction, action)
-            self.player_area[active_player].element_zone.remove_dice([action.die_idx])
+            self.player_area[active_player].dice_zone.remove_dice([action.die_idx])
             target_element = self.player_area[
                 active_player
             ].character_zone.active_character.element_type
-            self.player_area[active_player].element_zone.add_dice(1, target_element)
+            self.player_area[active_player].dice_zone.add_dice(1, target_element)
 
         elif isinstance(action, UseSkillAction):
             action = cast(UseSkillAction, action)
@@ -172,8 +177,8 @@ class Game:
                     self.player_area[~self.active_player].hand.add_cards(card_names)
 
                     self.phase = GamePhase.ROLL_DICE
-                    self.player_area[self.active_player].element_zone.init_dice()
-                    self.player_area[~self.active_player].element_zone.init_dice()
+                    self.player_area[self.active_player].dice_zone.init_dice()
+                    self.player_area[~self.active_player].dice_zone.init_dice()
                     # Wait for the first player to reroll dice
                     break
 
@@ -181,7 +186,7 @@ class Game:
                     if (
                         self.player_area[
                             self.active_player
-                        ].element_zone.remaining_reroll_round
+                        ].dice_zone.remaining_reroll_round
                         > 0
                     ):
                         # Let this player continue to reroll dices
@@ -199,7 +204,8 @@ class Game:
 
                 elif self.phase == GamePhase.PLAY_CARDS:
                     # Possible actions: UseCard, ElementalTuning, UseSkill, ChangeCharacter, DeclareEnd
-                    break
+                    # TODO: finish the reaction logic here
+                    pass
 
     def get_winner(self):
         # TODO
@@ -229,8 +235,8 @@ class PlayerInfo:
         self.hand: list = player_info_dict["hand"]["items"]
         self.deck_len: int = player_info_dict["deck"]["length"]
         self.deck: list[str] = player_info_dict["hand"]["items"]
-        self.element_zone_len: int = player_info_dict["element_zone"]["length"]
-        self.element_zone: list[ElementType] = player_info_dict["element_zone"]["items"]
+        self.dice_zone_len: int = player_info_dict["dice_zone"]["length"]
+        self.dice_zone: list[ElementType] = player_info_dict["dice_zone"]["items"]
         self.summon_zone: list[Summon] = player_info_dict["summon_zone"]
         self.support_zone: list[Support] = player_info_dict["support_zone"]
         self.combat_status_zone: list[CombatStatusEntity] = player_info_dict[

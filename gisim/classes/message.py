@@ -118,6 +118,28 @@ class UseSkillMsg(Message):
     skill_name: str
     skill_target: list[tuple[PlayerID, CharacterPosition]]
     """In case one character can assign multiple targets in the future"""
+
+    @property
+    def remaining_respondent_zone(self):
+        return [
+            (self.sender_id, RegionType.HAND),
+            (
+                self.sender_id,
+                RegionType.CHARACTER_ZONE,
+            ),  # the card may not be used by the active character (e.g. 刻晴的雷楔)
+            (self.sender_id, RegionType.COMBAT_STATUS_ZONE),
+            (
+                ~self.sender_id,
+                RegionType.CHARACTER_ZONE,
+            ),  # the damage has not been generated yet
+            (~self.sender_id, RegionType.COMBAT_STATUS_ZONE),
+            (~self.sender_id, RegionType.SUMMON_ZONE),
+            (
+                ~self.sender_id,
+                RegionType.CHARACTER_ZONE,
+            ),  # generate damage and then generate
+        ]
+
     pass
 
 
@@ -129,6 +151,19 @@ class CardCostMsg(Message):
     """Will not trigger the reduce cost status in the simulate mode, for validity check"""
     cost: dict[ElementType, int] = {}
 
+    @property
+    def remaining_respondent_zone(self):
+        return [
+            (self.sender_id, RegionType.HAND),
+            (
+                self.sender_id,
+                RegionType.CHARACTER_ZONE,
+            ),  # the card may not be used by the active character (e.g. 刻晴的雷楔)
+            (self.sender_id, RegionType.COMBAT_STATUS_ZONE),
+            (self.sender_id, RegionType.SUPPORT_ZONE),
+            (self.sender_id, RegionType.DICE_ZONE),
+        ]
+
 
 class SkillCostMsg(Message):
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
@@ -138,7 +173,15 @@ class SkillCostMsg(Message):
     simulate: bool = False
     """Will not trigger the reduce cost status in the simulate mode, for validity check"""
     cost: dict[ElementType, int] = {}
-    # Get initial cost
+
+    @property
+    def remaining_respondent_zone(self):
+        return [
+            (self.sender_id, RegionType.ACTIVE_CHARACTER),
+            (self.sender_id, RegionType.COMBAT_STATUS_ZONE),
+            (self.sender_id, RegionType.SUPPORT_ZONE),
+            (self.sender_id, RegionType.DICE_ZONE),
+        ]
 
 
 class ChangeCharacterCostMsg(Message):
@@ -147,6 +190,15 @@ class ChangeCharacterCostMsg(Message):
     simulate: bool = False
     """Will not trigger the reduce cost status in the simulate mode, for validity check"""
     cost: dict[ElementType, int] = {}
+
+    @property
+    def remaining_respondent_zone(self):
+        return [
+            (self.sender_id, RegionType.ACTIVE_CHARACTER),
+            (self.sender_id, RegionType.COMBAT_STATUS_ZONE),
+            (self.sender_id, RegionType.SUPPORT_ZONE),
+            (self.sender_id, RegionType.DICE_ZONE),
+        ]
 
 
 # Hp related

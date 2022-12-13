@@ -170,3 +170,4 @@ class RegionType(Enum):
     HAND = auto()
     DECK = auto()
     COMBAT_STATUS_ZONE = auto()
+    DICE_ZONE = auto()
