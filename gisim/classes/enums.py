@@ -145,3 +145,27 @@ class MessagePriority(IntEnum):
     Note that some reactions only modifies the damage but not generate additional effect.'''
     HP_CHANGING = auto()
     '''GenerateDamage, Hurt, RecoverHp'''
+    CHARACTER_DIED = auto()
+    '''Highest priority, will trigger player to change their card or game end'''
+
+
+class MessageType(Enum):
+    RoundStart = auto()
+    RoundEnd = auto()
+    ChangeCards = auto()
+    RollDice = auto()
+    ChangeCharacter = auto()
+    UseCard = auto()
+    UseSkill = auto()
+    ElementalTuning = auto()
+    GenerateDamage = auto()
+    Hurt = auto()
+    RecoverHp = auto()
+    ElementalReactionEffect = auto()
+    CharacterDied = auto()
+    GenerateSummon = auto()
+    RemoveSummon = auto()
+    GenerateSupport = auto()
+    GenerateCharacterStatus = auto()
+    GenerateCombatStatus = auto()
+    GenerateEquipment = auto()
