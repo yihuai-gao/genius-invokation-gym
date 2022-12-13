@@ -1,8 +1,8 @@
 """神里绫华"""
 
 from gisim.cards.characters.base import CharacterSkill, register_character_skill_factory
-from gisim.classes.message import Message
-from gisim.classes.enums import MsgType, MsgPriority
+from gisim.classes.message import Message, UseSkillMsg
+from gisim.classes.enums import CharacterPosition, MsgType, MsgPriority
 from queue import PriorityQueue
 @register_character_skill_factory(11054)
 class KamisatoAyakaSenho(CharacterSkill):
@@ -18,9 +18,3 @@ class KamisatoAyakaSenho(CharacterSkill):
             "Inufsion", ("cryo",), conditions={"on_switch": True}
         )
 
-    def on_message(self, msg_queue: PriorityQueue):
-        msg:Message = msg_queue.queue[0]
-        if msg.message_type == MsgType.ChangeCharacter:
-            self.on_skill()
-        elif msg.message_type == MsgType.UseSkill:
-            msg_queue
