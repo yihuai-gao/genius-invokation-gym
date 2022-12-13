@@ -28,7 +28,7 @@ class Game:
         self._status = GameStatus.INITIALIZING
         self._phase = Phase.CHANGE_CARD
         self._active_player = PlayerID(
-            self._random.choice([1, 2])
+            self._random_state.choice([1, 2])
         )  # Toss coin to determine who act first
         self.judge = Judge(self)
         self.player1_area = PlayerArea(
