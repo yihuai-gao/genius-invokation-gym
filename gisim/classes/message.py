@@ -4,15 +4,15 @@
 from abc import ABC, abstractmethod
 
 from .entity import Entity
-from .enums import PlayerID
+from .enums import PlayerID, MessagePriority
+from pydantic import BaseModel
 
 
-class Message(Entity, ABC):
+class Message(Entity, BaseModel):
     """Abstract base class of different kinds of messages"""
 
-    def __init__(self, sender_id: PlayerID, priority: int):
-        self.sender_id = sender_id
-        self.priority = priority
+    sender_id: PlayerID
+    priority: MessagePriority
 
     @abstractmethod
     def encode(self):
@@ -79,7 +79,7 @@ class UseSkillMsg(Message):
     pass
 
 
-class ElementTuningMsg(Message):
+class ElementalTuningMsg(Message):
     """Send from Agent(through Judge)
     元素调和"""
 
@@ -110,7 +110,9 @@ class RecoverHpMsg(Message):
         self.hp = hp
 
 
-class ElementalReactionMsg(Message):
+# Special types
+
+class ElementalReactionEffectMsg(Message):
     """Send from Character(under attack)/Summon"""
 
     pass
