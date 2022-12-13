@@ -77,6 +77,7 @@ class CharacterEntity(Entity):
             assert skill_type is not None, "Should provide either skill id or its name"
 
 
+
 class Skill(ABC):
     def __init__(self, name: str, cost: dict[ElementType, int], skill_type: SkillType):
         """

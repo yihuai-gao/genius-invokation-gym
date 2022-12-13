@@ -49,6 +49,7 @@ class PlayerArea:
                 "summon_zone": self.summon_zone.encode(),
                 "support_zone": self.support_zone.encode(),
                 "combat_status_zone": self.combat_status_zone.encode(),
+                "active_character_position": self.character_zone.get_active_character_position()
             }
         )
 
@@ -77,8 +78,14 @@ class CharacterZone:
         ]
 
     def encode(self):
-
         return [self.characters[k].encode() for k in range(3)]
+    
+    def get_active_character_position(self):
+        for k in range(3):
+            chr = self.characters[k]
+            if chr.active:
+                return chr.position
+        return CharacterPosition.NONE
 
 
 class SummonZone:

@@ -8,7 +8,7 @@ class GameStatus(Enum):
     ENDED = 2
 
 
-class Phase(Enum):
+class GamePhase(Enum):
     CHANGE_CARD = 0
     """Only happens during initialization"""
     SELECT_ACTIVE_CHARACTER = 1
@@ -104,12 +104,14 @@ class SkillType(Enum):
 class CharacterPosition(Enum):
     """Character position"""
 
+    NONE = None
     LEFT = 0
     MIDDLE = 1
     RIGHT = 2
 
     def __add__(self, num: int):
         """Modular addition for `next-character` calculation"""
+        assert self.value is not None
         return CharacterPosition((self.value + num) % 3)
 
 
