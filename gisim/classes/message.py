@@ -4,7 +4,7 @@
 from abc import ABC, abstractmethod
 
 from .entity import Entity
-from .enums import MessageType, PlayerID, MessagePriority
+from .enums import MsgType, PlayerID, MsgPriority
 from pydantic import BaseModel
 
 
@@ -12,8 +12,8 @@ class Message(Entity, BaseModel, ABC):
     """Abstract base class of different kinds of messages"""
 
     sender_id: PlayerID
-    priority: MessagePriority
-    message_type: MessageType
+    priority: MsgPriority
+    message_type: MsgType
     # @abstractmethod
     # def encode(self):
     #     ...
@@ -33,14 +33,14 @@ class MessageReceiver(ABC):
 
 class RoundStartMsg(Message):
     """Send from Judge"""
-    priority: MessagePriority = MessagePriority.GAME_STATUS
-    message_type: MessageType = MessageType.RoundStart
+    priority: MsgPriority = MsgPriority.GAME_STATUS
+    message_type: MsgType = MsgType.RoundStart
     pass
 
 class RoundEndMsg(Message):
     """Send from Judge"""
-    priority: MessagePriority = MessagePriority.GAME_STATUS
-    message_type: MessageType = MessageType.RoundEnd
+    priority: MsgPriority = MsgPriority.GAME_STATUS
+    message_type: MsgType = MsgType.RoundEnd
     pass
 
 
@@ -52,39 +52,39 @@ class RoundEndMsg(Message):
 class ChangeCardsMsg(Message):
     """Send from Agent(through Judge)/Card/Support/...
     Include only drawing cards."""
-    priority: MessagePriority = MessagePriority.PLAYER_ACTION
-    message_type: MessageType = MessageType.ChangeCards
+    priority: MsgPriority = MsgPriority.PLAYER_ACTION
+    message_type: MsgType = MsgType.ChangeCards
     pass
 
 
 class RollDiceMsg(Message):
     """Send from Agent(through Judge)/Card"""
-    priority: MessagePriority = MessagePriority.PLAYER_ACTION
-    message_type: MessageType = MessageType.RollDice
+    priority: MsgPriority = MsgPriority.PLAYER_ACTION
+    message_type: MsgType = MsgType.RollDice
     pass
 
 
 class ChangeCharacterMsg(Message):
     """Send from Agent(through Judge)/Character(Skill, Elemental Reaction)"""
 
-    priority: MessagePriority = MessagePriority.PLAYER_ACTION
-    message_type: MessageType = MessageType.ChangeCharacter
+    priority: MsgPriority = MsgPriority.PLAYER_ACTION
+    message_type: MsgType = MsgType.ChangeCharacter
     pass
 
 
 class UseCardMsg(Message):
     """Send from Agent(through Judge)"""
 
-    priority: MessagePriority = MessagePriority.PLAYER_ACTION
-    message_type: MessageType = MessageType.UseCard
+    priority: MsgPriority = MsgPriority.PLAYER_ACTION
+    message_type: MsgType = MsgType.UseCard
     pass
 
 
 class UseSkillMsg(Message):
     """Send from Agent(through Judge)"""
 
-    priority: MessagePriority = MessagePriority.PLAYER_ACTION
-    message_type: MessageType = MessageType.UseSkill
+    priority: MsgPriority = MsgPriority.PLAYER_ACTION
+    message_type: MsgType = MsgType.UseSkill
     pass
 
 
@@ -92,8 +92,8 @@ class ElementalTuningMsg(Message):
     """Send from Agent(through Judge)
     元素调和"""
 
-    priority: MessagePriority = MessagePriority.PLAYER_ACTION
-    message_type: MessageType = MessageType.ElementalTuning
+    priority: MsgPriority = MsgPriority.PLAYER_ACTION
+    message_type: MsgType = MsgType.ElementalTuning
     pass
 
 
@@ -103,39 +103,39 @@ class ElementalTuningMsg(Message):
 
 class GenerateDamageMsg(Message):
     """Send from Character(Skill)/Character Status/Summon/Combat Status"""
-    priority: MessagePriority = MessagePriority.HP_CHANGING
-    message_type: MessageType = MessageType.GenerateDamage
+    priority: MsgPriority = MsgPriority.HP_CHANGING
+    message_type: MsgType = MsgType.GenerateDamage
     pass
 
 
 class HurtMsg(Message):
     """Send from Character/Summon who is being attacked and all other effects are already calculated"""
 
-    priority: MessagePriority = MessagePriority.HP_CHANGING
-    message_type: MessageType = MessageType.Hurt
+    priority: MsgPriority = MsgPriority.HP_CHANGING
+    message_type: MsgType = MsgType.Hurt
     pass
 
 
 class RecoverHpMsg(Message):
     """Send from Card/Character(Skill)/Equipment/Support/Summon/..."""
     
-    priority: MessagePriority = MessagePriority.HP_CHANGING
-    message_type: MessageType = MessageType.RecoverHp
+    priority: MsgPriority = MsgPriority.HP_CHANGING
+    message_type: MsgType = MsgType.RecoverHp
     pass
 
 # Special types
 
 class ElementalReactionEffectMsg(Message):
     """Send from Character(under attack)/Summon"""
-    priority: MessagePriority = MessagePriority.ELEMENTAL_REACTION_EFFECT
-    message_type: MessageType = MessageType.ElementalReactionEffect
+    priority: MsgPriority = MsgPriority.ELEMENTAL_REACTION_EFFECT
+    message_type: MsgType = MsgType.ElementalReactionEffect
     pass
 
 
 class CharacterDiedMsg(Message):
     """Send from Character(under attack)"""
-    priority: MessagePriority = MessagePriority.CHARACTER_DIED
-    message_type: MessageType = MessageType.CharacterDied
+    priority: MsgPriority = MsgPriority.CHARACTER_DIED
+    message_type: MsgType = MsgType.CharacterDied
     pass
 
 
@@ -143,37 +143,37 @@ class CharacterDiedMsg(Message):
 
 
 class GenerateSummonMsg(Message):
-    priority: MessagePriority = MessagePriority.ENTITY_GENERATION
-    message_type: MessageType = MessageType.GenerateSummon
+    priority: MsgPriority = MsgPriority.ENTITY_GENERATION
+    message_type: MsgType = MsgType.GenerateSummon
     pass
 
 
 class RemoveSummonMsg(Message):
-    priority: MessagePriority = MessagePriority.ENTITY_GENERATION
-    message_type: MessageType = MessageType.RemoveSummon
+    priority: MsgPriority = MsgPriority.ENTITY_GENERATION
+    message_type: MsgType = MsgType.RemoveSummon
     pass
 
 
 class GenerateSupportMsg(Message):
-    priority: MessagePriority = MessagePriority.ENTITY_GENERATION
-    message_type: MessageType = MessageType.GenerateSupport
+    priority: MsgPriority = MsgPriority.ENTITY_GENERATION
+    message_type: MsgType = MsgType.GenerateSupport
     pass
 
 
 class GenerateCharacterStatusMsg(Message):
-    priority: MessagePriority = MessagePriority.ENTITY_GENERATION
-    message_type: MessageType = MessageType.GenerateCharacterStatus
+    priority: MsgPriority = MsgPriority.ENTITY_GENERATION
+    message_type: MsgType = MsgType.GenerateCharacterStatus
     pass
 
 
 class GenerateCombatStatusMsg(Message):
-    priority: MessagePriority = MessagePriority.ENTITY_GENERATION
-    message_type: MessageType = MessageType.GenerateCombatStatus
+    priority: MsgPriority = MsgPriority.ENTITY_GENERATION
+    message_type: MsgType = MsgType.GenerateCombatStatus
     pass
 
 
 class GenerateEquipmentMsg(Message):
     "Usually generated from Cards"
-    priority: MessagePriority = MessagePriority.ENTITY_GENERATION
-    message_type: MessageType = MessageType.GenerateEquipment
+    priority: MsgPriority = MsgPriority.ENTITY_GENERATION
+    message_type: MsgType = MsgType.GenerateEquipment
     pass
