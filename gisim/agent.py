@@ -6,8 +6,21 @@ from typing import OrderedDict
 from cards.characters.base import CHARACTER_CARDS, CHARACTER_NAME2ID
 from classes.message import ChangeCharacterMsg
 
-from gisim.classes.action import Action, ChangeCardsAction, ChangeCharacterAction, DeclareEndAction, RollDiceAction, UseSkillAction
-from gisim.classes.enums import CharacterPosition, ElementType, GameStatus, GamePhase, PlayerID
+from gisim.classes.action import (
+    Action,
+    ChangeCardsAction,
+    ChangeCharacterAction,
+    DeclareEndAction,
+    RollDiceAction,
+    UseSkillAction,
+)
+from gisim.classes.enums import (
+    CharacterPosition,
+    ElementType,
+    GameStatus,
+    GamePhase,
+    PlayerID,
+)
 from gisim.game import GameInfo
 
 
@@ -32,7 +45,7 @@ class AttackOnlyAgent(Agent):
                 return ChangeCharacterAction(CharacterPosition.MIDDLE)
             elif game_info.phase == GamePhase.ROLL_DICE:
                 return RollDiceAction([])
-            
+
         elif game_info.status == GameStatus.RUNNING:
             if game_info.phase == GamePhase.ROLL_DICE:
                 return RollDiceAction([])
@@ -44,7 +57,12 @@ class AttackOnlyAgent(Agent):
                 character_element = character_card.element_type
                 current_dice = player_info.element_zone
                 skill_names = [skill.name for skill in character_card.skills]
-                if len(current_dice) >= 3 and current_dice.count(character_element) + current_dice.count(ElementType.OMNI) >= 1:
+                if (
+                    len(current_dice) >= 3
+                    and current_dice.count(character_element)
+                    + current_dice.count(ElementType.OMNI)
+                    >= 1
+                ):
                     correct = []
                     omni = []
                     unaligned = []
@@ -56,22 +74,28 @@ class AttackOnlyAgent(Agent):
                         else:
                             unaligned.append(k)
                     if len(unaligned) >= 2:
-                        dice_idx = [correct[0] if len(correct)>1 else omni[0], unaligned[0], unaligned[1]]  
+                        dice_idx = [
+                            correct[0] if len(correct) > 1 else omni[0],
+                            unaligned[0],
+                            unaligned[1],
+                        ]
                     else:
-                        dice_idx = unaligned + (correct+omni)[:3-len(unaligned)]
-                    return UseSkillAction(active_pos, skill_names[0], dice_idx, game_info.get_opponent_info().active_character_position)
+                        dice_idx = unaligned + (correct + omni)[: 3 - len(unaligned)]
+                    return UseSkillAction(
+                        active_pos,
+                        skill_names[0],
+                        dice_idx,
+                        game_info.get_opponent_info().active_character_position,
+                    )
 
                 else:
                     return DeclareEndAction()
             elif game_info.phase == GamePhase.SELECT_ACTIVE_CHARACTER:
                 player_info = game_info.get_player_info()
                 characters = player_info.character_zone
-                alive_positions = [CharacterPosition(k) for k, character in enumerate(characters) if character.alive]
-                return ChangeCharacterAction(alive_positions[0])     
-
-
-
-
-
-
-        
+                alive_positions = [
+                    CharacterPosition(k)
+                    for k, character in enumerate(characters)
+                    if character.alive
+                ]
+                return ChangeCharacterAction(alive_positions[0])

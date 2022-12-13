@@ -1,10 +1,10 @@
-'''Abstract base class of card entities, initialized from its name'''
+"""Abstract base class of card entities, initialized from its name"""
 
 from gisim.classes.entity import Entity
 
+
 class CardEntity(Entity):
-    
-    def __init__(self, name:str):
+    def __init__(self, name: str):
         self.name = name
         self.enabled = True
 
