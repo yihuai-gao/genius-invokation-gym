@@ -8,6 +8,7 @@ from typing import Optional, Type
 from pydantic import BaseModel, Field, validator
 
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
+from gisim.classes.message import Message, MessageReceiver, UseSkillMsg
 from gisim.env import get_display_text
 
 _DEFAULT_SKILL_REGEXPS = {
@@ -30,7 +31,7 @@ _DEFAULT_SKILL_REGEXPS = {
 }
 
 
-class CharacterSkill(BaseModel):
+class CharacterSkill(BaseModel, MessageReceiver):
     id: int
     name: str
     text: str
@@ -38,13 +39,20 @@ class CharacterSkill(BaseModel):
     types: list[SkillType] = Field(..., min_items=1, max_items=1)
     resource: Optional[str] = None  # 图片链接
 
-    def on_skill(self) -> list:
+    def on_message(self, msg: Message):
+        if isinstance(msg, UseSkillMsg):
+            self.on_skill(msg)
+
+    def on_skill(self, msg: UseSkillMsg) -> None:
         """
         Called when the skill is activated, by default, it parses the skill text and
         returns a list of messages to be sent to the game
         """
 
-        return self.parse_skill_text()
+        for skill in self.parse_skill_text():
+            # TODO: Send the message to the game
+            # msg.game.send_message(skill)
+            pass
 
     def _build_message(self, skill_type, *args, **kwargs):
         """
@@ -95,6 +103,7 @@ class CharacterSkill(BaseModel):
     def __str__(self):
         return f"<{self.id}: {get_display_text(self.name)}>"
 
+
 class CharacterCard(BaseModel):
     id: int
     name: str
@@ -117,7 +126,7 @@ class CharacterCard(BaseModel):
         ], "Element type should only be one of the 7 elements"
 
         return v
-    
+
     def __str__(self):
         return f"<{self.id}: {get_display_text(self.name)} [{get_display_text(self.element_type.name)}]>"
 

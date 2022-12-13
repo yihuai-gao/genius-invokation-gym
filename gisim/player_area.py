@@ -6,9 +6,8 @@ from collections import OrderedDict
 from random import Random
 from typing import TYPE_CHECKING
 
-from classes.character import CharacterEntity
-
 from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
+from gisim.classes.character import CharacterEntity
 from gisim.classes.enums import *
 
 if TYPE_CHECKING:

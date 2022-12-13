@@ -19,6 +19,14 @@ class Message(Entity, ABC):
         ...
 
 
+class MessageReceiver(ABC):
+    """Abstract base class of different kinds of message receivers"""
+
+    @abstractmethod
+    def on_message(self, msg: Message):
+        ...
+
+
 # Game status related
 # A lot of entities will be responded by these messages
 
@@ -106,7 +114,7 @@ class ElementalReactionMsg(Message):
     pass
 
 
-class CharacterKilledMsg(Message):
+class CharacteDiedMsg(Message):
     """Send from Character(under attack)"""
 
     pass

@@ -10,7 +10,7 @@ In each round: RerollDice (also happens after using some cards, e.g. 乾坤一�
 
 from abc import ABC, abstractmethod
 
-from classes.enums import CharacterPosition
+from gisim.classes.enums import CharacterPosition
 
 from .entity import Entity
 

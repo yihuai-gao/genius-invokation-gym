@@ -2,10 +2,10 @@
 Global configuration
 """
 
-import os
-import locale
 import json
+import locale
 import logging
+import os
 
 logger = logging.getLogger(__name__)
 DISPLAY_LANGUAGE = locale.getdefaultlocale(["LANG"])[0].replace("_", "-").lower()
