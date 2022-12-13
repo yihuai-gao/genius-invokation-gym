@@ -8,6 +8,7 @@ from typing import Optional, Type
 from pydantic import BaseModel, Field, validator
 
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
+from gisim.env import get_display_text
 
 _DEFAULT_SKILL_REGEXPS = {
     # Deals 8 Pyro DMG
@@ -54,7 +55,7 @@ class CharacterSkill(BaseModel):
 
         if skill_type == "Unknown":
             raise NotImplementedError(
-                f"You need to override <{self.id}: {self.name}>'s `on_skill` or `parse_sub_command` method to handle: \n    {kwargs['command']}"
+                f"You need to override {self}'s `on_skill` or `parse_sub_command` method to handle: \n    {get_display_text(kwargs['command'])}"
             )
 
         return dict(type=skill_type, args=args, kwargs=kwargs)
@@ -91,6 +92,8 @@ class CharacterSkill(BaseModel):
 
         return messages
 
+    def __str__(self):
+        return f"<{self.id}: {get_display_text(self.name)}>"
 
 class CharacterCard(BaseModel):
     id: int
@@ -114,6 +117,9 @@ class CharacterCard(BaseModel):
         ], "Element type should only be one of the 7 elements"
 
         return v
+    
+    def __str__(self):
+        return f"<{self.id}: {get_display_text(self.name)} [{get_display_text(self.element_type.name)}]>"
 
 
 CHARACTER_CARDS: dict[int, CharacterCard] = {}
