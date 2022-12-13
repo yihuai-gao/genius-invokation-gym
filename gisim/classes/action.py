@@ -30,27 +30,27 @@ class Action(Entity, ABC):
             assert type(die_idx) == int and die_idx >= 0
 
 
-class SelectActiveCharacter(Action):
+class ChangeCharacterAction(Action):
     def __init__(self, position: CharacterPosition):
         super().__init__("SelectActiveCharacter")
         self.position = position
 
 
-class ChangeCards(Action):
+class ChangeCardsAction(Action):
     def __init__(self, cards_idx: list[int]):
         super().__init__("ChangeCards")
         self._check_cards_index(cards_idx)
         self.cards_idx = cards_idx
 
 
-class RerollDice(Action):
+class RollDiceAction(Action):
     def __init__(self, dice_idx: list[int]):
-        super().__init__("RerollDice")
+        super().__init__("RollDice")
         self._check_dice_index(dice_idx)
         self.dice_idx = dice_idx
 
 
-class UseSkill(Action):
+class UseSkillAction(Action):
     def __init__(
         self,
         position: CharacterPosition,
@@ -60,11 +60,6 @@ class UseSkill(Action):
     ):
         super().__init__("UseSkill")
         assert type(skill_name) == str
-        assert position in [
-            0,
-            1,
-            2,
-        ], "CharacterPosition of the user character should be 0, 1, 2"
         self.skill_name = skill_name
         self._check_dice_index(dice_idx)
         self.dice_idx = dice_idx
@@ -72,12 +67,12 @@ class UseSkill(Action):
         # TODO: Define the protocol of the skill_target: should be able to cover all characters, attachments, status, summons, supports, etc.
 
 
-class DeclareEnd(Action):
+class DeclareEndAction(Action):
     def __init__(self):
         super().__init__("DeclareEnd")
 
 
-class PlayCard(Action):
+class PlayCardAction(Action):
     def __init__(self, card_idx: int, dice_idx: list[int], card_target):
         super().__init__("PlayCard")
         assert type(card_idx) == int and card_idx >= 0
@@ -87,7 +82,7 @@ class PlayCard(Action):
         self.card_target = card_target
 
 
-class ElementalTuning(Action):
+class ElementalTuningAction(Action):
     def __init__(self, card_idx: int, die_idx: int):
         super().__init__("ElementalTuning")
         assert type(card_idx) == int and card_idx >= 0

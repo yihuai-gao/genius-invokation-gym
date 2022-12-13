@@ -26,7 +26,7 @@ class Game:
         self._seed = seed
         self._random_state = Random(seed)
         self._status = GameStatus.INITIALIZING
-        self._phase = Phase.CHANGE_CARD
+        self._phase = GamePhase.CHANGE_CARD
         self._active_player = PlayerID(
             self._random_state.choice([1, 2])
         )  # Toss coin to determine who act first
@@ -64,6 +64,16 @@ class Game:
         # TODO
         pass
 
+class CharacterInfo:
+    def __init__(self, character_info_dict:OrderedDict):
+        self.name:str = character_info_dict["name"]
+        self.active:bool = character_info_dict["active"]
+        self.alive:bool = character_info_dict["alive"]
+        self.elemental_infusion:ElementType = character_info_dict["elemental_infusion"]
+        self.elemental_attachment:ElementType = character_info_dict["elemental_attachment"]
+        self.health_point:int = character_info_dict["health_point"]
+        self.power:int = character_info_dict["power"]
+        self.max_power:int = character_info_dict["max_power"]
 
 class PlayerInfo:
     def __init__(self, player_info_dict: OrderedDict):
@@ -80,6 +90,8 @@ class PlayerInfo:
         self.combat_status_zone: list[CombatStatusEntity] = player_info_dict[
             "combat_status_zone"
         ]
+        self.character_zone: list[CharacterInfo] = [CharacterInfo(player_info_dict["character_zone"][k]) for k in range(3)]
+        self.active_character_position:CharacterPosition = player_info_dict["active_character_position"]
 
 
 class GameInfo:
@@ -87,7 +99,21 @@ class GameInfo:
         self.game_info_dict = game_info_dict
         self.viewer_id: PlayerID = game_info_dict["viewer_id"]
         self.status: GameStatus = game_info_dict["status"]
-        self.phase: Phase = game_info_dict["phase"]
+        self.phase: GamePhase = game_info_dict["phase"]
         self.active_player: PlayerID = game_info_dict["active_player"]
         self.player1: PlayerInfo = PlayerInfo(game_info_dict["player1"])
         self.player2: PlayerInfo = PlayerInfo(game_info_dict["player2"])
+        
+    def get_player_info(self, player_id:Optional[PlayerID]=None):
+        if player_id is None:
+            player_id = self.active_player
+        if player_id == PlayerID.PLAYER1:
+            return self.player1
+        else:
+            return self.player2
+        
+    def get_opponent_info(self):
+        if self.active_player == PlayerID.PLAYER1:
+            return self.player2
+        else:
+            return self.player1
