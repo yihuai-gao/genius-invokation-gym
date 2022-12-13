@@ -33,28 +33,29 @@ class MessageReceiver(ABC):
 
 # Game status related
 # A lot of entities will be responded by these messages
+# This message will not disappear when traveling through entities. It serves as a finite-state machine for Game
 
-
-class RoundStartMsg(Message):
-    """Send from Judge"""
+class RoundBeginMsg(Message):
+    """Send from Game"""
     priority: MsgPriority = MsgPriority.GAME_STATUS
-    message_type: MsgType = MsgType.RoundStart
+    message_type: MsgType = MsgType.RoundBegin
+    sender_id: PlayerID = PlayerID.SPECTATOR
     pass
 
 class RoundEndMsg(Message):
-    """Send from Judge"""
+    """Send from Game"""
     priority: MsgPriority = MsgPriority.GAME_STATUS
     message_type: MsgType = MsgType.RoundEnd
+    sender_id: PlayerID = PlayerID.SPECTATOR
     pass
-
-
+    
 # Player action related.
-# After player agent submits an `Action`, `game.judge` will first check its validity
+# After player agent submits an `Action`, `game.judge_action`` will first check its validity
 # then convert the action to the corresponding message.
 
 
 class ChangeCardsMsg(Message):
-    """Send from Agent(through Judge)/Card/Support/...
+    """Send from Agent/Card/Support/...
     Include both discard cards and drawing cards."""
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     message_type: MsgType = MsgType.ChangeCards
@@ -73,7 +74,7 @@ class RollDiceMsg(Message):
 
 
 class ChangeCharacterMsg(Message):
-    """Send from Agent(through Judge)/Character(Skill, Elemental Reaction)"""
+    """Send from Agent/Character(Skill, Elemental Reaction)"""
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     message_type: MsgType = MsgType.ChangeCharacter
@@ -81,7 +82,7 @@ class ChangeCharacterMsg(Message):
 
 
 class UseCardMsg(Message):
-    """Send from Agent(through Judge)"""
+    """Send from Agent"""
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     message_type: MsgType = MsgType.UseCard
@@ -91,7 +92,7 @@ class UseCardMsg(Message):
 
 
 class UseSkillMsg(Message):
-    """Send from Agent(through Judge)"""
+    """Send from Agent"""
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     message_type: MsgType = MsgType.UseSkill

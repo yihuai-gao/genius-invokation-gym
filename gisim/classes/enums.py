@@ -152,7 +152,7 @@ class MsgPriority(IntEnum):
 
 
 class MsgType(Enum):
-    RoundStart = auto()
+    RoundBegin = auto()
     RoundEnd = auto()
     ChangeCards = auto()
     RollDice = auto()
