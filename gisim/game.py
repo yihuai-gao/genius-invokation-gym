@@ -29,11 +29,9 @@ class Game:
         self.status = GameStatus.INITIALIZING
         self.phase = GamePhase.CHANGE_CARD
         self.round_num = 1
-        self.first_move_player = PlayerID(
-            self._random_state.choice([1, 2])
-        ) 
-        '''Toss coin to determine who act first for the first round;\n
-        The early overed player will be the first_move_player for the next round'''
+        self.first_move_player = PlayerID(self._random_state.choice([1, 2]))
+        """Toss coin to determine who act first for the first round;\n
+        The early overed player will be the first_move_player for the next round"""
         self.active_player = self.first_move_player
         player1_area = PlayerArea(
             self, self._random_state, player_id=PlayerID.PLAYER1, deck=player1_deck
@@ -41,7 +39,10 @@ class Game:
         player2_area = PlayerArea(
             self, self._random_state, player_id=PlayerID.PLAYER2, deck=player2_deck
         )
-        self.player_area = {PlayerID.PLAYER1:player1_area, PlayerID.PLAYER2:player2_area}
+        self.player_area = {
+            PlayerID.PLAYER1: player1_area,
+            PlayerID.PLAYER2: player2_area,
+        }
         self.msg_queue = PriorityQueue()
 
     def encode_game_info_dict(self, viewer_id: PlayerID):
@@ -50,7 +51,7 @@ class Game:
                 "viewer_id": viewer_id,
                 "status": self.status,
                 "phase": self.phase,
-                "round_num":self.round_num,
+                "round_num": self.round_num,
                 "first_move_player": self.first_move_player,
                 "active_player": self.active_player,
                 "player1": self.player_area[PlayerID.PLAYER1].encode(viewer_id),
@@ -67,60 +68,40 @@ class Game:
     def judge_action(self, action: Action):
         """The action can only be sent from the active player"""
         # TODO: judge the validity of a given action from the current state
+        # Will send a
         return True
-    
 
     def parse_action(self, action: Action):
         # Will take the elemental dice cost of the action and manage deck
         active_player = self.active_player
 
-        if action.action_type == ActionType.ChangeCharacter:
+        if isinstance(action, ChangeCharacterAction):
             action = cast(ChangeCharacterAction, action)
-            new_position = action.position
-            for k in range(3):
-                if k == new_position.value:
-                    self.player_area[active_player].character_zone.characters[k].active = True
-                else: 
-                    self.player_area[active_player].character_zone.characters[k].active = False
-            if self.status == GameStatus.INITIALIZING:
-                self.active_player = ~self.active_player
-                if self.active_player == self.first_move_player:
-                    # Finish initialization step
-                    self.status = GameStatus.RUNNING
-                    self.phase = GamePhase.BEGIN_ROUND
-                    self.msg_queue.put(RoundBeginMsg())
+            msg = ChangeCharacterMsg(sender_id=active_player, position=action.position)
+            self.msg_queue.put(msg)
 
-        elif action.action_type == ActionType.ChangeCards:
+        elif isinstance(action, ChangeCardsAction):
             action = cast(ChangeCardsAction, action)
             cards_idx: list[int] = action.cards_idx
-            new_card_names = self.player_area[active_player].deck.draw_cards(len(cards_idx))
-            old_card_names = self.player_area[active_player].hand.remove_cards(cards_idx)
+            new_card_names = self.player_area[active_player].deck.draw_cards(
+                len(cards_idx)
+            )
+            old_card_names = self.player_area[active_player].hand.remove_cards(
+                cards_idx
+            )
             self.player_area[active_player].hand.add_cards(new_card_names)
             self.player_area[active_player].deck.add_cards(old_card_names)
-            if self.status == GameStatus.INITIALIZING:
-                self.active_player = ~self.active_player
-                if self.active_player == self.first_move_player:
-                    # Both players have changed their cards
-                    self.phase = GamePhase.SELECT_ACTIVE_CHARACTER
 
-        elif action.action_type == ActionType.RollDice:
+        elif isinstance(action, RollDiceAction):
             action = cast(RollDiceAction, action)
-            remaining_reroll_round = self.player_area[active_player].element_zone.reroll_dice(action.dice_idx)
-            if self.phase == GamePhase.ROLL_DICE and remaining_reroll_round == 0:
-                # Note that in the PLAY_CARD phase, one can continue moving after rerolling dice
-                self.active_player = ~self.active_player
-                if self.active_player == self.first_move_player:
-                    self.phase = GamePhase.PLAY_CARDS
+            self.player_area[active_player].element_zone.reroll_dice(action.dice_idx)
 
-        elif action.action_type == ActionType.DeclareEnd:
+        elif isinstance(action, DeclareEndAction):
             self.player_area[active_player].declare_end = True
-            self.active_player = ~self.active_player
 
-        elif action.action_type == ActionType.UseCard:
+        elif isinstance(action, UseCardAction):
             action = cast(UseCardAction, action)
-            self.player_area[active_player].element_zone.remove_dice(
-                action.dice_idx
-            )
+            self.player_area[active_player].element_zone.remove_dice(action.dice_idx)
             msg = UseCardMsg(
                 sender_id=active_player,
                 card_idx=action.card_idx,
@@ -128,19 +109,15 @@ class Game:
             )
             self.msg_queue.put(msg)
 
-        elif action.action_type == ActionType.ElementalTuning:
+        elif isinstance(action, ElementalTuningAction):
             action = cast(ElementalTuningAction, action)
-            self.player_area[active_player].element_zone.remove_dice(
-                [action.die_idx]
-            )
+            self.player_area[active_player].element_zone.remove_dice([action.die_idx])
             target_element = self.player_area[
                 active_player
             ].character_zone.active_character.element_type
-            self.player_area[active_player].element_zone.add_dice(
-                1, target_element
-            )
+            self.player_area[active_player].element_zone.add_dice(1, target_element)
 
-        elif action.action_type == ActionType.UseSkill:
+        elif isinstance(action, UseSkillAction):
             action = cast(UseSkillAction, action)
             msg = UseSkillMsg(
                 sender_id=active_player,
@@ -148,54 +125,100 @@ class Game:
                 skill_name=action.skill_name,
                 skill_target=action.skill_target,
             )
-            
-    
+            self.msg_queue.put(msg)
+
     def process_msg_queue(self):
         pass
-    
-    
+
     def step(self, action: Action):
         self.parse_action(action)
-        self.process_msg_queue()
-            
-        # The GAME_STATUS message will not be removed from the 
-        if self.msg_queue.qsize() > 0:
-            msg:Message = self.msg_queue.get()
-            if msg.message_type == MsgType.RoundBegin:
-                # All entities have respond to the beginning of the round
-                if self.round_num > 1:
-                    # Player draw cards
+        while True:
+            if self.status == GameStatus.INITIALIZING:
+                if self.phase == GamePhase.CHANGE_CARD:
+                    self.active_player = ~self.active_player
+                    if self.active_player != self.first_move_player:
+                        # Wait for the other player to change cards
+                        break
+                    else:
+                        # Both players have changed their cards
+                        self.phase = GamePhase.SELECT_ACTIVE_CHARACTER
+                        # Wait for players to select active character
+                        break
+
+                elif self.phase == GamePhase.SELECT_ACTIVE_CHARACTER:
+                    self.process_msg_queue()  # The active character will be assigned
+
+                    self.active_player = ~self.active_player
+                    if self.active_player != self.first_move_player:
+                        break
+                    else:
+                        # Both players have selected their character
+                        # Finish initialization step
+                        self.status = GameStatus.RUNNING
+                        self.phase = GamePhase.ROUND_BEGIN
+
+            elif self.status == GameStatus.RUNNING:
+                if self.phase == GamePhase.ROUND_BEGIN:
+                    self.msg_queue.put(RoundBeginMsg())
+                    self.process_msg_queue()
+                    # It seems that there is no player interaction in this phase
+
+                    # Both player draw two cards by default
                     card_names = self.player_area[self.active_player].deck.draw_cards(2)
                     self.player_area[self.active_player].hand.add_cards(card_names)
-                    card_names = self.player_area[~self.active_player].deck.draw_cards(2)
+                    card_names = self.player_area[~self.active_player].deck.draw_cards(
+                        2
+                    )
                     self.player_area[~self.active_player].hand.add_cards(card_names)
 
-                self.phase = GamePhase.ROLL_DICE
-                self.player_area[self.active_player].element_zone.init_dice()
-                self.player_area[~self.active_player].element_zone.init_dice()
-                # Wait for player agent to reroll dice
-                    
-            elif msg.message_type == MsgType.RoundEnd:
-                
-                    
-            
+                    self.phase = GamePhase.ROLL_DICE
+                    self.player_area[self.active_player].element_zone.init_dice()
+                    self.player_area[~self.active_player].element_zone.init_dice()
+                    # Wait for the first player to reroll dice
+                    break
 
+                elif self.phase == GamePhase.ROLL_DICE:
+                    if (
+                        self.player_area[
+                            self.active_player
+                        ].element_zone.remaining_reroll_round
+                        > 0
+                    ):
+                        # Let this player continue to reroll dices
+                        break
+                    # This player has run out of reroll chances
+                    self.active_player = ~self.active_player
+                    if self.active_player != self.first_move_player:
+                        # Wait for the second player to reroll dice
+                        break
+                    else:
+                        # Both players have rerolled dices
+                        self.phase = GamePhase.PLAY_CARDS
+                        # Wait for first_move_player to take action
+                        break
 
+                elif self.phase == GamePhase.PLAY_CARDS:
+                    # Possible actions: UseCard, ElementalTuning, UseSkill, ChangeCharacter, DeclareEnd
+                    break
 
     def get_winner(self):
         # TODO
         pass
 
+
 class CharacterInfo:
-    def __init__(self, character_info_dict:OrderedDict):
-        self.name:str = character_info_dict["name"]
-        self.active:bool = character_info_dict["active"]
-        self.alive:bool = character_info_dict["alive"]
-        self.elemental_infusion:ElementType = character_info_dict["elemental_infusion"]
-        self.elemental_attachment:ElementType = character_info_dict["elemental_attachment"]
-        self.health_point:int = character_info_dict["health_point"]
-        self.power:int = character_info_dict["power"]
-        self.max_power:int = character_info_dict["max_power"]
+    def __init__(self, character_info_dict: OrderedDict):
+        self.name: str = character_info_dict["name"]
+        self.active: bool = character_info_dict["active"]
+        self.alive: bool = character_info_dict["alive"]
+        self.elemental_infusion: ElementType = character_info_dict["elemental_infusion"]
+        self.elemental_attachment: ElementType = character_info_dict[
+            "elemental_attachment"
+        ]
+        self.health_point: int = character_info_dict["health_point"]
+        self.power: int = character_info_dict["power"]
+        self.max_power: int = character_info_dict["max_power"]
+
 
 class PlayerInfo:
     def __init__(self, player_info_dict: OrderedDict):
@@ -213,8 +236,12 @@ class PlayerInfo:
         self.combat_status_zone: list[CombatStatusEntity] = player_info_dict[
             "combat_status_zone"
         ]
-        self.character_zone: list[CharacterInfo] = [CharacterInfo(player_info_dict["character_zone"][k]) for k in range(3)]
-        self.active_character_position:CharacterPosition = player_info_dict["active_character_position"]
+        self.character_zone: list[CharacterInfo] = [
+            CharacterInfo(player_info_dict["character_zone"][k]) for k in range(3)
+        ]
+        self.active_character_position: CharacterPosition = player_info_dict[
+            "active_character_position"
+        ]
 
 
 class GameInfo:
@@ -223,20 +250,20 @@ class GameInfo:
         self.viewer_id: PlayerID = game_info_dict["viewer_id"]
         self.status: GameStatus = game_info_dict["status"]
         self.phase: GamePhase = game_info_dict["phase"]
-        self.round_num:int = game_info_dict["round_num"]
+        self.round_num: int = game_info_dict["round_num"]
         self.active_player: PlayerID = game_info_dict["active_player"]
         self.first_move_player: PlayerID = game_info_dict["first_move_player"]
         self.player1: PlayerInfo = PlayerInfo(game_info_dict["player1"])
         self.player2: PlayerInfo = PlayerInfo(game_info_dict["player2"])
-        
-    def get_player_info(self, player_id:Optional[PlayerID]=None):
+
+    def get_player_info(self, player_id: Optional[PlayerID] = None):
         if player_id is None:
             player_id = self.active_player
         if player_id == PlayerID.PLAYER1:
             return self.player1
         else:
             return self.player2
-        
+
     def get_opponent_info(self):
         if self.active_player == PlayerID.PLAYER1:
             return self.player2
