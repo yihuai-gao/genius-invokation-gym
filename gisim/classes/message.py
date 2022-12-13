@@ -4,7 +4,7 @@
 from abc import ABC, abstractmethod
 
 from .entity import Entity
-from .enums import MsgType, PlayerID, MsgPriority
+from .enums import CardType, CharacterPosition, ElementType, MsgType, PlayerID, MsgPriority
 from pydantic import BaseModel
 
 
@@ -17,6 +17,10 @@ class Message(Entity, BaseModel, ABC):
     # @abstractmethod
     # def encode(self):
     #     ...
+
+    def __lt__(self, other:'Message'):
+        return self.priority < other.priority
+        
 
 
 class MessageReceiver(ABC):
@@ -51,16 +55,20 @@ class RoundEndMsg(Message):
 
 class ChangeCardsMsg(Message):
     """Send from Agent(through Judge)/Card/Support/...
-    Include only drawing cards."""
+    Include both discard cards and drawing cards."""
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     message_type: MsgType = MsgType.ChangeCards
+    discard_cards_idx: list[int]
+    draw_cards_type: list[CardType]
+    '''If no type specified, use `CardType.ANY`'''
     pass
 
 
 class RollDiceMsg(Message):
-    """Send from Agent(through Judge)/Card"""
+    """Send from Card"""
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     message_type: MsgType = MsgType.RollDice
+    dice_idx: list[int]
     pass
 
 
@@ -77,6 +85,8 @@ class UseCardMsg(Message):
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     message_type: MsgType = MsgType.UseCard
+    card_idx: int
+    card_target: list[tuple[PlayerID, CharacterPosition]] 
     pass
 
 
@@ -85,15 +95,10 @@ class UseSkillMsg(Message):
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     message_type: MsgType = MsgType.UseSkill
-    pass
-
-
-class ElementalTuningMsg(Message):
-    """Send from Agent(through Judge)
-    元素调和"""
-
-    priority: MsgPriority = MsgPriority.PLAYER_ACTION
-    message_type: MsgType = MsgType.ElementalTuning
+    user_position: CharacterPosition
+    skill_name: str
+    skill_target: list[tuple[PlayerID, CharacterPosition]] 
+    '''In case one character can assign multiple targets in the future'''
     pass
 
 
@@ -105,6 +110,7 @@ class GenerateDamageMsg(Message):
     """Send from Character(Skill)/Character Status/Summon/Combat Status"""
     priority: MsgPriority = MsgPriority.HP_CHANGING
     message_type: MsgType = MsgType.GenerateDamage
+    target: list[tuple[PlayerID, CharacterPosition, ElementType, int]]
     pass
 
 

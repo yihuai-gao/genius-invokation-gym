@@ -3,8 +3,9 @@ Note that player agents does not directly talk to this area, but through the jud
 """
 
 from collections import OrderedDict
+from multiprocessing.sharedctypes import Value
 from random import Random
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Optional
 
 from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
 from gisim.classes.character import CharacterEntity
@@ -25,6 +26,8 @@ class PlayerArea:
         player_id: "PlayerID",
         deck: dict,
     ):
+        self.declare_end = False
+        "Whether a player has declared end of the round"
         self.deck = Deck(self, random_state, deck["cards"])
         self.deck.shuffle()
         self._random_state = random_state
@@ -42,6 +45,7 @@ class PlayerArea:
         return OrderedDict(
             {
                 "player_id": self.player_id,
+                "declared_end": self.declare_end,
                 "deck": self.deck.encode(viewer_id),
                 "hand": self.hand.encode(viewer_id),
                 "element_zone": self.element_zone.encode(viewer_id),
@@ -86,6 +90,10 @@ class CharacterZone:
             if chr.active:
                 return chr.position
         return CharacterPosition.NONE
+    
+    @property
+    def active_character(self):
+        return self.characters[self.get_active_character_position().value]
 
 
 class SummonZone:
@@ -110,18 +118,26 @@ class DiceZone:
     def __init__(self, parent: "PlayerArea", random_state: Random):
         self._parent = parent
         self._random_state = random_state
-        self.dice: list[ElementType] = []
+        self._dice: list[ElementType] = []
 
-    def roll_dice(self, dice_num=8):
-        self.dice = [ElementType(self._random_state.choice(8)) for _ in range(dice_num)]
+    def add_dice(self, dice_num=8, element_type:Optional[ElementType]=None):
+        if element_type == None:
+            self._dice += [ElementType(self._random_state.choice([range(8)])) for _ in range(dice_num)]
+        else:
+            self._dice += [element_type for _ in range(dice_num)]
 
+    def remove_dice(self, dice_idx:list[int]):
+        for i in sorted(dice_idx, reverse=True):
+            del(self._dice[i])
+    
     def encode(self, viewer_id):
         return {
-            "length": len(self.dice),
-            "items": self.dice
+            "length": len(self._dice),
+            "items": self._dice
             if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
+    
 
 
 class Deck:

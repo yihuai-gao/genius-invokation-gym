@@ -1,6 +1,9 @@
 """Base class of each character: abstract class
 A character in the game should be an instant of the specific character class defined in each file"""
 from abc import ABC, abstractmethod
+from queue import PriorityQueue
+
+from classes.message import GenerateDamageMsg, UseSkillMsg
 
 from gisim.cards.characters.base import (
     CHARACTER_CARDS,
@@ -75,6 +78,20 @@ class CharacterEntity(Entity):
                 ), f"Skill {skill_name} does not exist in {self.name}'s skill set"
         else:
             assert skill_type is not None, "Should provide either skill id or its name"
+            
+    def handle_message(self, msg_queue: PriorityQueue):
+        msg = msg_queue.queue[0]
+        updated = False
+        if msg.message_type == MsgType.UseSkill:
+            msg:UseSkillMsg
+            if msg.user_position == self.position:
+                msg_queue.get() # Destroy this message
+                updated = True
+                target_player, target_pos = msg.skill_target[0]
+                # msg.skill_name #TODO: specify the name of each skill
+                msg_queue.put(GenerateDamageMsg(sender_id=self.player_id, target=[(target_player, target_pos, ElementType.NONE, 2)]))
+        return updated
+
 
 
 

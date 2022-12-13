@@ -2,6 +2,7 @@
 """
 import os
 from collections import OrderedDict
+from queue import PriorityQueue
 from random import Random
 from typing import Optional
 
@@ -25,40 +26,43 @@ class Game:
 
         self._seed = seed
         self._random_state = Random(seed)
-        self._status = GameStatus.INITIALIZING
-        self._phase = GamePhase.CHANGE_CARD
-        self._active_player = PlayerID(
+        self.status = GameStatus.INITIALIZING
+        self.phase = GamePhase.CHANGE_CARD
+        self.active_player = PlayerID(
             self._random_state.choice([1, 2])
         )  # Toss coin to determine who act first
         self.judge = Judge(self)
-        self.player1_area = PlayerArea(
+        player1_area = PlayerArea(
             self, self._random_state, player_id=PlayerID.PLAYER1, deck=player1_deck
         )
-        self.player2_area = PlayerArea(
+        player2_area = PlayerArea(
             self, self._random_state, player_id=PlayerID.PLAYER2, deck=player2_deck
         )
+        self.player_area = {PlayerID.PLAYER1:player1_area, PlayerID.PLAYER2:player2_area}
+        self.msg_queue = PriorityQueue()
 
     def encode_game_info_dict(self, viewer_id: PlayerID):
         return OrderedDict(
             {
                 "viewer_id": viewer_id,
-                "status": self._status,
-                "phase": self._phase,
-                "active_player": self._active_player,
-                "player1": self.player1_area.encode(viewer_id),
-                "player2": self.player2_area.encode(viewer_id),
+                "status": self.status,
+                "phase": self.phase,
+                "active_player": self.active_player,
+                "player1": self.player_area[PlayerID.PLAYER1].encode(viewer_id),
+                "player2": self.player_area[PlayerID.PLAYER2].encode(viewer_id),
             }
         )
 
     def encode_game_info(self, viewer_id: Optional[PlayerID] = None):
         """Active player by default"""
         if viewer_id is None:
-            viewer_id = self._active_player
+            viewer_id = self.active_player
         return GameInfo(self.encode_game_info_dict(viewer_id))
 
     def step(self, action: Action):
-        # TODO
+        
         pass
+    
 
     def get_winner(self):
         # TODO
@@ -79,6 +83,7 @@ class PlayerInfo:
     def __init__(self, player_info_dict: OrderedDict):
         self.player_info_dict = player_info_dict
         self.player_id: PlayerID = player_info_dict["player_id"]
+        self.declared_end: bool = player_info_dict["declared_end"]
         self.hand_len: int = player_info_dict["hand"]["length"]
         self.hand: list = player_info_dict["hand"]["items"]
         self.deck_len: int = player_info_dict["deck"]["length"]
