@@ -60,6 +60,7 @@ _WEAPON_TYPE_MAP = {
     "Claymore": WeaponType.CLAYMORE,
     "Polearm": WeaponType.POLEARM,
     "Catalyst": WeaponType.CATALYST,
+    'Other Weapons': WeaponType.OTHER_WEAPONS,
 }
 
 
@@ -106,7 +107,7 @@ def _process_card(config: dict):
 
 def generate_character_cards_and_skills():
     path = os.path.join(
-        os.path.dirname(__file__), "..", "resources", "cards_20221205_en-us.json"
+        os.path.dirname(__file__), "..", "..", "resources", "cards_20221205_en-us.json"
     )
 
     with open(path, "r") as f:
