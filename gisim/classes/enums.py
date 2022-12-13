@@ -131,7 +131,7 @@ class PlayerID(Enum):
         return self
 
 
-class MessagePriority(IntEnum): 
+class MsgPriority(IntEnum): 
     '''Higher priority is with higher value (appears lower)
     Usually there is at most one message for each class in the message queue.'''
     GAME_STATUS = auto()
@@ -149,7 +149,7 @@ class MessagePriority(IntEnum):
     '''Highest priority, will trigger player to change their card or game end'''
 
 
-class MessageType(Enum):
+class MsgType(Enum):
     RoundStart = auto()
     RoundEnd = auto()
     ChangeCards = auto()
