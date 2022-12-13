@@ -3,7 +3,7 @@
 from ..base import CharacterSkill, register_character_skill_factory
 
 
-@register_character_skill_factory(12022)
+@register_character_skill_factory(11054)
 class KamisatoAyakaSenho(CharacterSkill):
     """
     Kamisato Art: Senho / 神里流·霰步
