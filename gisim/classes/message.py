@@ -105,7 +105,9 @@ class HurtMsg(Message):
 class RecoverHpMsg(Message):
     """Send from Card/Character(Skill)/Equipment/Support/Summon/..."""
 
-    pass
+    def __init__(self, sender_id: PlayerID, priority: int, hp: int):
+        super().__init__(sender_id, priority)
+        self.hp = hp
 
 
 class ElementalReactionMsg(Message):
@@ -114,7 +116,7 @@ class ElementalReactionMsg(Message):
     pass
 
 
-class CharacteDiedMsg(Message):
+class CharacterDiedMsg(Message):
     """Send from Character(under attack)"""
 
     pass
