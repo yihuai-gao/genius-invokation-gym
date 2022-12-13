@@ -4,6 +4,8 @@ from gisim.cards.characters.base import CharacterSkill, register_character_skill
 from gisim.classes.message import Message, UseSkillMsg
 from gisim.classes.enums import CharacterPosition, MsgPriority
 from queue import PriorityQueue
+
+
 @register_character_skill_factory(11054)
 class KamisatoAyakaSenho(CharacterSkill):
     """
@@ -17,4 +19,3 @@ class KamisatoAyakaSenho(CharacterSkill):
         return self._build_message(
             "Inufsion", ("cryo",), conditions={"on_switch": True}
         )
-

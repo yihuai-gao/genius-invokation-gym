@@ -133,27 +133,25 @@ class PlayerID(Enum):
         return self
 
 
-class MsgPriority(IntEnum): 
-    '''Higher priority is with lower value (appears earlier in this Enum)
-    Usually there is at most one message for each class in the message queue.'''
+class MsgPriority(IntEnum):
+    """Higher priority is with lower value (appears earlier in this Enum)
+    Usually there is at most one message for each class in the message queue."""
 
     CHARACTER_DIED = auto()
-    '''Highest priority, will trigger player to change their card or game end'''
+    """Highest priority, will trigger player to change their card or game end"""
     HP_CHANGING = auto()
-    '''GenerateDamage, Hurt, RecoverHp'''
+    """GenerateDamage, Hurt, RecoverHp"""
     ELEMENTAL_REACTION_EFFECT = auto()
-    '''Including Frozen, Overloaded, Swirl, Crystalize, Quicken, Burning, Bloom, Crystallize
-    Note that some reactions only modifies the damage but not generate additional effect.'''
+    """Including Frozen, Overloaded, Swirl, Crystalize, Quicken, Burning, Bloom, Crystallize
+    Note that some reactions only modifies the damage but not generate additional effect."""
     ENTITY_GENERATION = auto()
-    '''Generate or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipemnt, etc.'''
+    """Generate or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipemnt, etc."""
     PLAYER_ACTION = auto()
-    '''ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning'''
+    """ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning"""
     GAME_STATUS = auto()
-    '''RoundStart, RoundEnd'''
-    
-    
+    """RoundStart, RoundEnd"""
 
-    
+
 class CardType(Enum):
     ARTIFACT = auto()
     TALENT = auto()
@@ -162,7 +160,8 @@ class CardType(Enum):
     FOOD = auto()
     NORMAL_EVENT = auto()
     ANY = auto()
-    
+
+
 class RegionType(Enum):
     CHARACTER_ZONE = auto()
     ACTIVE_CHARACTER = auto()
@@ -171,4 +170,3 @@ class RegionType(Enum):
     HAND = auto()
     DECK = auto()
     COMBAT_STATUS_ZONE = auto()
-

@@ -55,7 +55,7 @@ class PlayerArea:
                 "summon_zone": self.summon_zone.encode(),
                 "support_zone": self.support_zone.encode(),
                 "combat_status_zone": self.combat_status_zone.encode(),
-                "active_character_position": self.character_zone.get_active_character_position()
+                "active_character_position": self.character_zone.get_active_character_position(),
             }
         )
 
@@ -64,24 +64,22 @@ class Hand:
     def __init__(self, parent: "PlayerArea"):
         self._parent = parent
         self.cards: list[CardEntity] = []
-    
+
     @property
     def card_names(self):
         return [card.name for card in self.cards]
-    
-    def add_cards(self, card_names:list[str]):
+
+    def add_cards(self, card_names: list[str]):
         for name in card_names:
             self.cards.append(CardEntity(name))
-    
-    
-    def remove_cards(self, cards_idx:list[int]):
-        removed_names:list[str] = []
+
+    def remove_cards(self, cards_idx: list[int]):
+        removed_names: list[str] = []
         for i in sorted(cards_idx, reverse=True):
             removed_names.append(self.cards[i].name)
-            del(self.cards[i])
+            del self.cards[i]
         return removed_names
-            
-        
+
     def encode(self, viewer_id):
         return {
             "length": len(self.cards),
@@ -89,7 +87,6 @@ class Hand:
             if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
-        
 
 
 class CharacterZone:
@@ -103,14 +100,14 @@ class CharacterZone:
 
     def encode(self):
         return [self.characters[k].encode() for k in range(3)]
-    
+
     def get_active_character_position(self):
         for k in range(3):
             chr = self.characters[k]
             if chr.active:
                 return chr.position
         return CharacterPosition.NONE
-    
+
     @property
     def active_character(self):
         return self.characters[self.get_active_character_position().value]
@@ -148,23 +145,26 @@ class DiceZone:
         self.add_dice(self.init_dice_num)
         self.remaining_reroll_round = self.max_reroll_round
         # TODO: fixed dice from artifact/support
-        
-    def reroll_dice(self, dice_idx:list[int]):
+
+    def reroll_dice(self, dice_idx: list[int]):
         self.remove_dice(dice_idx)
         self.add_dice(dice_num=len(dice_idx))
         self.remaining_reroll_round -= 1
         return self.remaining_reroll_round
 
-    def add_dice(self, dice_num, element_type:Optional[ElementType]=None):
+    def add_dice(self, dice_num, element_type: Optional[ElementType] = None):
         if element_type == None:
-            self._dice += [ElementType(self._random_state.choice([range(8)])) for _ in range(dice_num)]
+            self._dice += [
+                ElementType(self._random_state.choice([range(8)]))
+                for _ in range(dice_num)
+            ]
         else:
             self._dice += [element_type for _ in range(dice_num)]
 
-    def remove_dice(self, dice_idx:list[int]):
+    def remove_dice(self, dice_idx: list[int]):
         for i in sorted(dice_idx, reverse=True):
-            del(self._dice[i])
-    
+            del self._dice[i]
+
     def encode(self, viewer_id):
         return {
             "length": len(self._dice),
@@ -172,7 +172,6 @@ class DiceZone:
             if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
-    
 
 
 class Deck:
@@ -185,22 +184,23 @@ class Deck:
     def shuffle(self):
         self._random_state.shuffle(self.cards)
 
-    def draw_cards(self, n:int):
+    def draw_cards(self, n: int):
         assert n <= len(self.cards), "Card number to be drawn exceeds the deck size"
         output = self.cards[:n]
         self.cards = self.cards[n:]
         return output
 
-    def encode(self, viewer_id:PlayerID):
+    def encode(self, viewer_id: PlayerID):
         return {
             "length": len(self.cards),
             "items": [card for card in self.original_cards if card in self.cards]
             if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
-    
-    def add_cards(self, card_names:list[str]):
+
+    def add_cards(self, card_names: list[str]):
         self.cards += card_names
+
 
 class CombatStatusZone:
     def __init__(self, parent: "PlayerArea"):
