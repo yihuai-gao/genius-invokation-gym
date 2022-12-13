@@ -1,23 +1,23 @@
 """ Interface between the game environment and players(agents)
 
-Start Game: SelectActiveCharacter (Also happens when the active character falls), ChangeCards
+Start Game: ChangeCharacter (Also happens when the active character falls), ChangeCards
 
 In each round: RerollDice (also happens after using some cards, e.g. 乾坤一掷)
-    Combat Action: UseSkill, SelectActiveCharacter, DeclareEnd
-    Fast Action: PlayCard, ElementalTuning
+    Combat Action: UseSkill, ChangeCharacter, DeclareEnd
+    Fast Action: UseCard, ElementalTuning
 
 """
 
 from abc import ABC, abstractmethod
 
-from gisim.classes.enums import CharacterPosition
+from gisim.classes.enums import ActionType, CharacterPosition, MsgType, PlayerID
 
 from .entity import Entity
+from pydantic import BaseModel
 
-
-class Action(Entity, ABC):
-    def __init__(self, type: str):
-        self._type = type
+class Action(Entity, BaseModel, ABC):
+    '''Action includes cost information.'''
+    action_type:ActionType
 
     def _check_cards_index(self, cards_idx: list[int]):
         assert type(cards_idx) == list
@@ -31,61 +31,41 @@ class Action(Entity, ABC):
 
 
 class ChangeCharacterAction(Action):
-    def __init__(self, position: CharacterPosition):
-        super().__init__("SelectActiveCharacter")
-        self.position = position
+    action_type: ActionType = ActionType.ChangeCharacter
+    position: CharacterPosition
+
 
 
 class ChangeCardsAction(Action):
-    def __init__(self, cards_idx: list[int]):
-        super().__init__("ChangeCards")
-        self._check_cards_index(cards_idx)
-        self.cards_idx = cards_idx
+    action_type: ActionType = ActionType.ChangeCards
+    cards_idx: list[int]
+
 
 
 class RollDiceAction(Action):
-    def __init__(self, dice_idx: list[int]):
-        super().__init__("RollDice")
-        self._check_dice_index(dice_idx)
-        self.dice_idx = dice_idx
+    action_type: ActionType = ActionType.RollDice
+    dice_idx:list[int]
 
 
 class UseSkillAction(Action):
-    def __init__(
-        self,
-        position: CharacterPosition,
-        skill_name: str,
-        dice_idx: list[int],
-        skill_target,
-    ):
-        super().__init__("UseSkill")
-        assert type(skill_name) == str
-        self.skill_name = skill_name
-        self._check_dice_index(dice_idx)
-        self.dice_idx = dice_idx
-        self.skill_target = skill_target
-        # TODO: Define the protocol of the skill_target: should be able to cover all characters, attachments, status, summons, supports, etc.
-
+    action_type: ActionType = ActionType.UseSkill
+    user_position: CharacterPosition
+    skill_name: str
+    dice_idx: list[int]
+    skill_target: list[tuple[PlayerID, CharacterPosition]] 
 
 class DeclareEndAction(Action):
-    def __init__(self):
-        super().__init__("DeclareEnd")
+    action_type: ActionType = ActionType.DeclareEnd
 
 
-class PlayCardAction(Action):
-    def __init__(self, card_idx: int, dice_idx: list[int], card_target):
-        super().__init__("PlayCard")
-        assert type(card_idx) == int and card_idx >= 0
-        self.card_idx = card_idx
-        self._check_dice_index(dice_idx)
-        self.dice_idx = dice_idx
-        self.card_target = card_target
+class UseCardAction(Action):
+    action_type: ActionType = ActionType.UseCard
+    card_idx: int
+    dice_idx: list[int]
+    card_target: list[tuple[PlayerID, CharacterPosition]] 
 
 
 class ElementalTuningAction(Action):
-    def __init__(self, card_idx: int, die_idx: int):
-        super().__init__("ElementalTuning")
-        assert type(card_idx) == int and card_idx >= 0
-        assert type(die_idx) == int and die_idx >= 0
-        self.card_idx = card_idx
-        self.die_idx = die_idx
+    action_type: ActionType = ActionType.ElementalTuning
+    card_idx: int
+    die_idx: int
