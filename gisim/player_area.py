@@ -1,11 +1,13 @@
 """Player area of the Genius Invokation
-Note that player agents does not directly talk to this area, but through the judger who judges the validity of each move. The judger then publish events and then the entities in the each player area respond to it in a specific order.
+Note that player agents does not directly talk to this area, but through the game who judges the validity of each move. The judger then publish events and then the entities in the each player area respond to it in a specific order.
 """
 
 from collections import OrderedDict
 from multiprocessing.sharedctypes import Value
 from random import Random
 from typing import TYPE_CHECKING, Optional
+
+from classes.card import CardEntity
 
 from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
 from gisim.classes.character import CharacterEntity
@@ -61,15 +63,33 @@ class PlayerArea:
 class Hand:
     def __init__(self, parent: "PlayerArea"):
         self._parent = parent
-        self.cards: list[str] = []
-
+        self.cards: list[CardEntity] = []
+    
+    @property
+    def card_names(self):
+        return [card.name for card in self.cards]
+    
+    def add_cards(self, card_names:list[str]):
+        for name in card_names:
+            self.cards.append(CardEntity(name))
+    
+    
+    def remove_cards(self, cards_idx:list[int]):
+        removed_names:list[str] = []
+        for i in sorted(cards_idx, reverse=True):
+            removed_names.append(self.cards[i].name)
+            del(self.cards[i])
+        return removed_names
+            
+        
     def encode(self, viewer_id):
         return {
             "length": len(self.cards),
-            "items": self.cards
+            "items": self.card_names
             if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
+        
 
 
 class CharacterZone:
@@ -119,8 +139,23 @@ class DiceZone:
         self._parent = parent
         self._random_state = random_state
         self._dice: list[ElementType] = []
+        self.init_dice_num = 8
+        self.fixed_dice: list[ElementType] = []
+        self.max_reroll_round = 1
 
-    def add_dice(self, dice_num=8, element_type:Optional[ElementType]=None):
+    def init_dice(self):
+        self._dice = []
+        self.add_dice(self.init_dice_num)
+        self.remaining_reroll_round = self.max_reroll_round
+        # TODO: fixed dice from artifact/support
+        
+    def reroll_dice(self, dice_idx:list[int]):
+        self.remove_dice(dice_idx)
+        self.add_dice(dice_num=len(dice_idx))
+        self.remaining_reroll_round -= 1
+        return self.remaining_reroll_round
+
+    def add_dice(self, dice_num, element_type:Optional[ElementType]=None):
         if element_type == None:
             self._dice += [ElementType(self._random_state.choice([range(8)])) for _ in range(dice_num)]
         else:
@@ -150,20 +185,22 @@ class Deck:
     def shuffle(self):
         self._random_state.shuffle(self.cards)
 
-    def draw_cards(self, n):
+    def draw_cards(self, n:int):
         assert n <= len(self.cards), "Card number to be drawn exceeds the deck size"
         output = self.cards[:n]
         self.cards = self.cards[n:]
         return output
 
-    def encode(self, viewer_id):
+    def encode(self, viewer_id:PlayerID):
         return {
             "length": len(self.cards),
             "items": [card for card in self.original_cards if card in self.cards]
             if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
-
+    
+    def add_cards(self, card_names:list[str]):
+        self.cards += card_names
 
 class CombatStatusZone:
     def __init__(self, parent: "PlayerArea"):

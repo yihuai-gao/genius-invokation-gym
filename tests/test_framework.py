@@ -34,7 +34,7 @@ if __name__ == "__main__":
             action = player1_agent.take_action(game_info)
         else:
             action = player2_agent.take_action(game_info)
-        valid = game.judge.judge_action(action)
+        valid = game.judge_action(action)
         if valid:
             game.step(action)
             game_info = game.encode_game_info()
