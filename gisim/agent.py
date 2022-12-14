@@ -3,9 +3,6 @@
 from abc import ABC, abstractmethod
 from typing import OrderedDict
 
-from cards.characters.base import CHARACTER_CARDS, CHARACTER_NAME2ID
-from classes.message import ChangeCharacterMsg
-
 from gisim.classes.action import (
     Action,
     ChangeCardsAction,
@@ -17,11 +14,14 @@ from gisim.classes.action import (
 from gisim.classes.enums import (
     CharacterPosition,
     ElementType,
-    GameStatus,
     GamePhase,
+    GameStatus,
     PlayerID,
 )
 from gisim.game import GameInfo
+
+from .cards.characters.base import CHARACTER_CARDS, CHARACTER_NAME2ID
+from .classes.message import ChangeCharacterMsg
 
 
 class Agent(ABC):

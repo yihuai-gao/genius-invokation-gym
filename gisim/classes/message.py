@@ -4,16 +4,17 @@
 from abc import ABC, abstractmethod
 from uuid import UUID
 
+from pydantic import BaseModel
+
 from .entity import Entity
 from .enums import (
     CardType,
     CharacterPosition,
     ElementType,
-    PlayerID,
     MsgPriority,
+    PlayerID,
     RegionType,
 )
-from pydantic import BaseModel
 
 
 class Message(Entity, BaseModel, ABC):

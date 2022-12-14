@@ -3,16 +3,15 @@ A character in the game should be an instant of the specific character class def
 from abc import ABC, abstractmethod
 from queue import PriorityQueue
 
-from classes.message import GenerateDamageMsg, UseSkillMsg
-
 from gisim.cards.characters.base import (
     CHARACTER_CARDS,
     CHARACTER_NAME2ID,
     CHARACTER_SKILLS,
 )
-from gisim.classes.enums import *
 
 from .entity import Entity
+from .enums import *
+from .message import GenerateDamageMsg, UseSkillMsg
 
 
 class CharacterEntity(Entity):

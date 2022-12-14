@@ -1,9 +1,10 @@
 """神里绫华"""
 
-from gisim.cards.characters.base import CharacterSkill, register_character_skill_factory
-from gisim.classes.message import Message, UseSkillMsg
-from gisim.classes.enums import CharacterPosition, MsgPriority
 from queue import PriorityQueue
+
+from gisim.cards.characters.base import CharacterSkill, register_character_skill_factory
+from gisim.classes.enums import CharacterPosition, MsgPriority
+from gisim.classes.message import Message, UseSkillMsg
 
 
 @register_character_skill_factory(11054)

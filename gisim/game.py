@@ -6,13 +6,13 @@ from queue import PriorityQueue
 from random import Random
 from typing import Optional, cast
 
-from gisim.classes.action import Action
-from gisim.classes.enums import *
-from gisim.classes.status import CombatStatusEntity
-from gisim.classes.summon import Summon
-from gisim.classes.support import Support
-from gisim.classes.action import *
-from gisim.classes.message import *
+from .classes.action import *
+from .classes.action import Action
+from .classes.enums import *
+from .classes.message import *
+from .classes.status import CombatStatusEntity
+from .classes.summon import Summon
+from .classes.support import Support
 from .player_area import PlayerArea
 
 
