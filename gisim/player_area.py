@@ -7,17 +7,16 @@ from multiprocessing.sharedctypes import Value
 from random import Random
 from typing import TYPE_CHECKING, Optional
 
-from classes.card import CardEntity
-
-from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
-from gisim.classes.character import CharacterEntity
-from gisim.classes.enums import *
+from .cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
+from .classes.card import CardEntity
+from .classes.character import CharacterEntity
+from .classes.enums import *
 
 if TYPE_CHECKING:
-    from gisim.classes.status import CombatStatusEntity
-    from gisim.classes.summon import Summon
-    from gisim.classes.support import Support
-    from gisim.game import Game
+    from .classes.status import CombatStatusEntity
+    from .classes.summon import Summon
+    from .classes.support import Support
+    from .game import Game
 
 
 class PlayerArea:

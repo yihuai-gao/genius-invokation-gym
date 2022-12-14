@@ -1,8 +1,7 @@
 from abc import ABC, abstractmethod
 
-from gisim.classes.enums import CharacterPosition, PlayerID
-
 from .entity import Entity
+from .enums import CharacterPosition, PlayerID
 
 
 class CharacterStatusEntity(Entity, ABC):

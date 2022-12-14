@@ -10,10 +10,10 @@ In each round: RerollDice (also happens after using some cards, e.g. 乾坤一�
 
 from abc import ABC, abstractmethod
 
-from gisim.classes.enums import CharacterPosition, PlayerID
+from pydantic import BaseModel
 
 from .entity import Entity
-from pydantic import BaseModel
+from .enums import CharacterPosition, PlayerID
 
 
 class Action(Entity, BaseModel, ABC):
