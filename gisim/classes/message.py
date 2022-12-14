@@ -17,7 +17,7 @@ from .enums import (
 )
 
 
-class Message(Entity, BaseModel, ABC):
+class Message(BaseModel, Entity, ABC):
     """Abstract base class of different kinds of messages"""
 
     sender_id: PlayerID
