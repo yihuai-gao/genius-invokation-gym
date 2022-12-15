@@ -40,7 +40,16 @@ class DiceCombinationSearcher:
         self.best_combination = None
 
     def score(self, dices: Counter[ElementType]) -> int:
-        return sum(dices[i] * (self.scores[i] + 10) for i in dices)
+        score = sum(dices[i] * self.scores[i] for i in dices)
+
+        # 额外计算保留同组元素的分数
+        same_score = 0
+        for v in dices.values():
+            if v != 0:
+                same_score += 3**v
+
+        # 限制最大分数为 10**3, 避免干扰
+        return score + min(same_score, 10**3)
 
     def _dfs_with_backtrace(
         self,
