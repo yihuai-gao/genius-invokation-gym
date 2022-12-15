@@ -1,6 +1,6 @@
 <!--
  Copyright (c) 2022 davidgao
- 
+
  This software is released under the MIT License.
  https://opensource.org/licenses/MIT
 -->
@@ -40,5 +40,5 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 
 ## Works Cited
 
-[RLCard: A Toolkit for Reinforcement Learning in Card Games](https://github.com/datamllab/rlcard)  
+[RLCard: A Toolkit for Reinforcement Learning in Card Games](https://github.com/datamllab/rlcard)
 [DouZero: Mastering DouDizhu with Self-Play Deep Reinforcement Learning](https://github.com/kwai/DouZero)
