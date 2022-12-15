@@ -55,6 +55,19 @@ class ElementType(IntEnum):
     PIERCE = 10
     """穿透伤害"""
 
+    @staticmethod
+    def get_basic_elements() -> set["ElementType"]:
+        """七种基础元素"""
+        return {
+            ElementType.CRYO,
+            ElementType.HYDRO,
+            ElementType.PYRO,
+            ElementType.ELECTRO,
+            ElementType.GEO,
+            ElementType.DENDRO,
+            ElementType.ANEMO,
+        }
+
 
 class WeaponType(Enum):
     """Weapon types"""
