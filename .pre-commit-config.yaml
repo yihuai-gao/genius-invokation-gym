@@ -15,13 +15,9 @@ repos:
     rev: 22.12.0
     hooks:
       - id: black
-        args:
-          - "."
   # ISort
   - repo: https://github.com/timothycrosley/isort
     rev: 5.11.2
     hooks:
       - id: isort
-        args:
-          - "--profile=black"
-          - "."
+        args: ["--profile=black"]
