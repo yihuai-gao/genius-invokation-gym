@@ -20,18 +20,18 @@ class DiceCombinationSearcher:
 
         # 计算分数函数
         scores = {
-            ElementType.OMNI: 10000,
-            current_character_element: 1000,
+            ElementType.OMNI: 10**9,
+            current_character_element: 10**7,
         }
 
         for idx, i in enumerate(
             sorted(all_character_elements - {current_character_element})
         ):
-            scores[i] = 100 + idx
+            scores[i] = 10**5 + idx
 
         all_basic_elements = ElementType.get_basic_elements()
         for idx, i in enumerate(sorted(all_basic_elements - all_character_elements)):
-            scores[i] = 10 + idx
+            scores[i] = 10**3 + idx
 
         self.scores = scores
 
@@ -40,7 +40,14 @@ class DiceCombinationSearcher:
         self.best_combination = None
 
     def score(self, dices: Counter[ElementType]) -> int:
-        return sum(dices[i] * self.scores[i] for i in dices)
+        score = sum(dices[i] * self.scores[i] for i in dices)
+
+        # 额外计算保留同组元素的分数
+        for v in dices.values():
+            if v != 0:
+                score += 2**v
+
+        return score
 
     def _dfs_with_backtrace(
         self,
@@ -152,13 +159,16 @@ if __name__ == "__main__":
     # exisitng_dices = searcher.search(exisitng_dices, required_dices)
     # debug(exisitng_dices)
 
-    searcher = DiceCombinationSearcher(
-        ElementType.HYDRO, {ElementType.HYDRO, ElementType.GEO, ElementType.ELECTRO}
-    )
+    searcher = DiceCombinationSearcher(ElementType.HYDRO, {ElementType.HYDRO})
 
     exisitng_dices = Counter(
-        {ElementType.HYDRO: 4, ElementType.GEO: 1, ElementType.ANEMO: 1}
+        {
+            ElementType.HYDRO: 3,
+            ElementType.CRYO: 3,
+            ElementType.PYRO: 1,
+            ElementType.ELECTRO: 1,
+        }
     )
-    required_dices = Counter({ElementType.HYDRO: 1, ElementType.SAME: 2})
+    required_dices = Counter({ElementType.ANY: 2})
 
     debug(searcher.search(exisitng_dices, required_dices))
