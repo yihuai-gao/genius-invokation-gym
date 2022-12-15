@@ -21,10 +21,10 @@ class GamePhase(Enum):
     ROUND_END = 5
 
 
-class ElementType(Enum):
+class ElementType(IntEnum):
     """Element types (including power, any, omni)"""
 
-    NONE = None
+    NONE = -10
     """No element infusion/attachment; also used in normal attack"""
     POWER = -3
     """元素能量"""
