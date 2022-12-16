@@ -43,11 +43,13 @@ class DiceCombinationSearcher:
         score = sum(dices[i] * self.scores[i] for i in dices)
 
         # 额外计算保留同组元素的分数
+        same_score = 0
         for v in dices.values():
             if v != 0:
-                score += 2**v
+                same_score += 3**v
 
-        return score
+        # 限制最大分数为 10**3, 避免干扰
+        return score + min(same_score, 10**3)
 
     def _dfs_with_backtrace(
         self,
@@ -70,7 +72,7 @@ class DiceCombinationSearcher:
             # 如果需要处理同种元素
             count = required[ElementType.SAME]
             for existing_element in list(existing):
-                if existing[existing_element] > count:
+                if existing[existing_element] >= count:
                     existing[existing_element] -= count
                     required[ElementType.SAME] = 0
                     self._dfs_with_backtrace(existing, required)
@@ -169,6 +171,6 @@ if __name__ == "__main__":
             ElementType.ELECTRO: 1,
         }
     )
-    required_dices = Counter({ElementType.ANY: 2})
+    required_dices = Counter({ElementType.SAME: 3})
 
     debug(searcher.search(exisitng_dices, required_dices))
