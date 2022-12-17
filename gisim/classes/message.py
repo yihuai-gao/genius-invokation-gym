@@ -83,23 +83,38 @@ class ChangeCardsMsg(Message):
     discard_cards_idx: list[int]
     draw_cards_type: list[CardType]
     """If no type specified, use `CardType.ANY`"""
-    pass
+    change_player:bool = False
+    
+    @property
+    def remaining_respondent_zone(self):
+        return [(self.sender_id, RegionType.GAME_FSM)]
 
 
 class RollDiceMsg(Message):
-    """Send from Card"""
+    """Send from Agent/Card"""
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     dice_idx: list[int]
-    pass
+    change_player:bool = False
+    @property
+    def remaining_respondent_zone(self):
+        return [(self.sender_id, RegionType.DICE_ZONE)]
 
+
+
+    
+    
+class DeclareEndMsg(Message):
+    """Send from player: will change active_player"""
+    priority: MsgPriority = MsgPriority.PLAYER_ACTION
+    change_player:bool = True
 
 class ChangeCharacterMsg(Message):
     """Send from Agent/Character(Skill, Elemental Reaction)"""
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     position: CharacterPosition
-    pass
+    change_player:bool = True # May be overwritten by combat status /passive skills
 
 
 class UseCardMsg(Message):
@@ -108,7 +123,7 @@ class UseCardMsg(Message):
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     card_idx: int
     card_target: list[tuple[PlayerID, CharacterPosition]]
-    pass
+    change_player:bool = False
 
 
 class UseSkillMsg(Message):
@@ -119,6 +134,8 @@ class UseSkillMsg(Message):
     skill_name: str
     skill_target: list[tuple[PlayerID, CharacterPosition]]
     """In case one character can assign multiple targets in the future"""
+    change_player:bool = True
+
 
     @property
     def remaining_respondent_zone(self):
@@ -141,10 +158,10 @@ class UseSkillMsg(Message):
             ),  # generate damage and then generate
         ]
 
-    pass
 
 
 class CardCostMsg(Message):
+    """Will calculate and remove the cost before processing `UseCardMsg`"""
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     card_idx: int
     card_target: list[tuple[PlayerID, CharacterPosition]]
@@ -167,6 +184,7 @@ class CardCostMsg(Message):
 
 
 class SkillCostMsg(Message):
+    """Will calculate and remove the cost before processing `UseSkillMsg`"""
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     user_position: CharacterPosition
     skill_name: str
@@ -201,6 +219,19 @@ class ChangeCharacterCostMsg(Message):
             (self.sender_id, RegionType.DICE_ZONE),
         ]
 
+
+# Drawing card/Changing Dice related
+class ChangeDiceMsg(Message):
+    priority: MsgPriority = MsgPriority.RESOURCE_CHANGING
+    remove_dice_idx: list[int]
+    """Idx of dice to be removed"""
+    new_target_element: list[ElementType]
+    """Number of elements should be the same as number of dice to be generated.\n
+    Target element: 
+        ElementType.ANY represents a random dice among 7 element types (e.g. dice generated from 元素质变仪)\n
+        ElementType.NONE represents a random dice among 8 kinds of dice (including the OMNI element)"""
+
+class ChangeCardMsg(Mes)
 
 # Hp related
 # This kind of message is usually responded by a lot of entities, from the current character/summon to its target

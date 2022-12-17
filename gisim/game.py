@@ -99,10 +99,19 @@ class Game:
 
         elif isinstance(action, RollDiceAction):
             action = cast(RollDiceAction, action)
-            self.player_area[active_player].dice_zone.reroll_dice(action.dice_idx)
+            # self.player_area[active_player].dice_zone.reroll_dice(action.dice_idx)
+            zones = [(active_player, RegionType.DICE_ZONE), 
+                     (active_player, RegionType.GAME_FSM)]
+            msg = RollDiceMsg(sender_id=active_player, 
+                              dice_idx=action.dice_idx, 
+                              change_player=True,
+                              remaining_respondent_zone=zones)
+            self.msg_queue.put(msg)
 
         elif isinstance(action, DeclareEndAction):
             self.player_area[active_player].declare_end = True
+            msg = DeclareEndMsg(sender_id=active_player)
+            self.msg_queue.put(msg)
 
         elif isinstance(action, UseCardAction):
             action = cast(UseCardAction, action)
@@ -116,11 +125,11 @@ class Game:
 
         elif isinstance(action, ElementalTuningAction):
             action = cast(ElementalTuningAction, action)
-            self.player_area[active_player].dice_zone.remove_dice([action.die_idx])
             target_element = self.player_area[
                 active_player
             ].character_zone.active_character.element_type
-            self.player_area[active_player].dice_zone.add_dice(1, target_element)
+            msg = 
+            self.msg_queue.put(msg)
 
         elif isinstance(action, UseSkillAction):
             action = cast(UseSkillAction, action)
@@ -137,6 +146,7 @@ class Game:
 
     def step(self, action: Action):
         self.parse_action(action)
+
         while True:
             if self.status == GameStatus.INITIALIZING:
                 if self.phase == GamePhase.CHANGE_CARD:
@@ -204,8 +214,10 @@ class Game:
 
                 elif self.phase == GamePhase.PLAY_CARDS:
                     # Possible actions: UseCard, ElementalTuning, UseSkill, ChangeCharacter, DeclareEnd
-                    # TODO: finish the reaction logic here
-                    pass
+                    switch_player = self.process_msg_queue()
+                    if switch_player: # Result of parse_action
+                        self.active_player = ~self.active_player
+                    
 
     def get_winner(self):
         # TODO
