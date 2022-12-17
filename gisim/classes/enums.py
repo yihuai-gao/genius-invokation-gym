@@ -119,6 +119,8 @@ class SkillType(Enum):
 class CharacterPosition(Enum):
     """Character position"""
 
+    BACKGROUND_CHARACTER = -2
+    ACTIVE_CHARACTER = -1
     NONE = None
     LEFT = 0
     MIDDLE = 1
@@ -150,17 +152,23 @@ class MsgPriority(IntEnum):
     """Higher priority is with lower value (appears earlier in this Enum)
     Usually there is at most one message for each class in the message queue."""
 
+    IMMEDIATE_OPERATION = auto()
+    """ChangeCard, ChangeDice, PayCardCost, PaySkillCost, PayChangingCharacterCost\n
+    Generate, prolong or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipment, etc."""
+    PLAYER_ACTION = auto()
+    """UseCard, UseSkill, ChangeCharacter"""
     CHARACTER_DIED = auto()
-    """Highest priority, will trigger player to change their card or game end"""
-    HP_CHANGING = auto()
-    """GenerateDamage, Hurt, RecoverHp"""
+    """Will trigger player to change their card or game end"""
+    HP_CHANGED = auto()
+    """Hurt, Recovered"""
+    GENERAL_EFFECT = auto()
+    """Including DealDamage, RecoverHp, AttachElement\n
+    This message will go through a lot of region"""
     ELEMENTAL_REACTION_EFFECT = auto()
     """Including Frozen, Overloaded, Swirl, Crystalize, Quicken, Burning, Bloom, Crystallize
     Note that some reactions only modifies the damage but not generate additional effect."""
-    ENTITY_GENERATION = auto()
-    """Generate or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipemnt, etc."""
-    PLAYER_ACTION = auto()
-    """ChangeCards, RollDice, ChangeCharacter, UseCard, UseSkill, ElementalTuning"""
+    ACTION_DONE = auto()
+    """AfterUsingSkill, AfterUsingCard, AfterChangingCharacter"""
     GAME_STATUS = auto()
     """RoundStart, RoundEnd"""
 
@@ -184,3 +192,4 @@ class RegionType(Enum):
     DECK = auto()
     COMBAT_STATUS_ZONE = auto()
     DICE_ZONE = auto()
+    GAME_FSM = auto()
