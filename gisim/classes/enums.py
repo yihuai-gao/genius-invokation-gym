@@ -152,21 +152,27 @@ class MsgPriority(IntEnum):
     """Higher priority is with lower value (appears earlier in this Enum)
     Usually there is at most one message for each class in the message queue."""
 
+
+    # Events that almost immediately happens (will not trigger other messages before this message expires)
     IMMEDIATE_OPERATION = auto()
-    """ChangeCard, ChangeDice, PayCardCost, PaySkillCost, PayChangingCharacterCost\n
+    """ChangeCard, ChangeDice, \n
     Generate, prolong or remove entities, including Summon, Support, CharacterStatus, CombatStatus, Equipment, etc."""
+    PAY_COST = auto()
+    """PayCardCost, PaySkillCost, PayChangingCharacterCost"""
+
+    # Will trigger immediate operations
     PLAYER_ACTION = auto()
     """UseCard, UseSkill, ChangeCharacter"""
-    CHARACTER_DIED = auto()
-    """Will trigger player to change their card or game end"""
     HP_CHANGED = auto()
-    """Hurt, Recovered"""
+    """Hurt, Recovered, CharacterDied"""
     GENERAL_EFFECT = auto()
     """Including DealDamage, RecoverHp, AttachElement\n
     This message will go through a lot of region"""
     ELEMENTAL_REACTION_EFFECT = auto()
     """Including Frozen, Overloaded, Swirl, Crystalize, Quicken, Burning, Bloom, Crystallize
     Note that some reactions only modifies the damage but not generate additional effect."""
+
+    # Will trigger some other effects
     ACTION_DONE = auto()
     """AfterUsingSkill, AfterUsingCard, AfterChangingCharacter"""
     GAME_STATUS = auto()
@@ -185,7 +191,8 @@ class CardType(Enum):
 
 class RegionType(Enum):
     CHARACTER_ZONE = auto()
-    ACTIVE_CHARACTER = auto()
+    EQUIPMENT_ZONE = auto()
+    STATUS_ZONE = auto()
     SUPPORT_ZONE = auto()
     SUMMON_ZONE = auto()
     HAND = auto()
