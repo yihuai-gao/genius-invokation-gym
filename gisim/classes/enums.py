@@ -116,11 +116,11 @@ class SkillType(Enum):
     """被动技能"""
 
 
-class CharacterPosition(Enum):
+class CharPos(Enum):
     """Character position"""
 
-    BACKGROUND_CHARACTER = -2
-    ACTIVE_CHARACTER = -1
+    BACKGROUND = -2
+    ACTIVE = -1
     NONE = None
     LEFT = 0
     MIDDLE = 1
@@ -129,7 +129,7 @@ class CharacterPosition(Enum):
     def __add__(self, num: int):
         """Modular addition for `next-character` calculation"""
         assert self.value is not None
-        return CharacterPosition((self.value + num) % 3)
+        return CharPos((self.value + num) % 3)
 
 
 class PlayerID(Enum):
@@ -190,7 +190,7 @@ class CardType(Enum):
 
 
 class RegionType(Enum):
-    CHARACTER_ZONE = auto()
+    CHAR_ZONE = auto()
     EQUIPMENT_ZONE = auto()
     STATUS_ZONE = auto()
     SUPPORT_ZONE = auto()

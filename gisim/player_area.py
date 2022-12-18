@@ -93,7 +93,7 @@ class CharacterZone:
         self._parent = parent
         assert len(characters) == 3, "Number of characters should be 3"
         self.characters: list["CharacterEntity"] = [
-            CharacterEntity(name, self._parent.player_id, CharacterPosition(i))
+            CharacterEntity(name, self._parent.player_id, CharPos(i))
             for i, name in enumerate(characters)
         ]
 
@@ -105,7 +105,7 @@ class CharacterZone:
             chr = self.characters[k]
             if chr.active:
                 return chr.position
-        return CharacterPosition.NONE
+        return CharPos.NONE
 
     @property
     def active_character(self):

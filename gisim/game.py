@@ -256,7 +256,7 @@ class PlayerInfo:
         self.character_zone: list[CharacterInfo] = [
             CharacterInfo(player_info_dict["character_zone"][k]) for k in range(3)
         ]
-        self.active_character_position: CharacterPosition = player_info_dict[
+        self.active_character_position: CharPos = player_info_dict[
             "active_character_position"
         ]
 

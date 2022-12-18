@@ -1,11 +1,11 @@
 from abc import ABC, abstractmethod
 
 from .entity import Entity
-from .enums import CharacterPosition, PlayerID
+from .enums import CharPos, PlayerID
 
 
 class CharacterStatusEntity(Entity, ABC):
-    def __init__(self, name: str, player_id: PlayerID, position: CharacterPosition):
+    def __init__(self, name: str, player_id: PlayerID, position: CharPos):
         """Status which is attached to a fixed character.
         Shown in the upper line of the character card. Will be calculated earlier."""
         super().__init__()

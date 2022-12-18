@@ -12,7 +12,7 @@ from gisim.classes.action import (
     UseSkillAction,
 )
 from gisim.classes.enums import (
-    CharacterPosition,
+    CharPos,
     ElementType,
     GamePhase,
     GameStatus,
@@ -42,7 +42,7 @@ class AttackOnlyAgent(Agent):
             if game_info.phase == GamePhase.CHANGE_CARD:
                 return ChangeCardsAction(cards_idx=[])
             elif game_info.phase == GamePhase.SELECT_ACTIVE_CHARACTER:
-                return ChangeCharacterAction(position=CharacterPosition.MIDDLE)
+                return ChangeCharacterAction(position=CharPos.MIDDLE)
 
         elif game_info.status == GameStatus.RUNNING:
             if game_info.phase == GamePhase.ROLL_DICE:
@@ -97,7 +97,7 @@ class AttackOnlyAgent(Agent):
                 player_info = game_info.get_player_info()
                 characters = player_info.character_zone
                 alive_positions = [
-                    CharacterPosition(k)
+                    CharPos(k)
                     for k, character in enumerate(characters)
                     if character.alive
                 ]
