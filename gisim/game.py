@@ -110,8 +110,7 @@ class Game:
 
         elif isinstance(action, DeclareEndAction):
             self.player_area[active_player].declare_end = True
-            msg = DeclareEndMsg(sender_id=active_player)
-            self.msg_queue.put(msg)
+            self.active_player = ~self.active_player
 
         elif isinstance(action, UseCardAction):
             action = cast(UseCardAction, action)
