@@ -15,7 +15,7 @@ from .message import GenerateDamageMsg, UseSkillMsg
 
 
 class CharacterEntity(Entity):
-    def __init__(self, name: str, player_id: PlayerID, position: CharacterPosition):
+    def __init__(self, name: str, player_id: PlayerID, position: CharPos):
         super().__init__()
         self.player_id = player_id
         self.position = position

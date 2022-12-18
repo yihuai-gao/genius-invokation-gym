@@ -6,12 +6,12 @@ from ast import Param
 from typing import Optional
 from uuid import UUID
 from typing import ParamSpec
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, root_validator
 
 from .entity import Entity
 from .enums import (
     CardType,
-    CharacterPosition,
+    CharPos,
     ElementType,
     MsgPriority,
     PlayerID,
@@ -24,9 +24,9 @@ class Message(BaseModel, Entity, ABC):
 
     sender_id: PlayerID
     priority: MsgPriority
-    remaining_respondent_zone: list[tuple[PlayerID, CharacterPosition, RegionType]] = []
+    remaining_respondent_zones: list[tuple[PlayerID, CharPos, RegionType]] = []
     """The message will travel all listed zones for respond. """
-    responded_entities: Optional[list[UUID]] = None
+    responded_entities: list[UUID] = []
     """The UUID of all responded entities"""
 
     def __lt__(self, other: "Message"):
@@ -84,7 +84,6 @@ class ChangeCardsMsg(Message):
     draw_cards_type: list[CardType]
     """If no type specified, use `CardType.ANY`"""
     change_player: bool = False
-    
 
 
 # Drawing card/Changing Dice related
@@ -99,8 +98,8 @@ class ChangeDiceMsg(Message):
         ElementType.NONE represents a random dice among 8 kinds of dice (including the OMNI element)"""
 
     @property
-    def remaining_respondent_zone(self):
-        return [(self.sender_id, CharacterPosition.NONE, RegionType.DICE_ZONE)]
+    def remaining_respondent_zones(self):
+        return [(self.sender_id, CharPos.NONE, RegionType.DICE_ZONE)]
 
 
 class ChangeCardMsg(Message):
@@ -110,11 +109,12 @@ class ChangeCardMsg(Message):
     new_cards_type = list[CardType]
 
     @property
-    def remaining_respondent_zone(self):
-        return [(self.sender_id, CharacterPosition.NONE, RegionType.HAND)]
+    def remaining_respondent_zones(self):
+        return [(self.sender_id, CharPos.NONE, RegionType.HAND)]
 
 
 # Calculate cost related messages
+
 
 class PayCostMsg(Message, ABC):
     priority: MsgPriority = MsgPriority.PAY_COST
@@ -122,57 +122,62 @@ class PayCostMsg(Message, ABC):
     required_cost: dict[ElementType, int] = {}
     """Required cost of this action. Will be affected by equipment/character status/
     combat status/support"""
-    paid_cost: dict[ElementType, int] = {} 
+    paid_cost: dict[ElementType, int] = {}
     """What the user actual paid."""
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.remaining_respondent_zone = [
-            (self.sender_id, CharacterPosition.NONE, RegionType.COMBAT_STATUS_ZONE),
-            (self.sender_id, CharacterPosition.NONE, RegionType.SUPPORT_ZONE),
-            (self.sender_id, CharacterPosition.NONE, RegionType.DICE_ZONE),
-        ]
-    
-class PayCardCostMsg(PayCostMsg, BaseModel):
-    
+
+class PayCardCostMsg(PayCostMsg):
+
     """Will calculate and remove the cost before processing `UseCardMsg`"""
-    
+
     card_idx: int
-    card_user_position: CharacterPosition
+    card_user_pos: CharPos
     """The user of the card. e.g. talent card"""
-    card_target: list[tuple[PlayerID, CharacterPosition]]
+    card_target: list[tuple[PlayerID, CharPos]]
     """Will not trigger the reduce cost status in the simulate mode, for validity check"""
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
-        self.remaining_respondent_zone =  [(self.sender_id, CharacterPosition.NONE, RegionType.HAND), (self.sender_id, self.card_user_position, RegionType.CHARACTER_ZONE)] + self.remaining_respondent_zone
+    @root_validator
+    def init_remaining_respondent_zones(cls, values):
+        default_zones = [
+            (values["sender_id"], CharPos.NONE, RegionType.HAND),
+            (values["sender_id"], values["card_user_pos"], RegionType.CHAR_ZONE),
+            (values["sender_id"], CharPos.NONE, RegionType.COMBAT_STATUS_ZONE),
+            (values["sender_id"], CharPos.NONE, RegionType.SUPPORT_ZONE),
+            (values["sender_id"], CharPos.NONE, RegionType.DICE_ZONE),
+        ]
+        if not values["remaining_respondent_zones"]:
+            values["remaining_respondent_zones"] = default_zones
+        return values
 
 
 class PaySkillCostMsg(Message):
     """Will calculate and remove the cost before processing `UseSkillMsg`"""
 
     priority: MsgPriority = MsgPriority.PAY_COST
-    user_position: CharacterPosition
+    user_position: CharPos
     skill_name: str
-    skill_target: list[tuple[PlayerID, CharacterPosition]]
+    skill_target: list[tuple[PlayerID, CharPos]]
     simulate: bool = False
     """Will not trigger the reduce cost status in the simulate mode, for validity check"""
     cost: dict[ElementType, int] = {}
 
-    @property
-    def remaining_respondent_zone(self):
-        return [
-            (self.sender_id, CharacterPosition.ACTIVE_CHARACTER, RegionType.EQUIPMENT_ZONE),
-            (self.sender_id, CharacterPosition.ACTIVE_CHARACTER, RegionType.STATUS_ZONE),
-            (self.sender_id, CharacterPosition.NONE, RegionType.COMBAT_STATUS_ZONE),
-            (self.sender_id, CharacterPosition.NONE, RegionType.SUPPORT_ZONE),
-            (self.sender_id, CharacterPosition.NONE, RegionType.DICE_ZONE),
+    @root_validator
+    def init_remaining_respondent_zones(cls, values):
+        default_zones = [
+            (values["sender_id"], CharPos.ACTIVE, RegionType.EQUIPMENT_ZONE),
+            (values["sender_id"], CharPos.ACTIVE, RegionType.STATUS_ZONE),
+            (values["sender_id"], CharPos.NONE, RegionType.COMBAT_STATUS_ZONE),
+            (values["sender_id"], CharPos.NONE, RegionType.SUPPORT_ZONE),
+            (values["sender_id"], CharPos.NONE, RegionType.DICE_ZONE),
         ]
+        if not values["remaining_respondent_zones"]:
+            values["remaining_respondent_zones"] = default_zones
+        return values
 
 
 class PayChangeCharacterCostMsg(Message):
     priority: MsgPriority = MsgPriority.PAY_COST
-    position: CharacterPosition
+    position: CharPos
     simulate: bool = False
     """Will not trigger the reduce cost status in the simulate mode, for validity check"""
 
@@ -186,10 +191,10 @@ class ChangeCharacterMsg(Message):
     """Send from Agent/Character(Skill, Elemental Reaction)"""
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
-    position: CharacterPosition
+    position: CharPos
 
     @property
-    def remaining_respondent_zone(self):
+    def remaining_respondent_zones(self):
         return [(self.sender_id,)]
 
 
@@ -198,36 +203,36 @@ class UseCardMsg(Message):
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     card_idx: int
-    card_target: list[tuple[PlayerID, CharacterPosition]]
+    card_target: list[tuple[PlayerID, CharPos]]
 
 
 class UseSkillMsg(Message):
     """Send from Agent"""
 
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
-    user_position: CharacterPosition
+    user_position: CharPos
     skill_name: str
-    skill_target: list[tuple[PlayerID, CharacterPosition]]
+    skill_target: list[tuple[PlayerID, CharPos]]
     """In case one character can assign multiple targets in the future"""
 
     @property
-    def remaining_respondent_zone(self):
+    def remaining_respondent_zones(self):
         return [
             (self.sender_id, RegionType.HAND),
             (
                 self.sender_id,
-                RegionType.CHARACTER_ZONE,
+                RegionType.CHAR_ZONE,
             ),  # the card may not be used by the active character (e.g. 刻晴的雷楔)
             (self.sender_id, RegionType.COMBAT_STATUS_ZONE),
             (
                 ~self.sender_id,
-                RegionType.CHARACTER_ZONE,
+                RegionType.CHAR_ZONE,
             ),  # the damage has not been generated yet
             (~self.sender_id, RegionType.COMBAT_STATUS_ZONE),
             (~self.sender_id, RegionType.SUMMON_ZONE),
             (
                 ~self.sender_id,
-                RegionType.CHARACTER_ZONE,
+                RegionType.CHAR_ZONE,
             ),  # generate damage and then generate
         ]
 
@@ -240,7 +245,7 @@ class DealDamageMsg(Message):
     """Send from Character(Skill)/Character Status/Summon/Combat Status"""
 
     priority: MsgPriority = MsgPriority.GENERAL_EFFECT
-    target: list[tuple[PlayerID, CharacterPosition, ElementType, int]]
+    target: list[tuple[PlayerID, CharPos, ElementType, int]]
     pass
 
 

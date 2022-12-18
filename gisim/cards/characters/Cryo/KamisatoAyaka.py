@@ -3,7 +3,7 @@
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterSkill, register_character_skill_factory
-from gisim.classes.enums import CharacterPosition, MsgPriority
+from gisim.classes.enums import CharPos, MsgPriority
 from gisim.classes.message import Message, UseSkillMsg
 
 
