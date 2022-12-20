@@ -68,6 +68,18 @@ class ElementType(IntEnum):
             ElementType.ANEMO,
         }
 
+class ElementalReactionType(Enum):
+    NONE = auto()
+    VAPORIZE = auto()
+    MELT = auto()
+    FROZEN = auto()
+    OVERLOADED = auto()
+    SWIRL = auto()
+    CRYSTALIZE = auto()
+    QUICKEN = auto()
+    BURNING = auto()
+    BLOOM = auto()
+    #  = auto() # TODO: 扩散、石化……
 
 class WeaponType(Enum):
     """Weapon types"""
@@ -166,7 +178,7 @@ class MsgPriority(IntEnum):
     HP_CHANGED = auto()
     """Hurt, Recovered, CharacterDied"""
     GENERAL_EFFECT = auto()
-    """Including DealDamage, RecoverHp, AttachElement\n
+    """Including DealDamage, RecoverHp, AttachElement, ChangePower\n
     This message will go through a lot of region"""
     ELEMENTAL_REACTION_EFFECT = auto()
     """Including Frozen, Overloaded, Swirl, Crystalize, Quicken, Burning, Bloom, Crystallize
@@ -174,7 +186,7 @@ class MsgPriority(IntEnum):
 
     # Will trigger some other effects
     ACTION_DONE = auto()
-    """AfterUsingSkill, AfterUsingCard, AfterChangingCharacter"""
+    """AfterUsingSkill, AfterUsingCard, AfterChangingChar"""
     GAME_STATUS = auto()
     """RoundStart, RoundEnd"""
 
@@ -190,9 +202,11 @@ class CardType(Enum):
 
 
 class RegionType(Enum):
-    CHAR_ZONE = auto()
-    EQUIPMENT_ZONE = auto()
-    STATUS_ZONE = auto()
+    CHARACTER_BACKGROUND = -2
+    CHARACTER_ACTIVE = -1
+    CHARACTER_LEFT = 0
+    CHARACTER_MIDDLE = 1
+    CHARACTER_RIGHT = 2
     SUPPORT_ZONE = auto()
     SUMMON_ZONE = auto()
     HAND = auto()
@@ -200,3 +214,22 @@ class RegionType(Enum):
     COMBAT_STATUS_ZONE = auto()
     DICE_ZONE = auto()
     GAME_FSM = auto()
+    ALL = auto()
+    """The default calculation order is:\n
+    CHARACTER_ACTIVE(talent->weapon->artifact) -> COMBAT_STATUS_ZONE -> CHARACTER_BACKGROUND -> SUMMON_ZONE -> SUPPORT_ZONE"""
+    ALL_CHARACTERS = auto()
+    
+    
+class EntityType(Enum):
+    CHARACTER = auto()
+    TALENT = auto()
+    WEAPON = auto()
+    ARTIFACT = auto()
+    CHARACTER_STATUS = auto()
+    COMBAT_STATUS = auto()
+    SKILL = auto()
+    CARD = auto()
+    """For the cards in hand only"""
+    SUMMON = auto()
+    SUPPORT = auto()
+    

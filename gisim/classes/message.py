@@ -8,11 +8,15 @@ from uuid import UUID
 from typing import ParamSpec
 from pydantic import BaseModel, root_validator
 
+from gisim.classes.summon import Summon
+
 from .entity import Entity
 from .enums import (
     CardType,
     CharPos,
     ElementType,
+    ElementalReactionType,
+    EntityType,
     MsgPriority,
     PlayerID,
     RegionType,
@@ -24,13 +28,22 @@ class Message(BaseModel, Entity, ABC):
 
     sender_id: PlayerID
     priority: MsgPriority
-    remaining_respondent_zones: list[tuple[PlayerID, CharPos, RegionType]] = []
-    """The message will travel all listed zones for respond. """
+    respondent_zones: list[tuple[PlayerID, RegionType]] = []
+    """The message will travel all listed zones for respond. It will travel all zones by default as in the root validator"""
     responded_entities: list[UUID] = []
     """The UUID of all responded entities"""
 
     def __lt__(self, other: "Message"):
         return self.priority < other.priority
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["sender_id"], RegionType.ALL),
+                (~values["sender_id"], RegionType.ALL),
+            ]
+        return values
 
 
 class MessageReceiver(ABC):
@@ -46,33 +59,84 @@ class MessageReceiver(ABC):
 
 class GenerateSummonMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
-    pass
+    summon_name: str
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["sender_id"], RegionType.SUMMON_ZONE),
+            ]
+        return values
 
 
 class RemoveSummonMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
-    pass
+    summon_name: str
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["sender_id"], RegionType.SUMMON_ZONE),
+            ]
+        return values
 
 
 class GenerateSupportMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
-    pass
+    support_name: str
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["sender_id"], RegionType.SUPPORT_ZONE),
+            ]
+        return values
 
 
 class GenerateCharacterStatusMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
-    pass
+    target: tuple[PlayerID, CharPos]
+    status_name: str
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["target"][0], RegionType(values["target"][1].value)),
+            ]
+        return values
 
 
 class GenerateCombatStatusMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
-    pass
+    target_player_id: PlayerID
+    combat_status_name: str
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["target_player_id"], RegionType.COMBAT_STATUS_ZONE),
+            ]
+        return values
 
 
 class GenerateEquipmentMsg(Message):
     "Usually generated from Cards"
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
-    pass
+    target: tuple[PlayerID, CharPos]
+    equipment_name: str
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["player_id"], RegionType(values["target_char_pos"].value)),
+            ]
+        return values
 
 
 class ChangeCardsMsg(Message):
@@ -83,7 +147,14 @@ class ChangeCardsMsg(Message):
     discard_cards_idx: list[int]
     draw_cards_type: list[CardType]
     """If no type specified, use `CardType.ANY`"""
-    change_player: bool = False
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["sender_id"], RegionType.HAND),
+            ]
+        return values
 
 
 # Drawing card/Changing Dice related
@@ -97,20 +168,13 @@ class ChangeDiceMsg(Message):
         ElementType.ANY represents a random dice among 7 element types (e.g. dice generated from 元素质变仪)\n
         ElementType.NONE represents a random dice among 8 kinds of dice (including the OMNI element)"""
 
-    @property
-    def remaining_respondent_zones(self):
-        return [(self.sender_id, CharPos.NONE, RegionType.DICE_ZONE)]
-
-
-class ChangeCardMsg(Message):
-    priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
-    remove_cards_idx = list[int]
-    """Index of cards to be removed"""
-    new_cards_type = list[CardType]
-
-    @property
-    def remaining_respondent_zones(self):
-        return [(self.sender_id, CharPos.NONE, RegionType.HAND)]
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["sender_id"], RegionType.DICE_ZONE),
+            ]
+        return values
 
 
 # Calculate cost related messages
@@ -133,20 +197,17 @@ class PayCardCostMsg(PayCostMsg):
     card_idx: int
     card_user_pos: CharPos
     """The user of the card. e.g. talent card"""
-    card_target: list[tuple[PlayerID, CharPos]]
-    """Will not trigger the reduce cost status in the simulate mode, for validity check"""
 
     @root_validator
-    def init_remaining_respondent_zones(cls, values):
-        default_zones = [
-            (values["sender_id"], CharPos.NONE, RegionType.HAND),
-            (values["sender_id"], values["card_user_pos"], RegionType.CHAR_ZONE),
-            (values["sender_id"], CharPos.NONE, RegionType.COMBAT_STATUS_ZONE),
-            (values["sender_id"], CharPos.NONE, RegionType.SUPPORT_ZONE),
-            (values["sender_id"], CharPos.NONE, RegionType.DICE_ZONE),
-        ]
-        if not values["remaining_respondent_zones"]:
-            values["remaining_respondent_zones"] = default_zones
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["sender_id"], RegionType.HAND),
+                (values["sender_id"], RegionType(values["card_user_pos"].value)),
+                (values["sender_id"], RegionType.COMBAT_STATUS_ZONE),
+                (values["sender_id"], RegionType.SUPPORT_ZONE),
+                (values["sender_id"], RegionType.DICE_ZONE),
+            ]
         return values
 
 
@@ -154,32 +215,39 @@ class PaySkillCostMsg(Message):
     """Will calculate and remove the cost before processing `UseSkillMsg`"""
 
     priority: MsgPriority = MsgPriority.PAY_COST
-    user_position: CharPos
+    user_pos: CharPos
     skill_name: str
     skill_target: list[tuple[PlayerID, CharPos]]
-    simulate: bool = False
     """Will not trigger the reduce cost status in the simulate mode, for validity check"""
-    cost: dict[ElementType, int] = {}
 
     @root_validator
-    def init_remaining_respondent_zones(cls, values):
-        default_zones = [
-            (values["sender_id"], CharPos.ACTIVE, RegionType.EQUIPMENT_ZONE),
-            (values["sender_id"], CharPos.ACTIVE, RegionType.STATUS_ZONE),
-            (values["sender_id"], CharPos.NONE, RegionType.COMBAT_STATUS_ZONE),
-            (values["sender_id"], CharPos.NONE, RegionType.SUPPORT_ZONE),
-            (values["sender_id"], CharPos.NONE, RegionType.DICE_ZONE),
-        ]
-        if not values["remaining_respondent_zones"]:
-            values["remaining_respondent_zones"] = default_zones
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["sender_id"], RegionType.CHARACTER_ACTIVE),
+                (values["sender_id"], RegionType.COMBAT_STATUS_ZONE),
+                (values["sender_id"], RegionType.SUPPORT_ZONE),
+                (values["sender_id"], RegionType.DICE_ZONE),
+            ]
         return values
 
 
 class PayChangeCharacterCostMsg(Message):
     priority: MsgPriority = MsgPriority.PAY_COST
-    position: CharPos
+    target_pos: CharPos
     simulate: bool = False
     """Will not trigger the reduce cost status in the simulate mode, for validity check"""
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["sender_id"], RegionType.CHARACTER_ACTIVE),
+                (values["sender_id"], RegionType.COMBAT_STATUS_ZONE),
+                (values["sender_id"], RegionType.SUPPORT_ZONE),
+                (values["sender_id"], RegionType.DICE_ZONE),
+            ]
+        return values
 
 
 # Player action related.
@@ -188,56 +256,57 @@ class PayChangeCharacterCostMsg(Message):
 
 
 class ChangeCharacterMsg(Message):
-    """Send from Agent/Character(Skill, Elemental Reaction)"""
-
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
-    position: CharPos
+    current_active: tuple[PlayerID, CharPos]
+    target: tuple[PlayerID, CharPos]
 
-    @property
-    def remaining_respondent_zones(self):
-        return [(self.sender_id,)]
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["target"][0], RegionType.CHARACTER_ACTIVE),
+                (values["target"][0], RegionType(values["target"][1].value)),
+                (values["target"][0], RegionType.COMBAT_STATUS_ZONE),
+                (values["target"][0], RegionType.SUPPORT_ZONE),
+            ]
+        return values
 
 
 class UseCardMsg(Message):
-    """Send from Agent"""
-
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     card_idx: int
-    card_target: list[tuple[PlayerID, CharPos]]
+    card_target: list[tuple[PlayerID, EntityType, int]]
+    card_user_pos: CharPos
 
 
 class UseSkillMsg(Message):
-    """Send from Agent"""
-
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
-    user_position: CharPos
+    user_pos: CharPos
     skill_name: str
     skill_target: list[tuple[PlayerID, CharPos]]
     """In case one character can assign multiple targets in the future"""
 
-    @property
-    def remaining_respondent_zones(self):
-        return [
-            (self.sender_id, RegionType.HAND),
-            (
-                self.sender_id,
-                RegionType.CHAR_ZONE,
-            ),  # the card may not be used by the active character (e.g. 刻晴的雷楔)
-            (self.sender_id, RegionType.COMBAT_STATUS_ZONE),
-            (
-                ~self.sender_id,
-                RegionType.CHAR_ZONE,
-            ),  # the damage has not been generated yet
-            (~self.sender_id, RegionType.COMBAT_STATUS_ZONE),
-            (~self.sender_id, RegionType.SUMMON_ZONE),
-            (
-                ~self.sender_id,
-                RegionType.CHAR_ZONE,
-            ),  # generate damage and then generate
-        ]
+class AfterUsingSkillMsg(Message):
+    priority: MsgPriority = MsgPriority.ACTION_DONE
+    user_pos: CharPos
+    skill_name: str
+    skill_target: list[tuple[PlayerID, CharPos]]
+    elemental_reaction_triggered: ElementalReactionType
 
+class AfterUsingCardMsg(Message):
+    priority: MsgPriority = MsgPriority.ACTION_DONE
+    card_name: str
+    card_user_pos: CharPos
+    card_target: list[tuple[PlayerID, EntityType, int]]
+    card_type: CardType # For 便携营养袋
+    
+    
+class AfterChangingCharacterMsg(Message):
+    priority: MsgPriority = MsgPriority.ACTION_DONE
+    target: tuple[PlayerID, CharPos]
+    
 
-# Hp related
+# Changing hp/power/ related
 # This kind of message is usually responded by a lot of entities, from the current character/summon to its target
 
 
@@ -245,39 +314,74 @@ class DealDamageMsg(Message):
     """Send from Character(Skill)/Character Status/Summon/Combat Status"""
 
     priority: MsgPriority = MsgPriority.GENERAL_EFFECT
-    target: list[tuple[PlayerID, CharPos, ElementType, int]]
-    pass
+    targets: list[tuple[PlayerID, CharPos, ElementType, int]]
+    element_type: ElementType
+    damage_val: int
+    elemental_reaction_triggered: ElementalReactionType
+    all_buffs_included = False
+    """Whether every attack/defense buffs are included"""
 
 
-class HurtMsg(Message):
+class AttachElementMsg(Message):
     """Send from Character/Summon who is being attacked and all other effects are already calculated"""
 
     priority: MsgPriority = MsgPriority.GENERAL_EFFECT
-    pass
+    targets: list[tuple[PlayerID, CharPos]]
+    element_types: list[ElementType]
 
 
 class RecoverHpMsg(Message):
     """Send from Card/Character(Skill)/Equipment/Support/Summon/..."""
 
     priority: MsgPriority = MsgPriority.GENERAL_EFFECT
-    pass
+
+
+class ChangePowerMsg(Message):
+    priority: MsgPriority = MsgPriority.GENERAL_EFFECT
+    change_targets: list[tuple[PlayerID, CharPos]]
+    change_vals: list[int]
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        change_vals: list[int] = values["change_vals"]
+        change_targets: list[tuple[PlayerID, CharPos]] = values["change_targets"]
+        
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (target[0], RegionType(target[1].value)) for target in change_targets
+            ]
+        return values
+
+
+# HP changed
 
 
 # Special types
 
 
-class ElementalReactionEffectMsg(Message):
+class ElementalReactionTriggeredMsg(Message):
     """Send from Character(under attack)/Summon"""
 
     priority: MsgPriority = MsgPriority.ELEMENTAL_REACTION_EFFECT
-    pass
+    elemental_reaction_type: ElementalReactionType
+    target: tuple[PlayerID, CharPos]
 
 
 class CharacterDiedMsg(Message):
     """Send from Character(under attack)"""
 
     priority: MsgPriority = MsgPriority.HP_CHANGED
-    pass
+    target: tuple[PlayerID, CharPos]
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            target:tuple[PlayerID, CharPos] = values["target"]
+            values["respondent_zones"] = [
+                (target[0], RegionType(target[1].value)), # 本大爷
+                (~target[0], RegionType.CHARACTER_ACTIVE), # 赌徒
+            ]
+        return values
+
 
 
 # Game status related
@@ -290,7 +394,24 @@ class RoundBeginMsg(Message):
 
     priority: MsgPriority = MsgPriority.GAME_STATUS
     sender_id: PlayerID = PlayerID.SPECTATOR
-    pass
+    first_move_player: PlayerID
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["first_move_player"], RegionType.SUMMON_ZONE),
+                (~values["first_move_player"], RegionType.SUMMON_ZONE),
+                (values["first_move_player"], RegionType.SUPPORT_ZONE),
+                (~values["first_move_player"], RegionType.SUPPORT_ZONE),
+                (values["first_move_player"], RegionType.ALL_CHARACTERS),
+                (~values["first_move_player"], RegionType.ALL_CHARACTERS),
+                (values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
+                (~values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
+                (values["first_move_player"], RegionType.HAND),
+                (~values["first_move_player"], RegionType.HAND),
+            ]
+        return values
 
 
 class RoundEndMsg(Message):
@@ -298,4 +419,21 @@ class RoundEndMsg(Message):
 
     priority: MsgPriority = MsgPriority.GAME_STATUS
     sender_id: PlayerID = PlayerID.SPECTATOR
-    pass
+    first_move_player: PlayerID
+
+    @root_validator
+    def init_respondent_zones(cls, values):
+        if not values["respondent_zones"]:
+            values["respondent_zones"] = [
+                (values["first_move_player"], RegionType.SUMMON_ZONE),
+                (~values["first_move_player"], RegionType.SUMMON_ZONE),
+                (values["first_move_player"], RegionType.SUPPORT_ZONE),
+                (~values["first_move_player"], RegionType.SUPPORT_ZONE),
+                (values["first_move_player"], RegionType.ALL_CHARACTERS),
+                (~values["first_move_player"], RegionType.ALL_CHARACTERS),
+                (values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
+                (~values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
+                (values["first_move_player"], RegionType.HAND),
+                (~values["first_move_player"], RegionType.HAND),
+            ]
+        return values
