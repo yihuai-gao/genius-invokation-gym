@@ -141,7 +141,7 @@ class Game:
             action = cast(ElementalTuningAction, action)
             target_element = self.player_area[
                 active_player
-            ].active_character.element_type
+            ].active_character.character.element_type
             msg = ChangeCardsMsg(sender_id=active_player,
                                  discard_cards_idx=[action.card_idx],
                                  draw_cards_type=[])
@@ -166,17 +166,33 @@ class Game:
             top_msg:Message = self.msg_queue.queue[0]
             updated = False
             respondent_zones = top_msg.respondent_zones
-            zones:BaseZone = self.get_zones(respondent_zones)
+            zones = self.get_zones(respondent_zones)
             for zone in zones:
-                updated = zones.msg_handler(self.msg_queue)
+                updated = zone.msg_handler(self.msg_queue)
+                if updated:
+                    break
+                
+            if not updated:
+                # All entities in the respondent zones does not respond to the message queue
+                # For some special messages, game FSM should be updated
+                top_msg:Message = self.msg_queue.queue[0]
+                if top_msg.change_active_player:
+                    self.active_player = ~self.active_player
+                # TODO: Other impact on the game FSM
+                self.msg_queue.get()
+                if isinstance(top_msg, CharacterDiedMsg):
+                    # Wait for player to select the next active character
+                    return
+
+                
                 
             
     def get_zones(self, zones:list[tuple[PlayerID, RegionType]]):
-        zones_pointer = []
+        zone_pointers:list[BaseZone] = []
         for player_id, zone_type in zones:
-            zones_pointer += self.player_area[player_id].get_zones(zone_type)
+            zone_pointers += self.player_area[player_id].get_zones(zone_type)
             
-        return zones_pointer
+        return zone_pointers
     
         
     def step(self, action: Action):

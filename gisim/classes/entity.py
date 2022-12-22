@@ -13,11 +13,11 @@ class Entity(ABC):
         self._uuid = uuid.uuid4()
         self._logger = logging.getLogger("gisim")
         
-    @abstractmethod
+    # @abstractmethod
     def encode(self) -> dict:
         ...
         
-    @abstractmethod
+    # @abstractmethod
     def msg_handler(self, msg_queue:PriorityQueue[Message]) -> bool:
         """Return value should be a boolean to indicate whether the message queue is updated"""
         ...
