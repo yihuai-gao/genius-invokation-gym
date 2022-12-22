@@ -67,3 +67,17 @@ class StatusEntity(Entity):
     def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         updated = False
         return updated
+    
+    
+class CardEntity(Entity):
+    def __init__(self, name: str):
+        self.name = name
+        self.enabled = True
+
+        # TODO: Initialize card cost and other requirements based on their description
+
+    def encode(self):
+        ...
+        
+    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
+        ...
