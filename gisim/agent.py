@@ -50,7 +50,7 @@ class AttackOnlyAgent(Agent):
             elif game_info.phase == GamePhase.PLAY_CARDS:
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
-                character_info = player_info.character_zone[active_pos.value]
+                character_info = player_info.characters[active_pos.value]
                 character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_info.name]]
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
@@ -95,7 +95,7 @@ class AttackOnlyAgent(Agent):
                     return DeclareEndAction()
             elif game_info.phase == GamePhase.SELECT_ACTIVE_CHARACTER:
                 player_info = game_info.get_player_info()
-                characters = player_info.character_zone
+                characters = player_info.characters
                 alive_positions = [
                     CharPos(k)
                     for k, character in enumerate(characters)

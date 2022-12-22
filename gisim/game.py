@@ -13,7 +13,7 @@ from .classes.message import *
 from .classes.status import CombatStatusEntity
 from .classes.summon import Summon
 from .classes.support import Support
-from .player_area import PlayerArea
+from .player_area import BaseZone, PlayerArea
 
 
 class Game:
@@ -81,7 +81,7 @@ class Game:
                 sender_id=active_player, target_pos=action.position
             )
             self.msg_queue.put(cost_msg)
-            pos = self.player_area[active_player].character_zone.active_character.position
+            pos = self.player_area[active_player].active_character.position
             msg = ChangeCharacterMsg(
                 sender_id=active_player, 
                 current_active=(active_player, pos),
@@ -141,7 +141,7 @@ class Game:
             action = cast(ElementalTuningAction, action)
             target_element = self.player_area[
                 active_player
-            ].character_zone.active_character.element_type
+            ].active_character.element_type
             msg = ChangeCardsMsg(sender_id=active_player,
                                  discard_cards_idx=[action.card_idx],
                                  draw_cards_type=[])
@@ -162,8 +162,23 @@ class Game:
             self.msg_queue.put(msg)
 
     def process_msg_queue(self):
-        pass
-
+        while self.msg_queue:
+            top_msg:Message = self.msg_queue.queue[0]
+            updated = False
+            respondent_zones = top_msg.respondent_zones
+            zones:BaseZone = self.get_zones(respondent_zones)
+            for zone in zones:
+                updated = zones.msg_handler(self.msg_queue)
+                
+            
+    def get_zones(self, zones:list[tuple[PlayerID, RegionType]]):
+        zones_pointer = []
+        for player_id, zone_type in zones:
+            zones_pointer += self.player_area[player_id].get_zones(zone_type)
+            
+        return zones_pointer
+    
+        
     def step(self, action: Action):
         self.parse_action(action)
 
@@ -198,14 +213,6 @@ class Game:
                     self.process_msg_queue()
                     # It seems that there is no player interaction in this phase
 
-                    # Both player draw two cards by default
-                    card_names = self.player_area[self.active_player].deck.draw_cards(2)
-                    self.player_area[self.active_player].hand.add_cards(card_names)
-                    card_names = self.player_area[~self.active_player].deck.draw_cards(
-                        2
-                    )
-                    self.player_area[~self.active_player].hand.add_cards(card_names)
-
                     self.phase = GamePhase.ROLL_DICE
                     self.player_area[self.active_player].dice_zone.init_dice()
                     self.player_area[~self.active_player].dice_zone.init_dice()
@@ -238,12 +245,19 @@ class Game:
                     if self.player_area[PlayerID.PLAYER1].declare_end and self.player_area[PlayerID.PLAYER2].declare_end:
                         # Both players have declared end
                         self.phase = GamePhase.ROUND_END
+                        self.active_player = self.first_move_player
                         self.msg_queue.put(RoundEndMsg(first_move_player=self.first_move_player))
                         self.process_msg_queue()
-                    else:
                         
-                    
-                elif self.phase == 
+                elif self.phase == GamePhase.ROUND_END:
+                    if self.msg_queue: 
+                        # There are still remaining messages (interrupted by dying character)
+                        self.process_msg_queue()
+                    else:
+                        # All calculations are done
+                        self.round_num += 1
+                        self.phase = GamePhase.ROUND_BEGIN
+                        
                     
 
     def get_winner(self):
@@ -281,8 +295,8 @@ class PlayerInfo:
         self.combat_status_zone: list[CombatStatusEntity] = player_info_dict[
             "combat_status_zone"
         ]
-        self.character_zone: list[CharacterInfo] = [
-            CharacterInfo(player_info_dict["character_zone"][k]) for k in range(3)
+        self.characters: list[CharacterInfo] = [
+            CharacterInfo(player_info_dict["characters"][k]) for k in range(3)
         ]
         self.active_character_position: CharPos = player_info_dict[
             "active_character_position"
