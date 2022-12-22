@@ -8,6 +8,9 @@ from multiprocessing.sharedctypes import Value
 from queue import PriorityQueue
 from random import Random
 from typing import TYPE_CHECKING, Optional
+from gisim.cards.equipments import talents
+
+from gisim.classes.entity import ArtifactEntity, StatusEntity, TalentEntity, WeaponEntity
 
 from .cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
 from .classes.card import CardEntity
@@ -43,8 +46,8 @@ class PlayerArea(BaseZone):
         self.player_id = player_id
         self.hand = Hand(self)
         self.dice_zone = DiceZone(self, random_state)
-        self.characters: list["CharacterEntity"] = [
-            CharacterEntity(name, self.player_id, CharPos(i))
+        self.characters: list["CharacterZone"] = [
+            CharacterZone(self, name, CharPos(i))
             for i, name in enumerate(deck["characters"])
         ]
         self.summon_zone = SummonZone(self)
@@ -55,6 +58,12 @@ class PlayerArea(BaseZone):
     @property
     def active_character(self):
         return self.characters[self.get_active_character_position().value]
+    
+    @property
+    def background_characters(self):
+        active_pos_val = self.get_active_character_position().value
+        return [self.characters[(active_pos_val+1)%3], 
+                self.characters[(active_pos_val+2)%3]]
 
     def get_active_character_position(self):
         for k in range(3):
@@ -79,33 +88,47 @@ class PlayerArea(BaseZone):
             }
         )
         
-    def get_zones(self, zone_type:RegionType):
+    def get_zones(self, zone_type:RegionType) -> list[BaseZone]:
+        assert isinstance(zone_type, RegionType), "zone_type should be RegionType"
         if zone_type == RegionType.CHARACTER_BACKGROUND:
-            return []
-        # elif zone_type == RegionType.CHARACTER_ACTIVE:
+            return self.background_characters
+            
+        elif zone_type == RegionType.CHARACTER_ACTIVE:
+            active_pos_val = self.get_active_character_position().value
+            return [self.active_character]
+        
+        elif zone_type == RegionType.CHARACTER_LEFT:
+            return [self.characters[0]]
+        
+        elif zone_type == RegionType.CHARACTER_MIDDLE:
+            return [self.characters[1]]
 
-        # elif zone_type == RegionType.CHARACTER_LEFT:
+        elif zone_type == RegionType.CHARACTER_RIGHT:
+            return [self.characters[2]]
 
-        # elif zone_type == RegionType.CHARACTER_MIDDLE:
+        elif zone_type == RegionType.SUPPORT_ZONE:
+            return [self.support_zone]
 
-        # elif zone_type == RegionType.CHARACTER_RIGHT:
+        elif zone_type == RegionType.SUMMON_ZONE:
+            return [self.summon_zone]
 
-        # elif zone_type == RegionType.SUPPORT_ZONE:
+        elif zone_type == RegionType.HAND:
+            return [self.hand]
 
-        # elif zone_type == RegionType.SUMMON_ZONE:
+        elif zone_type == RegionType.DECK:
+            return [self.deck]
 
-        # elif zone_type == RegionType.HAND:
+        elif zone_type == RegionType.COMBAT_STATUS_ZONE:
+            return [self.combat_status_zone]
 
-        # elif zone_type == RegionType.DECK:
+        elif zone_type == RegionType.DICE_ZONE:
+            return [self.dice_zone]
 
-        # elif zone_type == RegionType.COMBAT_STATUS_ZONE:
-
-        # elif zone_type == RegionType.DICE_ZONE:
-
-        # elif zone_type == RegionType.GAME_FSM:
-
-        # elif zone_type == RegionType.ALL:
-        return 
+        elif zone_type == RegionType.ALL:
+            return [
+                self.hand,
+                # self.active_character,
+            ]
     
     def msg_handler(self, msg_queue:PriorityQueue) -> bool:
         ...
@@ -245,3 +268,25 @@ class CombatStatusZone(BaseZone):
 
     def msg_handler(self, msg_queue:PriorityQueue) -> bool:
         ...
+        
+        
+class CharacterZone(BaseZone):
+    """Including entity, talent, weapon, artifact, status"""
+    def __init__(self, parent: "PlayerArea", name:str, char_pos:CharPos):
+        self._parent = parent
+        self.character = CharacterEntity(name, self._parent.player_id, CharPos(char_pos))
+        self.talent: Optional[TalentEntity] = None
+        self.weapon: Optional[WeaponEntity] = None
+        self.artifact: Optional[ArtifactEntity] = None
+        self.status: list[StatusEntity] = []
+    
+    def encode(self):
+        return {
+            "character": self.character.encode(),
+            "talent": self.talent.encode() if self.talent else None,
+            "weapon": self.weapon.encode() if self.weapon else None,
+            "artifact": self.artifact.encode() if self.artifact else None,
+            "status": [status.encode() for status in self.status],
+        }
+    
+    def 

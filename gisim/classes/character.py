@@ -11,8 +11,7 @@ from gisim.cards.characters.base import (
 
 from .entity import Entity
 from .enums import *
-from .message import GenerateDamageMsg, UseSkillMsg
-
+from .message import UseSkillMsg
 
 class CharacterEntity(Entity):
     def __init__(self, name: str, player_id: PlayerID, position: CharPos):
@@ -78,7 +77,7 @@ class CharacterEntity(Entity):
         else:
             assert skill_type is not None, "Should provide either skill id or its name"
 
-    def handle_message(self, msg_queue: PriorityQueue):
+    def msg_handler(self, msg_queue: PriorityQueue):
         msg = msg_queue.queue[0]
         updated = False
         if isinstance(msg, UseSkillMsg):
