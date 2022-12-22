@@ -212,7 +212,6 @@ class RegionType(Enum):
     CARD_ZONE = auto()
     COMBAT_STATUS_ZONE = auto()
     DICE_ZONE = auto()
-    GAME_FSM = auto()
     ALL = auto()
     """The default calculation order is:\n
     CHARACTER_ACTIVE(talent->weapon->artifact) -> COMBAT_STATUS_ZONE -> CHARACTER_BACKGROUND -> SUMMON_ZONE -> SUPPORT_ZONE"""
