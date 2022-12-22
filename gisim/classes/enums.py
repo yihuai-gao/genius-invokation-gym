@@ -209,8 +209,7 @@ class RegionType(Enum):
     CHARACTER_RIGHT = 2
     SUPPORT_ZONE = auto()
     SUMMON_ZONE = auto()
-    HAND = auto()
-    DECK = auto()
+    CARD_ZONE = auto()
     COMBAT_STATUS_ZONE = auto()
     DICE_ZONE = auto()
     GAME_FSM = auto()
