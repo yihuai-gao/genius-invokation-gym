@@ -2,8 +2,10 @@
 Note that player agents does not directly talk to this area, but through the game who judges the validity of each move. The judger then publish events and then the entities in the each player area respond to it in a specific order.
 """
 
+from abc import ABC, abstractmethod
 from collections import OrderedDict
 from multiprocessing.sharedctypes import Value
+from queue import PriorityQueue
 from random import Random
 from typing import TYPE_CHECKING, Optional
 
@@ -18,8 +20,13 @@ if TYPE_CHECKING:
     from .classes.support import Support
     from .game import Game
 
+class BaseZone(ABC):
+    @abstractmethod
+    def msg_handler(self, msg_queue:PriorityQueue) -> bool:
+        ...
+        
 
-class PlayerArea:
+class PlayerArea(BaseZone):
     def __init__(
         self,
         parent: "Game",
@@ -36,12 +43,26 @@ class PlayerArea:
         self.player_id = player_id
         self.hand = Hand(self)
         self.dice_zone = DiceZone(self, random_state)
-        self.character_zone = CharacterZone(self, deck["characters"])
+        self.characters: list["CharacterEntity"] = [
+            CharacterEntity(name, self.player_id, CharPos(i))
+            for i, name in enumerate(deck["characters"])
+        ]
         self.summon_zone = SummonZone(self)
         self.support_zone = SupportZone(self)
         self.combat_status_zone = CombatStatusZone(self)
         """For team combat status only. The status entities of the single character belong to the `CharacterStatus` of the `CharacterZone`"""
 
+    @property
+    def active_character(self):
+        return self.characters[self.get_active_character_position().value]
+
+    def get_active_character_position(self):
+        for k in range(3):
+            chr = self.characters[k]
+            if chr.active:
+                return chr.position
+        return CharPos.NONE
+    
     def encode(self, viewer_id: PlayerID):
         return OrderedDict(
             {
@@ -50,16 +71,46 @@ class PlayerArea:
                 "deck": self.deck.encode(viewer_id),
                 "hand": self.hand.encode(viewer_id),
                 "dice_zone": self.dice_zone.encode(viewer_id),
-                "character_zone": self.character_zone.encode(),
+                "characters":  [self.characters[k].encode() for k in range(3)],
                 "summon_zone": self.summon_zone.encode(),
                 "support_zone": self.support_zone.encode(),
                 "combat_status_zone": self.combat_status_zone.encode(),
-                "active_character_position": self.character_zone.get_active_character_position(),
+                "active_character_position": self.get_active_character_position(),
             }
         )
+        
+    def get_zones(self, zone_type:RegionType):
+        if zone_type == RegionType.CHARACTER_BACKGROUND:
+            return []
+        # elif zone_type == RegionType.CHARACTER_ACTIVE:
 
+        # elif zone_type == RegionType.CHARACTER_LEFT:
 
-class Hand:
+        # elif zone_type == RegionType.CHARACTER_MIDDLE:
+
+        # elif zone_type == RegionType.CHARACTER_RIGHT:
+
+        # elif zone_type == RegionType.SUPPORT_ZONE:
+
+        # elif zone_type == RegionType.SUMMON_ZONE:
+
+        # elif zone_type == RegionType.HAND:
+
+        # elif zone_type == RegionType.DECK:
+
+        # elif zone_type == RegionType.COMBAT_STATUS_ZONE:
+
+        # elif zone_type == RegionType.DICE_ZONE:
+
+        # elif zone_type == RegionType.GAME_FSM:
+
+        # elif zone_type == RegionType.ALL:
+        return 
+    
+    def msg_handler(self, msg_queue:PriorityQueue) -> bool:
+        ...
+
+class Hand(BaseZone):
     def __init__(self, parent: "PlayerArea"):
         self._parent = parent
         self.cards: list[CardEntity] = []
@@ -86,33 +137,10 @@ class Hand:
             if viewer_id == self._parent.player_id or viewer_id == 0
             else None,
         }
+    def msg_handler(self, msg_queue:PriorityQueue) -> bool:
+        ...
 
-
-class CharacterZone:
-    def __init__(self, parent: "PlayerArea", characters: list[str]):
-        self._parent = parent
-        assert len(characters) == 3, "Number of characters should be 3"
-        self.characters: list["CharacterEntity"] = [
-            CharacterEntity(name, self._parent.player_id, CharPos(i))
-            for i, name in enumerate(characters)
-        ]
-
-    def encode(self):
-        return [self.characters[k].encode() for k in range(3)]
-
-    def get_active_character_position(self):
-        for k in range(3):
-            chr = self.characters[k]
-            if chr.active:
-                return chr.position
-        return CharPos.NONE
-
-    @property
-    def active_character(self):
-        return self.characters[self.get_active_character_position().value]
-
-
-class SummonZone:
+class SummonZone(BaseZone):
     def __init__(self, parent: "PlayerArea"):
         self._parent = parent
         self.summons: list["Summon"] = []
@@ -120,8 +148,10 @@ class SummonZone:
     def encode(self):
         return [summon.encode() for summon in self.summons]
 
+    def msg_handler(self, msg_queue:PriorityQueue) -> bool:
+        ...
 
-class SupportZone:
+class SupportZone(BaseZone):
     def __init__(self, parent: "PlayerArea"):
         self._parent = parent
         self.supports: list["Support"] = []
@@ -129,8 +159,9 @@ class SupportZone:
     def encode(self):
         return [support.encode() for support in self.supports]
 
-
-class DiceZone:
+    def msg_handler(self, msg_queue:PriorityQueue) -> bool:
+        ...
+class DiceZone(BaseZone):
     def __init__(self, parent: "PlayerArea", random_state: Random):
         self._parent = parent
         self._random_state = random_state
@@ -172,8 +203,10 @@ class DiceZone:
             else None,
         }
 
-
-class Deck:
+    def msg_handler(self, msg_queue:PriorityQueue) -> bool:
+        ...
+        
+class Deck(BaseZone):
     def __init__(self, parent: "PlayerArea", random_state: Random, cards: list[str]):
         self._parent = parent
         self._random_state = random_state
@@ -200,11 +233,15 @@ class Deck:
     def add_cards(self, card_names: list[str]):
         self.cards += card_names
 
-
-class CombatStatusZone:
+    def msg_handler(self, msg_queue:PriorityQueue) -> bool:
+        ...
+class CombatStatusZone(BaseZone):
     def __init__(self, parent: "PlayerArea"):
         self._parent = parent
         self.status_entities: list["CombatStatusEntity"] = []
 
     def encode(self):
         return [status_entity.encode() for status_entity in self.status_entities]
+
+    def msg_handler(self, msg_queue:PriorityQueue) -> bool:
+        ...

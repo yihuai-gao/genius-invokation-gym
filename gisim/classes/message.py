@@ -410,15 +410,13 @@ class RoundBeginMsg(Message):
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
                 (values["first_move_player"], RegionType.SUMMON_ZONE),
-                (~values["first_move_player"], RegionType.SUMMON_ZONE),
                 (values["first_move_player"], RegionType.SUPPORT_ZONE),
-                (~values["first_move_player"], RegionType.SUPPORT_ZONE),
                 (values["first_move_player"], RegionType.ALL_CHARACTERS),
-                (~values["first_move_player"], RegionType.ALL_CHARACTERS),
                 (values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
+                (~values["first_move_player"], RegionType.SUMMON_ZONE),
+                (~values["first_move_player"], RegionType.SUPPORT_ZONE),
+                (~values["first_move_player"], RegionType.ALL_CHARACTERS),
                 (~values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
-                (values["first_move_player"], RegionType.HAND),
-                (~values["first_move_player"], RegionType.HAND),
             ]
         return values
 
@@ -435,14 +433,12 @@ class RoundEndMsg(Message):
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
                 (values["first_move_player"], RegionType.SUMMON_ZONE),
-                (~values["first_move_player"], RegionType.SUMMON_ZONE),
                 (values["first_move_player"], RegionType.SUPPORT_ZONE),
-                (~values["first_move_player"], RegionType.SUPPORT_ZONE),
                 (values["first_move_player"], RegionType.ALL_CHARACTERS),
-                (~values["first_move_player"], RegionType.ALL_CHARACTERS),
                 (values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
+                (~values["first_move_player"], RegionType.SUMMON_ZONE),
+                (~values["first_move_player"], RegionType.SUPPORT_ZONE),
+                (~values["first_move_player"], RegionType.ALL_CHARACTERS),
                 (~values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
-                (values["first_move_player"], RegionType.HAND),
-                (~values["first_move_player"], RegionType.HAND),
             ]
         return values
