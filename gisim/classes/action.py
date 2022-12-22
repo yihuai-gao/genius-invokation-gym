@@ -13,7 +13,7 @@ from abc import ABC, abstractmethod
 from pydantic import BaseModel
 
 from .entity import Entity
-from .enums import CharPos, PlayerID
+from .enums import CharPos, EntityType, PlayerID
 
 
 class Action(BaseModel, Entity, ABC):
@@ -56,7 +56,8 @@ class DeclareEndAction(Action):
 class UseCardAction(Action):
     card_idx: int
     dice_idx: list[int]
-    card_target: list[tuple[PlayerID, CharPos]]
+    card_target: list[tuple[PlayerID, EntityType, int]]
+    card_user_pos: CharPos
 
 
 class ElementalTuningAction(Action):

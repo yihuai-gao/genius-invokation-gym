@@ -32,6 +32,7 @@ class Message(BaseModel, Entity, ABC):
     """The message will travel all listed zones for respond. It will travel all zones by default as in the root validator"""
     responded_entities: list[UUID] = []
     """The UUID of all responded entities"""
+    change_active_player: bool = False
 
     def __lt__(self, other: "Message"):
         return self.priority < other.priority
@@ -292,6 +293,7 @@ class AfterUsingSkillMsg(Message):
     skill_name: str
     skill_target: list[tuple[PlayerID, CharPos]]
     elemental_reaction_triggered: ElementalReactionType
+    change_active_player: bool = True
 
 class AfterUsingCardMsg(Message):
     priority: MsgPriority = MsgPriority.ACTION_DONE
@@ -299,11 +301,18 @@ class AfterUsingCardMsg(Message):
     card_user_pos: CharPos
     card_target: list[tuple[PlayerID, EntityType, int]]
     card_type: CardType # For 便携营养袋
+    card_idx: int
     
     
 class AfterChangingCharacterMsg(Message):
     priority: MsgPriority = MsgPriority.ACTION_DONE
     target: tuple[PlayerID, CharPos]
+    change_active_player: bool = True
+    
+class DeclareEndMsg(Message):
+    priority: MsgPriority = MsgPriority.ACTION_DONE
+    change_active_player: bool = True
+    
     
 
 # Changing hp/power/ related
