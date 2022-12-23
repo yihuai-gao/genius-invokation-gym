@@ -3,9 +3,9 @@
 
 from abc import ABC, abstractmethod
 from ast import Param
-from typing import Optional
+from typing import Optional, ParamSpec
 from uuid import UUID
-from typing import ParamSpec
+
 from pydantic import BaseModel, root_validator
 
 from gisim.classes.summon import Summon
@@ -14,8 +14,8 @@ from .entity import Entity
 from .enums import (
     CardType,
     CharPos,
-    ElementType,
     ElementalReactionType,
+    ElementType,
     EntityType,
     MsgPriority,
     PlayerID,
@@ -170,6 +170,7 @@ class ChangeDiceMsg(Message):
         ElementType.ANY represents a random dice among 8 kinds of dice (including the OMNI element)"""
     consume_reroll_chance: bool = False
     update_max_reroll_chance: Optional[int] = None
+
     @root_validator
     def init_respondent_zones(cls, values):
         if not values["respondent_zones"]:
@@ -288,6 +289,7 @@ class UseSkillMsg(Message):
     skill_target: list[tuple[PlayerID, CharPos]]
     """In case one character can assign multiple targets in the future"""
 
+
 class AfterUsingSkillMsg(Message):
     priority: MsgPriority = MsgPriority.ACTION_DONE
     user_pos: CharPos
@@ -296,25 +298,27 @@ class AfterUsingSkillMsg(Message):
     elemental_reaction_triggered: ElementalReactionType
     change_active_player: bool = True
 
+
 class AfterUsingCardMsg(Message):
     priority: MsgPriority = MsgPriority.ACTION_DONE
     card_name: str
     card_user_pos: CharPos
     card_target: list[tuple[PlayerID, EntityType, int]]
-    card_type: CardType # For 便携营养袋
+    card_type: CardType  # For 便携营养袋
     card_idx: int
-    
-    
+
+
 class AfterChangingCharacterMsg(Message):
     priority: MsgPriority = MsgPriority.ACTION_DONE
     target: tuple[PlayerID, CharPos]
     change_active_player: bool = True
-    
+
+
 class DeclareEndMsg(Message):
     priority: MsgPriority = MsgPriority.ACTION_DONE
     change_active_player: bool = True
     respondent_zones: list[tuple[PlayerID, RegionType]] = []
-    
+
 
 # Changing hp/power/ related
 # This kind of message is usually responded by a lot of entities, from the current character/summon to its target
@@ -353,7 +357,7 @@ class ChangePowerMsg(Message):
     def init_respondent_zones(cls, values):
         change_vals: list[int] = values["change_vals"]
         change_targets: list[tuple[PlayerID, CharPos]] = values["change_targets"]
-        
+
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
                 (target[0], RegionType(target[1].value)) for target in change_targets
@@ -380,16 +384,16 @@ class CharacterDiedMsg(Message):
 
     priority: MsgPriority = MsgPriority.HP_CHANGED
     target: tuple[PlayerID, CharPos]
+
     @root_validator
     def init_respondent_zones(cls, values):
         if not values["respondent_zones"]:
-            target:tuple[PlayerID, CharPos] = values["target"]
+            target: tuple[PlayerID, CharPos] = values["target"]
             values["respondent_zones"] = [
-                (target[0], RegionType(target[1].value)), # 本大爷
-                (~target[0], RegionType.CHARACTER_ACTIVE), # 赌徒
+                (target[0], RegionType(target[1].value)),  # 本大爷
+                (~target[0], RegionType.CHARACTER_ACTIVE),  # 赌徒
             ]
         return values
-
 
 
 # Game status related
