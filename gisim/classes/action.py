@@ -32,6 +32,7 @@ class Action(BaseModel, Entity, ABC):
 
 class ChangeCharacterAction(Action):
     position: CharPos
+    dice_idx: list[int]
 
 
 class ChangeCardsAction(Action):

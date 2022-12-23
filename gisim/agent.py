@@ -37,21 +37,31 @@ class AttackOnlyAgent(Agent):
     def __init__(self, player_id: PlayerID):
         super().__init__(player_id)
 
-    def take_action(self, game_info: GameInfo):
+    def take_action(self, game_info: GameInfo) -> Action:
         if game_info.status == GameStatus.INITIALIZING:
             if game_info.phase == GamePhase.CHANGE_CARD:
                 return ChangeCardsAction(cards_idx=[])
             elif game_info.phase == GamePhase.SELECT_ACTIVE_CHARACTER:
-                return ChangeCharacterAction(position=CharPos.MIDDLE)
+                return ChangeCharacterAction(position=CharPos.MIDDLE, dice_idx=[])
 
         elif game_info.status == GameStatus.RUNNING:
             if game_info.phase == GamePhase.ROLL_DICE:
-                return RollDiceAction(dice_idx=[])
+                player_info = game_info.get_player_info()
+                active_pos = player_info.active_character_position
+                character_info = player_info.characters[active_pos.value]
+                character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_info.character.name]]
+                character_element = character_card.element_type
+                current_dice = player_info.dice_zone
+                reroll_dice_idx = []
+                for k, element_type in enumerate(current_dice):
+                    if element_type not in [character_element, ElementType.OMNI]:
+                        reroll_dice_idx.append(k)
+                return RollDiceAction(dice_idx=reroll_dice_idx)
             elif game_info.phase == GamePhase.PLAY_CARDS:
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
                 character_info = player_info.characters[active_pos.value]
-                character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_info.name]]
+                character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_info.character.name]]
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
                 skill_names = [skill.name for skill in character_card.skills]
@@ -73,7 +83,7 @@ class AttackOnlyAgent(Agent):
                             unaligned.append(k)
                     if len(unaligned) >= 2:
                         dice_idx = [
-                            correct[0] if len(correct) > 1 else omni[0],
+                            correct[0] if len(correct) >= 1 else omni[0],
                             unaligned[0],
                             unaligned[1],
                         ]
@@ -99,6 +109,8 @@ class AttackOnlyAgent(Agent):
                 alive_positions = [
                     CharPos(k)
                     for k, character in enumerate(characters)
-                    if character.alive
+                    if character.character.alive
                 ]
-                return ChangeCharacterAction(position=alive_positions[0])
+                return ChangeCharacterAction(position=alive_positions[0], dice_idx=[])
+            
+        return DeclareEndAction()

@@ -153,12 +153,12 @@ class ChangeCardsMsg(Message):
     def init_respondent_zones(cls, values):
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
-                (values["sender_id"], RegionType.HAND),
+                (values["sender_id"], RegionType.CARD_ZONE),
             ]
         return values
 
 
-# Drawing card/Changing Dice related
+# Changing Dice related
 class ChangeDiceMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
     remove_dice_idx: list[int]
@@ -166,9 +166,10 @@ class ChangeDiceMsg(Message):
     new_target_element: list[ElementType]
     """Number of elements should be the same as number of dice to be generated.\n
     Target element: 
-        ElementType.ANY represents a random dice among 7 element types (e.g. dice generated from 元素质变仪)\n
-        ElementType.NONE represents a random dice among 8 kinds of dice (including the OMNI element)"""
-
+        ElementType.BASIC represents a random dice among 7 element types (e.g. dice generated from 元素质变仪)\n
+        ElementType.ANY represents a random dice among 8 kinds of dice (including the OMNI element)"""
+    consume_reroll_chance: bool = False
+    update_max_reroll_chance: Optional[int] = None
     @root_validator
     def init_respondent_zones(cls, values):
         if not values["respondent_zones"]:
@@ -187,7 +188,7 @@ class PayCostMsg(Message, ABC):
     required_cost: dict[ElementType, int] = {}
     """Required cost of this action. Will be affected by equipment/character status/
     combat status/support"""
-    paid_cost: dict[ElementType, int] = {}
+    paid_dice_idx: list[int] = []
     """What the user actual paid."""
 
 
@@ -203,7 +204,7 @@ class PayCardCostMsg(PayCostMsg):
     def init_respondent_zones(cls, values):
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
-                (values["sender_id"], RegionType.HAND),
+                (values["sender_id"], RegionType.CARD_ZONE),
                 (values["sender_id"], RegionType(values["card_user_pos"].value)),
                 (values["sender_id"], RegionType.COMBAT_STATUS_ZONE),
                 (values["sender_id"], RegionType.SUPPORT_ZONE),
@@ -212,7 +213,7 @@ class PayCardCostMsg(PayCostMsg):
         return values
 
 
-class PaySkillCostMsg(Message):
+class PaySkillCostMsg(PayCostMsg):
     """Will calculate and remove the cost before processing `UseSkillMsg`"""
 
     priority: MsgPriority = MsgPriority.PAY_COST
@@ -233,7 +234,7 @@ class PaySkillCostMsg(Message):
         return values
 
 
-class PayChangeCharacterCostMsg(Message):
+class PayChangeCharacterCostMsg(PayCostMsg):
     priority: MsgPriority = MsgPriority.PAY_COST
     target_pos: CharPos
     simulate: bool = False
@@ -312,7 +313,7 @@ class AfterChangingCharacterMsg(Message):
 class DeclareEndMsg(Message):
     priority: MsgPriority = MsgPriority.ACTION_DONE
     change_active_player: bool = True
-    
+    respondent_zones: list[tuple[PlayerID, RegionType]] = []
     
 
 # Changing hp/power/ related
@@ -324,8 +325,6 @@ class DealDamageMsg(Message):
 
     priority: MsgPriority = MsgPriority.GENERAL_EFFECT
     targets: list[tuple[PlayerID, CharPos, ElementType, int]]
-    element_type: ElementType
-    damage_val: int
     elemental_reaction_triggered: ElementalReactionType
     all_buffs_included = False
     """Whether every attack/defense buffs are included"""
@@ -411,11 +410,11 @@ class RoundBeginMsg(Message):
             values["respondent_zones"] = [
                 (values["first_move_player"], RegionType.SUMMON_ZONE),
                 (values["first_move_player"], RegionType.SUPPORT_ZONE),
-                (values["first_move_player"], RegionType.ALL_CHARACTERS),
+                (values["first_move_player"], RegionType.CHARACTER_ALL),
                 (values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
                 (~values["first_move_player"], RegionType.SUMMON_ZONE),
                 (~values["first_move_player"], RegionType.SUPPORT_ZONE),
-                (~values["first_move_player"], RegionType.ALL_CHARACTERS),
+                (~values["first_move_player"], RegionType.CHARACTER_ALL),
                 (~values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
             ]
         return values
@@ -434,11 +433,11 @@ class RoundEndMsg(Message):
             values["respondent_zones"] = [
                 (values["first_move_player"], RegionType.SUMMON_ZONE),
                 (values["first_move_player"], RegionType.SUPPORT_ZONE),
-                (values["first_move_player"], RegionType.ALL_CHARACTERS),
+                (values["first_move_player"], RegionType.CHARACTER_ALL),
                 (values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
                 (~values["first_move_player"], RegionType.SUMMON_ZONE),
                 (~values["first_move_player"], RegionType.SUPPORT_ZONE),
-                (~values["first_move_player"], RegionType.ALL_CHARACTERS),
+                (~values["first_move_player"], RegionType.CHARACTER_ALL),
                 (~values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
             ]
         return values
