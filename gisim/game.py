@@ -13,7 +13,7 @@ from .classes.message import *
 from .classes.status import CombatStatusEntity
 from .classes.summon import Summon
 from .classes.support import Support
-from .player_area import BaseZone, PlayerArea
+from .player_area import BaseZone, PlayerArea, PlayerInfo
 
 
 class Game:
@@ -77,17 +77,23 @@ class Game:
 
         if isinstance(action, ChangeCharacterAction):
             action = cast(ChangeCharacterAction, action)
-            cost_msg = PayChangeCharacterCostMsg(
-                sender_id=active_player, target_pos=action.position
+            msg = PayChangeCharacterCostMsg(
+                sender_id=active_player, target_pos=action.position,
+                paid_dice_idx=action.dice_idx,
             )
-            self.msg_queue.put(cost_msg)
-            pos = self.player_area[active_player].active_character.position
+            self.msg_queue.put(msg)
+            active_character = self.player_area[active_player].active_character
+            pos = active_character.position if active_character is not None else CharPos.NONE
             msg = ChangeCharacterMsg(
                 sender_id=active_player, 
                 current_active=(active_player, pos),
                 target=(active_player, action.position),
                 )
             self.msg_queue.put(msg)
+            msg = AfterChangingCharacterMsg(
+                sender_id=active_player,
+                target=(active_player, action.position),
+            )
 
         elif isinstance(action, ChangeCardsAction):
             action = cast(ChangeCardsAction, action)
@@ -102,7 +108,8 @@ class Game:
             action = cast(RollDiceAction, action)
             msg = ChangeDiceMsg(sender_id=active_player, 
                               remove_dice_idx=action.dice_idx, 
-                              new_target_element=[ElementType.ANY for _ in action.dice_idx])
+                              new_target_element=[ElementType.ANY for _ in action.dice_idx],
+                              consume_reroll_chance=True)
             self.msg_queue.put(msg)
 
 
@@ -118,6 +125,7 @@ class Game:
                 sender_id=active_player,
                 card_idx=action.card_idx,
                 card_user_pos=action.card_user_pos,
+                paid_dice_idx=action.dice_idx,
             )
             self.msg_queue.put(msg)
             msg = UseCardMsg(
@@ -139,9 +147,9 @@ class Game:
 
         elif isinstance(action, ElementalTuningAction):
             action = cast(ElementalTuningAction, action)
-            target_element = self.player_area[
-                active_player
-            ].active_character.character.element_type
+            active_character = self.player_area[active_player].active_character
+            assert active_character is not None, "No active character selected"
+            target_element = active_character.character.element_type
             msg = ChangeCardsMsg(sender_id=active_player,
                                  discard_cards_idx=[action.card_idx],
                                  draw_cards_type=[])
@@ -154,15 +162,32 @@ class Game:
 
         elif isinstance(action, UseSkillAction):
             action = cast(UseSkillAction, action)
-            msg = UseSkillMsg(sender_id=self.active_player, 
-                              user_pos=action.user_position, 
-                              skill_name=action.skill_name,
-                              skill_target=action.skill_target,
-                              )
+            msg = PaySkillCostMsg(
+                sender_id=self.active_player, 
+                user_pos=action.user_position, 
+                skill_name=action.skill_name,
+                skill_target=action.skill_target,
+                paid_dice_idx=action.dice_idx,
+            )
+            self.msg_queue.put(msg)
+            msg = UseSkillMsg(
+                sender_id=self.active_player, 
+                user_pos=action.user_position, 
+                skill_name=action.skill_name,
+                skill_target=action.skill_target,
+            )
+            self.msg_queue.put(msg)
+            msg = AfterUsingSkillMsg(
+                sender_id=self.active_player, 
+                user_pos=action.user_position, 
+                skill_name=action.skill_name,
+                skill_target=action.skill_target,
+                elemental_reaction_triggered=ElementalReactionType.NONE,
+            )
             self.msg_queue.put(msg)
 
     def process_msg_queue(self):
-        while self.msg_queue:
+        while self.msg_queue.qsize() > 0:
             top_msg:Message = self.msg_queue.queue[0]
             updated = False
             respondent_zones = top_msg.respondent_zones
@@ -176,7 +201,16 @@ class Game:
                 # All entities in the respondent zones does not respond to the message queue
                 # For some special messages, game FSM should be updated
                 top_msg:Message = self.msg_queue.queue[0]
-                if top_msg.change_active_player:
+                if isinstance(top_msg, RoundBeginMsg):
+                    self.player_area[PlayerID.PLAYER1].declare_end = False
+                    self.player_area[PlayerID.PLAYER2].declare_end = False
+                    
+                if isinstance(top_msg, DeclareEndMsg):
+                    self.player_area[self.active_player].declare_end = True
+                    if self.player_area[~self.active_player].declare_end == False:
+                        self.first_move_player = self.active_player
+                opponent_ended = self.player_area[~self.active_player].declare_end
+                if top_msg.change_active_player and not opponent_ended:
                     self.active_player = ~self.active_player
                 # TODO: Other impact on the game FSM
                 self.msg_queue.get()
@@ -191,8 +225,8 @@ class Game:
         zone_pointers:list[BaseZone] = []
         for player_id, zone_type in zones:
             zone_pointers += self.player_area[player_id].get_zones(zone_type)
-            
-        return zone_pointers
+        # Remove empty zones (e.g. no active character)
+        return [pointers for pointers in zone_pointers if pointers is not None]
     
         
     def step(self, action: Action):
@@ -236,10 +270,11 @@ class Game:
                     break
 
                 elif self.phase == GamePhase.ROLL_DICE:
+                    self.process_msg_queue()
                     if (
                         self.player_area[
                             self.active_player
-                        ].dice_zone.remaining_reroll_round
+                        ].dice_zone.remaining_reroll_chance
                         > 0
                     ):
                         # Let this player continue to reroll dices
@@ -264,9 +299,11 @@ class Game:
                         self.active_player = self.first_move_player
                         self.msg_queue.put(RoundEndMsg(first_move_player=self.first_move_player))
                         self.process_msg_queue()
+                    else:
+                        break
                         
                 elif self.phase == GamePhase.ROUND_END:
-                    if self.msg_queue: 
+                    if self.msg_queue.qsize() > 0: 
                         # There are still remaining messages (interrupted by dying character)
                         self.process_msg_queue()
                     else:
@@ -281,42 +318,10 @@ class Game:
         pass
 
 
-class CharacterInfo:
-    def __init__(self, character_info_dict: OrderedDict):
-        self.name: str = character_info_dict["name"]
-        self.active: bool = character_info_dict["active"]
-        self.alive: bool = character_info_dict["alive"]
-        self.elemental_infusion: ElementType = character_info_dict["elemental_infusion"]
-        self.elemental_attachment: ElementType = character_info_dict[
-            "elemental_attachment"
-        ]
-        self.health_point: int = character_info_dict["health_point"]
-        self.power: int = character_info_dict["power"]
-        self.max_power: int = character_info_dict["max_power"]
 
 
-class PlayerInfo:
-    def __init__(self, player_info_dict: OrderedDict):
-        self.player_info_dict = player_info_dict
-        self.player_id: PlayerID = player_info_dict["player_id"]
-        self.declared_end: bool = player_info_dict["declared_end"]
-        self.hand_len: int = player_info_dict["hand"]["length"]
-        self.hand: list = player_info_dict["hand"]["items"]
-        self.deck_len: int = player_info_dict["deck"]["length"]
-        self.deck: list[str] = player_info_dict["hand"]["items"]
-        self.dice_zone_len: int = player_info_dict["dice_zone"]["length"]
-        self.dice_zone: list[ElementType] = player_info_dict["dice_zone"]["items"]
-        self.summon_zone: list[Summon] = player_info_dict["summon_zone"]
-        self.support_zone: list[Support] = player_info_dict["support_zone"]
-        self.combat_status_zone: list[CombatStatusEntity] = player_info_dict[
-            "combat_status_zone"
-        ]
-        self.characters: list[CharacterInfo] = [
-            CharacterInfo(player_info_dict["characters"][k]) for k in range(3)
-        ]
-        self.active_character_position: CharPos = player_info_dict[
-            "active_character_position"
-        ]
+
+
 
 
 class GameInfo:

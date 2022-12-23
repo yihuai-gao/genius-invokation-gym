@@ -1,7 +1,9 @@
 """Base class of each character: abstract class
 A character in the game should be an instant of the specific character class defined in each file"""
 from abc import ABC, abstractmethod
+from typing import cast
 from queue import PriorityQueue
+from collections import OrderedDict
 
 from gisim.cards.characters.base import (
     CHARACTER_CARDS,
@@ -11,7 +13,7 @@ from gisim.cards.characters.base import (
 
 from .entity import Entity
 from .enums import *
-from .message import UseSkillMsg
+from .message import ChangeCharacterMsg, DealDamageMsg, Message, UseSkillMsg
 
 class CharacterEntity(Entity):
     def __init__(self, name: str, player_id: PlayerID, position: CharPos):
@@ -77,22 +79,46 @@ class CharacterEntity(Entity):
         else:
             assert skill_type is not None, "Should provide either skill id or its name"
 
-    def msg_handler(self, msg_queue: PriorityQueue):
+    def msg_handler(self, msg_queue: PriorityQueue[Message]):
+        """Will respond to `UseSkillMsg` etc."""
         msg = msg_queue.queue[0]
+        if self._uuid in msg.responded_entities:
+            return False
         updated = False
         if isinstance(msg, UseSkillMsg):
-            msg: UseSkillMsg
-            if msg.user_position == self.position:
+            msg = cast(UseSkillMsg, msg)
+            if msg.user_pos == self.position:
                 msg_queue.get()  # Destroy this message
                 updated = True
                 target_player, target_pos = msg.skill_target[0]
                 # msg.skill_name #TODO: specify the name of each skill
                 msg_queue.put(
-                    GenerateDamageMsg(
+                    DealDamageMsg(
                         sender_id=self.player_id,
-                        target=[(target_player, target_pos, ElementType.NONE, 2)],
+                        targets=[(target_player, target_pos, ElementType.NONE, 2)],
+                        elemental_reaction_triggered=ElementalReactionType.NONE,
                     )
                 )
+        elif isinstance(msg, ChangeCharacterMsg):
+            msg = cast(ChangeCharacterMsg, msg)
+            if self.player_id == msg.target[0]:
+                if self.position == msg.target[1]:
+                    self.active = True
+                    updated = True
+                    msg.responded_entities.append(self._uuid)
+                elif self.position != msg.target[1] and self.active:
+                    self.active = False
+                    updated = True
+                    msg.responded_entities.append(self._uuid)
+
+        elif isinstance(msg, DealDamageMsg):
+            msg = cast(DealDamageMsg, msg)
+            for target_id, target_pos, element_type, dmg_val in msg.targets:
+                if self.player_id == target_id and self.position == target_pos:
+                    self.health_point -= dmg_val
+                    # TODO: add elemental reaction effects
+                    msg.responded_entities.append(self._uuid)
+                    updated = True
         return updated
 
 
@@ -128,3 +154,20 @@ class Skill(ABC):
         """Description of the target of the skill in domain-specific language (dsl).
         Use a list to assign multiple effects to the targets respectively."""
         ...
+
+
+
+        
+        
+class CharacterEntityInfo:
+    def __init__(self, character_entity_info_dict: OrderedDict):
+        self.name: str = character_entity_info_dict["name"]
+        self.active: bool = character_entity_info_dict["active"]
+        self.alive: bool = character_entity_info_dict["alive"]
+        self.elemental_infusion: ElementType = character_entity_info_dict["elemental_infusion"]
+        self.elemental_attachment: ElementType = character_entity_info_dict[
+            "elemental_attachment"
+        ]
+        self.health_point: int = character_entity_info_dict["health_point"]
+        self.power: int = character_entity_info_dict["power"]
+        self.max_power: int = character_entity_info_dict["max_power"]

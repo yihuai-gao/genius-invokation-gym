@@ -20,6 +20,8 @@ class GamePhase(Enum):
     """Or use character skills"""
     ROUND_END = 5
 
+    def __str__(self):
+        return self.name
 
 class ElementType(IntEnum):
     """Element types (including power, any, omni)"""
@@ -52,6 +54,8 @@ class ElementType(IntEnum):
     """草"""
     ANEMO = 7
     """风"""
+    BASIC = 8
+    """All basic elements without OMNI"""
     PIERCE = 10
     """穿透伤害"""
 
@@ -67,6 +71,9 @@ class ElementType(IntEnum):
             ElementType.DENDRO,
             ElementType.ANEMO,
         }
+        
+    def __str__(self):
+        return self.name
 
 class ElementalReactionType(Enum):
     NONE = auto()
@@ -81,6 +88,9 @@ class ElementalReactionType(Enum):
     BLOOM = auto()
     #  = auto() # TODO: 扩散、石化……
 
+    def __str__(self):
+        return self.name
+    
 class WeaponType(Enum):
     """Weapon types"""
 
@@ -159,6 +169,8 @@ class PlayerID(Enum):
         logger.warning("You are taking the opponent of the spectator!")
         return self
 
+    def __str__(self):
+        return self.name
 
 class MsgPriority(IntEnum):
     """Higher priority is with lower value (appears earlier in this Enum)
@@ -207,6 +219,7 @@ class RegionType(Enum):
     CHARACTER_LEFT = 0
     CHARACTER_MIDDLE = 1
     CHARACTER_RIGHT = 2
+    CHARACTER_ALL = auto()
     SUPPORT_ZONE = auto()
     SUMMON_ZONE = auto()
     CARD_ZONE = auto()
@@ -215,7 +228,6 @@ class RegionType(Enum):
     ALL = auto()
     """The default calculation order is:\n
     CHARACTER_ACTIVE(talent->weapon->artifact) -> COMBAT_STATUS_ZONE -> CHARACTER_BACKGROUND -> SUMMON_ZONE -> SUPPORT_ZONE"""
-    ALL_CHARACTERS = auto()
     
     
 class EntityType(Enum):

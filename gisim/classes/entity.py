@@ -2,10 +2,12 @@
 """
 import logging
 from queue import PriorityQueue
+from typing import TYPE_CHECKING
 import uuid
 from abc import ABC, abstractmethod
 
-from gisim.classes.message import Message
+if TYPE_CHECKING:
+    from gisim.classes.message import Message
 
 
 class Entity(ABC):
@@ -18,7 +20,7 @@ class Entity(ABC):
         ...
         
     # @abstractmethod
-    def msg_handler(self, msg_queue:PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue:PriorityQueue["Message"]) -> bool:
         """Return value should be a boolean to indicate whether the message queue is updated"""
         ...
         
@@ -29,7 +31,7 @@ class TalentEntity(Entity):
     def encode(self):
         return {"name": self.name}
 
-    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
         updated = False
         return updated
 
@@ -41,7 +43,7 @@ class WeaponEntity(Entity):
     def encode(self):
         return {"name": self.name}
 
-    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
         updated = False
         return updated
     
@@ -52,7 +54,7 @@ class ArtifactEntity(Entity):
     def encode(self):
         return {"name": self.name}
 
-    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
         updated = False
         return updated
     
@@ -64,7 +66,7 @@ class StatusEntity(Entity):
     def encode(self):
         return {"name": self.name}
 
-    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
         updated = False
         return updated
     
@@ -79,5 +81,5 @@ class CardEntity(Entity):
     def encode(self):
         ...
         
-    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
         ...
