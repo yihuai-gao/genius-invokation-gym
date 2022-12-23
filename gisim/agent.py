@@ -11,13 +11,7 @@ from gisim.classes.action import (
     RollDiceAction,
     UseSkillAction,
 )
-from gisim.classes.enums import (
-    CharPos,
-    ElementType,
-    GamePhase,
-    GameStatus,
-    PlayerID,
-)
+from gisim.classes.enums import CharPos, ElementType, GamePhase, GameStatus, PlayerID
 from gisim.game import GameInfo
 
 from .cards.characters.base import CHARACTER_CARDS, CHARACTER_NAME2ID
@@ -49,7 +43,9 @@ class AttackOnlyAgent(Agent):
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
                 character_info = player_info.characters[active_pos.value]
-                character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_info.character.name]]
+                character_card = CHARACTER_CARDS[
+                    CHARACTER_NAME2ID[character_info.character.name]
+                ]
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
                 reroll_dice_idx = []
@@ -61,7 +57,9 @@ class AttackOnlyAgent(Agent):
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
                 character_info = player_info.characters[active_pos.value]
-                character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_info.character.name]]
+                character_card = CHARACTER_CARDS[
+                    CHARACTER_NAME2ID[character_info.character.name]
+                ]
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
                 skill_names = [skill.name for skill in character_card.skills]
@@ -112,5 +110,5 @@ class AttackOnlyAgent(Agent):
                     if character.character.alive
                 ]
                 return ChangeCharacterAction(position=alive_positions[0], dice_idx=[])
-            
+
         return DeclareEndAction()

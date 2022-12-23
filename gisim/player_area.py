@@ -9,15 +9,21 @@ from queue import PriorityQueue
 from random import Random
 from typing import TYPE_CHECKING, Generic, Optional, TypeVar, cast
 from xml.dom.minidom import Element
-from gisim.cards.equipments import talents
-from gisim.classes.action import RollDiceAction
-
-from gisim.classes.entity import ArtifactEntity, Entity, StatusEntity, TalentEntity, WeaponEntity, CardEntity
-from gisim.classes.message import ChangeDiceMsg, Message, PayCardCostMsg, PayCostMsg
 
 from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
+from gisim.cards.equipments import talents
+from gisim.classes.action import RollDiceAction
 from gisim.classes.character import CharacterEntity, CharacterEntityInfo
+from gisim.classes.entity import (
+    ArtifactEntity,
+    CardEntity,
+    Entity,
+    StatusEntity,
+    TalentEntity,
+    WeaponEntity,
+)
 from gisim.classes.enums import *
+from gisim.classes.message import ChangeDiceMsg, Message, PayCardCostMsg, PayCostMsg
 
 if TYPE_CHECKING:
     from gisim.classes.status import CombatStatusEntity
@@ -25,11 +31,12 @@ if TYPE_CHECKING:
     from gisim.classes.support import Support
     from gisim.game import Game
 
+
 class BaseZone(Entity, ABC):
     @abstractmethod
-    def msg_handler(self, msg_queue:PriorityQueue) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         ...
-        
+
 
 class PlayerArea(BaseZone):
     def __init__(
@@ -62,12 +69,14 @@ class PlayerArea(BaseZone):
         if self.get_active_character_position().value is None:
             return None
         return self.character_zones[self.get_active_character_position().value]
-    
+
     @property
     def background_characters(self):
         active_pos_val = self.get_active_character_position().value
-        return [self.character_zones[(active_pos_val+1)%3], 
-                self.character_zones[(active_pos_val+2)%3]]
+        return [
+            self.character_zones[(active_pos_val + 1) % 3],
+            self.character_zones[(active_pos_val + 2) % 3],
+        ]
 
     def get_active_character_position(self):
         for k in range(3):
@@ -75,7 +84,7 @@ class PlayerArea(BaseZone):
             if chr.character.active:
                 return chr.position
         return CharPos.NONE
-    
+
     def encode(self, viewer_id: PlayerID):
         return OrderedDict(
             {
@@ -83,27 +92,27 @@ class PlayerArea(BaseZone):
                 "declared_end": self.declare_end,
                 "card_zone": self.card_zone.encode(viewer_id),
                 "dice_zone": self.dice_zone.encode(viewer_id),
-                "character_zones":  [self.character_zones[k].encode() for k in range(3)],
+                "character_zones": [self.character_zones[k].encode() for k in range(3)],
                 "summon_zone": self.summon_zone.encode(),
                 "support_zone": self.support_zone.encode(),
                 "combat_status_zone": self.combat_status_zone.encode(),
                 "active_character_position": self.get_active_character_position(),
             }
         )
-        
-    def get_zones(self, zone_type:RegionType) -> list[BaseZone]:
+
+    def get_zones(self, zone_type: RegionType) -> list[BaseZone]:
         assert isinstance(zone_type, RegionType), "zone_type should be RegionType"
-            
+
         if zone_type == RegionType.CHARACTER_ACTIVE:
             active_pos_val = self.get_active_character_position().value
             zones = [self.active_character]
 
         elif zone_type == RegionType.CHARACTER_BACKGROUND:
             zones = self.background_characters
-        
+
         elif zone_type == RegionType.CHARACTER_LEFT:
             zones = [self.character_zones[0]]
-        
+
         elif zone_type == RegionType.CHARACTER_MIDDLE:
             zones = [self.character_zones[1]]
 
@@ -138,15 +147,16 @@ class PlayerArea(BaseZone):
                 self.support_zone,
                 self.dice_zone,
             ]
-            
+
         else:
             raise ValueError("Current `zone_type` is not in the player area.")
-        
+
         return cast(list[BaseZone], zones)
-    
-    def msg_handler(self, msg_queue:PriorityQueue[Message]) -> bool:
+
+    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         ...
-        
+
+
 class CardZone(BaseZone):
     def __init__(self, parent: "PlayerArea", random_state: Random, cards: list[str]):
         super().__init__()
@@ -159,18 +169,18 @@ class CardZone(BaseZone):
     def shuffle(self):
         self._random_state.shuffle(self.deck_cards)
 
-        
     @property
     def card_names(self):
         return [card.name for card in self.hand_cards]
 
-    def draw_cards_from_deck(self, n:int):
-        assert n <= len(self.deck_cards), "Card number to be drawn exceeds the deck size"
+    def draw_cards_from_deck(self, n: int):
+        assert n <= len(
+            self.deck_cards
+        ), "Card number to be drawn exceeds the deck size"
         drawn_cards = self.deck_cards[:n]
         self.deck_cards = self.deck_cards[n:]
         for card_name in drawn_cards:
             self.hand_cards.append(CardEntity(card_name))
-
 
     def remove_hand_cards(self, cards_idx: list[int]):
         removed_names: list[str] = []
@@ -180,16 +190,21 @@ class CardZone(BaseZone):
         return removed_names
 
     def encode(self, viewer_id):
-        show_names = (viewer_id in [self._parent.player_id, PlayerID.SPECTATOR])
-        return OrderedDict({
-            "deck_length": len(self.deck_cards),
-            "hand_length": len(self.hand_cards),
-            "deck_cards": self.deck_cards if show_names else None,
-            "hand_cards": [card.name for card in self.hand_cards] if show_names else None,
-        })
-        
-    def msg_handler(self, msg_queue:PriorityQueue[Message]) -> bool:
+        show_names = viewer_id in [self._parent.player_id, PlayerID.SPECTATOR]
+        return OrderedDict(
+            {
+                "deck_length": len(self.deck_cards),
+                "hand_length": len(self.hand_cards),
+                "deck_cards": self.deck_cards if show_names else None,
+                "hand_cards": [card.name for card in self.hand_cards]
+                if show_names
+                else None,
+            }
+        )
+
+    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         ...
+
 
 class SummonZone(BaseZone):
     def __init__(self, parent: "PlayerArea"):
@@ -200,8 +215,9 @@ class SummonZone(BaseZone):
     def encode(self):
         return [summon.encode() for summon in self.summons]
 
-    def msg_handler(self, msg_queue:PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         ...
+
 
 class SupportZone(BaseZone):
     def __init__(self, parent: "PlayerArea"):
@@ -212,8 +228,10 @@ class SupportZone(BaseZone):
     def encode(self):
         return [support.encode() for support in self.supports]
 
-    def msg_handler(self, msg_queue:PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         ...
+
+
 class DiceZone(BaseZone):
     def __init__(self, parent: "PlayerArea", random_state: Random):
         super().__init__()
@@ -226,7 +244,7 @@ class DiceZone(BaseZone):
 
     def init_dice(self):
         self._dice = []
-        self.add_dice([ElementType.ANY]*self.init_dice_num)
+        self.add_dice([ElementType.ANY] * self.init_dice_num)
         self.remaining_reroll_chance = self.max_reroll_chance
         # TODO: fixed dice from artifact/support
 
@@ -239,9 +257,13 @@ class DiceZone(BaseZone):
     def add_dice(self, element_types: list[ElementType]):
         for element_type in element_types:
             if element_type == ElementType.ANY:
-                self._dice.append(ElementType(self._random_state.choice(list(range(8)))))
+                self._dice.append(
+                    ElementType(self._random_state.choice(list(range(8))))
+                )
             elif element_type == ElementType.BASIC:
-                self._dice.append(ElementType(self._random_state.choice(list(range(1, 8)))))
+                self._dice.append(
+                    ElementType(self._random_state.choice(list(range(1, 8))))
+                )
             else:
                 self._dice.append(element_type)
 
@@ -257,7 +279,7 @@ class DiceZone(BaseZone):
             else None,
         }
 
-    def msg_handler(self, msg_queue:PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         msg = msg_queue.queue[0]
         if self._uuid in msg.responded_entities:
             return False
@@ -276,11 +298,10 @@ class DiceZone(BaseZone):
             self.remove_dice(msg.paid_dice_idx)
             msg.responded_entities.append(self._uuid)
             return True
-        
+
         return False
-            
-    
-        
+
+
 class CombatStatusZone(BaseZone):
     def __init__(self, parent: "PlayerArea"):
         super().__init__()
@@ -290,13 +311,14 @@ class CombatStatusZone(BaseZone):
     def encode(self):
         return [status_entity.encode() for status_entity in self.status_entities]
 
-    def msg_handler(self, msg_queue:PriorityQueue[Message]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         ...
-        
-        
+
+
 class CharacterZone(BaseZone):
     """Including entity, talent, weapon, artifact, status"""
-    def __init__(self, parent: "PlayerArea", name:str, char_pos:CharPos):
+
+    def __init__(self, parent: "PlayerArea", name: str, char_pos: CharPos):
         super().__init__()
         self._parent = parent
         self.position: CharPos = char_pos
@@ -305,7 +327,7 @@ class CharacterZone(BaseZone):
         self.weapon: Optional[WeaponEntity] = None
         self.artifact: Optional[ArtifactEntity] = None
         self.status: list[StatusEntity] = []
-    
+
     def encode(self):
         return {
             "character": self.character.encode(),
@@ -314,10 +336,16 @@ class CharacterZone(BaseZone):
             "artifact": self.artifact.encode() if self.artifact else None,
             "status": [status.encode() for status in self.status],
         }
-    
+
     def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         updated = False
-        entities = [self.character, self.talent, self.weapon, self.artifact, *self.status]
+        entities = [
+            self.character,
+            self.talent,
+            self.weapon,
+            self.artifact,
+            *self.status,
+        ]
         entities = cast(list[Entity], entities)
         for entity in entities:
             if entity is None:
@@ -326,8 +354,8 @@ class CharacterZone(BaseZone):
             if updated:
                 return True
         return False
-    
-    
+
+
 class PlayerInfo:
     def __init__(self, player_info_dict: OrderedDict):
         self.player_info_dict = player_info_dict
@@ -350,7 +378,8 @@ class PlayerInfo:
         self.active_character_position: CharPos = player_info_dict[
             "active_character_position"
         ]
-        
+
+
 class CharacterInfo:
     def __init__(self, character_info_dict: OrderedDict):
         self.character = CharacterEntityInfo(character_info_dict["character"])

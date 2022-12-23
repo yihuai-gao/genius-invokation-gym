@@ -23,6 +23,7 @@ class GamePhase(Enum):
     def __str__(self):
         return self.name
 
+
 class ElementType(IntEnum):
     """Element types (including power, any, omni)"""
 
@@ -71,9 +72,10 @@ class ElementType(IntEnum):
             ElementType.DENDRO,
             ElementType.ANEMO,
         }
-        
+
     def __str__(self):
         return self.name
+
 
 class ElementalReactionType(Enum):
     NONE = auto()
@@ -90,7 +92,8 @@ class ElementalReactionType(Enum):
 
     def __str__(self):
         return self.name
-    
+
+
 class WeaponType(Enum):
     """Weapon types"""
 
@@ -172,10 +175,10 @@ class PlayerID(Enum):
     def __str__(self):
         return self.name
 
+
 class MsgPriority(IntEnum):
     """Higher priority is with lower value (appears earlier in this Enum)
     Usually there is at most one message for each class in the message queue."""
-
 
     # Events that almost immediately happens (will not trigger other messages before this message expires)
     IMMEDIATE_OPERATION = auto()
@@ -228,8 +231,8 @@ class RegionType(Enum):
     ALL = auto()
     """The default calculation order is:\n
     CHARACTER_ACTIVE(talent->weapon->artifact) -> COMBAT_STATUS_ZONE -> CHARACTER_BACKGROUND -> SUMMON_ZONE -> SUPPORT_ZONE"""
-    
-    
+
+
 class EntityType(Enum):
     CHARACTER = auto()
     TALENT = auto()
@@ -242,4 +245,3 @@ class EntityType(Enum):
     """For the cards in hand only"""
     SUMMON = auto()
     SUPPORT = auto()
-    

@@ -78,17 +78,22 @@ class Game:
         if isinstance(action, ChangeCharacterAction):
             action = cast(ChangeCharacterAction, action)
             msg = PayChangeCharacterCostMsg(
-                sender_id=active_player, target_pos=action.position,
+                sender_id=active_player,
+                target_pos=action.position,
                 paid_dice_idx=action.dice_idx,
             )
             self.msg_queue.put(msg)
             active_character = self.player_area[active_player].active_character
-            pos = active_character.position if active_character is not None else CharPos.NONE
+            pos = (
+                active_character.position
+                if active_character is not None
+                else CharPos.NONE
+            )
             msg = ChangeCharacterMsg(
-                sender_id=active_player, 
+                sender_id=active_player,
                 current_active=(active_player, pos),
                 target=(active_player, action.position),
-                )
+            )
             self.msg_queue.put(msg)
             msg = AfterChangingCharacterMsg(
                 sender_id=active_player,
@@ -100,18 +105,19 @@ class Game:
             msg = ChangeCardsMsg(
                 sender_id=active_player,
                 discard_cards_idx=action.cards_idx,
-                draw_cards_type=[CardType.ANY for _ in action.cards_idx]
+                draw_cards_type=[CardType.ANY for _ in action.cards_idx],
             )
             self.msg_queue.put(msg)
 
         elif isinstance(action, RollDiceAction):
             action = cast(RollDiceAction, action)
-            msg = ChangeDiceMsg(sender_id=active_player, 
-                              remove_dice_idx=action.dice_idx, 
-                              new_target_element=[ElementType.ANY for _ in action.dice_idx],
-                              consume_reroll_chance=True)
+            msg = ChangeDiceMsg(
+                sender_id=active_player,
+                remove_dice_idx=action.dice_idx,
+                new_target_element=[ElementType.ANY for _ in action.dice_idx],
+                consume_reroll_chance=True,
+            )
             self.msg_queue.put(msg)
-
 
         elif isinstance(action, DeclareEndAction):
             self.player_area[active_player].declare_end = True
@@ -140,8 +146,8 @@ class Game:
                 card_user_pos=action.card_user_pos,
                 card_idx=action.card_idx,
                 card_target=action.card_target,
-                card_name="", # To be initialized in HAND
-                card_type=CardType.ANY, # To be initialized in HAND
+                card_name="",  # To be initialized in HAND
+                card_type=CardType.ANY,  # To be initialized in HAND
             )
             self.msg_queue.put(msg)
 
@@ -150,36 +156,39 @@ class Game:
             active_character = self.player_area[active_player].active_character
             assert active_character is not None, "No active character selected"
             target_element = active_character.character.element_type
-            msg = ChangeCardsMsg(sender_id=active_player,
-                                 discard_cards_idx=[action.card_idx],
-                                 draw_cards_type=[])
+            msg = ChangeCardsMsg(
+                sender_id=active_player,
+                discard_cards_idx=[action.card_idx],
+                draw_cards_type=[],
+            )
             self.msg_queue.put(msg)
-            msg = ChangeDiceMsg(sender_id=active_player,
-                                remove_dice_idx=[action.die_idx],
-                                new_target_element=[target_element])
+            msg = ChangeDiceMsg(
+                sender_id=active_player,
+                remove_dice_idx=[action.die_idx],
+                new_target_element=[target_element],
+            )
             self.msg_queue.put(msg)
-
 
         elif isinstance(action, UseSkillAction):
             action = cast(UseSkillAction, action)
             msg = PaySkillCostMsg(
-                sender_id=self.active_player, 
-                user_pos=action.user_position, 
+                sender_id=self.active_player,
+                user_pos=action.user_position,
                 skill_name=action.skill_name,
                 skill_target=action.skill_target,
                 paid_dice_idx=action.dice_idx,
             )
             self.msg_queue.put(msg)
             msg = UseSkillMsg(
-                sender_id=self.active_player, 
-                user_pos=action.user_position, 
+                sender_id=self.active_player,
+                user_pos=action.user_position,
                 skill_name=action.skill_name,
                 skill_target=action.skill_target,
             )
             self.msg_queue.put(msg)
             msg = AfterUsingSkillMsg(
-                sender_id=self.active_player, 
-                user_pos=action.user_position, 
+                sender_id=self.active_player,
+                user_pos=action.user_position,
                 skill_name=action.skill_name,
                 skill_target=action.skill_target,
                 elemental_reaction_triggered=ElementalReactionType.NONE,
@@ -188,7 +197,7 @@ class Game:
 
     def process_msg_queue(self):
         while self.msg_queue.qsize() > 0:
-            top_msg:Message = self.msg_queue.queue[0]
+            top_msg: Message = self.msg_queue.queue[0]
             updated = False
             respondent_zones = top_msg.respondent_zones
             zones = self.get_zones(respondent_zones)
@@ -196,15 +205,15 @@ class Game:
                 updated = zone.msg_handler(self.msg_queue)
                 if updated:
                     break
-                
+
             if not updated:
                 # All entities in the respondent zones does not respond to the message queue
                 # For some special messages, game FSM should be updated
-                top_msg:Message = self.msg_queue.queue[0]
+                top_msg: Message = self.msg_queue.queue[0]
                 if isinstance(top_msg, RoundBeginMsg):
                     self.player_area[PlayerID.PLAYER1].declare_end = False
                     self.player_area[PlayerID.PLAYER2].declare_end = False
-                    
+
                 if isinstance(top_msg, DeclareEndMsg):
                     self.player_area[self.active_player].declare_end = True
                     if self.player_area[~self.active_player].declare_end == False:
@@ -218,17 +227,13 @@ class Game:
                     # Wait for player to select the next active character
                     return
 
-                
-                
-            
-    def get_zones(self, zones:list[tuple[PlayerID, RegionType]]):
-        zone_pointers:list[BaseZone] = []
+    def get_zones(self, zones: list[tuple[PlayerID, RegionType]]):
+        zone_pointers: list[BaseZone] = []
         for player_id, zone_type in zones:
             zone_pointers += self.player_area[player_id].get_zones(zone_type)
         # Remove empty zones (e.g. no active character)
         return [pointers for pointers in zone_pointers if pointers is not None]
-    
-        
+
     def step(self, action: Action):
         self.parse_action(action)
 
@@ -259,7 +264,9 @@ class Game:
 
             elif self.status == GameStatus.RUNNING:
                 if self.phase == GamePhase.ROUND_BEGIN:
-                    self.msg_queue.put(RoundBeginMsg(first_move_player=self.first_move_player))
+                    self.msg_queue.put(
+                        RoundBeginMsg(first_move_player=self.first_move_player)
+                    )
                     self.process_msg_queue()
                     # It seems that there is no player interaction in this phase
 
@@ -293,35 +300,32 @@ class Game:
                 elif self.phase == GamePhase.PLAY_CARDS:
                     # Possible actions: UseCard, ElementalTuning, UseSkill, ChangeCharacter, DeclareEnd
                     self.process_msg_queue()
-                    if self.player_area[PlayerID.PLAYER1].declare_end and self.player_area[PlayerID.PLAYER2].declare_end:
+                    if (
+                        self.player_area[PlayerID.PLAYER1].declare_end
+                        and self.player_area[PlayerID.PLAYER2].declare_end
+                    ):
                         # Both players have declared end
                         self.phase = GamePhase.ROUND_END
                         self.active_player = self.first_move_player
-                        self.msg_queue.put(RoundEndMsg(first_move_player=self.first_move_player))
+                        self.msg_queue.put(
+                            RoundEndMsg(first_move_player=self.first_move_player)
+                        )
                         self.process_msg_queue()
                     else:
                         break
-                        
+
                 elif self.phase == GamePhase.ROUND_END:
-                    if self.msg_queue.qsize() > 0: 
+                    if self.msg_queue.qsize() > 0:
                         # There are still remaining messages (interrupted by dying character)
                         self.process_msg_queue()
                     else:
                         # All calculations are done
                         self.round_num += 1
                         self.phase = GamePhase.ROUND_BEGIN
-                        
-                    
 
     def get_winner(self):
         # TODO
         pass
-
-
-
-
-
-
 
 
 class GameInfo:

@@ -1,9 +1,9 @@
 """Base class of each character: abstract class
 A character in the game should be an instant of the specific character class defined in each file"""
 from abc import ABC, abstractmethod
-from typing import cast
-from queue import PriorityQueue
 from collections import OrderedDict
+from queue import PriorityQueue
+from typing import cast
 
 from gisim.cards.characters.base import (
     CHARACTER_CARDS,
@@ -14,6 +14,7 @@ from gisim.cards.characters.base import (
 from .entity import Entity
 from .enums import *
 from .message import ChangeCharacterMsg, DealDamageMsg, Message, UseSkillMsg
+
 
 class CharacterEntity(Entity):
     def __init__(self, name: str, player_id: PlayerID, position: CharPos):
@@ -156,15 +157,14 @@ class Skill(ABC):
         ...
 
 
-
-        
-        
 class CharacterEntityInfo:
     def __init__(self, character_entity_info_dict: OrderedDict):
         self.name: str = character_entity_info_dict["name"]
         self.active: bool = character_entity_info_dict["active"]
         self.alive: bool = character_entity_info_dict["alive"]
-        self.elemental_infusion: ElementType = character_entity_info_dict["elemental_infusion"]
+        self.elemental_infusion: ElementType = character_entity_info_dict[
+            "elemental_infusion"
+        ]
         self.elemental_attachment: ElementType = character_entity_info_dict[
             "elemental_attachment"
         ]
