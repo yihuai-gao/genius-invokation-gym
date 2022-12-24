@@ -15,8 +15,8 @@ class KamisatoAyakaSenho(CharacterSkill):
     【被动】此角色被切换为「出战角色」时，附属<color=#FFFFFFFF>冰元素附魔</color>。
     """
 
-    def on_skill(self) -> list:
+    # def on_skill(self) -> list:
         # This is just a placeholder, you need to replace it with your own implementation
-        return self._build_message(
-            "Inufsion", ("cryo",), conditions={"on_switch": True}
-        )
+        # return self._build_message(
+        #     "Inufsion", ("cryo",), conditions={"on_switch": True}
+        # )

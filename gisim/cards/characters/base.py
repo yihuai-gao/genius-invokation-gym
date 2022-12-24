@@ -76,7 +76,7 @@ class CharacterSkill(BaseModel, MessageReceiver):
 
         return self._build_message("Unknown", command=full_command)
 
-    def parse_skill_text(self) -> None:
+    def parse_skill_text(self):
         """
         Parse the skill text and execute the skill effect
         """
