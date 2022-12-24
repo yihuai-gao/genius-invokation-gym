@@ -13,7 +13,13 @@ from gisim.cards.characters.base import (
 
 from .entity import Entity
 from .enums import *
-from .message import ChangeCharacterMsg, DealDamageMsg, Message, UseSkillMsg
+from .message import (
+    ChangeCharacterMsg,
+    CharacterDiedMsg,
+    DealDamageMsg,
+    Message,
+    UseSkillMsg,
+)
 
 
 class CharacterEntity(Entity):
@@ -116,7 +122,15 @@ class CharacterEntity(Entity):
             msg = cast(DealDamageMsg, msg)
             for target_id, target_pos, element_type, dmg_val in msg.targets:
                 if self.player_id == target_id and self.position == target_pos:
-                    self.health_point -= dmg_val
+                    self.health_point -= min(self.health_point, dmg_val)
+                    if self.health_point == 0:
+                        self.alive = False
+                        # self.active = False
+                        dead_msg = CharacterDiedMsg(
+                            sender_id=self.player_id,
+                            target=(self.player_id, self.position),
+                        )
+                        msg_queue.put(dead_msg)
                     # TODO: add elemental reaction effects
                     msg.responded_entities.append(self._uuid)
                     updated = True

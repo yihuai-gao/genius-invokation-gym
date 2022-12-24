@@ -60,6 +60,15 @@ class AttackOnlyAgent(Agent):
                 character_card = CHARACTER_CARDS[
                     CHARACTER_NAME2ID[character_info.character.name]
                 ]
+                if character_info.character.health_point <= 0:
+                    alive_positions = [
+                        CharPos(k)
+                        for k, character in enumerate(player_info.characters)
+                        if character.character.alive
+                    ]
+                    return ChangeCharacterAction(
+                        position=alive_positions[0], dice_idx=[]
+                    )
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
                 skill_names = [skill.name for skill in character_card.skills]
@@ -101,14 +110,5 @@ class AttackOnlyAgent(Agent):
 
                 else:
                     return DeclareEndAction()
-            elif game_info.phase == GamePhase.SELECT_ACTIVE_CHARACTER:
-                player_info = game_info.get_player_info()
-                characters = player_info.characters
-                alive_positions = [
-                    CharPos(k)
-                    for k, character in enumerate(characters)
-                    if character.character.alive
-                ]
-                return ChangeCharacterAction(position=alive_positions[0], dice_idx=[])
 
         return DeclareEndAction()
