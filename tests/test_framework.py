@@ -18,26 +18,43 @@ if __name__ == "__main__":
 
     winner = PlayerID.SPECTATOR
     action_cnt = 0
+    game_round = 0
     while True:
+        if game_round != game_info.round_num:
+            game_round = game_info.round_num
+            print(f"\n-------------- Round {game_round} --------------\n")
         action_cnt += 1
         active_player = game_info.active_player
         if active_player == PlayerID.PLAYER1:
             action = player1_agent.take_action(game_info)
         else:
             action = player2_agent.take_action(game_info)
-        print(f"\nGame round {game_info.round_num} phase {game_info.phase}")
         if active_player == PlayerID.PLAYER1:
             if game_info.player1.dice_zone:
                 dice = [str(die) for die in game_info.player1.dice_zone]
             else:
                 dice = []
+            pos = game_info.player1.active_character_position
+            if pos.value is not None:
+                ch = game_info.player1.characters[pos.value].character
+            else:
+                ch = None
         else:
             if game_info.player2.dice_zone:
                 dice = [str(die) for die in game_info.player2.dice_zone]
             else:
                 dice = []
-        print(f"  {active_player} Dice: {dice}")
-        print(f"      {str(type(action)).strip().split('.')[-1]}: {action.dict()}")
+            pos = game_info.player2.active_character_position
+            if pos.value is not None:
+                ch = game_info.player2.characters[pos.value].character
+            else:
+                ch = None
+        action_type = str(type(action)).strip(">'").split(".")[-1]
+        print(f"{active_player} {action_type}: {action.dict()}")
+        print(f"    Current Dice: {dice}")
+        if ch is not None:
+            print(f"    Current Character: {ch.name}, hp: {ch.health_point}")
+        print("\n")
         valid = game.judge_action(action)
         if valid:
             game.step(action)

@@ -97,10 +97,14 @@ class Game:
                 target=(active_player, action.position),
             )
             self.msg_queue.put(msg)
+            if active_character is not None:
+                change = active_character.character.alive
+            else:
+                change = True
             msg = AfterChangingCharacterMsg(
                 sender_id=active_player,
                 target=(active_player, action.position),
-                change_active_player=(self.phase == GamePhase.PLAY_CARDS),
+                change_active_player=change,
             )
 
         elif isinstance(action, ChangeCardsAction):
@@ -218,21 +222,27 @@ class Game:
                     self.player_area[PlayerID.PLAYER2].declare_end = False
 
                 if isinstance(top_msg, DeclareEndMsg):
-                    self.player_area[self.active_player].declare_end = True
-                    if self.player_area[~self.active_player].declare_end == False:
-                        self.first_move_player = self.active_player
+                    self.player_area[top_msg.sender_id].declare_end = True
+                    if self.player_area[~top_msg.sender_id].declare_end == False:
+                        self.first_move_player = top_msg.sender_id
 
-                opponent_ended = self.player_area[~self.active_player].declare_end
-                if top_msg.change_active_player and not opponent_ended:
+                self_ended = self.player_area[self.active_player].declare_end
+                if self_ended:
+                    # After changing dead character: if the player has declared end,
+                    # the other player should continue playing
                     self.active_player = ~self.active_player
+                else:
+                    opponent_ended = self.player_area[~self.active_player].declare_end
+                    if top_msg.change_active_player and not opponent_ended:
+                        if self.active_player == top_msg.sender_id:
+                            self.active_player = ~self.active_player
                 # TODO: Other impact on the game FSM
                 self.msg_queue.get()
                 if isinstance(top_msg, CharacterDiedMsg):
                     top_msg = cast(CharacterDiedMsg, top_msg)
                     # TODO: Determine whether game ends
-                    self.active_player = top_msg.target[
-                        0
-                    ]  # Wait for the player to change character
+                    # Wait for the player to change character
+                    self.active_player = top_msg.target[0]
                     char_died = top_msg.target[0]
                     # Wait for player to select the next active character
                     return char_died
@@ -283,6 +293,7 @@ class Game:
                     # It seems that there is no player interaction in this phase
 
                     self.phase = GamePhase.ROLL_DICE
+
                     self.player_area[self.active_player].dice_zone.init_dice()
                     self.player_area[~self.active_player].dice_zone.init_dice()
                     # Wait for the first player to reroll dice
@@ -323,7 +334,6 @@ class Game:
                         if not any(char_alive):
                             self.status = GameStatus.ENDED
                             self.winner = ~current_player
-                            break
                         break
                     if (
                         self.player_area[PlayerID.PLAYER1].declare_end
@@ -347,6 +357,7 @@ class Game:
                         # All calculations are done
                         self.round_num += 1
                         self.phase = GamePhase.ROUND_BEGIN
+                        self.active_player = self.first_move_player
 
 
 class GameInfo:

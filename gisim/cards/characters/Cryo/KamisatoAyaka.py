@@ -16,7 +16,7 @@ class KamisatoAyakaSenho(CharacterSkill):
     """
 
     # def on_skill(self) -> list:
-        # This is just a placeholder, you need to replace it with your own implementation
-        # return self._build_message(
-        #     "Inufsion", ("cryo",), conditions={"on_switch": True}
-        # )
+    # This is just a placeholder, you need to replace it with your own implementation
+    # return self._build_message(
+    #     "Inufsion", ("cryo",), conditions={"on_switch": True}
+    # )
