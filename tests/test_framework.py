@@ -43,7 +43,7 @@ if __name__ == "__main__":
             game.step(action)
             game_info = game.encode_game_info()
             if game_info.status == GameStatus.ENDED:
-                winner = game.get_winner()
+                winner = game_info.winner
                 break
         else:
             print(f"The action of {active_player} is invalid. Game End.")

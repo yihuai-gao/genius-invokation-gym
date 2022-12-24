@@ -28,6 +28,7 @@ class Game:
         self._random_state = Random(seed)
         self.status = GameStatus.INITIALIZING
         self.phase = GamePhase.CHANGE_CARD
+        self.winner = PlayerID.SPECTATOR
         self.round_num = 1
         self.first_move_player = PlayerID(self._random_state.choice([1, 2]))
         """Toss coin to determine who act first for the first round;\n
@@ -50,6 +51,7 @@ class Game:
             {
                 "viewer_id": viewer_id,
                 "status": self.status,
+                "winner": self.winner,
                 "phase": self.phase,
                 "round_num": self.round_num,
                 "first_move_player": self.first_move_player,
@@ -98,6 +100,7 @@ class Game:
             msg = AfterChangingCharacterMsg(
                 sender_id=active_player,
                 target=(active_player, action.position),
+                change_active_player=(self.phase == GamePhase.PLAY_CARDS),
             )
 
         elif isinstance(action, ChangeCardsAction):
@@ -218,14 +221,23 @@ class Game:
                     self.player_area[self.active_player].declare_end = True
                     if self.player_area[~self.active_player].declare_end == False:
                         self.first_move_player = self.active_player
+
                 opponent_ended = self.player_area[~self.active_player].declare_end
                 if top_msg.change_active_player and not opponent_ended:
                     self.active_player = ~self.active_player
                 # TODO: Other impact on the game FSM
                 self.msg_queue.get()
                 if isinstance(top_msg, CharacterDiedMsg):
+                    top_msg = cast(CharacterDiedMsg, top_msg)
+                    # TODO: Determine whether game ends
+                    self.active_player = top_msg.target[
+                        0
+                    ]  # Wait for the player to change character
+                    char_died = top_msg.target[0]
                     # Wait for player to select the next active character
-                    return
+                    return char_died
+
+        return False
 
     def get_zones(self, zones: list[tuple[PlayerID, RegionType]]):
         zone_pointers: list[BaseZone] = []
@@ -299,7 +311,20 @@ class Game:
 
                 elif self.phase == GamePhase.PLAY_CARDS:
                     # Possible actions: UseCard, ElementalTuning, UseSkill, ChangeCharacter, DeclareEnd
-                    self.process_msg_queue()
+                    char_died = self.process_msg_queue()
+                    if char_died:
+                        # Character died when processing message queue
+                        # Check whether all characters died
+                        current_player = self.active_player
+                        char_alive = [
+                            ch.character.alive
+                            for ch in self.player_area[current_player].character_zones
+                        ]
+                        if not any(char_alive):
+                            self.status = GameStatus.ENDED
+                            self.winner = ~current_player
+                            break
+                        break
                     if (
                         self.player_area[PlayerID.PLAYER1].declare_end
                         and self.player_area[PlayerID.PLAYER2].declare_end
@@ -323,15 +348,12 @@ class Game:
                         self.round_num += 1
                         self.phase = GamePhase.ROUND_BEGIN
 
-    def get_winner(self):
-        # TODO
-        pass
-
 
 class GameInfo:
     def __init__(self, game_info_dict: OrderedDict):
         self.game_info_dict = game_info_dict
         self.viewer_id: PlayerID = game_info_dict["viewer_id"]
+        self.winner: PlayerID = game_info_dict["winner"]
         self.status: GameStatus = game_info_dict["status"]
         self.phase: GamePhase = game_info_dict["phase"]
         self.round_num: int = game_info_dict["round_num"]
