@@ -10,5 +10,5 @@ class Summon(Entity, ABC):
         # TODO
         pass
 
-    def encode():
+    def encode(self):
         pass
