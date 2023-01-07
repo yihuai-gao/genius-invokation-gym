@@ -1,15 +1,20 @@
 """
 Basic character card classes
 """
+from abc import abstractmethod
+from queue import PriorityQueue
 import re
 from collections import defaultdict
-from typing import Optional, Type
+from typing import TYPE_CHECKING, Optional, Type
 
 from pydantic import BaseModel, Field, validator
 
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
-from gisim.classes.message import Message, MessageReceiver, UseSkillMsg
+from gisim.classes.message import Message, UseSkillMsg
 from gisim.env import get_display_text
+
+if TYPE_CHECKING:
+    from gisim.classes.character import CharacterEntity
 
 _DEFAULT_SKILL_REGEXPS = {
     # Deals 8 Pyro DMG
@@ -31,7 +36,7 @@ _DEFAULT_SKILL_REGEXPS = {
 }
 
 
-class CharacterSkill(BaseModel, MessageReceiver):
+class CharacterSkill(BaseModel):
     id: int
     name: str
     text: str
@@ -39,69 +44,69 @@ class CharacterSkill(BaseModel, MessageReceiver):
     types: list[SkillType] = Field(..., min_items=1, max_items=1)
     resource: Optional[str] = None  # 图片链接
 
-    def on_message(self, msg: Message):
-        if isinstance(msg, UseSkillMsg):
-            self.on_skill(msg)
-
-    def on_skill(self, msg: UseSkillMsg) -> None:
+    @abstractmethod
+    def use_skill(self, msg_queue:PriorityQueue[Message], parent:"CharacterEntity"):
         """
         Called when the skill is activated, by default, it parses the skill text and
         returns a list of messages to be sent to the game
         """
+        ...
 
-        for skill in self.parse_skill_text():
-            # TODO: Send the message to the game
-            # msg.game.send_message(skill)
-            pass
+    # def on_skill(self, msg: UseSkillMsg) -> None:
+    
+    #     for skill in self.parse_skill_text():
+    #         # TODO: Send the message to the game
+    #         # msg.game.send_message(skill)
+    #         pass
 
-    def _build_message(self, skill_type, *args, **kwargs):
-        """
-        Build message here
-        """
+    # def _build_message(self, skill_type, *args, **kwargs):
+    #     """
+    #     Build message here
+    #     """
 
-        # TODO: This is just a placeholder, need to be implemented
+    #     # TODO: This is just a placeholder, need to be implemented
 
-        if skill_type == "Unknown":
-            raise NotImplementedError(
-                f"You need to override {self}'s `on_skill` or `parse_sub_command` method to handle: \n    {get_display_text(kwargs['command'])}"
-            )
+    #     if skill_type == "Unknown":
+    #         raise NotImplementedError(
+    #             f"You need to override {self}'s `on_skill` or `parse_sub_command` method to handle: \n    {get_display_text(kwargs['command'])}"
+    #         )
 
-        return dict(type=skill_type, args=args, kwargs=kwargs)
+    #     return dict(type=skill_type, args=args, kwargs=kwargs)
 
-    def parse_sub_command(self, sub_command: str, full_command: str) -> dict:
-        for skill_type, regexp in _DEFAULT_SKILL_REGEXPS.items():
-            results = re.findall(regexp, sub_command)
-            if results:
-                return self._build_message(skill_type, tuple(results))
+    # def parse_sub_command(self, sub_command: str, full_command: str) -> dict:
+    #     for skill_type, regexp in _DEFAULT_SKILL_REGEXPS.items():
+    #         results = re.findall(regexp, sub_command)
+    #         if results:
+    #             return self._build_message(skill_type, tuple(results))
 
-        return self._build_message("Unknown", command=full_command)
+    #     return self._build_message("Unknown", command=full_command)
 
-    def parse_skill_text(self):
-        """
-        Parse the skill text and execute the skill effect
-        """
+    # def parse_skill_text(self):
+    #     """
+    #     Parse the skill text and execute the skill effect
+    #     """
 
-        text = self.text.lower().replace("</color>", "")
+    #     text = self.text.lower().replace("</color>", "")
 
-        # Use regexp to replace all the color tags
-        text = re.sub(r"<color=#([0-9a-fA-F]{8})>", "", text)
+    #     # Use regexp to replace all the color tags
+    #     text = re.sub(r"<color=#([0-9a-fA-F]{8})>", "", text)
 
-        messages = []
-        for command in text.split("."):
-            command = command.strip()
-            if not command:
-                continue
+    #     messages = []
+    #     for command in text.split("."):
+    #         command = command.strip()
+    #         if not command:
+    #             continue
 
-            # A command is parsable if all of its sub-commands are parsable
-            for sub_command in command.split(", "):
-                messages.append(
-                    self.parse_sub_command(sub_command, full_command=command)
-                )
+    #         # A command is parsable if all of its sub-commands are parsable
+    #         for sub_command in command.split(", "):
+    #             messages.append(
+    #                 self.parse_sub_command(sub_command, full_command=command)
+    #             )
 
-        return messages
+    #     return messages
 
-    def __str__(self):
-        return f"<{self.id}: {get_display_text(self.name)}>"
+    # def __str__(self):
+    #     return f"<{self.id}: {get_display_text(self.name)}>"
 
 
 class CharacterCard(BaseModel):

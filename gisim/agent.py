@@ -2,6 +2,7 @@
 """
 from abc import ABC, abstractmethod
 from typing import OrderedDict
+from gisim.cards.characters.Cryo.KamisatoAyaka import KamisatoAyaka
 
 from gisim.classes.action import (
     Action,
@@ -31,6 +32,9 @@ class AttackOnlyAgent(Agent):
     def __init__(self, player_id: PlayerID):
         super().__init__(player_id)
 
+    # def calc_cost_greedy(self, current_dice, skill_cost):
+        
+
     def take_action(self, game_info: GameInfo) -> Action:
         if game_info.status == GameStatus.INITIALIZING:
             if game_info.phase == GamePhase.CHANGE_CARD:
@@ -43,9 +47,10 @@ class AttackOnlyAgent(Agent):
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
                 character_info = player_info.characters[active_pos.value]
-                character_card = CHARACTER_CARDS[
-                    CHARACTER_NAME2ID[character_info.character.name]
-                ]
+                # character_card = CHARACTER_CARDS[
+                #     CHARACTER_NAME2ID[character_info.character.name]
+                # ]
+                character_card = KamisatoAyaka()
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
                 reroll_dice_idx = []
@@ -57,9 +62,10 @@ class AttackOnlyAgent(Agent):
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
                 character_info = player_info.characters[active_pos.value]
-                character_card = CHARACTER_CARDS[
-                    CHARACTER_NAME2ID[character_info.character.name]
-                ]
+                # character_card = CHARACTER_CARDS[
+                #     CHARACTER_NAME2ID[character_info.character.name]
+                # ]
+                character_card = KamisatoAyaka()
                 if character_info.character.health_point <= 0:
                     alive_positions = [
                         CharPos(k)
@@ -100,7 +106,7 @@ class AttackOnlyAgent(Agent):
                         user_position=active_pos,
                         skill_name=skill_names[0],
                         dice_idx=dice_idx,
-                        skill_target=[
+                        skill_targets=[
                             (
                                 ~self.player_id,
                                 game_info.get_opponent_info().active_character_position,

@@ -11,9 +11,9 @@ from .Pyro import *
 ...
 
 # Generate character cards and skills from the game data
-from .base import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
-from .generator import generate_character_cards_and_skills
+# from .base import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
+# from .generator import generate_character_cards_and_skills
 
-generate_character_cards_and_skills()
+# generate_character_cards_and_skills()
 
-__all__ = ["CHARACTER_CARDS", "CHARACTER_SKILLS", "CHARACTER_NAME2ID"]
+# __all__ = ["CHARACTER_CARDS", "CHARACTER_SKILLS", "CHARACTER_NAME2ID"]

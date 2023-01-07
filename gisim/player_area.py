@@ -10,7 +10,7 @@ from random import Random
 from typing import TYPE_CHECKING, Generic, Optional, TypeVar, cast
 from xml.dom.minidom import Element
 
-from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
+# from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
 from gisim.cards.equipments import talents
 from gisim.classes.action import RollDiceAction
 from gisim.classes.character import CharacterEntity, CharacterEntityInfo
