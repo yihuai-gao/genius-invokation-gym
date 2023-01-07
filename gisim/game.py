@@ -182,7 +182,7 @@ class Game:
                 sender_id=self.active_player,
                 user_pos=action.user_position,
                 skill_name=action.skill_name,
-                skill_target=action.skill_target,
+                skill_targets=action.skill_targets,
                 paid_dice_idx=action.dice_idx,
             )
             self.msg_queue.put(msg)
@@ -190,14 +190,14 @@ class Game:
                 sender_id=self.active_player,
                 user_pos=action.user_position,
                 skill_name=action.skill_name,
-                skill_target=action.skill_target,
+                skill_targets=action.skill_targets,
             )
             self.msg_queue.put(msg)
             msg = AfterUsingSkillMsg(
                 sender_id=self.active_player,
                 user_pos=action.user_position,
                 skill_name=action.skill_name,
-                skill_target=action.skill_target,
+                skill_targets=action.skill_targets,
                 elemental_reaction_triggered=ElementalReactionType.NONE,
             )
             self.msg_queue.put(msg)

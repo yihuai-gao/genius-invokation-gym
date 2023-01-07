@@ -47,7 +47,7 @@ class UseSkillAction(Action):
     user_position: CharPos
     skill_name: str
     dice_idx: list[int]
-    skill_target: list[tuple[PlayerID, CharPos]]
+    skill_targets: list[tuple[PlayerID, CharPos]]
 
 
 class DeclareEndAction(Action):

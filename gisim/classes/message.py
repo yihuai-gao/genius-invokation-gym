@@ -21,11 +21,14 @@ from .enums import (
     PlayerID,
     RegionType,
 )
-
+import itertools
 
 class Message(BaseModel, Entity, ABC):
     """Abstract base class of different kinds of messages"""
-
+    _id_counter = itertools.count()
+    """A static counter to create increasing ID"""
+    
+    _msg_id: int = -1
     sender_id: PlayerID
     priority: MsgPriority
     respondent_zones: list[tuple[PlayerID, RegionType]] = []
@@ -35,7 +38,10 @@ class Message(BaseModel, Entity, ABC):
     change_active_player: bool = False
 
     def __lt__(self, other: "Message"):
-        return self.priority < other.priority
+        if self.priority == other.priority:
+            return self._msg_id < other._msg_id # The earlier message should have the higher priority
+        else:
+            return self.priority < other.priority
 
     @root_validator
     def init_respondent_zones(cls, values):
@@ -44,16 +50,8 @@ class Message(BaseModel, Entity, ABC):
                 (values["sender_id"], RegionType.ALL),
                 (~values["sender_id"], RegionType.ALL),
             ]
+        values["_msg_id"] = next(Message._id_counter) # Add message id
         return values
-
-
-class MessageReceiver(ABC):
-    """Abstract base class of different kinds of message receivers"""
-
-    @abstractmethod
-    def on_message(self, msg: Message):
-        ...
-
 
 # Immediate operations
 
@@ -220,7 +218,7 @@ class PaySkillCostMsg(PayCostMsg):
     priority: MsgPriority = MsgPriority.PAY_COST
     user_pos: CharPos
     skill_name: str
-    skill_target: list[tuple[PlayerID, CharPos]]
+    skill_targets: list[tuple[PlayerID, CharPos]]
     """Will not trigger the reduce cost status in the simulate mode, for validity check"""
 
     @root_validator
@@ -286,7 +284,7 @@ class UseSkillMsg(Message):
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     user_pos: CharPos
     skill_name: str
-    skill_target: list[tuple[PlayerID, CharPos]]
+    skill_targets: list[tuple[PlayerID, CharPos]]
     """In case one character can assign multiple targets in the future"""
 
 
@@ -294,7 +292,7 @@ class AfterUsingSkillMsg(Message):
     priority: MsgPriority = MsgPriority.ACTION_DONE
     user_pos: CharPos
     skill_name: str
-    skill_target: list[tuple[PlayerID, CharPos]]
+    skill_targets: list[tuple[PlayerID, CharPos]]
     elemental_reaction_triggered: ElementalReactionType
     change_active_player: bool = True
 
@@ -329,7 +327,8 @@ class DealDamageMsg(Message):
 
     priority: MsgPriority = MsgPriority.GENERAL_EFFECT
     targets: list[tuple[PlayerID, CharPos, ElementType, int]]
-    elemental_reaction_triggered: ElementalReactionType
+    elemental_reaction_triggered: ElementalReactionType = ElementalReactionType.NONE
+    """Will be modified if elemental reaction is triggered"""
     all_buffs_included = False
     """Whether every attack/defense buffs are included"""
 
