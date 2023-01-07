@@ -1,11 +1,11 @@
 """Player & agent APIs
 """
-from abc import ABC, abstractmethod
 import enum
+from abc import ABC, abstractmethod
 from typing import OrderedDict
 from xml.dom.minidom import Element
-from gisim.cards.characters.Cryo.KamisatoAyaka import KamisatoAyaka
 
+from gisim.cards.characters.Cryo.KamisatoAyaka import KamisatoAyaka
 from gisim.classes.action import (
     Action,
     ChangeCardsAction,
@@ -14,7 +14,14 @@ from gisim.classes.action import (
     RollDiceAction,
     UseSkillAction,
 )
-from gisim.classes.enums import CharPos, ElementType, GamePhase, GameStatus, PlayerID, SkillType
+from gisim.classes.enums import (
+    CharPos,
+    ElementType,
+    GamePhase,
+    GameStatus,
+    PlayerID,
+    SkillType,
+)
 from gisim.game import GameInfo
 
 from .cards.characters.base import CHARACTER_CARDS, CHARACTER_NAME2ID
@@ -34,7 +41,12 @@ class AttackOnlyAgent(Agent):
     def __init__(self, player_id: PlayerID):
         super().__init__(player_id)
 
-    def get_dice_idx_greedy(self, dice:list[ElementType], cost:dict[ElementType, int], char_element:ElementType=ElementType.NONE):
+    def get_dice_idx_greedy(
+        self,
+        dice: list[ElementType],
+        cost: dict[ElementType, int],
+        char_element: ElementType = ElementType.NONE,
+    ):
         # First determine whether the current dice are enough
         dice_idx = []
         for key, val in cost.items():
@@ -129,21 +141,29 @@ class AttackOnlyAgent(Agent):
                     )
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
-                skill_names = [skill.name for skill in character_card.skills]                
-                elemental_skill = character_card.get_skill(skill_type=SkillType.ELEMENTAL_SKILL)
-                dice_idx = self.get_dice_idx_greedy(current_dice, elemental_skill.costs, character_card.element_type)
+                skill_names = [skill.name for skill in character_card.skills]
+                elemental_skill = character_card.get_skill(
+                    skill_type=SkillType.ELEMENTAL_SKILL
+                )
+                dice_idx = self.get_dice_idx_greedy(
+                    current_dice, elemental_skill.costs, character_card.element_type
+                )
                 if len(dice_idx) > 0:
                     skill_name = elemental_skill.name
                 else:
                     # Insufficient dice for elemental skill
-                    normal_attack = character_card.get_skill(skill_type=SkillType.NORMAL_ATTACK)
-                    dice_idx = self.get_dice_idx_greedy(current_dice, normal_attack.costs, character_card.element_type)
+                    normal_attack = character_card.get_skill(
+                        skill_type=SkillType.NORMAL_ATTACK
+                    )
+                    dice_idx = self.get_dice_idx_greedy(
+                        current_dice, normal_attack.costs, character_card.element_type
+                    )
                     if len(dice_idx) > 0:
                         skill_name = normal_attack.name
                     else:
                         # No skill applicable
                         return DeclareEndAction()
-                    
+
                 return UseSkillAction(
                     user_position=active_pos,
                     skill_name=skill_name,

@@ -1,6 +1,7 @@
 """Message classes for communication and calculation
 """
 
+import itertools
 from abc import ABC, abstractmethod
 from ast import Param
 from typing import Optional, ParamSpec
@@ -21,13 +22,14 @@ from .enums import (
     PlayerID,
     RegionType,
 )
-import itertools
+
 
 class Message(BaseModel, Entity, ABC):
     """Abstract base class of different kinds of messages"""
+
     _id_counter = itertools.count()
     """A static counter to create increasing ID"""
-    
+
     _msg_id: int = -1
     sender_id: PlayerID
     priority: MsgPriority
@@ -39,7 +41,9 @@ class Message(BaseModel, Entity, ABC):
 
     def __lt__(self, other: "Message"):
         if self.priority == other.priority:
-            return self._msg_id < other._msg_id # The earlier message should have the higher priority
+            return (
+                self._msg_id < other._msg_id
+            )  # The earlier message should have the higher priority
         else:
             return self.priority < other.priority
 
@@ -50,8 +54,9 @@ class Message(BaseModel, Entity, ABC):
                 (values["sender_id"], RegionType.ALL),
                 (~values["sender_id"], RegionType.ALL),
             ]
-        values["_msg_id"] = next(Message._id_counter) # Add message id
+        values["_msg_id"] = next(Message._id_counter)  # Add message id
         return values
+
 
 # Immediate operations
 
