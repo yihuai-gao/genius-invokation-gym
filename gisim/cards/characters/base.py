@@ -44,6 +44,7 @@ class CharacterSkill(BaseModel):
     types: list[SkillType] = Field(..., min_items=1, max_items=1)
     resource: Optional[str] = None  # 图片链接
 
+
     @abstractmethod
     def use_skill(self, msg_queue:PriorityQueue[Message], parent:"CharacterEntity"):
         """
@@ -120,6 +121,32 @@ class CharacterCard(BaseModel):
     power: int = 0
     max_power: int
     weapon_type: WeaponType
+    
+    def get_skill(self, id:Optional[int]=None, skill_name:Optional[str]=None, skill_type:Optional[SkillType]=None):
+        """Get the character's skill through either id (0, 1, 2, ...), name (str), or skill_type
+        Returns:
+            skill (Skill): a Skill object with raw cost and effects (has not been affected by any discounts/enhancement)
+        """
+        if id is not None:
+            skill_ids = [skill.id for skill in self.skills]
+            if id in skill_ids:
+                return self.skills[skill_ids.index(id)]
+            assert (
+                0 <= id <= len(self.skills) - 1 
+            ), f"id should be from 0 to {len(self.skills) -1}"
+            return self.skills[id]
+        elif skill_name is not None:
+            skill_names = [skill.name for skill in self.skills]
+            assert (
+                skill_name in skill_names
+                ), f"Skill {skill_name} does not exist in {self.name}'s skill set."
+            return self.skills[skill_names.index(skill_name)]
+        else:
+            assert skill_type is not None, "Should provide either skill id or its name."
+            skill_types = [skill.types[0] for skill in self.skills]
+            assert (skill_type in skill_types), f"Skill type {skill_type} does not exist."
+            assert skill_types.count(skill_type) == 1, f"Skill type {skill_type} is not unique."
+            return self.skills[skill_types.index(skill_type)]
 
     @validator("element_type")
     def element_type_validator(cls, v):

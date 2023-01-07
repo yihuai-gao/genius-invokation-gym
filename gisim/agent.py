@@ -1,7 +1,9 @@
 """Player & agent APIs
 """
 from abc import ABC, abstractmethod
+import enum
 from typing import OrderedDict
+from xml.dom.minidom import Element
 from gisim.cards.characters.Cryo.KamisatoAyaka import KamisatoAyaka
 
 from gisim.classes.action import (
@@ -12,7 +14,7 @@ from gisim.classes.action import (
     RollDiceAction,
     UseSkillAction,
 )
-from gisim.classes.enums import CharPos, ElementType, GamePhase, GameStatus, PlayerID
+from gisim.classes.enums import CharPos, ElementType, GamePhase, GameStatus, PlayerID, SkillType
 from gisim.game import GameInfo
 
 from .cards.characters.base import CHARACTER_CARDS, CHARACTER_NAME2ID
@@ -32,8 +34,58 @@ class AttackOnlyAgent(Agent):
     def __init__(self, player_id: PlayerID):
         super().__init__(player_id)
 
-    # def calc_cost_greedy(self, current_dice, skill_cost):
-        
+    def get_dice_idx_greedy(self, dice:list[ElementType], cost:dict[ElementType, int], char_element:ElementType=ElementType.NONE):
+        # First determine whether the current dice are enough
+        dice_idx = []
+        for key, val in cost.items():
+            if 1 <= key.value <= 7:
+                # 7 majors elements
+                remaining = val
+                for idx, die in enumerate(dice):
+                    if idx not in dice_idx and die == key:
+                        remaining -= 1
+                        dice_idx.append(idx)
+                        if remaining == 0:
+                            break
+                if remaining > 0:
+                    # Need to take OMNI elements
+                    for idx, die in enumerate(dice):
+                        if idx not in dice_idx and die == ElementType.OMNI:
+                            remaining -= 1
+                            dice_idx.append(idx)
+                            if remaining == 0:
+                                break
+                if remaining > 0:
+                    # Insufficient dice
+                    return []
+            elif key.value == ElementType.ANY:
+                # Arbitrary element
+                remaining = val
+                for idx, die in enumerate(dice):
+                    if idx not in dice_idx and die != char_element:
+                        remaining -= 1
+                        dice_idx.append(idx)
+                        if remaining == 0:
+                            break
+                if remaining > 0:
+                    # Insufficient unaligned dice: we first use the dice with character element
+                    for idx, die in enumerate(dice):
+                        if idx not in dice_idx and die == char_element:
+                            remaining -= 1
+                            dice_idx.append(idx)
+                            if remaining == 0:
+                                break
+                if remaining > 0:
+                    # Insufficient unaligned dice: we first use the dice with character element
+                    for idx, die in enumerate(dice):
+                        if idx not in dice_idx and die == ElementType.OMNI:
+                            remaining -= 1
+                            dice_idx.append(idx)
+                            if remaining == 0:
+                                break
+                if remaining > 0:
+                    return []
+        return dice_idx
 
     def take_action(self, game_info: GameInfo) -> Action:
         if game_info.status == GameStatus.INITIALIZING:
@@ -77,44 +129,31 @@ class AttackOnlyAgent(Agent):
                     )
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
-                skill_names = [skill.name for skill in character_card.skills]
-                if (
-                    len(current_dice) >= 3
-                    and current_dice.count(character_element)
-                    + current_dice.count(ElementType.OMNI)
-                    >= 1
-                ):
-                    correct = []
-                    omni = []
-                    unaligned = []
-                    for k, die in enumerate(current_dice):
-                        if die == character_element:
-                            correct.append(k)
-                        elif die == ElementType.OMNI:
-                            omni.append(k)
-                        else:
-                            unaligned.append(k)
-                    if len(unaligned) >= 2:
-                        dice_idx = [
-                            correct[0] if len(correct) >= 1 else omni[0],
-                            unaligned[0],
-                            unaligned[1],
-                        ]
-                    else:
-                        dice_idx = unaligned + (correct + omni)[: 3 - len(unaligned)]
-                    return UseSkillAction(
-                        user_position=active_pos,
-                        skill_name=skill_names[0],
-                        dice_idx=dice_idx,
-                        skill_targets=[
-                            (
-                                ~self.player_id,
-                                game_info.get_opponent_info().active_character_position,
-                            )
-                        ],
-                    )
-
+                skill_names = [skill.name for skill in character_card.skills]                
+                elemental_skill = character_card.get_skill(skill_type=SkillType.ELEMENTAL_SKILL)
+                dice_idx = self.get_dice_idx_greedy(current_dice, elemental_skill.costs, character_card.element_type)
+                if len(dice_idx) > 0:
+                    skill_name = elemental_skill.name
                 else:
-                    return DeclareEndAction()
+                    # Insufficient dice for elemental skill
+                    normal_attack = character_card.get_skill(skill_type=SkillType.NORMAL_ATTACK)
+                    dice_idx = self.get_dice_idx_greedy(current_dice, normal_attack.costs, character_card.element_type)
+                    if len(dice_idx) > 0:
+                        skill_name = normal_attack.name
+                    else:
+                        # No skill applicable
+                        return DeclareEndAction()
+                    
+                return UseSkillAction(
+                    user_position=active_pos,
+                    skill_name=skill_name,
+                    dice_idx=dice_idx,
+                    skill_targets=[
+                        (
+                            ~self.player_id,
+                            game_info.get_opponent_info().active_character_position,
+                        )
+                    ],
+                )
 
         return DeclareEndAction()
