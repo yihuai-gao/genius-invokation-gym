@@ -4,13 +4,8 @@ from abc import ABC, abstractmethod
 from collections import OrderedDict
 from queue import PriorityQueue
 from typing import Optional, cast
-from gisim.cards.characters.Cryo.KamisatoAyaka import KamisatoAyaka
 
-# from gisim.cards.characters.base import (
-#     CHARACTER_CARDS,
-#     CHARACTER_NAME2ID,
-#     CHARACTER_SKILLS,
-# )
+from gisim.cards.characters.Cryo.KamisatoAyaka import KamisatoAyaka
 
 from .entity import Entity
 from .enums import *
@@ -22,6 +17,13 @@ from .message import (
     PaySkillCostMsg,
     UseSkillMsg,
 )
+
+# from gisim.cards.characters.base import (
+#     CHARACTER_CARDS,
+#     CHARACTER_NAME2ID,
+#     CHARACTER_SKILLS,
+# )
+
 
 
 class CharacterEntity(Entity):
@@ -70,7 +72,12 @@ class CharacterEntity(Entity):
         ]
         return {key: getattr(self, key) for key in properties}
 
-    def get_skill(self, id:Optional[int]=None, skill_name:Optional[str]=None, skill_type:Optional[SkillType]=None):
+    def get_skill(
+        self,
+        id: Optional[int] = None,
+        skill_name: Optional[str] = None,
+        skill_type: Optional[SkillType] = None,
+    ):
         """Get the character's skill through either id (0, 1, 2, ...), name (str), or skill_type
         Returns:
             skill (Skill): a Skill object with raw cost and effects (has not been affected by any discounts/enhancement)
@@ -83,13 +90,15 @@ class CharacterEntity(Entity):
         elif skill_name is not None:
             assert (
                 skill_name in self.skill_names
-                ), f"Skill {skill_name} does not exist in {self.name}'s skill set."
+            ), f"Skill {skill_name} does not exist in {self.name}'s skill set."
             return self.skills[self.skill_names.index(skill_name)]
         else:
             assert skill_type is not None, "Should provide either skill id or its name."
             skill_types = [skill.types[0] for skill in self.skills]
-            assert (skill_type in skill_types), f"Skill type {skill_type} does not exist."
-            assert skill_types.count(skill_type) == 1, f"Skill type {skill_type} is not unique."
+            assert skill_type in skill_types, f"Skill type {skill_type} does not exist."
+            assert (
+                skill_types.count(skill_type) == 1
+            ), f"Skill type {skill_type} is not unique."
             return self.skills[skill_types.index(skill_type)]
 
     def msg_handler(self, msg_queue: PriorityQueue[Message]):
@@ -113,10 +122,10 @@ class CharacterEntity(Entity):
             if msg.user_pos == self.position:
                 skill_name = msg.skill_name
                 skill = self.get_skill(skill_name=skill_name)
-                msg_queue.get() # Delete this message
+                msg_queue.get()  # Delete this message
                 skill.use_skill(msg_queue=msg_queue, parent=self)
                 updated = True
-                
+
         elif isinstance(msg, ChangeCharacterMsg):
             msg = cast(ChangeCharacterMsg, msg)
             if self.player_id == msg.target[0]:
@@ -155,8 +164,6 @@ class SkillEntity(Entity):
         cost(dict[ElementType, int]): {ElementType:cost}; `None` if no cost is required (Please do not use empty dictionary!)
         skill_type(bool): passive skill which can only be triggered
         """
-        
-
 
 
 class CharacterEntityInfo:
