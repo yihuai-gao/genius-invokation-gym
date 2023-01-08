@@ -5,8 +5,6 @@ from collections import OrderedDict
 from queue import PriorityQueue
 from typing import Optional, cast
 
-from gisim.cards.characters.Cryo.KamisatoAyaka import KamisatoAyaka
-
 from .entity import Entity
 from .enums import *
 from .message import (
@@ -17,6 +15,8 @@ from .message import (
     PaySkillCostMsg,
     UseSkillMsg,
 )
+from gisim.cards.characters import get_character_card
+
 
 # from gisim.cards.characters.base import (
 #     CHARACTER_CARDS,
@@ -42,7 +42,7 @@ class CharacterEntity(Entity):
 
         # Initialize Character from its card template
         # self.id = CHARACTER_NAME2ID[name]
-        self.character_card = KamisatoAyaka()
+        self.character_card = get_character_card(self.name)
         self.id = self.character_card.id
         # self.character_card = CHARACTER_CARDS[self.id].copy()
         self.element_type = self.character_card.element_type
@@ -94,7 +94,7 @@ class CharacterEntity(Entity):
             return self.skills[self.skill_names.index(skill_name)]
         else:
             assert skill_type is not None, "Should provide either skill id or its name."
-            skill_types = [skill.types[0] for skill in self.skills]
+            skill_types = [skill.type for skill in self.skills]
             assert skill_type in skill_types, f"Skill type {skill_type} does not exist."
             assert (
                 skill_types.count(skill_type) == 1
@@ -155,15 +155,6 @@ class CharacterEntity(Entity):
                     msg.responded_entities.append(self._uuid)
                     updated = True
         return updated
-
-
-class SkillEntity(Entity):
-    def __init__(self, name: str, cost: dict[ElementType, int], skill_type: SkillType):
-        """
-        Args:
-        cost(dict[ElementType, int]): {ElementType:cost}; `None` if no cost is required (Please do not use empty dictionary!)
-        skill_type(bool): passive skill which can only be triggered
-        """
 
 
 class CharacterEntityInfo:
