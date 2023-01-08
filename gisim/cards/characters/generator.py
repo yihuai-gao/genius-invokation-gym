@@ -71,7 +71,7 @@ def _process_card(config: dict):
         skill_instance = CHARACTER_SKILL_FACTORIES[skill_id](
             id=skill_id,
             name=skill["name"],
-            types=[_SKILL_TYPE_MAP[i] for i in skill["type"] if i],
+            type=[_SKILL_TYPE_MAP[i] for i in skill["type"] if i][0],
             text=skill["skill_text"],
             costs={
                 _SKILL_COST_MAP[j["cost_icon"]]: int(j["cost_num"])

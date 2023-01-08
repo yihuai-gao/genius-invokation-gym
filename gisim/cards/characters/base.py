@@ -41,7 +41,7 @@ class CharacterSkill(BaseModel):
     name: str
     text: str
     costs: dict[ElementType, int]
-    types: list[SkillType] = Field(..., min_items=1, max_items=1)
+    type: SkillType
     resource: Optional[str] = None  # 图片链接
 
     @abstractmethod
@@ -147,7 +147,7 @@ class CharacterCard(BaseModel):
             return self.skills[skill_names.index(skill_name)]
         else:
             assert skill_type is not None, "Should provide either skill id or its name."
-            skill_types = [skill.types[0] for skill in self.skills]
+            skill_types = [skill.type for skill in self.skills]
             assert skill_type in skill_types, f"Skill type {skill_type} does not exist."
             assert (
                 skill_types.count(skill_type) == 1
