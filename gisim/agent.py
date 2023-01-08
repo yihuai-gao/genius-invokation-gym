@@ -4,8 +4,8 @@ import enum
 from abc import ABC, abstractmethod
 from typing import OrderedDict
 from xml.dom.minidom import Element
+from gisim.cards.characters import get_character_card
 
-from gisim.cards.characters.Cryo.KamisatoAyaka import KamisatoAyaka
 from gisim.classes.action import (
     Action,
     ChangeCardsAction,
@@ -114,7 +114,7 @@ class AttackOnlyAgent(Agent):
                 # character_card = CHARACTER_CARDS[
                 #     CHARACTER_NAME2ID[character_info.character.name]
                 # ]
-                character_card = KamisatoAyaka()
+                character_card = get_character_card("Kamisato Ayaka")
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
                 reroll_dice_idx = []
@@ -129,7 +129,7 @@ class AttackOnlyAgent(Agent):
                 # character_card = CHARACTER_CARDS[
                 #     CHARACTER_NAME2ID[character_info.character.name]
                 # ]
-                character_card = KamisatoAyaka()
+                character_card = get_character_card(character_info.character.name)
                 if character_info.character.health_point <= 0:
                     alive_positions = [
                         CharPos(k)
