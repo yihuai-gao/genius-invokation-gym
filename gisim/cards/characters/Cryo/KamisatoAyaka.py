@@ -23,7 +23,7 @@ class KamisatoArtKabuki(CharacterSkill):
     Kamisato Art: Kabuki / 神里流·倾
     """
     costs: dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
-    types: list[SkillType] = [SkillType.NORMAL_ATTACK]
+    type: SkillType = SkillType.NORMAL_ATTACK
 
     def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
         msg = msg_queue.get()
@@ -43,7 +43,7 @@ class KamisatoArtHyouka(CharacterSkill):
     Kamisato Art: Hyouka / 神里流·冰华
     """
     costs: dict[ElementType, int] = {ElementType.CRYO: 3}
-    types: list[SkillType] = [SkillType.ELEMENTAL_SKILL]
+    type: SkillType = SkillType.ELEMENTAL_SKILL
 
     def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
         msg = msg_queue.get()
@@ -63,7 +63,7 @@ class KamisatoArtSoumetsu(CharacterSkill):
     Kamisato Art: Soumetsu / 神里流·霜灭
     """
     costs: dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 3}
-    types: list[SkillType] = [SkillType.ELEMENTAL_BURST]
+    type: SkillType = SkillType.ELEMENTAL_BURST
 
     def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
         msg = msg_queue.get()
@@ -87,7 +87,7 @@ class KamisatoArtSenho(CharacterSkill):
     【被动】此角色被切换为「出战角色」时，附属冰元素附魔。
     """
     costs: dict[ElementType, int] = {}
-    types: list[SkillType] = [SkillType.PASSIVE_SKILL]
+    type: SkillType = SkillType.PASSIVE_SKILL
 
     def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
         msg = msg_queue.get()
