@@ -5,6 +5,8 @@ from collections import OrderedDict
 from queue import PriorityQueue
 from typing import Optional, cast
 
+from gisim.cards.characters import get_character_card
+
 from .entity import Entity
 from .enums import *
 from .message import (
@@ -15,15 +17,12 @@ from .message import (
     PaySkillCostMsg,
     UseSkillMsg,
 )
-from gisim.cards.characters import get_character_card
-
 
 # from gisim.cards.characters.base import (
 #     CHARACTER_CARDS,
 #     CHARACTER_NAME2ID,
 #     CHARACTER_SKILLS,
 # )
-
 
 
 class CharacterEntity(Entity):

@@ -21,5 +21,4 @@ def get_character_card(character_name: str):
     # TODO: Is there any better ways to do this?
     character_name = character_name.replace(" ", "")
     # Remove the spaces for class names
-    return eval(f"{character_name}()")#
-    
+    return eval(f"{character_name}()")  #
