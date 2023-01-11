@@ -345,14 +345,26 @@ class Game:
                         self.msg_queue.put(
                             RoundEndMsg(first_move_player=self.first_move_player)
                         )
-                        self.process_msg_queue()
                     else:
                         break
 
                 elif self.phase == GamePhase.ROUND_END:
                     if self.msg_queue.qsize() > 0:
-                        # There are still remaining messages (interrupted by dying character)
-                        self.process_msg_queue()
+                        char_died = self.process_msg_queue()
+                        if char_died:
+                            # Character died when processing message queue
+                            # Check whether all characters died
+                            current_player = self.active_player
+                            char_alive = [
+                                ch.character.alive
+                                for ch in self.player_area[
+                                    current_player
+                                ].character_zones
+                            ]
+                            if not any(char_alive):
+                                self.status = GameStatus.ENDED
+                                self.winner = ~current_player
+                            break
                     else:
                         # All calculations are done
                         self.round_num += 1

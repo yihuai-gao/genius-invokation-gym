@@ -43,6 +43,9 @@ class CharacterSkill(BaseModel):
     costs: dict[ElementType, int]
     type: SkillType
     resource: Optional[str] = None  # 图片链接
+    accumulate_power: int = 1
+    """Default for elemental skills and normal attacks.
+    Elemental burst will accumulate no power by default."""
 
     @abstractmethod
     def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
