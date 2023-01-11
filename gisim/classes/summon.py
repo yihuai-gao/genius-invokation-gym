@@ -4,8 +4,9 @@ import itertools
 from abc import ABC, abstractmethod
 from queue import PriorityQueue
 from typing import OrderedDict
+from uuid import UUID, uuid4
 
-from pydantic import BaseModel, root_validator
+from pydantic import BaseModel, Field
 
 from gisim.classes.enums import PlayerID
 from gisim.classes.message import Message
@@ -18,9 +19,10 @@ class Summon(BaseModel, Entity, ABC):
     name: str
     usages: int
     player_id: PlayerID
-    position: int
-    """Range from 0~3, should be set when adding a new summon to the summon zone"""
+    position: int = -1
+    """Range from 0~3, should be set when adding a new summon to the summon zone. Initialized by -1"""
     active: bool = True
+    _uuid: UUID = Field(default_factory=uuid4)
 
     def encode(self):
         info = OrderedDict()
@@ -29,6 +31,7 @@ class Summon(BaseModel, Entity, ABC):
         info["usages"] = self.usages
         info["position"] = self.position
         info["active"] = self.active
+        return info
 
     @abstractmethod
     def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:

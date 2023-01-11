@@ -10,6 +10,8 @@ from random import Random
 from typing import TYPE_CHECKING, Generic, Optional, TypeVar, cast
 from xml.dom.minidom import Element
 
+from gisim.cards.characters import get_summon_instance
+
 # from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
 from gisim.cards.equipments import talents
 from gisim.classes.action import RollDiceAction
@@ -23,7 +25,14 @@ from gisim.classes.entity import (
     WeaponEntity,
 )
 from gisim.classes.enums import *
-from gisim.classes.message import ChangeDiceMsg, Message, PayCardCostMsg, PayCostMsg
+from gisim.classes.message import (
+    ChangeDiceMsg,
+    GenerateSummonMsg,
+    Message,
+    PayCardCostMsg,
+    PayCostMsg,
+    RoundEndMsg,
+)
 
 if TYPE_CHECKING:
     from gisim.classes.status import CombatStatusEntity
@@ -211,12 +220,51 @@ class SummonZone(BaseZone):
         super().__init__()
         self._parent = parent
         self.summons: list["Summon"] = []
+        self.summon_limit: int = 4
+        """4 Summons at most in each player's summon zone"""
 
     def encode(self):
         return [summon.encode() for summon in self.summons]
 
+    def remove_summon(self, idx: int):
+        target_summon = self.summons[idx]
+        target_summon.active = False
+        target_summon.position = -1
+        self.summons.pop(idx)
+        for idx, summon in enumerate(self.summons):
+            # Reset positions
+            summon.position = idx
+
     def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
-        ...
+        msg = msg_queue.queue[0]
+        if self._uuid in msg.responded_entities:
+            return False
+        updated = False
+        if isinstance(msg, GenerateSummonMsg):
+            msg = cast(GenerateSummonMsg, msg)
+            if msg.target_id == self._parent.player_id:
+                if len(self.summons) == self.summon_limit:
+                    """Remove the first summon in the zone"""
+                    self.remove_summon(0)
+
+                new_summon = get_summon_instance(msg.summon_name, msg.target_id)
+                new_summon.position = len(self.summons)
+                self.summons.append(new_summon)
+                updated = True
+                msg.responded_entities.append(self._uuid)
+        if isinstance(msg, RoundEndMsg):
+            for idx, summon in enumerate(self.summons):
+                updated = summon.msg_handler(msg_queue)
+                if updated:
+                    if not summon.active:
+                        # Running out of usage: will be removed
+                        self.remove_summon(idx)
+                    return True
+            # None of the summons responded:
+            msg.responded_entities.append(self._uuid)
+            return False
+
+        return updated
 
 
 class SupportZone(BaseZone):
@@ -367,7 +415,7 @@ class PlayerInfo:
         self.deck: list[str] = player_info_dict["card_zone"]["deck_cards"]
         self.dice_zone_len: int = player_info_dict["dice_zone"]["length"]
         self.dice_zone: list[ElementType] = player_info_dict["dice_zone"]["items"]
-        self.summon_zone: list[Summon] = player_info_dict["summon_zone"]
+        self.summon_zone: list[dict] = player_info_dict["summon_zone"]
         self.support_zone: list[Support] = player_info_dict["support_zone"]
         self.combat_status_zone: list[CombatStatusEntity] = player_info_dict[
             "combat_status_zone"

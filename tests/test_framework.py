@@ -1,4 +1,4 @@
-from gisim.agent import AttackOnlyAgent  # noqa: E402
+from gisim.agent import AttackOnlyAgent, NoAttackAgent  # noqa: E402
 from gisim.classes.enums import GameStatus, PlayerID  # noqa: E402
 from gisim.game import Game  # noqa: E402
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     }
     game = Game(player1_deck, player2_deck, seed=10)
     player1_agent = AttackOnlyAgent(PlayerID.PLAYER1)
-    player2_agent = AttackOnlyAgent(PlayerID.PLAYER2)
+    player2_agent = NoAttackAgent(PlayerID.PLAYER2)
     game_end = False
     game_info = game.encode_game_info(PlayerID.SPECTATOR)
 
@@ -47,6 +47,7 @@ if __name__ == "__main__":
                 ch = game_info.player1.characters[pos.value].character
             else:
                 ch = None
+            summons = game_info.player1.summon_zone
         else:
             if game_info.player2.dice_zone:
                 dice = [str(die) for die in game_info.player2.dice_zone]
@@ -57,11 +58,19 @@ if __name__ == "__main__":
                 ch = game_info.player2.characters[pos.value].character
             else:
                 ch = None
+            summons = game_info.player2.summon_zone
         action_type = str(type(action)).strip(">'").split(".")[-1]
         print(f"{active_player} {action_type}: {action.dict()}")
         print(f"    Current Dice: {dice}")
         if ch is not None:
-            print(f"    Current Character: {ch.name}, hp: {ch.health_point}")
+            print(
+                f"    Current Character: {ch.name}, hp: {ch.health_point}, power: {ch.power}/{ch.max_power}"
+            )
+        if summons:
+            print(f"    Current Summons:")
+            for summon in summons:
+                print(f"          {summon['name']}: usages: {summon['usages']}")
+
         print("\n")
         valid = game.judge_action(action)
         if valid:

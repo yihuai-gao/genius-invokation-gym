@@ -6,10 +6,12 @@ from queue import PriorityQueue
 from typing import Optional, cast
 
 from gisim.cards.characters import get_character_card
+from gisim.cards.characters.base import CharacterSkill
 
 from .entity import Entity
 from .enums import *
 from .message import (
+    AfterUsingSkillMsg,
     ChangeCharacterMsg,
     CharacterDiedMsg,
     DealDamageMsg,
@@ -49,7 +51,7 @@ class CharacterEntity(Entity):
         self.weapon_type = self.character_card.weapon_type
         """Should be either one of `bow`, `claymore`, `sword`, `polearm`, `catalyst`
             应当为`弓`,`双手剑`,`单手剑`,`长柄武器`,`法器`中的一个"""
-        self.skills = self.character_card.skills.copy()
+        self.skills: list[CharacterSkill] = self.character_card.skills.copy()
         # """The content of their skills should be modifiable (e.g. The cost will be affected by artifacts and the basic damage by weapon, talent).
         # """
         self.skill_num = len(self.skills)
@@ -114,33 +116,45 @@ class CharacterEntity(Entity):
                 skill = self.get_skill(skill_name=msg.skill_name)
                 msg.required_cost = skill.costs
                 msg_queue.put(msg)
-                msg.responded_entities.append(self._uuid)
+                if ElementType.POWER in skill.costs.keys():
+                    self.power = self.power - skill.costs[ElementType.POWER]
                 updated = True
         elif isinstance(msg, UseSkillMsg):
             msg = cast(UseSkillMsg, msg)
             if msg.user_pos == self.position:
                 skill_name = msg.skill_name
                 skill = self.get_skill(skill_name=skill_name)
-                msg_queue.get()  # Delete this message
                 skill.use_skill(msg_queue=msg_queue, parent=self)
                 updated = True
-
+        elif isinstance(msg, AfterUsingSkillMsg):
+            msg = cast(AfterUsingSkillMsg, msg)
+            if msg.sender_id == self.player_id and msg.user_pos == self.position:
+                skill_name = msg.skill_name
+                skill = self.get_skill(skill_name=skill_name)
+                if skill.accumulate_power and skill.type != SkillType.ELEMENTAL_BURST:
+                    self.power = min(
+                        self.power + skill.accumulate_power, self.max_power
+                    )
+                updated = True
         elif isinstance(msg, ChangeCharacterMsg):
             msg = cast(ChangeCharacterMsg, msg)
             if self.player_id == msg.target[0]:
                 if self.position == msg.target[1]:
                     self.active = True
                     updated = True
-                    msg.responded_entities.append(self._uuid)
                 elif self.position != msg.target[1] and self.active:
                     self.active = False
                     updated = True
-                    msg.responded_entities.append(self._uuid)
 
         elif isinstance(msg, DealDamageMsg):
             msg = cast(DealDamageMsg, msg)
             for target_id, target_pos, element_type, dmg_val in msg.targets:
-                if self.player_id == target_id and self.position == target_pos:
+                is_target = (
+                    self.position == target_pos
+                    or self.active
+                    and target_pos == CharPos.ACTIVE
+                )
+                if self.player_id == target_id and is_target:
                     self.health_point -= min(self.health_point, dmg_val)
                     if self.health_point == 0:
                         self.alive = False
@@ -151,8 +165,9 @@ class CharacterEntity(Entity):
                         )
                         msg_queue.put(dead_msg)
                     # TODO: add elemental reaction effects
-                    msg.responded_entities.append(self._uuid)
                     updated = True
+        if updated:
+            msg.responded_entities.append(self._uuid)
         return updated
 
 

@@ -86,6 +86,7 @@ class KamisatoArtSoumetsu(CharacterSkill):
         new_msg = GenerateSummonMsg(
             sender_id=parent.player_id, summon_name="Frostflake Seki no To"
         )
+        msg_queue.put(new_msg)
 
 
 class KamisatoArtSenho(CharacterSkill):
@@ -138,5 +139,9 @@ class FrostflakeSekinoTo(Summon):
                 targets=[(~self.player_id, CharPos.ACTIVE, ElementType.CRYO, 2)],
             )
             msg_queue.put(new_msg)
+            self.usages -= 1
+            if self.usages == 0:
+                self.active = False
+            msg.responded_entities.append(self._uuid)
             updated = True
         return updated

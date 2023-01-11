@@ -9,8 +9,6 @@ from uuid import UUID
 
 from pydantic import BaseModel, root_validator
 
-from gisim.classes.summon import Summon
-
 from .entity import Entity
 from .enums import (
     CardType,
@@ -64,12 +62,16 @@ class Message(BaseModel, Entity, ABC):
 class GenerateSummonMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
     summon_name: str
+    target_id: PlayerID = PlayerID.SPECTATOR
+    """Will be set to the sender_id by default; It can also be the opponent's id in special cases"""
 
     @root_validator
     def init_respondent_zones(cls, values):
+        if not values["target_id"] or values["target_id"] == PlayerID.SPECTATOR:
+            values["target_id"] = values["sender_id"]
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
-                (values["sender_id"], RegionType.SUMMON_ZONE),
+                (values["target_id"], RegionType.SUMMON_ZONE),
             ]
         return values
 
