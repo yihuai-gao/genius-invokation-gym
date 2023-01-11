@@ -9,8 +9,16 @@ from gisim.cards.characters.base import (
     CharacterSkill,
     register_character_skill_factory,
 )
-from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
-from gisim.classes.message import DealDamageMsg, Message, PaySkillCostMsg, UseSkillMsg
+from gisim.classes.enums import CharPos, ElementType, Nation, SkillType, WeaponType
+from gisim.classes.message import (
+    DealDamageMsg,
+    GenerateSummonMsg,
+    Message,
+    PaySkillCostMsg,
+    RoundEndMsg,
+    UseSkillMsg,
+)
+from gisim.classes.summon import Summon
 
 if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
@@ -75,6 +83,9 @@ class KamisatoArtSoumetsu(CharacterSkill):
         )
         # TODO: Generate a summon
         msg_queue.put(new_msg)
+        new_msg = GenerateSummonMsg(
+            sender_id=parent.player_id, summon_name="Frostflake Seki no To"
+        )
 
 
 class KamisatoArtSenho(CharacterSkill):
@@ -92,12 +103,6 @@ class KamisatoArtSenho(CharacterSkill):
     def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
         msg = msg_queue.get()
         msg = cast(UseSkillMsg, msg)
-        target_player_id, target_char_pos = msg.skill_targets[0]
-        new_msg = DealDamageMsg(
-            sender_id=parent.player_id,
-            targets=[(target_player_id, target_char_pos, ElementType.NONE, 2)],
-        )
-        msg_queue.put(new_msg)
 
 
 class KamisatoAyaka(CharacterCard):
@@ -115,3 +120,23 @@ class KamisatoAyaka(CharacterCard):
         KamisatoArtSoumetsu(),
         KamisatoArtSenho(),
     ]
+
+
+class FrostflakeSekinoTo(Summon):
+    name: str = "Frostflake Seki no To"
+    usages: int = 2
+
+    def msg_handler(self, msg_queue):
+        msg = msg_queue.queue[0]
+        if self._uuid in msg.responded_entities:
+            return False
+        updated = False
+        if isinstance(msg, RoundEndMsg):
+            msg = cast(RoundEndMsg, msg)
+            new_msg = DealDamageMsg(
+                sender_id=self.player_id,
+                targets=[(~self.player_id, CharPos.ACTIVE, ElementType.CRYO, 2)],
+            )
+            msg_queue.put(new_msg)
+            updated = True
+        return updated

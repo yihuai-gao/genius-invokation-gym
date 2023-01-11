@@ -4,8 +4,8 @@ import enum
 from abc import ABC, abstractmethod
 from typing import OrderedDict
 from xml.dom.minidom import Element
-from gisim.cards.characters import get_character_card
 
+from gisim.cards.characters import get_character_card
 from gisim.classes.action import (
     Action,
     ChangeCardsAction,
