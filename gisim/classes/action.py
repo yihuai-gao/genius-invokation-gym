@@ -16,7 +16,7 @@ from .entity import Entity
 from .enums import CharPos, EntityType, PlayerID
 
 
-class Action(BaseModel, Entity, ABC):
+class Action(Entity, ABC):
     """Action includes cost information."""
 
     def _check_cards_index(self, cards_idx: list[int]):

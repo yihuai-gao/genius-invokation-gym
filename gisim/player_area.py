@@ -4,11 +4,11 @@ Note that player agents does not directly talk to this area, but through the gam
 
 from abc import ABC, abstractmethod
 from collections import OrderedDict
-from multiprocessing.sharedctypes import Value
+from logging import getLogger
 from queue import PriorityQueue
 from random import Random
 from typing import TYPE_CHECKING, Generic, Optional, TypeVar, cast
-from xml.dom.minidom import Element
+from uuid import uuid4
 
 from gisim.cards.characters import get_summon_instance
 
@@ -41,13 +41,19 @@ if TYPE_CHECKING:
     from gisim.game import Game
 
 
-class BaseZone(Entity, ABC):
+class BaseZone(ABC):
+    def __init__(self):
+        self._uuid = uuid4()
+        self._logger = getLogger("gisim")
+
     @abstractmethod
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         ...
 
 
 class PlayerArea(BaseZone):
+    declare_end: bool
+
     def __init__(
         self,
         parent: "Game",
@@ -82,10 +88,13 @@ class PlayerArea(BaseZone):
     @property
     def background_characters(self):
         active_pos_val = self.get_active_character_position().value
-        return [
-            self.character_zones[(active_pos_val + 1) % 3],
-            self.character_zones[(active_pos_val + 2) % 3],
-        ]
+        if active_pos_val:
+            return [
+                self.character_zones[(active_pos_val + 1) % 3],
+                self.character_zones[(active_pos_val + 2) % 3],
+            ]
+        else:
+            return self.character_zones
 
     def get_active_character_position(self):
         for k in range(3):

@@ -22,7 +22,7 @@ from .enums import (
 )
 
 
-class Message(BaseModel, Entity, ABC):
+class Message(Entity, ABC):
     """Abstract base class of different kinds of messages"""
 
     _id_counter = itertools.count()
@@ -272,8 +272,7 @@ class ChangeCharacterMsg(Message):
     def init_respondent_zones(cls, values):
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
-                (values["target"][0], RegionType.CHARACTER_ACTIVE),
-                (values["target"][0], RegionType(values["target"][1].value)),
+                (values["target"][0], RegionType.CHARACTER_ALL),
                 (values["target"][0], RegionType.COMBAT_STATUS_ZONE),
                 (values["target"][0], RegionType.SUPPORT_ZONE),
             ]

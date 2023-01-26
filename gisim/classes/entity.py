@@ -1,21 +1,21 @@
 """The most basic class for all elements in the game
 """
-import logging
-import uuid
 from abc import ABC, abstractmethod
+from logging import Logger, getLogger
 from queue import PriorityQueue
 from typing import TYPE_CHECKING
+from uuid import UUID, uuid4
+
+from pydantic import BaseModel, Field, PrivateAttr
 
 if TYPE_CHECKING:
     from gisim.classes.message import Message
 
 
-class Entity(ABC):
-    def __init__(self):
-        self._uuid = uuid.uuid4()
-        self._logger = logging.getLogger("gisim")
+class Entity(BaseModel, ABC):
+    _uuid: UUID = PrivateAttr(default_factory=uuid4)
+    # _logger: Logger = PrivateAttr(default_factory=getLogger("gisim"))
 
-    # @abstractmethod
     def encode(self) -> dict:
         ...
 

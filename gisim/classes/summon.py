@@ -14,7 +14,7 @@ from gisim.classes.message import Message
 from .entity import Entity
 
 
-class Summon(BaseModel, Entity, ABC):
+class Summon(Entity, ABC):
 
     name: str
     usages: int

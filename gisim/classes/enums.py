@@ -95,7 +95,8 @@ class ElementalReactionType(Enum):
 
 
 class WeaponType(Enum):
-    """Weapon types"""
+    """Should be either one of `bow`, `claymore`, `sword`, `polearm`, `catalyst`
+    应当为`弓`,`双手剑`,`单手剑`,`长柄武器`,`法器`中的一个"""
 
     BOW = 1
     """弓"""

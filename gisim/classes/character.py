@@ -5,8 +5,10 @@ from collections import OrderedDict
 from queue import PriorityQueue
 from typing import Optional, cast
 
+from pydantic import PrivateAttr
+
 from gisim.cards.characters import get_character_card
-from gisim.cards.characters.base import CharacterSkill
+from gisim.cards.characters.base import CharacterCard, CharacterSkill
 
 from .entity import Entity
 from .enums import *
@@ -28,37 +30,51 @@ from .message import (
 
 
 class CharacterEntity(Entity):
-    def __init__(self, name: str, player_id: PlayerID, position: CharPos):
-        super().__init__()
-        self.player_id = player_id
-        self.position = position
-        self.name = name
-        self.active = False
-        self.alive = True
-        """ Whether this character in set forward. There should be only one character in the active state for each player"""
-        self.elemental_infusion = ElementType.NONE
-        """普通攻击元素附魔"""
-        self.elemental_attachment = ElementType.NONE
-        """角色元素附着"""
+    name: str
+    player_id: PlayerID
+    position: CharPos
+    active: bool = False
+    """ Whether this character in set forward. There should be only one character in the active state for each player"""
+    alive: bool = True
+    elemental_infusion = ElementType.NONE
+    """普通攻击元素附魔"""
+    elemental_attachment = ElementType.NONE
+    """角色元素附着"""
 
-        # Initialize Character from its card template
-        # self.id = CHARACTER_NAME2ID[name]
-        self.character_card = get_character_card(self.name)
-        self.id = self.character_card.id
-        # self.character_card = CHARACTER_CARDS[self.id].copy()
-        self.element_type = self.character_card.element_type
-        self.nationalities = self.character_card.nations
-        self.weapon_type = self.character_card.weapon_type
-        """Should be either one of `bow`, `claymore`, `sword`, `polearm`, `catalyst`
-            应当为`弓`,`双手剑`,`单手剑`,`长柄武器`,`法器`中的一个"""
-        self.skills: list[CharacterSkill] = self.character_card.skills.copy()
-        # """The content of their skills should be modifiable (e.g. The cost will be affected by artifacts and the basic damage by weapon, talent).
-        # """
-        self.skill_num = len(self.skills)
-        self.skill_names = [skill.name for skill in self.skills]
-        self.health_point = self.character_card.health_point
-        self.power = self.character_card.power
-        self.max_power = self.character_card.max_power
+    character_card: CharacterCard
+    id: int
+    element_type: ElementType
+    nationalities: list[Nation]
+    weapon_type: WeaponType
+    skills: list[CharacterSkill]
+    skill_num: int
+    skill_names: list[str]
+    health_point: int
+    power: int
+    max_power: int
+
+    def __init__(self, name: str, player_id: PlayerID, position: CharPos):
+        card = get_character_card(name)
+        skills = card.skills.copy()
+        attrs = {
+            "name": name,
+            "player_id": player_id,
+            "position": position,
+            "active": False,
+            "alive": True,
+            "character_card": card,
+            "id": card.id,
+            "element_type": card.element_type,
+            "nationalities": card.nations,
+            "weapon_type": card.weapon_type,
+            "skills": skills,
+            "skill_num": len(skills),
+            "skill_names": [skill.name for skill in skills],
+            "health_point": card.health_point,
+            "power": card.power,
+            "max_power": card.max_power,
+        }
+        super().__init__(**attrs)
 
     def encode(self):
         properties = [
