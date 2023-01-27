@@ -9,9 +9,18 @@ from gisim.cards.characters.base import (
     CharacterSkill,
     register_character_skill_factory,
 )
-from gisim.classes.enums import CharPos, ElementType, Nation, SkillType, WeaponType
+from gisim.classes.enums import (
+    CharPos,
+    ElementType,
+    Nation,
+    PlayerID,
+    SkillType,
+    WeaponType,
+)
 from gisim.classes.message import (
+    ChangeCharacterMsg,
     DealDamageMsg,
+    GenerateCharacterStatusMsg,
     GenerateSummonMsg,
     Message,
     PaySkillCostMsg,
@@ -38,6 +47,7 @@ class KamisatoArtKabuki(CharacterSkill):
         msg = cast(UseSkillMsg, msg)
         target_player_id, target_char_pos = msg.skill_targets[0]
         new_msg = DealDamageMsg(
+            attacker=(parent.player_id, parent.position),
             sender_id=parent.player_id,
             targets=[(target_player_id, target_char_pos, ElementType.NONE, 2)],
         )
@@ -58,6 +68,7 @@ class KamisatoArtHyouka(CharacterSkill):
         msg = cast(UseSkillMsg, msg)
         target_player_id, target_char_pos = msg.skill_targets[0]
         new_msg = DealDamageMsg(
+            attacker=(parent.player_id, parent.position),
             sender_id=parent.player_id,
             targets=[(target_player_id, target_char_pos, ElementType.CRYO, 3)],
         )
@@ -78,10 +89,10 @@ class KamisatoArtSoumetsu(CharacterSkill):
         msg = cast(UseSkillMsg, msg)
         target_player_id, target_char_pos = msg.skill_targets[0]
         new_msg = DealDamageMsg(
+            attacker=(parent.player_id, parent.position),
             sender_id=parent.player_id,
             targets=[(target_player_id, target_char_pos, ElementType.CRYO, 4)],
         )
-        # TODO: Generate a summon
         msg_queue.put(new_msg)
         new_msg = GenerateSummonMsg(
             sender_id=parent.player_id, summon_name="Frostflake Seki no To"
@@ -102,8 +113,21 @@ class KamisatoArtSenho(CharacterSkill):
     type: SkillType = SkillType.PASSIVE_SKILL
 
     def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
-        msg = msg_queue.get()
-        msg = cast(UseSkillMsg, msg)
+        top_msg = msg_queue.queue[0]
+        updated = False
+        if isinstance(top_msg, ChangeCharacterMsg):
+            top_msg = cast(ChangeCharacterMsg, top_msg)
+            if top_msg.target == (parent.player_id, parent.position):
+                new_msg = GenerateCharacterStatusMsg(
+                    sender_id=parent.player_id,
+                    status_name="Cryo Infusion",
+                    target=(parent.player_id, parent.position),
+                    remaining_round=1,
+                )
+                msg_queue.put(new_msg)
+                updated = True
+
+        return updated
 
 
 class KamisatoAyaka(CharacterCard):
@@ -136,6 +160,7 @@ class FrostflakeSekinoTo(Summon):
             msg = cast(RoundEndMsg, msg)
             new_msg = DealDamageMsg(
                 sender_id=self.player_id,
+                attacker=(self.player_id, CharPos.NONE),
                 targets=[(~self.player_id, CharPos.ACTIVE, ElementType.CRYO, 2)],
             )
             msg_queue.put(new_msg)

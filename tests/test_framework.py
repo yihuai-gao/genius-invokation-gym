@@ -33,10 +33,14 @@ if __name__ == "__main__":
             print(f"\n-------------- Round {game_round} --------------\n")
         action_cnt += 1
         active_player = game_info.active_player
+        ch = None
+        ch_status_list = []
+
         if active_player == PlayerID.PLAYER1:
             action = player1_agent.take_action(game_info)
         else:
             action = player2_agent.take_action(game_info)
+
         if active_player == PlayerID.PLAYER1:
             if game_info.player1.dice_zone:
                 dice = [str(die) for die in game_info.player1.dice_zone]
@@ -45,8 +49,7 @@ if __name__ == "__main__":
             pos = game_info.player1.active_character_position
             if pos.value is not None:
                 ch = game_info.player1.characters[pos.value].character
-            else:
-                ch = None
+                ch_status_list = game_info.player1.characters[pos.value].status
             summons = game_info.player1.summon_zone
         else:
             if game_info.player2.dice_zone:
@@ -56,16 +59,21 @@ if __name__ == "__main__":
             pos = game_info.player2.active_character_position
             if pos.value is not None:
                 ch = game_info.player2.characters[pos.value].character
-            else:
-                ch = None
+                ch_status_list = game_info.player2.characters[pos.value].status
             summons = game_info.player2.summon_zone
+
         action_type = str(type(action)).strip(">'").split(".")[-1]
         print(f"{active_player} {action_type}: {action.dict()}")
         print(f"    Current Dice: {dice}")
+
         if ch is not None:
             print(
-                f"    Current Character: {ch.name}, hp: {ch.health_point}, power: {ch.power}/{ch.max_power}"
+                f"    Current Character: {ch.name}, hp: {ch.health_point}, power: {ch.power}/{ch.max_power}, elem attachment: {ch.elemental_attachment}"
             )
+        if len(ch_status_list) >= 1:
+            print(f"    Current Character Status:")
+            for status in ch_status_list:
+                print(f"            {status}")
         if summons:
             print(f"    Current Summons:")
             for summon in summons:

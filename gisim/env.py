@@ -24,3 +24,6 @@ if DISPLAY_LANGUAGE not in ALL_LANGUAGES:
 
 def get_display_text(key):
     return I18N_DATA[DISPLAY_LANGUAGE].get(key, key)
+
+
+INF_INT = 99999
