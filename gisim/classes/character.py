@@ -36,8 +36,6 @@ class CharacterEntity(Entity):
     active: bool = False
     """ Whether this character in set forward. There should be only one character in the active state for each player"""
     alive: bool = True
-    elemental_infusion = ElementType.NONE
-    """普通攻击元素附魔"""
     elemental_attachment = ElementType.NONE
     """角色元素附着"""
 
@@ -81,7 +79,6 @@ class CharacterEntity(Entity):
             "name",
             "active",
             "alive",
-            "elemental_infusion",
             "elemental_attachment",
             "health_point",
             "power",
@@ -118,12 +115,19 @@ class CharacterEntity(Entity):
             ), f"Skill type {skill_type} is not unique."
             return self.skills[skill_types.index(skill_type)]
 
+    def passive_skill_handler(self, msg_queue: PriorityQueue[Message]):
+        updated = False
+        for skill in self.skills:
+            if skill.type == SkillType.PASSIVE_SKILL:
+                updated = skill.use_skill(msg_queue=msg_queue, parent=self)
+        return updated
+
     def msg_handler(self, msg_queue: PriorityQueue[Message]):
         """Will respond to `UseSkillMsg` etc."""
         msg = msg_queue.queue[0]
         if self._uuid in msg.responded_entities:
             return False
-        updated = False
+        updated = self.passive_skill_handler(msg_queue)
         if isinstance(msg, PaySkillCostMsg):
             msg = cast(PaySkillCostMsg, msg)
             if msg.user_pos == self.position:
@@ -171,6 +175,11 @@ class CharacterEntity(Entity):
                     and target_pos == CharPos.ACTIVE
                 )
                 if self.player_id == target_id and is_target:
+                    if self.elemental_attachment == ElementType.NONE:
+                        self.elemental_attachment = element_type
+                    else:
+                        # TODO: add elemental reaction effects
+                        pass
                     self.health_point -= min(self.health_point, dmg_val)
                     if self.health_point == 0:
                         self.alive = False
@@ -180,7 +189,6 @@ class CharacterEntity(Entity):
                             target=(self.player_id, self.position),
                         )
                         msg_queue.put(dead_msg)
-                    # TODO: add elemental reaction effects
                     updated = True
         if updated:
             msg.responded_entities.append(self._uuid)
@@ -192,9 +200,6 @@ class CharacterEntityInfo:
         self.name: str = character_entity_info_dict["name"]
         self.active: bool = character_entity_info_dict["active"]
         self.alive: bool = character_entity_info_dict["alive"]
-        self.elemental_infusion: ElementType = character_entity_info_dict[
-            "elemental_infusion"
-        ]
         self.elemental_attachment: ElementType = character_entity_info_dict[
             "elemental_attachment"
         ]

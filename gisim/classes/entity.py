@@ -61,18 +61,6 @@ class ArtifactEntity(Entity):
         return updated
 
 
-class StatusEntity(Entity):
-    def __init__(self, name: str):
-        self.name = name
-
-    def encode(self):
-        return {"name": self.name}
-
-    def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
-        updated = False
-        return updated
-
-
 class CardEntity(Entity):
     def __init__(self, name: str):
         self.name = name

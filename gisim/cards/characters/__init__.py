@@ -29,7 +29,7 @@ def get_character_card(character_name: str):
     return character_card
 
 
-def get_summon_instance(summon_name: str, player_id: PlayerID) -> Summon:
+def get_summon_entity(summon_name: str, player_id: PlayerID) -> Summon:
     summon_name = summon_name.replace(" ", "")
-    summon_class = eval(f"{summon_name}")
+    summon_class = globals()[summon_name]
     return summon_class(player_id=player_id)

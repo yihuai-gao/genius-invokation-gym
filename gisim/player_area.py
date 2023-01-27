@@ -10,7 +10,7 @@ from random import Random
 from typing import TYPE_CHECKING, Generic, Optional, TypeVar, cast
 from uuid import uuid4
 
-from gisim.cards.characters import get_summon_instance
+from gisim.cards.characters import get_summon_entity
 
 # from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
 from gisim.cards.equipments import talents
@@ -20,19 +20,20 @@ from gisim.classes.entity import (
     ArtifactEntity,
     CardEntity,
     Entity,
-    StatusEntity,
     TalentEntity,
     WeaponEntity,
 )
 from gisim.classes.enums import *
 from gisim.classes.message import (
     ChangeDiceMsg,
+    GenerateCharacterStatusMsg,
     GenerateSummonMsg,
     Message,
     PayCardCostMsg,
     PayCostMsg,
     RoundEndMsg,
 )
+from gisim.classes.status import CharacterStatusEntity, get_character_status_entity
 
 if TYPE_CHECKING:
     from gisim.classes.status import CombatStatusEntity
@@ -256,7 +257,7 @@ class SummonZone(BaseZone):
                     """Remove the first summon in the zone"""
                     self.remove_summon(0)
 
-                new_summon = get_summon_instance(msg.summon_name, msg.target_id)
+                new_summon = get_summon_entity(msg.summon_name, msg.target_id)
                 new_summon.position = len(self.summons)
                 self.summons.append(new_summon)
                 updated = True
@@ -383,7 +384,7 @@ class CharacterZone(BaseZone):
         self.talent: Optional[TalentEntity] = None
         self.weapon: Optional[WeaponEntity] = None
         self.artifact: Optional[ArtifactEntity] = None
-        self.status: list[StatusEntity] = []
+        self.status: list[CharacterStatusEntity] = []
 
     def encode(self):
         return {
@@ -396,6 +397,17 @@ class CharacterZone(BaseZone):
 
     def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         updated = False
+        top_msg = msg_queue.queue[0]
+        if isinstance(top_msg, GenerateCharacterStatusMsg):
+            top_msg = cast(GenerateCharacterStatusMsg, top_msg)
+            if top_msg.target == (self._parent.player_id, self.position):
+                status_entity = get_character_status_entity(
+                    top_msg.status_name,
+                    self._parent.player_id,
+                    self.position,
+                    top_msg.remaining_round,
+                )
+                self.status.append(status_entity)
         entities = [
             self.character,
             self.talent,
@@ -410,6 +422,17 @@ class CharacterZone(BaseZone):
             updated = entity.msg_handler(msg_queue)
             if updated:
                 return True
+        if isinstance(top_msg, RoundEndMsg):
+            invalid_idxes = []
+            for idx, status in enumerate(self.status):
+                if (
+                    status.remaining_round == 0 or status.remaining_usage == 0
+                ) and status.active == False:
+                    # Remove this status
+                    invalid_idxes.append(idx)
+            invalid_idxes.reverse()
+            for idx in invalid_idxes:
+                self.status.pop(idx)
         return False
 
 

@@ -25,13 +25,7 @@ class Summon(Entity, ABC):
     _uuid: UUID = Field(default_factory=uuid4)
 
     def encode(self):
-        info = OrderedDict()
-        info["position"] = self.position
-        info["name"] = self.name
-        info["usages"] = self.usages
-        info["position"] = self.position
-        info["active"] = self.active
-        return info
+        return self.dict(exclude={"_uuid", "_logger"})
 
     @abstractmethod
     def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
