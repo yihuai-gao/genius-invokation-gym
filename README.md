@@ -26,6 +26,9 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 - [x] Use message queue (with priority) to buffer all messages
 - [ ] Enable judging validity of a proposed action
 - [ ] Add message handler to every character, summon, status, ...
+    - [x] Finish normal attack, elemental skill, elemental burst of KamisatoAyaka (as a template to generate more characters in the future)
+    - [x] Add Summon and Elemental Infusion based on KamisatoAyaka
+
 
 ## Logs
 
