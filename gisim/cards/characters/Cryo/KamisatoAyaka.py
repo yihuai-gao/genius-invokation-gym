@@ -29,7 +29,7 @@ class KamisatoArtKabuki(GenericSkill):
     id: int = 11051
     name: str = "Kamisato Art: Kabuki"
     text: str = """
-    Kamisato Art: Kabuki / 神里流·倾
+    Deals 2 Physical DMG.
     """
     costs: dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
     type: SkillType = SkillType.NORMAL_ATTACK
@@ -41,7 +41,7 @@ class KamisatoArtHyouka(GenericSkill):
     id: int = 11052
     name: str = "Kamisato Art: Hyouka"
     text: str = """
-    Kamisato Art: Hyouka / 神里流·冰华
+    Deals 3 Cryo DMG
     """
     costs: dict[ElementType, int] = {ElementType.CRYO: 3}
     type: SkillType = SkillType.ELEMENTAL_SKILL
@@ -53,7 +53,7 @@ class KamisatoArtSoumetsu(GenericSkill):
     id: int = 11053
     name: str = "Kamisato Art: Soumetsu"
     text: str = """
-    Kamisato Art: Soumetsu / 神里流·霜灭
+    Deals 4 Cryo DMG, summons 1 Frostflake Seki no To.
     """
     costs: dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 3}
     type: SkillType = SkillType.ELEMENTAL_BURST
@@ -67,9 +67,7 @@ class KamisatoArtSenho(CharacterSkill):
     id: int = 11054
     name: str = "Kamisato Art: Senho"
     text: str = """
-    Kamisato Art: Senho / 神里流·霰步
     (Passive) When switched to be the active character, this character gains Cryo Elemental Infusion.
-    【被动】此角色被切换为「出战角色」时，附属冰元素附魔。
     """
     costs: dict[ElementType, int] = {}
     type: SkillType = SkillType.PASSIVE_SKILL
