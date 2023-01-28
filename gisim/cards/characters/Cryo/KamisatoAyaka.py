@@ -7,6 +7,7 @@ from xml.dom.minidom import Element
 from gisim.cards.characters.base import (
     CharacterCard,
     CharacterSkill,
+    GenericSkill,
     register_character_skill_factory,
 )
 from gisim.classes.enums import (
@@ -27,13 +28,13 @@ from gisim.classes.message import (
     RoundEndMsg,
     UseSkillMsg,
 )
-from gisim.classes.summon import Summon
+from gisim.classes.summon import AttackSummon, Summon
 
 if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
 
 
-class KamisatoArtKabuki(CharacterSkill):
+class KamisatoArtKabuki(GenericSkill):
     id: int = 11051
     name: str = "Kamisato Art: Kabuki"
     text: str = """
@@ -41,20 +42,11 @@ class KamisatoArtKabuki(CharacterSkill):
     """
     costs: dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
     type: SkillType = SkillType.NORMAL_ATTACK
-
-    def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
-        msg = msg_queue.get()
-        msg = cast(UseSkillMsg, msg)
-        target_player_id, target_char_pos = msg.skill_targets[0]
-        new_msg = DealDamageMsg(
-            attacker=(parent.player_id, parent.position),
-            sender_id=parent.player_id,
-            targets=[(target_player_id, target_char_pos, ElementType.NONE, 2)],
-        )
-        msg_queue.put(new_msg)
+    damage_element: ElementType = ElementType.NONE
+    damage_value: int = 2
 
 
-class KamisatoArtHyouka(CharacterSkill):
+class KamisatoArtHyouka(GenericSkill):
     id: int = 11052
     name: str = "Kamisato Art: Hyouka"
     text: str = """
@@ -62,20 +54,11 @@ class KamisatoArtHyouka(CharacterSkill):
     """
     costs: dict[ElementType, int] = {ElementType.CRYO: 3}
     type: SkillType = SkillType.ELEMENTAL_SKILL
-
-    def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
-        msg = msg_queue.get()
-        msg = cast(UseSkillMsg, msg)
-        target_player_id, target_char_pos = msg.skill_targets[0]
-        new_msg = DealDamageMsg(
-            attacker=(parent.player_id, parent.position),
-            sender_id=parent.player_id,
-            targets=[(target_player_id, target_char_pos, ElementType.CRYO, 3)],
-        )
-        msg_queue.put(new_msg)
+    damage_element: ElementType = ElementType.CRYO
+    damage_value: int = 3
 
 
-class KamisatoArtSoumetsu(CharacterSkill):
+class KamisatoArtSoumetsu(GenericSkill):
     id: int = 11053
     name: str = "Kamisato Art: Soumetsu"
     text: str = """
@@ -83,21 +66,9 @@ class KamisatoArtSoumetsu(CharacterSkill):
     """
     costs: dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 3}
     type: SkillType = SkillType.ELEMENTAL_BURST
-
-    def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
-        msg = msg_queue.get()
-        msg = cast(UseSkillMsg, msg)
-        target_player_id, target_char_pos = msg.skill_targets[0]
-        new_msg = DealDamageMsg(
-            attacker=(parent.player_id, parent.position),
-            sender_id=parent.player_id,
-            targets=[(target_player_id, target_char_pos, ElementType.CRYO, 4)],
-        )
-        msg_queue.put(new_msg)
-        new_msg = GenerateSummonMsg(
-            sender_id=parent.player_id, summon_name="Frostflake Seki no To"
-        )
-        msg_queue.put(new_msg)
+    damage_element: ElementType = ElementType.CRYO
+    damage_value: int = 4
+    summon_name: str = "Frostflake Seki no To"
 
 
 class KamisatoArtSenho(CharacterSkill):
@@ -147,26 +118,10 @@ class KamisatoAyaka(CharacterCard):
     ]
 
 
-class FrostflakeSekinoTo(Summon):
+class FrostflakeSekinoTo(AttackSummon):
     name: str = "Frostflake Seki no To"
     usages: int = 2
+    damage_element: ElementType = ElementType.CRYO
+    damage_value: int = 2
 
-    def msg_handler(self, msg_queue):
-        msg = msg_queue.queue[0]
-        if self._uuid in msg.responded_entities:
-            return False
-        updated = False
-        if isinstance(msg, RoundEndMsg):
-            msg = cast(RoundEndMsg, msg)
-            new_msg = DealDamageMsg(
-                sender_id=self.player_id,
-                attacker=(self.player_id, CharPos.NONE),
-                targets=[(~self.player_id, CharPos.ACTIVE, ElementType.CRYO, 2)],
-            )
-            msg_queue.put(new_msg)
-            self.usages -= 1
-            if self.usages == 0:
-                self.active = False
-            msg.responded_entities.append(self._uuid)
-            updated = True
-        return updated
+

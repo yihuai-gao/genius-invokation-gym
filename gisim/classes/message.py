@@ -350,7 +350,7 @@ class AttachElementMsg(Message):
     element_types: list[ElementType]
 
 
-class RecoverHpMsg(Message):
+class HealHpMsg(Message):
     """Send from Card/Character(Skill)/Equipment/Support/Summon/..."""
 
     priority: MsgPriority = MsgPriority.GENERAL_EFFECT
