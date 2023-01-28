@@ -22,13 +22,6 @@ from .message import (
     UseSkillMsg,
 )
 
-# from gisim.cards.characters.base import (
-#     CHARACTER_CARDS,
-#     CHARACTER_NAME2ID,
-#     CHARACTER_SKILLS,
-# )
-
-
 class CharacterEntity(Entity):
     name: str
     player_id: PlayerID
