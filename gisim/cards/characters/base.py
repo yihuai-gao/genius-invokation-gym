@@ -14,6 +14,7 @@ from gisim.env import get_display_text
 if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
 
+
 class CharacterSkill(BaseModel):
     id: int
     name: str
@@ -32,9 +33,6 @@ class CharacterSkill(BaseModel):
         returns a list of messages to be sent to the game
         """
         ...
-
-
-
 
     # def __str__(self):
     #     return f"<{self.id}: {get_display_text(self.name)}>"
@@ -128,4 +126,3 @@ class CharacterCard(BaseModel):
 
     def __str__(self):
         return f"<{self.id}: {get_display_text(self.name)} [{get_display_text(self.element_type.name)}]>"
-

@@ -2,15 +2,14 @@
 This files will generate character cards from "gisim/cards/resources/cards_20221205_en-us.json"
 """
 
-from collections import defaultdict
 import json
 import os
 import re
+from collections import defaultdict
 from typing import Type
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill
-
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
-
 
 _DEFAULT_SKILL_REGEXPS = {
     # Deals 8 Pyro DMG
@@ -30,7 +29,6 @@ _DEFAULT_SKILL_REGEXPS = {
     # this character gains niwabi enshou
     "Buff": r"^[tT]his character gains ([a-zA-Z: -]+)$",
 }
-
 
 
 CHARACTER_CARDS: dict[int, CharacterCard] = {}
@@ -169,7 +167,11 @@ def _process_card(config: dict):
 
 def generate_character_cards_and_skills():
     path = os.path.join(
-        os.path.dirname(__file__), "..", "gisim", "resources", "cards_20221205_en-us.json"
+        os.path.dirname(__file__),
+        "..",
+        "gisim",
+        "resources",
+        "cards_20221205_en-us.json",
     )
 
     with open(path, "r") as f:
@@ -177,6 +179,7 @@ def generate_character_cards_and_skills():
 
     for i in cards:
         _process_card(i)
+
 
 def parse_sub_command(sub_command: str):
     for skill_type, regexp in _DEFAULT_SKILL_REGEXPS.items():
@@ -186,7 +189,7 @@ def parse_sub_command(sub_command: str):
     return [sub_command]
 
 
-def parse_skill_text(text:str):
+def parse_skill_text(text: str):
     """
     Parse the skill text and execute the skill effect
     """
@@ -199,25 +202,28 @@ def parse_skill_text(text:str):
 
         # A command is parsable if all of its sub-commands are parsable
         for sub_command in command.split(", "):
-            effects.append(
-                parse_sub_command(sub_command)
-            )
+            effects.append(parse_sub_command(sub_command))
 
     return effects
+
 
 if __name__ == "__main__":
     generate_character_cards_and_skills()
     # character_name = "Kamisato Ayaka"
     character_name = "Collei"
     character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_name]]
-    print(f"Name: {character_card.name}, Nations: {character_card.nations}, Weapon: {character_card.weapon_type}, Element: {character_card.element_type}")
+    print(
+        f"Name: {character_card.name}, Nations: {character_card.nations}, Weapon: {character_card.weapon_type}, Element: {character_card.element_type}"
+    )
     skills = character_card.skills
     print("Skills:")
     for skill in skills:
-        print(f"    Name: {skill.name}, type: {skill.type}, cost: {skill.costs}, text: {skill.text}")
+        print(
+            f"    Name: {skill.name}, type: {skill.type}, cost: {skill.costs}, text: {skill.text}"
+        )
         effects = parse_skill_text(skill.text)
         for effect in effects:
             print(f"          {effect}")
-    
+
     # TODO: Generate text for each CharacterSkill and CharacterCard using KamisatoAyaka.py as a template
     # TODO: Find out all skills that cannot be parsed and mark them at the end of each file

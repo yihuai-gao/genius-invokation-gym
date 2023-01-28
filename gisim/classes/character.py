@@ -22,6 +22,7 @@ from .message import (
     UseSkillMsg,
 )
 
+
 class CharacterEntity(Entity):
     name: str
     player_id: PlayerID
