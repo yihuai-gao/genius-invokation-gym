@@ -14,21 +14,21 @@ from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 
 _DEFAULT_SKILL_REGEXPS = {
     # Deals 8 Pyro DMG
-    "DMG": r"^deals (\d+) ([a-z]+) dmg$",
-    # deals 1 piercing dmg to all opposing characters on standby
-    "DMGAll": r"^deals (\d+) ([a-z]+) dmg to all opposing characters on standby$",
+    "DMG": r"^[dD]eals (\d+) ([a-zA-Z]+) DMG$",
+    # deals 1 piercing DMG to all opposing characters on standby
+    "DMGAll": r"^[dD]eals (\d+) ([a-zA-Z]+) DMG to all opposing characters on standby$",
     # This character gains Pyro Infusion
-    "Inufsion": r"^this character gains ([a-z]+) (elemental )?infusion$",
-    # heals this character for 2 hp
-    "Heal": r"^heals this character for (\d+) hp$",
-    # heals all of your characters for 4 hp
-    "HealAll": r"^heals all of your characters for (\d+) hp$",
+    "Inufsion": r"^[tT]his character gains ([a-zA-Z]+) (Elemental )?Infusion$",
+    # heals this character for 2 HP
+    "Heal": r"^[hH]eals this character for (\d+) HP$",
+    # heals all of your characters for 4 HP
+    "HealAll": r"^[hH]eals all of your characters for (\d+) HP$",
     # summons 1 shadowsword: galloping frost
-    "Summon": r"^summons (\d+) ([a-z: -]+)$",
+    "Summon": r"^[Ss]ummons (\d+) ([a-zA-Z: -]+)$",
     # creates 1 pyronado
-    "Create": r"^creates (\d+) ([a-z: -]+)$",
+    "Create": r"^[cC]reates (\d+) ([a-zA-Z: -]+)$",
     # this character gains niwabi enshou
-    "Buff": r"^this character gains ([a-z: -]+)$",
+    "Buff": r"^[tT]his character gains ([a-zA-Z: -]+)$",
 }
 
 
@@ -186,7 +186,7 @@ def parse_sub_command(sub_command: str):
     return [sub_command]
 
 
-def parse_skill_text(text):
+def parse_skill_text(text:str):
     """
     Parse the skill text and execute the skill effect
     """
@@ -207,6 +207,7 @@ def parse_skill_text(text):
 
 if __name__ == "__main__":
     generate_character_cards_and_skills()
+    # character_name = "Kamisato Ayaka"
     character_name = "Collei"
     character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_name]]
     print(f"Name: {character_card.name}, Nations: {character_card.nations}, Weapon: {character_card.weapon_type}, Element: {character_card.element_type}")
@@ -217,4 +218,6 @@ if __name__ == "__main__":
         effects = parse_skill_text(skill.text)
         for effect in effects:
             print(f"          {effect}")
-        
+    
+    # TODO: Generate text for each CharacterSkill and CharacterCard using KamisatoAyaka.py as a template
+    # TODO: Find out all skills that cannot be parsed and mark them at the end of each file
