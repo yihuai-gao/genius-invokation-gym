@@ -24,8 +24,6 @@ from gisim.classes.enums import (
 )
 from gisim.game import GameInfo
 
-from .cards.characters.base import CHARACTER_CARDS, CHARACTER_NAME2ID
-from .classes.message import ChangeCharacterMsg
 
 
 class Agent(ABC):
@@ -126,9 +124,6 @@ class AttackOnlyAgent(Agent):
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
                 character_info = player_info.characters[active_pos.value]
-                # character_card = CHARACTER_CARDS[
-                #     CHARACTER_NAME2ID[character_info.character.name]
-                # ]
                 character_card = get_character_card(character_info.character.name)
                 if character_info.character.health_point <= 0:
                     alive_positions = [
@@ -211,9 +206,6 @@ class NoAttackAgent(Agent):
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
                 character_info = player_info.characters[active_pos.value]
-                # character_card = CHARACTER_CARDS[
-                #     CHARACTER_NAME2ID[character_info.character.name]
-                # ]
                 character_card = get_character_card("Kamisato Ayaka")
                 character_element = character_card.element_type
                 current_dice = player_info.dice_zone
