@@ -63,7 +63,7 @@ if __name__ == "__main__":
             summons = game_info.player2.summon_zone
 
         action_type = str(type(action)).strip(">'").split(".")[-1]
-        print(f"{active_player} {action_type}: {action.dict()}")
+        print(f"{active_player}")
         print(f"    Current Dice: {dice}")
 
         if ch is not None:
@@ -73,12 +73,15 @@ if __name__ == "__main__":
         if len(ch_status_list) >= 1:
             print(f"    Current Character Status:")
             for status in ch_status_list:
-                print(f"            {status}")
+                print(
+                    f"            {status['name']}, active: {status['active']}, remaining round: {status['remaining_round']}, remaining usage: {status['remaining_usage']}"
+                )
         if summons:
             print(f"    Current Summons:")
             for summon in summons:
                 print(f"          {summon['name']}: usages: {summon['usages']}")
 
+        print(f"\n    {action_type}: {action.dict()}")
         print("\n")
         valid = game.judge_action(action)
         if valid:

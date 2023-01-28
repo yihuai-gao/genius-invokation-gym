@@ -5,12 +5,12 @@ import re
 from abc import abstractmethod
 from collections import defaultdict
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, Optional, Type
+from typing import TYPE_CHECKING, Optional, Type, cast
 
 from pydantic import BaseModel, Field, validator
 
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
-from gisim.classes.message import Message, UseSkillMsg
+from gisim.classes.message import DealDamageMsg, GenerateSummonMsg, Message, UseSkillMsg
 from gisim.env import get_display_text
 
 if TYPE_CHECKING:
@@ -110,6 +110,36 @@ class CharacterSkill(BaseModel):
 
     # def __str__(self):
     #     return f"<{self.id}: {get_display_text(self.name)}>"
+
+
+class GenericSkill(CharacterSkill):
+    damage_element: ElementType = ElementType.NONE
+    damage_value: int = 0
+    summon_name: str = ""
+
+    def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
+        msg = msg_queue.get()
+        msg = cast(UseSkillMsg, msg)
+        target_player_id, target_char_pos = msg.skill_targets[0]
+        if self.damage_value > 0:
+            new_msg = DealDamageMsg(
+                attacker=(parent.player_id, parent.position),
+                sender_id=parent.player_id,
+                targets=[
+                    (
+                        target_player_id,
+                        target_char_pos,
+                        self.damage_element,
+                        self.damage_value,
+                    )
+                ],
+            )
+            msg_queue.put(new_msg)
+        if self.summon_name:
+            new_msg = GenerateSummonMsg(
+                sender_id=parent.player_id, summon_name=self.summon_name
+            )
+            msg_queue.put(new_msg)
 
 
 class CharacterCard(BaseModel):

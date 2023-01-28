@@ -56,7 +56,7 @@ class ElementType(IntEnum):
     ANEMO = 7
     """风"""
     BASIC = 8
-    """All basic elements without OMNI"""
+    """Used in dice. All basic elements without OMNI"""
     PIERCE = 10
     """穿透伤害"""
 

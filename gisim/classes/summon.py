@@ -3,13 +3,13 @@ A character in the game should be an instant of the specific character class def
 import itertools
 from abc import ABC, abstractmethod
 from queue import PriorityQueue
-from typing import OrderedDict
+from typing import OrderedDict, cast
 from uuid import UUID, uuid4
 
 from pydantic import BaseModel, Field
 
-from gisim.classes.enums import PlayerID
-from gisim.classes.message import Message
+from gisim.classes.enums import CharPos, ElementType, PlayerID
+from gisim.classes.message import DealDamageMsg, Message, RoundEndMsg
 
 from .entity import Entity
 
@@ -30,3 +30,28 @@ class Summon(Entity, ABC):
     @abstractmethod
     def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
         ...
+
+
+class AttackSummon(Summon):
+    damage_element:ElementType
+    damage_value: int
+    
+    def msg_handler(self, msg_queue):
+        msg = msg_queue.queue[0]
+        if self._uuid in msg.responded_entities:
+            return False
+        updated = False
+        if isinstance(msg, RoundEndMsg):
+            msg = cast(RoundEndMsg, msg)
+            new_msg = DealDamageMsg(
+                sender_id=self.player_id,
+                attacker=(self.player_id, CharPos.NONE),
+                targets=[(~self.player_id, CharPos.ACTIVE, self.damage_element, self.damage_value)],
+            )
+            msg_queue.put(new_msg)
+            self.usages -= 1
+            if self.usages == 0:
+                self.active = False
+            msg.responded_entities.append(self._uuid)
+            updated = True
+        return updated
