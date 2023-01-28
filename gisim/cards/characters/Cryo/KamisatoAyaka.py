@@ -3,17 +3,8 @@
 from queue import PriorityQueue
 from typing import TYPE_CHECKING, cast
 
-from gisim.cards.characters.base import (
-    CharacterCard,
-    CharacterSkill,
-    GenericSkill,
-)
-from gisim.classes.enums import (
-    ElementType,
-    Nation,
-    SkillType,
-    WeaponType,
-)
+from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
+from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 from gisim.classes.message import (
     ChangeCharacterMsg,
     GenerateCharacterStatusMsg,
@@ -112,5 +103,3 @@ class FrostflakeSekinoTo(AttackSummon):
     usages: int = 2
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 2
-
-

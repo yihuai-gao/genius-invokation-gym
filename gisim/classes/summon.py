@@ -33,9 +33,9 @@ class Summon(Entity, ABC):
 
 
 class AttackSummon(Summon):
-    damage_element:ElementType
+    damage_element: ElementType
     damage_value: int
-    
+
     def msg_handler(self, msg_queue):
         msg = msg_queue.queue[0]
         if self._uuid in msg.responded_entities:
@@ -46,7 +46,14 @@ class AttackSummon(Summon):
             new_msg = DealDamageMsg(
                 sender_id=self.player_id,
                 attacker=(self.player_id, CharPos.NONE),
-                targets=[(~self.player_id, CharPos.ACTIVE, self.damage_element, self.damage_value)],
+                targets=[
+                    (
+                        ~self.player_id,
+                        CharPos.ACTIVE,
+                        self.damage_element,
+                        self.damage_value,
+                    )
+                ],
             )
             msg_queue.put(new_msg)
             self.usages -= 1

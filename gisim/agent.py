@@ -25,7 +25,6 @@ from gisim.classes.enums import (
 from gisim.game import GameInfo
 
 
-
 class Agent(ABC):
     def __init__(self, player_id: PlayerID):
         self.player_id = player_id
