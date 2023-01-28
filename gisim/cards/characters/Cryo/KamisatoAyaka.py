@@ -2,31 +2,22 @@
 
 from queue import PriorityQueue
 from typing import TYPE_CHECKING, cast
-from xml.dom.minidom import Element
 
 from gisim.cards.characters.base import (
     CharacterCard,
     CharacterSkill,
     GenericSkill,
-    register_character_skill_factory,
 )
 from gisim.classes.enums import (
-    CharPos,
     ElementType,
     Nation,
-    PlayerID,
     SkillType,
     WeaponType,
 )
 from gisim.classes.message import (
     ChangeCharacterMsg,
-    DealDamageMsg,
     GenerateCharacterStatusMsg,
-    GenerateSummonMsg,
     Message,
-    PaySkillCostMsg,
-    RoundEndMsg,
-    UseSkillMsg,
 )
 from gisim.classes.summon import AttackSummon, Summon
 
