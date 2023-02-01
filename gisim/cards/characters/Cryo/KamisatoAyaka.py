@@ -2,6 +2,7 @@
 
 from queue import PriorityQueue
 from typing import TYPE_CHECKING, cast
+from gisim.cards.base import TalentCard
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
@@ -105,3 +106,17 @@ class FrostflakeSekinoTo(AttackSummon):
     usages: int = 2
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 2
+
+
+class KantenSenmyouBlessing(TalentCard):
+    id = 211051
+    name = "Kanten Senmyou Blessing"
+    character_name: str = "Kamisato Ayaka"
+    costs: list[tuple[ElementType, int]] = [(ElementType.CRYO, 2)]
+    text: str = '''
+    The Cryo Elemental Infusion created by your Kamisato Ayaka, who has this card equipped, allows the character to which it is attached to deal +1 Cryo DMG.
+    When you switch to Kamisato Ayaka, who has this card equipped: Spend 1 less Elemental Die. (Once per Round)
+    (You must have Kamisato Ayaka in your deck to add this card to your deck.)
+    '''
+
+    

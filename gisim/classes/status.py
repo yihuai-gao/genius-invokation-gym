@@ -4,8 +4,6 @@ from logging import Logger, getLogger
 from queue import PriorityQueue
 from typing import cast
 
-from pydantic import BaseModel, Field
-
 from gisim.classes.entity import Entity
 from gisim.classes.enums import CharPos, ElementType, PlayerID
 from gisim.classes.message import DealDamageMsg, Message, RoundEndMsg
