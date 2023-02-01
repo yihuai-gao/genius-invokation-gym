@@ -12,8 +12,8 @@ from abc import ABC, abstractmethod
 
 from pydantic import BaseModel
 
-from .entity import Entity
-from .enums import CharPos, EntityType, PlayerID
+from gisim.classes.entity import Entity
+from gisim.classes.enums import CharPos, EntityType, PlayerID
 
 
 class Action(Entity, ABC):

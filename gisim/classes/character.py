@@ -5,14 +5,12 @@ from collections import OrderedDict
 from queue import PriorityQueue
 from typing import Optional, cast
 
-from pydantic import PrivateAttr
-
 from gisim.cards.characters import get_character_card
 from gisim.cards.characters.base import CharacterCard, CharacterSkill
 
-from .entity import Entity
-from .enums import *
-from .message import (
+from gisim.classes.entity import Entity
+from gisim.classes.enums import *
+from gisim.classes.message import (
     AfterUsingSkillMsg,
     ChangeCharacterMsg,
     CharacterDiedMsg,
