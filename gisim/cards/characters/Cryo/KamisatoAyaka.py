@@ -11,6 +11,7 @@ from gisim.classes.message import (
     Message,
 )
 from gisim.classes.summon import AttackSummon, Summon
+from gisim.env import INF_INT
 
 if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
@@ -74,6 +75,7 @@ class KamisatoArtSenho(CharacterSkill):
                     status_name="Cryo Infusion",
                     target=(parent.player_id, parent.position),
                     remaining_round=1,
+                    remaining_usage=INF_INT,
                 )
                 msg_queue.put(new_msg)
                 updated = True

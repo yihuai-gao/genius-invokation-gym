@@ -50,13 +50,19 @@ class GenericSkill(CharacterSkill):
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 0
     summon_name: str = ""
+
     status_name: str = ""
     """Skill description format: this character gains xxx"""
+    status_remaining_round: int = 0
+    status_remaining_usage: int = 0
+
     combat_status_name: str = ""
     """Skill description format: creates xxx"""
+    combat_status_remaining_round: int = 0
+    combat_status_remaining_usage: int = 0
+
     piercing_damage_value: int = 0
     """Piercing damage dealt to the standby characters"""
-    elemental_infusion: ElementType = ElementType.NONE
     heal_value: int = 0
     """Heal the current character"""
     heal_all_value: int = 0
@@ -108,6 +114,8 @@ class GenericSkill(CharacterSkill):
                 sender_id=parent.player_id,
                 target=(parent.player_id, parent.position),
                 status_name=self.status_name,
+                remaining_round=self.status_remaining_round,
+                remaining_usage=self.status_remaining_usage,
             )
             msg_queue.put(new_msg)
 
@@ -116,6 +124,8 @@ class GenericSkill(CharacterSkill):
                 sender_id=parent.player_id,
                 target_player_id=parent.player_id,
                 combat_status_name=self.combat_status_name,
+                remaining_round=self.combat_status_remaining_round,
+                remaining_usage=self.combat_status_remaining_usage,
             )
             msg_queue.put(new_msg)
 
