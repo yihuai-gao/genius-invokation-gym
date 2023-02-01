@@ -8,7 +8,15 @@ from typing import TYPE_CHECKING, Optional, Type, cast
 from pydantic import BaseModel, Field, validator
 
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
-from gisim.classes.message import DealDamageMsg, GenerateSummonMsg, Message, UseSkillMsg
+from gisim.classes.message import (
+    DealDamageMsg,
+    GenerateCharacterStatusMsg,
+    GenerateCombatStatusMsg,
+    GenerateSummonMsg,
+    HealHpMsg,
+    Message,
+    UseSkillMsg,
+)
 from gisim.env import get_display_text
 
 if TYPE_CHECKING:
@@ -42,6 +50,17 @@ class GenericSkill(CharacterSkill):
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 0
     summon_name: str = ""
+    status_name: str = ""
+    """Skill description format: this character gains xxx"""
+    combat_status_name: str = ""
+    """Skill description format: creates xxx"""
+    piercing_damage_value: int = 0
+    """Piercing damage dealt to the standby characters"""
+    elemental_infusion: ElementType = ElementType.NONE
+    heal_value: int = 0
+    """Heal the current character"""
+    heal_all_value: int = 0
+    """Heal all your alive characters"""
 
     def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
         msg = msg_queue.get()
@@ -61,9 +80,59 @@ class GenericSkill(CharacterSkill):
                 ],
             )
             msg_queue.put(new_msg)
+
+        if self.piercing_damage_value > 0:
+            new_msg = DealDamageMsg(
+                attacker=(parent.player_id, parent.position),
+                sender_id=parent.player_id,
+                targets=[
+                    (
+                        target_player_id,
+                        target_char_pos + k,
+                        ElementType.PIERCE,
+                        self.piercing_damage_value,
+                    )
+                    for k in [1, 2]  # Deals damage to two other characters
+                ],
+            )
+            msg_queue.put(new_msg)
+
         if self.summon_name:
             new_msg = GenerateSummonMsg(
                 sender_id=parent.player_id, summon_name=self.summon_name
+            )
+            msg_queue.put(new_msg)
+
+        if self.status_name:
+            new_msg = GenerateCharacterStatusMsg(
+                sender_id=parent.player_id,
+                target=(parent.player_id, parent.position),
+                status_name=self.status_name,
+            )
+            msg_queue.put(new_msg)
+
+        if self.combat_status_name:
+            new_msg = GenerateCombatStatusMsg(
+                sender_id=parent.player_id,
+                target_player_id=parent.player_id,
+                combat_status_name=self.combat_status_name,
+            )
+            msg_queue.put(new_msg)
+
+        if self.heal_value > 0:
+            new_msg = HealHpMsg(
+                sender_id=parent.player_id,
+                targets=[(parent.player_id, parent.position, self.heal_value)],
+            )
+            msg_queue.put(new_msg)
+
+        if self.heal_all_value > 0:
+            new_msg = HealHpMsg(
+                sender_id=parent.player_id,
+                targets=[
+                    (parent.player_id, parent.position + k, self.heal_all_value)
+                    for k in range(3)
+                ],
             )
             msg_queue.put(new_msg)
 

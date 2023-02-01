@@ -106,7 +106,7 @@ class GenerateCharacterStatusMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
     target: tuple[PlayerID, CharPos]
     status_name: str
-    remaining_round: int
+    # remaining_round: int
 
     @root_validator
     def init_respondent_zones(cls, values):
@@ -354,6 +354,7 @@ class HealHpMsg(Message):
     """Send from Card/Character(Skill)/Equipment/Support/Summon/..."""
 
     priority: MsgPriority = MsgPriority.GENERAL_EFFECT
+    targets: list[tuple[PlayerID, CharPos, int]]
 
 
 class ChangePowerMsg(Message):

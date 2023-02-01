@@ -17,7 +17,7 @@ _DEFAULT_SKILL_REGEXPS = {
     # deals 1 piercing DMG to all opposing characters on standby
     "DMGAll": r"^[dD]eals (\d+) ([a-zA-Z]+) DMG to all opposing characters on standby$",
     # This character gains Pyro Infusion
-    "Inufsion": r"^[tT]his character gains ([a-zA-Z]+) (Elemental )?Infusion$",
+    "Infusion": r"^[tT]his character gains ([a-zA-Z]+) (Elemental )?Infusion$",
     # heals this character for 2 HP
     "Heal": r"^[hH]eals this character for (\d+) HP$",
     # heals all of your characters for 4 HP
