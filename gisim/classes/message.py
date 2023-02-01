@@ -106,7 +106,8 @@ class GenerateCharacterStatusMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
     target: tuple[PlayerID, CharPos]
     status_name: str
-    # remaining_round: int
+    remaining_round: int
+    remaining_usage: int
 
     @root_validator
     def init_respondent_zones(cls, values):
@@ -121,6 +122,8 @@ class GenerateCombatStatusMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
     target_player_id: PlayerID
     combat_status_name: str
+    remaining_round: int
+    remaining_usage: int
 
     @root_validator
     def init_respondent_zones(cls, values):

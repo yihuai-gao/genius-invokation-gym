@@ -6,11 +6,10 @@ from typing import cast
 
 from pydantic import BaseModel, Field
 
+from gisim.classes.entity import Entity
+from gisim.classes.enums import CharPos, ElementType, PlayerID
 from gisim.classes.message import DealDamageMsg, Message, RoundEndMsg
 from gisim.env import INF_INT
-
-from .entity import Entity
-from .enums import CharPos, ElementType, PlayerID
 
 
 class CharacterStatusEntity(Entity, ABC):
