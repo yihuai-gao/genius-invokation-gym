@@ -6,7 +6,7 @@ from xml.dom.minidom import Element
 
 from gisim.cards.base import TalentCard
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.enums import CharPos, ElementType, Nation, SkillType, WeaponType
+from gisim.classes.enums import CharPos, ElementType, EntityType, Nation, PlayerID, SkillType, WeaponType
 from gisim.classes.equipment import TalentEntity
 from gisim.classes.message import (
     ChangeCharacterMsg,
@@ -120,14 +120,14 @@ class KantenSenmyouBlessingCard(TalentCard):
     id = 211051
     name = "Kanten Senmyou Blessing"
     character_name: str = "Kamisato Ayaka"
-    costs: list[tuple[ElementType, int]] = [(ElementType.CRYO, 2)]
+    costs: dict[ElementType, int] = {ElementType.CRYO: 2}
     text: str = """
     The Cryo Elemental Infusion created by your Kamisato Ayaka, who has this card equipped, allows the character to which it is attached to deal +1 Cryo DMG.
     When you switch to Kamisato Ayaka, who has this card equipped: Spend 1 less Elemental Die. (Once per Round)
     (You must have Kamisato Ayaka in your deck to add this card to your deck.)
     """
 
-    def use_card(self, msg_queue: PriorityQueue[Message], game_info: "GameInfo"):
+    def use_card(self, msg_queue: PriorityQueue[Message], game_info: "GameInfo", card_user_pos:tuple[PlayerID, CharPos], card_target:list[tuple[PlayerID, EntityType, int]]=[]):
         top_msg = msg_queue.queue[0]
         top_msg = cast(UseCardMsg, top_msg)
         player_id, entity_type, idx = top_msg.card_target[0]

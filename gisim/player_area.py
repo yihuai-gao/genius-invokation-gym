@@ -10,21 +10,14 @@ from random import Random
 from typing import TYPE_CHECKING, Generic, Optional, TypeVar, cast
 from uuid import uuid4
 
-from gisim.cards.characters import get_summon_entity
-
-# from gisim.cards.characters import CHARACTER_CARDS, CHARACTER_NAME2ID, CHARACTER_SKILLS
-from gisim.cards.equipments import talents
-from gisim.classes.action import RollDiceAction
+from gisim.cards import get_card, get_summon_entity
+from gisim.cards.base import Card
 from gisim.classes.character import CharacterEntity, CharacterEntityInfo
-from gisim.classes.entity import (
-    ArtifactEntity,
-    CardEntity,
-    Entity,
-    TalentEntity,
-    WeaponEntity,
-)
+from gisim.classes.entity import Entity
 from gisim.classes.enums import *
+from gisim.classes.equipment import ArtifactEntity, TalentEntity, WeaponEntity
 from gisim.classes.message import (
+    ChangeCardsMsg,
     ChangeDiceMsg,
     GenerateCharacterStatusMsg,
     GenerateSummonMsg,
@@ -32,6 +25,7 @@ from gisim.classes.message import (
     PayCardCostMsg,
     PayCostMsg,
     RoundEndMsg,
+    UseCardMsg,
 )
 from gisim.classes.status import CharacterStatusEntity, get_character_status_entity
 
@@ -103,6 +97,9 @@ class PlayerArea(BaseZone):
             if chr.character.active:
                 return chr.position
         return CharPos.NONE
+    
+    def get_game_info(self):
+        return self._parent.encode_game_info(viewer_id=self.player_id)
 
     def encode(self, viewer_id: PlayerID):
         return OrderedDict(
@@ -183,7 +180,7 @@ class CardZone(BaseZone):
         self._random_state = random_state
         self.deck_original_cards = cards
         self.deck_cards = cards
-        self.hand_cards: list[CardEntity] = []
+        self.hand_cards: list[Card] = []
 
     def shuffle(self):
         self._random_state.shuffle(self.deck_cards)
@@ -192,14 +189,24 @@ class CardZone(BaseZone):
     def card_names(self):
         return [card.name for card in self.hand_cards]
 
-    def draw_cards_from_deck(self, n: int):
-        assert n <= len(
-            self.deck_cards
-        ), "Card number to be drawn exceeds the deck size"
-        drawn_cards = self.deck_cards[:n]
-        self.deck_cards = self.deck_cards[n:]
+    def draw_cards_from_deck(self, cards_type: list[CardType]):
+        drawn_cards = []
+        for card_type in cards_type:
+            if len(self.deck_cards) == 0:
+                return False
+            if card_type == CardType.ANY:
+                drawn_cards.append(self.deck_cards[0])
+                self.deck_cards.pop(0)
+            else:
+                for idx, card_name in enumerate(self.deck_cards[0]):
+                    deck_card_type = get_card(card_name).card_type
+                    if card_type == deck_card_type:
+                        drawn_cards.append(self.deck_cards[idx])
+                        self.deck_cards.pop(idx)
+                        break
+                        
         for card_name in drawn_cards:
-            self.hand_cards.append(CardEntity(card_name))
+            self.hand_cards.append(get_card(card_name))
 
     def remove_hand_cards(self, cards_idx: list[int]):
         removed_names: list[str] = []
@@ -222,7 +229,33 @@ class CardZone(BaseZone):
         )
 
     def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
-        ...
+        top_msg = msg_queue.queue[0]
+        if self._uuid in top_msg.responded_entities:
+            return False
+        updated = False
+        if isinstance(top_msg, PayCardCostMsg):
+            top_msg = cast(PayCardCostMsg, top_msg)
+            card = self.hand_cards[top_msg.card_idx]
+            top_msg.required_cost = card.costs
+            updated = True
+            
+        if isinstance(top_msg, UseCardMsg):
+            top_msg = cast(UseCardMsg, top_msg)
+            card = self.hand_cards[top_msg.card_idx]
+            card.use_card(msg_queue, self._parent.get_game_info(), top_msg.card_user_pos, top_msg.card_target)
+            updated = True
+            
+        if isinstance(top_msg, ChangeCardsMsg):
+            top_msg = cast(ChangeCardsMsg, top_msg)
+            self.remove_hand_cards(top_msg.discard_cards_idx)
+            self.draw_cards_from_deck(top_msg.draw_cards_type)
+            updated = True
+
+        if updated:
+            top_msg.responded_entities.append(self._uuid)
+        
+        return updated
+            
 
 
 class SummonZone(BaseZone):
