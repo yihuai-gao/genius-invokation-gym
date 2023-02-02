@@ -217,6 +217,12 @@ class CardType(Enum):
     ANY = auto()
 
 
+class EquipmentType(Enum):
+    ARTIFACT = auto()
+    TALENT = auto()
+    WEAPON = auto()
+
+
 class RegionType(Enum):
     CHARACTER_BACKGROUND = -2
     CHARACTER_ACTIVE = -1

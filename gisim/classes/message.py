@@ -287,6 +287,7 @@ class UseCardMsg(Message):
     priority: MsgPriority = MsgPriority.PLAYER_ACTION
     card_idx: int
     card_target: list[tuple[PlayerID, EntityType, int]]
+    """The last element in the tuple is the index of the target starting from 0 (e.g. character, equipment, summon)"""
     card_user_pos: CharPos
 
 
