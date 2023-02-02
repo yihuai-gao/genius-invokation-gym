@@ -7,7 +7,6 @@ from typing import Optional, cast
 
 from gisim.cards.characters import get_character_card
 from gisim.cards.characters.base import CharacterCard, CharacterSkill
-
 from gisim.classes.entity import Entity
 from gisim.classes.enums import *
 from gisim.classes.message import (
