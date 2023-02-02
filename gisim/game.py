@@ -137,13 +137,13 @@ class Game:
             msg = PayCardCostMsg(
                 sender_id=active_player,
                 card_idx=action.card_idx,
-                card_user_pos=action.card_user_pos,
+                card_user_pos=(active_player, action.card_user_pos),
                 paid_dice_idx=action.dice_idx,
             )
             self.msg_queue.put(msg)
             msg = UseCardMsg(
                 sender_id=active_player,
-                card_user_pos=action.card_user_pos,
+                card_user_pos=(active_player, action.card_user_pos),
                 card_idx=action.card_idx,
                 card_target=action.card_target,
             )

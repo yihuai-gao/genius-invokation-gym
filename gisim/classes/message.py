@@ -207,7 +207,7 @@ class PayCardCostMsg(PayCostMsg):
     """Will calculate and remove the cost before processing `UseCardMsg`"""
 
     card_idx: int
-    card_user_pos: CharPos
+    card_user_pos: tuple[PlayerID, CharPos]
     """The user of the card. e.g. talent card"""
 
     @root_validator
@@ -288,7 +288,7 @@ class UseCardMsg(Message):
     card_idx: int
     card_target: list[tuple[PlayerID, EntityType, int]]
     """The last element in the tuple is the index of the target starting from 0 (e.g. character, equipment, summon)"""
-    card_user_pos: CharPos
+    card_user_pos: tuple[PlayerID, CharPos]
 
 
 class UseSkillMsg(Message):
