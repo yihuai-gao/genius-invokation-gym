@@ -1,9 +1,7 @@
 """Player & agent APIs
 """
-import enum
 from abc import ABC, abstractmethod
 from typing import OrderedDict
-from xml.dom.minidom import Element
 
 from gisim.cards.characters import get_character_card
 from gisim.classes.action import (
@@ -143,6 +141,8 @@ class AttackOnlyAgent(Agent):
                 )
                 skill_name = ""
                 dice_idx = []
+
+                # Use the talent card of Kamisato Ayaka if appeared
                 if "Kanten Senmyou Blessing" in player_info.hand_cards:
                     dice_idx = self.get_dice_idx_greedy(
                         current_dice, {ElementType.CRYO: 2}, character_card.element_type
@@ -201,6 +201,19 @@ class AttackOnlyAgent(Agent):
                         ],
                     )
 
+            elif game_info.phase == GamePhase.ROUND_END:
+                player_info = game_info.get_player_info()
+                active_pos = player_info.active_character_position
+                character_info = player_info.characters[active_pos.value]
+                if character_info.character.health_point <= 0:
+                    alive_positions = [
+                        CharPos(k)
+                        for k, character in enumerate(player_info.characters)
+                        if character.character.alive
+                    ]
+                    return ChangeCharacterAction(
+                        position=alive_positions[0], dice_idx=[]
+                    )
         return DeclareEndAction()
 
 
@@ -228,7 +241,7 @@ class NoAttackAgent(Agent):
                     if element_type not in [character_element, ElementType.OMNI]:
                         reroll_dice_idx.append(k)
                 return RollDiceAction(dice_idx=reroll_dice_idx)
-            elif game_info.phase == GamePhase.PLAY_CARDS:
+            elif game_info.phase in [GamePhase.PLAY_CARDS, GamePhase.ROUND_END]:
                 player_info = game_info.get_player_info()
                 active_pos = player_info.active_character_position
                 character_info = player_info.characters[active_pos.value]
@@ -242,4 +255,5 @@ class NoAttackAgent(Agent):
                         position=alive_positions[0], dice_idx=[]
                     )
                 return DeclareEndAction()
+
         return DeclareEndAction()

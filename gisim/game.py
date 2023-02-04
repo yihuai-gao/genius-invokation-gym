@@ -106,6 +106,7 @@ class Game:
                 target=(active_player, action.position),
                 change_active_player=change,
             )
+            self.msg_queue.put(msg)
 
         elif isinstance(action, ChangeCardsAction):
             action = cast(ChangeCardsAction, action)
@@ -274,7 +275,7 @@ class Game:
                 elif self.phase == GamePhase.SELECT_ACTIVE_CHARACTER:
                     self.process_msg_queue()  # The active character will be assigned
 
-                    self.active_player = ~self.active_player
+                    # self.active_player = ~self.active_player
                     if self.active_player != self.first_move_player:
                         break
                     else:

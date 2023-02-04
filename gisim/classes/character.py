@@ -159,13 +159,19 @@ class CharacterEntity(Entity):
 
         elif isinstance(msg, DealDamageMsg):
             msg = cast(DealDamageMsg, msg)
-            for target_id, target_pos, element_type, dmg_val in msg.targets:
-                is_target = (
+            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
+                msg.targets
+            ):
+                if not self.player_id == target_id:
+                    continue
+                if self.active and target_pos == CharPos.ACTIVE:
+                    # Modify the target position of the message to the correct character. In case the active character changed due to character death.
+                    msg.targets[idx] = (target_id, self.position, element_type, dmg_val)
+                if (
                     self.position == target_pos
                     or self.active
                     and target_pos == CharPos.ACTIVE
-                )
-                if self.player_id == target_id and is_target:
+                ):
                     if self.elemental_attachment == ElementType.NONE:
                         self.elemental_attachment = element_type
                     else:

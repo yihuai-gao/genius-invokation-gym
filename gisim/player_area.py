@@ -449,6 +449,10 @@ class CharacterZone(BaseZone):
         }
 
     def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
+        if not self.character.alive and not self.character.active:
+            # Return immediately if the character has already died.
+            return False
+
         updated = False
         top_msg = msg_queue.queue[0]
 
