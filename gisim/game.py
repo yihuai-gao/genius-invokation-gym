@@ -133,7 +133,6 @@ class Game:
 
         elif isinstance(action, UseCardAction):
             action = cast(UseCardAction, action)
-            self.player_area[active_player].dice_zone.remove_dice(action.dice_idx)
             msg = PayCardCostMsg(
                 sender_id=active_player,
                 card_idx=action.card_idx,

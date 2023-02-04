@@ -12,11 +12,13 @@ from gisim.classes.action import (
     ChangeCharacterAction,
     DeclareEndAction,
     RollDiceAction,
+    UseCardAction,
     UseSkillAction,
 )
 from gisim.classes.enums import (
     CharPos,
     ElementType,
+    EntityType,
     GamePhase,
     GameStatus,
     PlayerID,
@@ -141,6 +143,19 @@ class AttackOnlyAgent(Agent):
                 )
                 skill_name = ""
                 dice_idx = []
+                if "Kanten Senmyou Blessing" in player_info.hand_cards:
+                    dice_idx = self.get_dice_idx_greedy(
+                        current_dice, {ElementType.CRYO: 2}, character_card.element_type
+                    )
+                    if len(dice_idx) > 0:
+                        return UseCardAction(
+                            card_idx=0,
+                            card_target=[
+                                (self.player_id, EntityType.CHARACTER, active_pos.value)
+                            ],
+                            dice_idx=dice_idx,
+                            card_user_pos=active_pos,
+                        )
                 if (
                     character_info.character.power
                     == elemental_burst.costs[ElementType.POWER]
