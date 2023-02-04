@@ -6,7 +6,16 @@ from xml.dom.minidom import Element
 
 from gisim.cards.base import TalentCard
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.enums import CharPos, ElementType, EntityType, Nation, PlayerID, SkillType, WeaponType
+from gisim.classes.enums import (
+    CharPos,
+    ElementType,
+    EntityType,
+    EquipmentType,
+    Nation,
+    PlayerID,
+    SkillType,
+    WeaponType,
+)
 from gisim.classes.equipment import TalentEntity
 from gisim.classes.message import (
     ChangeCharacterMsg,
@@ -127,13 +136,22 @@ class KantenSenmyouBlessingCard(TalentCard):
     (You must have Kamisato Ayaka in your deck to add this card to your deck.)
     """
 
-    def use_card(self, msg_queue: PriorityQueue[Message], game_info: "GameInfo", card_user_pos:tuple[PlayerID, CharPos], card_target:list[tuple[PlayerID, EntityType, int]]=[]):
+    def use_card(
+        self,
+        msg_queue: PriorityQueue[Message],
+        game_info: "GameInfo",
+        card_user_pos: tuple[PlayerID, CharPos],
+        card_target: list[tuple[PlayerID, EntityType, int]] = [],
+    ):
         top_msg = msg_queue.queue[0]
         top_msg = cast(UseCardMsg, top_msg)
         player_id, entity_type, idx = top_msg.card_target[0]
         char_pos = CharPos(idx)
         new_msg = GenerateEquipmentMsg(
-            sender_id=player_id, target=(player_id, char_pos), equipment_name=self.name
+            sender_id=player_id,
+            target=(player_id, char_pos),
+            equipment_name=self.name,
+            equipment_type=EquipmentType.TALENT,
         )
         msg_queue.put(new_msg)
 

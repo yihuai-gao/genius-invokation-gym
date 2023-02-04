@@ -27,6 +27,3 @@ def get_character_card(character_name: str):
     character_card: CharacterCard = eval(f"{character_name}()")
     # Remove the spaces for class names
     return character_card
-
-
-

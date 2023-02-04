@@ -10,7 +10,7 @@ from random import Random
 from typing import TYPE_CHECKING, Generic, Optional, TypeVar, cast
 from uuid import uuid4
 
-from gisim.cards import get_card, get_summon_entity
+from gisim.cards import get_card, get_equipment, get_summon_entity
 from gisim.cards.base import Card
 from gisim.classes.character import CharacterEntity, CharacterEntityInfo
 from gisim.classes.entity import Entity
@@ -20,10 +20,12 @@ from gisim.classes.message import (
     ChangeCardsMsg,
     ChangeDiceMsg,
     GenerateCharacterStatusMsg,
+    GenerateEquipmentMsg,
     GenerateSummonMsg,
     Message,
     PayCardCostMsg,
     PayCostMsg,
+    RoundBeginMsg,
     RoundEndMsg,
     UseCardMsg,
 )
@@ -97,7 +99,7 @@ class PlayerArea(BaseZone):
             if chr.character.active:
                 return chr.position
         return CharPos.NONE
-    
+
     def get_game_info(self):
         return self._parent.encode_game_info(viewer_id=self.player_id)
 
@@ -193,7 +195,7 @@ class CardZone(BaseZone):
         drawn_cards = []
         for card_type in cards_type:
             if len(self.deck_cards) == 0:
-                return False
+                break
             if card_type == CardType.ANY:
                 drawn_cards.append(self.deck_cards[0])
                 self.deck_cards.pop(0)
@@ -204,7 +206,7 @@ class CardZone(BaseZone):
                         drawn_cards.append(self.deck_cards[idx])
                         self.deck_cards.pop(idx)
                         break
-                        
+
         for card_name in drawn_cards:
             self.hand_cards.append(get_card(card_name))
 
@@ -232,30 +234,41 @@ class CardZone(BaseZone):
         top_msg = msg_queue.queue[0]
         if self._uuid in top_msg.responded_entities:
             return False
+        if top_msg.sender_id == ~self._parent.player_id:
+            return False
         updated = False
         if isinstance(top_msg, PayCardCostMsg):
             top_msg = cast(PayCardCostMsg, top_msg)
             card = self.hand_cards[top_msg.card_idx]
             top_msg.required_cost = card.costs
             updated = True
-            
+
         if isinstance(top_msg, UseCardMsg):
             top_msg = cast(UseCardMsg, top_msg)
             card = self.hand_cards[top_msg.card_idx]
-            card.use_card(msg_queue, self._parent.get_game_info(), top_msg.card_user_pos, top_msg.card_target)
+            card.use_card(
+                msg_queue,
+                self._parent.get_game_info(),
+                top_msg.card_user_pos,
+                top_msg.card_target,
+            )
+            del self.hand_cards[top_msg.card_idx]
             updated = True
-            
+
         if isinstance(top_msg, ChangeCardsMsg):
             top_msg = cast(ChangeCardsMsg, top_msg)
             self.remove_hand_cards(top_msg.discard_cards_idx)
             self.draw_cards_from_deck(top_msg.draw_cards_type)
             updated = True
 
+        if isinstance(top_msg, RoundEndMsg):
+            self.draw_cards_from_deck([CardType.ANY, CardType.ANY])
+            updated = True
+
         if updated:
             top_msg.responded_entities.append(self._uuid)
-        
+
         return updated
-            
 
 
 class SummonZone(BaseZone):
@@ -374,7 +387,10 @@ class DiceZone(BaseZone):
         msg = msg_queue.queue[0]
         if self._uuid in msg.responded_entities:
             return False
+        updated = False
         if isinstance(msg, ChangeDiceMsg):
+            if self._parent.player_id != msg.sender_id:
+                return False
             msg = cast(ChangeDiceMsg, msg)
             self.remove_dice(msg.remove_dice_idx)
             self.add_dice(msg.new_target_element)
@@ -382,15 +398,19 @@ class DiceZone(BaseZone):
                 self.max_reroll_chance = msg.update_max_reroll_chance
             if msg.consume_reroll_chance:
                 self.remaining_reroll_chance -= 1
-            msg.responded_entities.append(self._uuid)
-            return True
-        if isinstance(msg, PayCostMsg):
+            updated = True
+        elif isinstance(msg, PayCostMsg):
+            if self._parent.player_id != msg.sender_id:
+                return False
             msg = cast(PayCostMsg, msg)
-            self.remove_dice(msg.paid_dice_idx)
-            msg.responded_entities.append(self._uuid)
-            return True
+            if not msg.simulate:
+                self.remove_dice(msg.paid_dice_idx)
+            updated = True
 
-        return False
+        if updated:
+            msg.responded_entities.append(self._uuid)
+
+        return updated
 
 
 class CombatStatusZone(BaseZone):
@@ -431,16 +451,42 @@ class CharacterZone(BaseZone):
     def msg_handler(self, msg_queue: PriorityQueue[Message]) -> bool:
         updated = False
         top_msg = msg_queue.queue[0]
-        if isinstance(top_msg, GenerateCharacterStatusMsg):
-            top_msg = cast(GenerateCharacterStatusMsg, top_msg)
-            if top_msg.target == (self._parent.player_id, self.position):
-                status_entity = get_character_status_entity(
-                    top_msg.status_name,
-                    self._parent.player_id,
-                    self.position,
-                    top_msg.remaining_round,
-                )
-                self.status.append(status_entity)
+
+        # Generate entities for this character
+        # Will be ignored if character zone has already executed this message
+
+        if self._uuid not in top_msg.responded_entities:
+            if isinstance(top_msg, GenerateCharacterStatusMsg):
+                top_msg = cast(GenerateCharacterStatusMsg, top_msg)
+                if top_msg.target == (self._parent.player_id, self.position):
+                    status_entity = get_character_status_entity(
+                        top_msg.status_name,
+                        self._parent.player_id,
+                        self.position,
+                        top_msg.remaining_round,
+                    )
+                    self.status.append(status_entity)
+                    top_msg.responded_entities.append((self._uuid))
+
+            elif isinstance(top_msg, GenerateEquipmentMsg):
+                top_msg = cast(GenerateEquipmentMsg, top_msg)
+                if top_msg.target == (self._parent.player_id, self.position):
+                    equipment_entity = get_equipment(
+                        top_msg.equipment_name, top_msg.target
+                    )
+                    if top_msg.equipment_type == EquipmentType.WEAPON:
+                        equipment_entity = cast(WeaponEntity, equipment_entity)
+                        self.weapon = equipment_entity
+                    elif top_msg.equipment_type == EquipmentType.ARTIFACT:
+                        equipment_entity = cast(ArtifactEntity, equipment_entity)
+                        self.artifact = equipment_entity
+                    elif top_msg.equipment_type == EquipmentType.TALENT:
+                        equipment_entity = cast(TalentEntity, equipment_entity)
+                        self.talent = equipment_entity
+                    else:
+                        raise ValueError("Wrong equipment type!")
+                    top_msg.responded_entities.append((self._uuid))
+
         entities = [
             self.character,
             self.talent,
@@ -455,6 +501,8 @@ class CharacterZone(BaseZone):
             updated = entity.msg_handler(msg_queue)
             if updated:
                 return True
+
+        # Remove
         if isinstance(top_msg, RoundEndMsg):
             invalid_idxes = []
             for idx, status in enumerate(self.status):
@@ -475,7 +523,7 @@ class PlayerInfo:
         self.player_id: PlayerID = player_info_dict["player_id"]
         self.declared_end: bool = player_info_dict["declared_end"]
         self.hand_length: int = player_info_dict["card_zone"]["hand_length"]
-        self.hand_cards: list = player_info_dict["card_zone"]["hand_cards"]
+        self.hand_cards: list[str] = player_info_dict["card_zone"]["hand_cards"]
         self.deck_length: int = player_info_dict["card_zone"]["deck_length"]
         self.deck: list[str] = player_info_dict["card_zone"]["deck_cards"]
         self.dice_zone_len: int = player_info_dict["dice_zone"]["length"]

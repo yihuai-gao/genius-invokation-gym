@@ -16,6 +16,7 @@ from .enums import (
     ElementalReactionType,
     ElementType,
     EntityType,
+    EquipmentType,
     MsgPriority,
     PlayerID,
     RegionType,
@@ -139,12 +140,13 @@ class GenerateEquipmentMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
     target: tuple[PlayerID, CharPos]
     equipment_name: str
+    equipment_type: EquipmentType
 
     @root_validator
     def init_respondent_zones(cls, values):
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
-                (values["player_id"], RegionType(values["target_char_pos"].value)),
+                (values["target"][0], RegionType(values["target"][1].value)),
             ]
         return values
 
@@ -215,7 +217,7 @@ class PayCardCostMsg(PayCostMsg):
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
                 (values["sender_id"], RegionType.CARD_ZONE),
-                (values["sender_id"], RegionType(values["card_user_pos"].value)),
+                (values["sender_id"], RegionType(values["card_user_pos"][1].value)),
                 (values["sender_id"], RegionType.COMBAT_STATUS_ZONE),
                 (values["sender_id"], RegionType.SUPPORT_ZONE),
                 (values["sender_id"], RegionType.DICE_ZONE),
@@ -456,5 +458,7 @@ class RoundEndMsg(Message):
                 (~values["first_move_player"], RegionType.SUPPORT_ZONE),
                 (~values["first_move_player"], RegionType.CHARACTER_ALL),
                 (~values["first_move_player"], RegionType.COMBAT_STATUS_ZONE),
+                (values["first_move_player"], RegionType.CARD_ZONE),
+                (~values["first_move_player"], RegionType.CARD_ZONE),
             ]
         return values
