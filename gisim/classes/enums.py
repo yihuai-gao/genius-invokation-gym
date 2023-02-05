@@ -111,7 +111,6 @@ class WeaponType(Enum):
     OTHER_WEAPONS = 6
     """其他武器"""
 
-
 class Nation(Enum):
     Mondstadt = 1
     """蒙德"""

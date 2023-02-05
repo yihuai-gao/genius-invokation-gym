@@ -3,7 +3,7 @@ from typing import TYPE_CHECKING
 
 from pydantic import BaseModel
 
-from gisim.classes.enums import CardType, CharPos, ElementType, EntityType, PlayerID
+from gisim.classes.enums import CardType, CharPos, ElementType, EntityType, PlayerID, WeaponType
 from gisim.classes.message import Message
 
 if TYPE_CHECKING:
@@ -30,3 +30,7 @@ class Card(BaseModel):
 class TalentCard(Card):
     character_name: str
     card_type: CardType = CardType.TALENT
+
+class WeaponCard(Card):
+    weapon_type: WeaponType
+    card_type: CardType = CardType.WEAPON
