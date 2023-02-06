@@ -174,7 +174,7 @@ def generate_character_cards_and_skills():
         "cards_20221205_en-us.json",
     )
 
-    with open(path, "r") as f:
+    with open(path, "r", encoding="utf-8") as f:
         cards = json.load(f)["role_card_infos"]
 
     for i in cards:
@@ -209,8 +209,8 @@ def parse_skill_text(text: str):
 
 if __name__ == "__main__":
     generate_character_cards_and_skills()
-    # character_name = "Kamisato Ayaka"
-    character_name = "Collei"
+    character_name = "Kamisato Ayaka"
+    # character_name = "Collei"
     character_card = CHARACTER_CARDS[CHARACTER_NAME2ID[character_name]]
     print(
         f"Name: {character_card.name}, Nations: {character_card.nations}, Weapon: {character_card.weapon_type}, Element: {character_card.element_type}"
@@ -227,3 +227,55 @@ if __name__ == "__main__":
 
     # TODO: Generate text for each CharacterSkill and CharacterCard using KamisatoAyaka.py as a template
     # TODO: Find out all skills that cannot be parsed and mark them at the end of each file
+
+    with open(f"{character_name}.txt", "w", encoding="utf-8") as f:
+        for skill in skills:
+            effects = parse_skill_text(skill.text)
+            skill_name = re.sub(r"[^a-zA-Z]", "", skill.name)
+            f.write(
+                f"class {skill_name}(GenericSkill):\n"
+                + f"    id: int = {skill.id}\n"
+                + f'    name: str = "{skill.name}"\n'
+                + f'    test: str = """\n    {skill.text}\n    """\n'
+                + f"    type: SkillType = {skill.type}\n"
+                + "    costs: dict[ElementType, int] = {"
+            )
+
+            for i, cost_icon, cost_num in zip(
+                range(len(skill.costs)), skill.costs.keys(), skill.costs.values()
+            ):
+                f.write(f"ElementType.{cost_icon.name}, {cost_num}")
+                if i != len(skill.costs) - 1:
+                    f.write(", ")
+            f.write("}\n")
+
+            for effect in effects:
+                if effect[0] == "DMG":
+                    f.write(
+                        f"    damage_element: ElementType = ElementType.{effect[1][0][1]}\n"
+                        + f"    damage_value: int = {effect[1][0][0]}\n"
+                    )
+                if effect[0] == "Summon":
+                    for i in range(int(effect[1][0][0])):
+                        f.write(f'    summon_name: str = "{effect[1][0][i+1]}"\n')
+
+            f.write("\n\n")
+
+        f.write(
+            f"""
+class {character_name.replace(" ", "")}(CharacterCard):
+    id: int = {character_card.id}
+    name: str = "{character_name}"
+    element_type: ElementType = {character_card.element_type}
+    nations: list[Nation] = {character_card.nations}
+    health_point: int = {character_card.health_point}
+    power: int = {character_card.power}
+    max_power: int = {character_card.max_power}
+    weapon_type: WeaponType = {character_card.weapon_type}
+    skills: list[CharacterSkill] = [
+"""
+        )
+        for skill in skills:
+            skill_name = re.sub(r"[^a-zA-Z]", "", skill.name)
+            f.write(f"        {skill_name}(),\n")
+        f.write("    ]\n\n")

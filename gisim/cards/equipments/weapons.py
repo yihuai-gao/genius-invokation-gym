@@ -1,6 +1,3 @@
-
-
-
 from cards.base import WeaponCard
 from classes.enums import ElementType, EquipmentType, WeaponType
 from classes.equipment import WeaponEntity
@@ -8,21 +5,23 @@ from classes.equipment import WeaponEntity
 
 class MagicGuideCard(WeaponCard):
     id: int = 311101
-    name: str = 'Magic Guide'
-    text: str = '''The character deals +1 DMG.(Only Catalyst Characters can equip this. A character can equip a maximum of 1 Weapon)'''
+    name: str = "Magic Guide"
+    text: str = """The character deals +1 DMG.(Only Catalyst Characters can equip this. A character can equip a maximum of 1 Weapon)"""
     costs: dict[ElementType, int] = {ElementType.SAME: 2}
     weapon_type: WeaponType = WeaponType.CATALYST
-    
+
+
 class MagicGuide(WeaponEntity):
-    name = 'Magic Guide'
-    
-    
+    name = "Magic Guide"
+
+
 class SacrificialFragmentsCard(WeaponCard):
     id: int = 311102
     name: str = "Sacrificial Fragments"
     text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Catalyst Characters can equip this. A character can equip a maximum of 1 Weapon)"""
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.CATALYST
+
 
 class SacrificialFragments(WeaponEntity):
     name: str = "Sacrificial Fragments"
@@ -35,6 +34,7 @@ class SkywardAtlasCard(WeaponCard):
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.CATALYST
 
+
 class SkywardAtlas(WeaponEntity):
     name: str = "Skyward Atlas"
 
@@ -45,6 +45,7 @@ class RavenBowCard(WeaponCard):
     text: str = """The character deals +1 DMG.(Only Bow Characters can equip this. A character can equip a maximum of 1 Weapon)"""
     costs: dict[ElementType, int] = {ElementType.SAME: 2}
     weapon_type: WeaponType = WeaponType.BOW
+
 
 class RavenBow(WeaponEntity):
     name: str = "Raven Bow"
@@ -57,6 +58,7 @@ class SacrificialBowCard(WeaponCard):
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.BOW
 
+
 class SacrificialBow(WeaponEntity):
     name: str = "Sacrificial Bow"
 
@@ -67,6 +69,7 @@ class SkywardHarpCard(WeaponCard):
     text: str = """The character deals +1 DMG.Once per Round: This character's Normal Attacks deal +1 additional DMG.(Only Bow Characters can equip this. A character can equip a maximum of 1 Weapon)"""
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.BOW
+
 
 class SkywardHarp(WeaponEntity):
     name: str = "Skyward Harp"
@@ -79,6 +82,7 @@ class WhiteIronGreatswordCard(WeaponCard):
     costs: dict[ElementType, int] = {ElementType.SAME: 2}
     weapon_type: WeaponType = WeaponType.CLAYMORE
 
+
 class WhiteIronGreatsword(WeaponEntity):
     name: str = "White Iron Greatsword"
 
@@ -89,6 +93,7 @@ class SacrificialGreatswordCard(WeaponCard):
     text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Claymore Characters can equip this. A character can equip a maximum of 1 Weapon)"""
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.CLAYMORE
+
 
 class SacrificialGreatsword(WeaponEntity):
     name: str = "Sacrificial Greatsword"
@@ -101,6 +106,7 @@ class WolfsGravestoneCard(WeaponCard):
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.CLAYMORE
 
+
 class WolfsGravestone(WeaponEntity):
     name: str = "Wolf's Gravestone"
 
@@ -111,6 +117,7 @@ class WhiteTasselCard(WeaponCard):
     text: str = """The character deals +1 DMG.(Only Polearm Characters can equip this. A character can equip a maximum of 1 Weapon)"""
     costs: dict[ElementType, int] = {ElementType.SAME: 2}
     weapon_type: WeaponType = WeaponType.POLEARM
+
 
 class WhiteTassel(WeaponEntity):
     name: str = "White Tassel"
@@ -123,6 +130,7 @@ class LithicSpearCard(WeaponCard):
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.POLEARM
 
+
 class LithicSpear(WeaponEntity):
     name: str = "Lithic Spear"
 
@@ -133,6 +141,7 @@ class SkywardSpineCard(WeaponCard):
     text: str = """The character deals +1 DMG.Once per Round: This character's Normal Attacks deal +1 additional DMG.(Only Polearm Characters can equip this. A character can equip a maximum of 1 Weapon)"""
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.POLEARM
+
 
 class SkywardSpine(WeaponEntity):
     name: str = "Skyward Spine"
@@ -145,6 +154,7 @@ class TravelersHandySwordCard(WeaponCard):
     costs: dict[ElementType, int] = {ElementType.SAME: 2}
     weapon_type: WeaponType = WeaponType.SWORD
 
+
 class TravelersHandySword(WeaponEntity):
     name: str = "Traveler's Handy Sword"
 
@@ -156,6 +166,7 @@ class SacrificialSwordCard(WeaponCard):
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.SWORD
 
+
 class SacrificialSword(WeaponEntity):
     name: str = "Sacrificial Sword"
 
@@ -166,6 +177,7 @@ class AquilaFavoniaCard(WeaponCard):
     text: str = """The character deals +1 DMG.After the opposing character uses a Skill: If the character with this attached is the active character, heal this character for 1 HP. (Max twice per Round)(Only Sword Characters can equip this. A character can equip a maximum of 1 Weapon)"""
     costs: dict[ElementType, int] = {ElementType.SAME: 3}
     weapon_type: WeaponType = WeaponType.SWORD
+
 
 class AquilaFavonia(WeaponEntity):
     name: str = "Aquila Favonia"

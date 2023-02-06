@@ -12,7 +12,7 @@ DISPLAY_LANGUAGE = locale.getdefaultlocale(("LANG",))[0].replace("_", "-").lower
 
 
 path = os.path.join(os.path.dirname(__file__), "resources", "cards_20221205_i18n.json")
-with open(path, "r") as f:
+with open(path, "r", encoding="utf-8") as f:
     I18N_DATA = json.load(f)
 
 ALL_LANGUAGES = list(I18N_DATA.keys())
