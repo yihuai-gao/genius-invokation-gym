@@ -12,7 +12,7 @@ if __name__ == "__main__":
     # player2_deck = {"characters": ["Fischl", "Collei", "Xiangling"], "cards": []}
     player1_deck = {
         "characters": ["Kamisato Ayaka", "Kamisato Ayaka", "Kamisato Ayaka"],
-        "cards": ["Kanten Senmyou Blessing"],
+        "cards": ["Kanten Senmyou Blessing", "Traveler's Handy Sword"],
     }
     player2_deck = {
         "characters": ["Kamisato Ayaka", "Kamisato Ayaka", "Kamisato Ayaka"],

@@ -249,8 +249,6 @@ class CardZone(BaseZone):
             card.use_card(
                 msg_queue,
                 self._parent.get_game_info(),
-                top_msg.card_user_pos,
-                top_msg.card_target,
             )
             del self.hand_cards[top_msg.card_idx]
             updated = True
