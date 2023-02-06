@@ -12,7 +12,8 @@ class MagicGuideCard(WeaponCard):
 
 
 class MagicGuide(WeaponEntity):
-    name = "Magic Guide"
+    name: str = "Magic Guide"
+    weapon_type: WeaponType = WeaponType.CATALYST
 
 
 class SacrificialFragmentsCard(WeaponCard):
@@ -25,6 +26,7 @@ class SacrificialFragmentsCard(WeaponCard):
 
 class SacrificialFragments(WeaponEntity):
     name: str = "Sacrificial Fragments"
+    weapon_type: WeaponType = WeaponType.CATALYST
 
 
 class SkywardAtlasCard(WeaponCard):
@@ -37,6 +39,7 @@ class SkywardAtlasCard(WeaponCard):
 
 class SkywardAtlas(WeaponEntity):
     name: str = "Skyward Atlas"
+    weapon_type: WeaponType = WeaponType.CATALYST
 
 
 class RavenBowCard(WeaponCard):
@@ -49,6 +52,7 @@ class RavenBowCard(WeaponCard):
 
 class RavenBow(WeaponEntity):
     name: str = "Raven Bow"
+    weapon_type: WeaponType = WeaponType.BOW
 
 
 class SacrificialBowCard(WeaponCard):
@@ -61,6 +65,7 @@ class SacrificialBowCard(WeaponCard):
 
 class SacrificialBow(WeaponEntity):
     name: str = "Sacrificial Bow"
+    weapon_type: WeaponType = WeaponType.BOW
 
 
 class SkywardHarpCard(WeaponCard):
@@ -73,6 +78,7 @@ class SkywardHarpCard(WeaponCard):
 
 class SkywardHarp(WeaponEntity):
     name: str = "Skyward Harp"
+    weapon_type: WeaponType = WeaponType.BOW
 
 
 class WhiteIronGreatswordCard(WeaponCard):
@@ -85,6 +91,7 @@ class WhiteIronGreatswordCard(WeaponCard):
 
 class WhiteIronGreatsword(WeaponEntity):
     name: str = "White Iron Greatsword"
+    weapon_type: WeaponType = WeaponType.CLAYMORE
 
 
 class SacrificialGreatswordCard(WeaponCard):
@@ -97,6 +104,7 @@ class SacrificialGreatswordCard(WeaponCard):
 
 class SacrificialGreatsword(WeaponEntity):
     name: str = "Sacrificial Greatsword"
+    weapon_type: WeaponType = WeaponType.CLAYMORE
 
 
 class WolfsGravestoneCard(WeaponCard):
@@ -109,6 +117,7 @@ class WolfsGravestoneCard(WeaponCard):
 
 class WolfsGravestone(WeaponEntity):
     name: str = "Wolf's Gravestone"
+    weapon_type: WeaponType = WeaponType.CLAYMORE
 
 
 class WhiteTasselCard(WeaponCard):
@@ -121,6 +130,7 @@ class WhiteTasselCard(WeaponCard):
 
 class WhiteTassel(WeaponEntity):
     name: str = "White Tassel"
+    weapon_type: WeaponType = WeaponType.POLEARM
 
 
 class LithicSpearCard(WeaponCard):
@@ -133,6 +143,7 @@ class LithicSpearCard(WeaponCard):
 
 class LithicSpear(WeaponEntity):
     name: str = "Lithic Spear"
+    weapon_type: WeaponType = WeaponType.POLEARM
 
 
 class SkywardSpineCard(WeaponCard):
@@ -145,6 +156,7 @@ class SkywardSpineCard(WeaponCard):
 
 class SkywardSpine(WeaponEntity):
     name: str = "Skyward Spine"
+    weapon_type: WeaponType = WeaponType.POLEARM
 
 
 class TravelersHandySwordCard(WeaponCard):
@@ -157,6 +169,7 @@ class TravelersHandySwordCard(WeaponCard):
 
 class TravelersHandySword(WeaponEntity):
     name: str = "Traveler's Handy Sword"
+    weapon_type: WeaponType = WeaponType.SWORD
 
 
 class SacrificialSwordCard(WeaponCard):
@@ -169,6 +182,7 @@ class SacrificialSwordCard(WeaponCard):
 
 class SacrificialSword(WeaponEntity):
     name: str = "Sacrificial Sword"
+    weapon_type: WeaponType = WeaponType.SWORD
 
 
 class AquilaFavoniaCard(WeaponCard):
@@ -181,3 +195,4 @@ class AquilaFavoniaCard(WeaponCard):
 
 class AquilaFavonia(WeaponEntity):
     name: str = "Aquila Favonia"
+    weapon_type: WeaponType = WeaponType.SWORD

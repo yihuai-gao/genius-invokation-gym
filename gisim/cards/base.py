@@ -1,5 +1,5 @@
 from queue import PriorityQueue
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, cast
 
 from pydantic import BaseModel
 
@@ -8,10 +8,11 @@ from gisim.classes.enums import (
     CharPos,
     ElementType,
     EntityType,
+    EquipmentType,
     PlayerID,
     WeaponType,
 )
-from gisim.classes.message import Message
+from gisim.classes.message import GenerateEquipmentMsg, Message, UseCardMsg
 
 if TYPE_CHECKING:
     from gisim.game import GameInfo
@@ -28,8 +29,6 @@ class Card(BaseModel):
         self,
         msg_queue: PriorityQueue[Message],
         game_info: "GameInfo",
-        card_user_pos: tuple[PlayerID, CharPos],
-        card_target: list[tuple[PlayerID, EntityType, int]] = [],
     ):
         pass
 
@@ -42,3 +41,17 @@ class TalentCard(Card):
 class WeaponCard(Card):
     weapon_type: WeaponType
     card_type: CardType = CardType.WEAPON
+
+    def use_card(self, msg_queue: PriorityQueue[Message], game_info: "GameInfo"):
+        top_msg = msg_queue.queue[0]
+        top_msg = cast(UseCardMsg, top_msg)
+        player_id, entity_type, idx = top_msg.card_target[0]
+        char_pos = CharPos(idx)
+        new_msg = GenerateEquipmentMsg(
+            sender_id=player_id,
+            target=(player_id, char_pos),
+            equipment_name=self.name,
+            equipment_type=EquipmentType.WEAPON,
+        )
+        msg_queue.put(new_msg)
+        

@@ -140,8 +140,6 @@ class KantenSenmyouBlessingCard(TalentCard):
         self,
         msg_queue: PriorityQueue[Message],
         game_info: "GameInfo",
-        card_user_pos: tuple[PlayerID, CharPos],
-        card_target: list[tuple[PlayerID, EntityType, int]] = [],
     ):
         top_msg = msg_queue.queue[0]
         top_msg = cast(UseCardMsg, top_msg)

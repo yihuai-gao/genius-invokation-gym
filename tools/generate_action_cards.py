@@ -64,6 +64,7 @@ class {weapon_str}Card(WeaponCard):
 
 class {weapon_str}(WeaponEntity):
     name: str = "{weapon['name']}"
+    weapon_type: WeaponType = WeaponType.{weapon_type_str.upper()}
 '''
     )
 

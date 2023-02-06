@@ -5,7 +5,13 @@ from queue import PriorityQueue
 from typing import cast
 
 from gisim.classes.entity import Entity
-from gisim.classes.enums import CharPos, ElementType, EquipmentType, PlayerID
+from gisim.classes.enums import (
+    CharPos,
+    ElementType,
+    EquipmentType,
+    PlayerID,
+    WeaponType,
+)
 from gisim.classes.message import DealDamageMsg, Message
 
 
@@ -28,6 +34,7 @@ class TalentEntity(EquipmentEntity):
 
 class WeaponEntity(EquipmentEntity):
     equipment_type: EquipmentType = EquipmentType.WEAPON
+    weapon_type: WeaponType
 
     def msg_handler(self, msg_queue: PriorityQueue[Message], value: int = 1):
         # Increase 1 dmg by default without any advanced effects

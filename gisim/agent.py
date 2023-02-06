@@ -1,6 +1,7 @@
 """Player & agent APIs
 """
 from abc import ABC, abstractmethod
+from collections import Counter
 from typing import OrderedDict
 
 from gisim.cards.characters import get_character_card
@@ -46,6 +47,7 @@ class AttackOnlyAgent(Agent):
     ):
         # First determine whether the current dice are enough
         dice_idx = []
+        
         for key, val in cost.items():
             if 1 <= key.value <= 7:
                 # 7 majors elements
@@ -67,7 +69,7 @@ class AttackOnlyAgent(Agent):
                 if remaining > 0:
                     # Insufficient dice
                     return []
-            elif key.value == ElementType.ANY:
+            elif key == ElementType.ANY:
                 # Arbitrary element
                 remaining = val
                 for idx, die in enumerate(dice):
@@ -94,6 +96,9 @@ class AttackOnlyAgent(Agent):
                                 break
                 if remaining > 0:
                     return []
+            elif key == ElementType.SAME:
+                dice_counter = Counter(dice)
+                
         return dice_idx
 
     def take_action(self, game_info: GameInfo) -> Action:
