@@ -8,7 +8,7 @@ from uuid import UUID, uuid4
 
 from pydantic import BaseModel, Field
 
-from gisim.classes.enums import CharPos, ElementType, PlayerID
+from gisim.classes.enums import AttackType, CharPos, ElementType, PlayerID
 from gisim.classes.message import DealDamageMsg, Message, RoundEndMsg
 
 from .entity import Entity
@@ -44,6 +44,7 @@ class AttackSummon(Summon):
         if isinstance(msg, RoundEndMsg):
             msg = cast(RoundEndMsg, msg)
             new_msg = DealDamageMsg(
+                attack_type=AttackType.SUMMON,
                 sender_id=self.player_id,
                 attacker=(self.player_id, CharPos.NONE),
                 targets=[

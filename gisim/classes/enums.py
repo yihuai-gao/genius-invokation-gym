@@ -142,6 +142,14 @@ class SkillType(Enum):
     """被动技能"""
 
 
+class AttackType(Enum):
+    NORMAL_ATTACK = 1
+    ELEMENTAL_SKILL = 2
+    ELEMENTAL_BURST = 3
+    PASSIVE_SKILL = 4
+    COMBAT_STATUS = auto()
+    SUMMON = auto()
+
 class CharPos(Enum):
     """Character position"""
 
@@ -252,3 +260,4 @@ class EntityType(Enum):
     """For the cards in hand only"""
     SUMMON = auto()
     SUPPORT = auto()
+

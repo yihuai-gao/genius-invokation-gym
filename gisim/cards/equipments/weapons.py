@@ -1,6 +1,10 @@
+from queue import PriorityQueue
+from typing import cast
 from cards.base import WeaponCard
+from cards.characters import get_skill_type
 from classes.enums import ElementType, EquipmentType, WeaponType
 from classes.equipment import WeaponEntity
+from classes.message import AfterUsingSkillMsg, DealDamageMsg, Message
 
 
 class MagicGuideCard(WeaponCard):
@@ -183,6 +187,34 @@ class SacrificialSwordCard(WeaponCard):
 class SacrificialSword(WeaponEntity):
     name: str = "Sacrificial Sword"
     weapon_type: WeaponType = WeaponType.SWORD
+    
+    def msg_handler(self, msg_queue: PriorityQueue[Message]):
+            # Increase 1 dmg by default without any advanced effects
+        top_msg = msg_queue.queue[0]
+        updated = False
+        if self._uuid in top_msg.responded_entities:
+            return updated
+
+        if isinstance(top_msg, DealDamageMsg):
+            top_msg = cast(DealDamageMsg, top_msg)
+            if top_msg.attacker == (self.player_id, self.char_pos):
+                for idx, (player_id, char_pos, elem_type, dmg_val) in enumerate(
+                    top_msg.targets
+                ):
+                    if elem_type is not ElementType.PIERCE:
+                        top_msg.targets[idx] = (
+                            player_id,
+                            char_pos,
+                            elem_type,
+                            dmg_val + 1,
+                        )
+                        updated = True
+        if isinstance(top_msg, AfterUsingSkillMsg):
+            top_msg = cast(AfterUsingSkillMsg, top_msg)
+            if get_skill_type(top_msg.skill_name)
+        if updated:
+            top_msg.responded_entities.append(self._uuid)
+        return updated
 
 
 class AquilaFavoniaCard(WeaponCard):
