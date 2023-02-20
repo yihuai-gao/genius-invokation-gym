@@ -47,7 +47,6 @@ class CharacterSkill(BaseModel):
 
 
 class GenericSkill(CharacterSkill):
-    skill_type: SkillType
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 0
     summon_name: str = ""
@@ -75,7 +74,7 @@ class GenericSkill(CharacterSkill):
         target_player_id, target_char_pos = msg.skill_targets[0]
         if self.damage_value > 0:
             new_msg = DealDamageMsg(
-                attack_type=AttackType(self.skill_type.value),
+                attack_type=AttackType(self.type.value),
                 attacker=(parent.player_id, parent.position),
                 sender_id=parent.player_id,
                 targets=[
@@ -91,7 +90,7 @@ class GenericSkill(CharacterSkill):
 
         if self.piercing_damage_value > 0:
             new_msg = DealDamageMsg(
-                attack_type=AttackType(self.skill_type.value),
+                attack_type=AttackType(self.type.value),
                 attacker=(parent.player_id, parent.position),
                 sender_id=parent.player_id,
                 targets=[

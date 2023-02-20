@@ -150,6 +150,7 @@ class AttackType(Enum):
     COMBAT_STATUS = auto()
     SUMMON = auto()
 
+
 class CharPos(Enum):
     """Character position"""
 
@@ -260,4 +261,3 @@ class EntityType(Enum):
     """For the cards in hand only"""
     SUMMON = auto()
     SUPPORT = auto()
-

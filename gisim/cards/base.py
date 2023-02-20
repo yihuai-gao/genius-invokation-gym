@@ -54,4 +54,3 @@ class WeaponCard(Card):
             equipment_type=EquipmentType.WEAPON,
         )
         msg_queue.put(new_msg)
-        

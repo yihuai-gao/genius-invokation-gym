@@ -1,8 +1,8 @@
 """Player & agent APIs
 """
+import enum
 from abc import ABC, abstractmethod
 from collections import Counter
-import enum
 from typing import OrderedDict
 
 from gisim.cards.characters import get_character_card
@@ -113,12 +113,16 @@ class AttackOnlyAgent(Agent):
                 if remaining > 0:
                     return []
             elif key == ElementType.SAME:
-                dice_counter = Counter([dice[idx] for idx, die_used in enumerate(used) if not die_used])
+                dice_counter = Counter(
+                    [dice[idx] for idx, die_used in enumerate(used) if not die_used]
+                )
                 if ElementType.OMNI not in dice_counter.keys():
                     dice_counter[ElementType.OMNI] = 0
                 if char_element not in dice_counter.keys():
                     dice_counter[char_element] = 0
-                sorted_counter = dict(sorted(dice_counter.items(), key=lambda item: item[1]))
+                sorted_counter = dict(
+                    sorted(dice_counter.items(), key=lambda item: item[1])
+                )
                 satisfied = False
                 for element, cnt in sorted_counter.items():
                     if element in [ElementType.OMNI, char_element]:
@@ -138,7 +142,9 @@ class AttackOnlyAgent(Agent):
                 if satisfied:
                     continue
                 omni_count = sorted_counter[ElementType.OMNI]
-                sorted_counter = dict(sorted(dice_counter.items(), key=lambda item: item[1], reverse=True))
+                sorted_counter = dict(
+                    sorted(dice_counter.items(), key=lambda item: item[1], reverse=True)
+                )
                 for element, cnt in sorted_counter.items():
                     if element in [ElementType.OMNI, char_element]:
                         continue
@@ -182,7 +188,7 @@ class AttackOnlyAgent(Agent):
                             break
                 if not satisfied:
                     return []
-                           
+
         return dice_idx
 
     def take_action(self, game_info: GameInfo) -> Action:
@@ -237,7 +243,9 @@ class AttackOnlyAgent(Agent):
                         current_dice, {ElementType.CRYO: 2}, character_card.element_type
                     )
                     if len(dice_idx) > 0:
-                        card_idx = player_info.hand_cards.index("Kanten Senmyou Blessing")
+                        card_idx = player_info.hand_cards.index(
+                            "Kanten Senmyou Blessing"
+                        )
                         return UseCardAction(
                             card_idx=card_idx,
                             card_target=[
@@ -247,14 +255,20 @@ class AttackOnlyAgent(Agent):
                             card_user_pos=active_pos,
                         )
                 if "Traveler's Handy Sword" in player_info.hand_cards:
-                    dice_idx = self.get_dice_idx_greedy(current_dice, {ElementType.SAME: 2}, character_card.element_type)
+                    dice_idx = self.get_dice_idx_greedy(
+                        current_dice, {ElementType.SAME: 2}, character_card.element_type
+                    )
                     if len(dice_idx) > 0:
-                        card_idx = player_info.hand_cards.index("Traveler's Handy Sword")
+                        card_idx = player_info.hand_cards.index(
+                            "Traveler's Handy Sword"
+                        )
                         return UseCardAction(
                             card_idx=card_idx,
-                            card_target=[(self.player_id, EntityType.WEAPON, active_pos.value)],
-                            dice_idx = dice_idx,
-                            card_user_pos = active_pos
+                            card_target=[
+                                (self.player_id, EntityType.WEAPON, active_pos.value)
+                            ],
+                            dice_idx=dice_idx,
+                            card_user_pos=active_pos,
                         )
                 if (
                     character_info.character.power

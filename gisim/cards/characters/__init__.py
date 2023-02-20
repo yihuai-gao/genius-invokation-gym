@@ -26,12 +26,13 @@ def get_character_card(character_name: str):
     character_name = character_name.replace(" ", "").replace("'", "")
     # character_card: CharacterCard = eval(f"{character_name}()")
     character_card_class = globals()[character_name]
+    character_card: CharacterCard = character_card_class()
     # Remove the spaces for class names
-    return character_card_class()
+    return character_card
 
 
 def get_skill_type(skill_name: str):
     skill_name = skill_name.replace(" ", "").replace("'", "")
     skill_class = globals()[skill_name]
-    skill:CharacterSkill = skill_class()
+    skill: CharacterSkill = skill_class()
     return skill.type
