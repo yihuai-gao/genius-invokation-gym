@@ -23,7 +23,15 @@ from .Pyro import *
 # __all__ = ["CHARACTER_CARDS", "CHARACTER_SKILLS", "CHARACTER_NAME2ID"]
 def get_character_card(character_name: str):
     # TODO: Is there any better ways to do this?
-    character_name = character_name.replace(" ", "")
-    character_card: CharacterCard = eval(f"{character_name}()")
+    character_name = character_name.replace(" ", "").replace("'", "")
+    # character_card: CharacterCard = eval(f"{character_name}()")
+    character_card_class = globals()[character_name]
     # Remove the spaces for class names
-    return character_card
+    return character_card_class()
+
+
+def get_skill_type(skill_name: str):
+    skill_name = skill_name.replace(" ", "").replace("'", "")
+    skill_class = globals()[skill_name]
+    skill:CharacterSkill = skill_class()
+    return skill.type
