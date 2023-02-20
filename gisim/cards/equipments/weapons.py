@@ -1,10 +1,14 @@
 from queue import PriorityQueue
 from typing import cast
+
 from cards.base import WeaponCard
 from cards.characters import get_skill_type
 from classes.enums import ElementType, EquipmentType, WeaponType
 from classes.equipment import WeaponEntity
 from classes.message import AfterUsingSkillMsg, DealDamageMsg, Message
+
+from gisim.classes.enums import SkillType
+from gisim.classes.message import ChangeDiceMsg
 
 
 class MagicGuideCard(WeaponCard):
@@ -187,9 +191,9 @@ class SacrificialSwordCard(WeaponCard):
 class SacrificialSword(WeaponEntity):
     name: str = "Sacrificial Sword"
     weapon_type: WeaponType = WeaponType.SWORD
-    
+
     def msg_handler(self, msg_queue: PriorityQueue[Message]):
-            # Increase 1 dmg by default without any advanced effects
+        # Increase 1 dmg by default without any advanced effects
         top_msg = msg_queue.queue[0]
         updated = False
         if self._uuid in top_msg.responded_entities:
@@ -210,8 +214,20 @@ class SacrificialSword(WeaponEntity):
                         )
                         updated = True
         if isinstance(top_msg, AfterUsingSkillMsg):
-            top_msg = cast(AfterUsingSkillMsg, top_msg)
-            if get_skill_type(top_msg.skill_name)
+            if self.active == True and self.triggered_in_a_round == 0:
+                top_msg = cast(AfterUsingSkillMsg, top_msg)
+                if get_skill_type(top_msg.skill_name) == SkillType.ELEMENTAL_SKILL:
+                    # TODO: Get the element type of the current character (Essentially one need to get all the game information visible for all entities)
+                    new_msg = ChangeDiceMsg(
+                        sender_id=self.player_id,
+                        remove_dice_idx=[],
+                        new_target_element=[ElementType.OMNI],
+                    )
+                    msg_queue.put(new_msg)
+                    updated = True
+                    self.triggered_in_a_round += 1
+                    self.active = False
+
         if updated:
             top_msg.responded_entities.append(self._uuid)
         return updated
