@@ -4,7 +4,7 @@ import os
 from collections import OrderedDict
 from queue import PriorityQueue
 from random import Random
-from typing import Optional, cast
+from typing import Optional, List, Dict, cast
 
 from .classes.action import *
 from .classes.action import Action
@@ -249,8 +249,8 @@ class Game:
 
         return False
 
-    def get_zones(self, zones: list[tuple[PlayerID, RegionType]]):
-        zone_pointers: list[BaseZone] = []
+    def get_zones(self, zones: List[Tuple[PlayerID, RegionType]]):
+        zone_pointers: List[BaseZone] = []
         for player_id, zone_type in zones:
             zone_pointers += self.player_area[player_id].get_zones(zone_type)
         # Remove empty zones (e.g. no active character)

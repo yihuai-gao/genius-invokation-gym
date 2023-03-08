@@ -36,7 +36,7 @@ class WeaponEntity(EquipmentEntity):
     equipment_type: EquipmentType = EquipmentType.WEAPON
     weapon_type: WeaponType
 
-    def msg_handler(self, msg_queue: PriorityQueue[Message]):
+    def msg_handler(self, msg_queue: PriorityQueue):
         # Increase 1 dmg by default without any advanced effects
         top_msg = msg_queue.queue[0]
         updated = False

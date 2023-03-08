@@ -1,9 +1,8 @@
 """Player & agent APIs
 """
-import enum
 from abc import ABC, abstractmethod
 from collections import Counter
-from typing import OrderedDict
+from typing import OrderedDict, List, Dict
 
 from gisim.cards.characters import get_character_card
 from gisim.classes.action import (
@@ -42,8 +41,8 @@ class AttackOnlyAgent(Agent):
 
     def get_dice_idx_greedy(
         self,
-        dice: list[ElementType],
-        cost: dict[ElementType, int],
+        dice: List[ElementType],
+        cost: Dict[ElementType, int],
         char_element: ElementType = ElementType.NONE,
     ):
         # First determine whether the current dice are enough

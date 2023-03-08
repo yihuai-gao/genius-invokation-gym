@@ -3,7 +3,7 @@ A character in the game should be an instant of the specific character class def
 from abc import ABC, abstractmethod
 from collections import OrderedDict
 from queue import PriorityQueue
-from typing import Optional, cast
+from typing import Optional, List, cast
 
 from gisim.cards.characters import get_character_card
 from gisim.cards.characters.base import CharacterCard, CharacterSkill
@@ -33,11 +33,11 @@ class CharacterEntity(Entity):
     character_card: CharacterCard
     id: int
     element_type: ElementType
-    nationalities: list[Nation]
+    nationalities: List[Nation]
     weapon_type: WeaponType
-    skills: list[CharacterSkill]
+    skills: List[CharacterSkill]
     skill_num: int
-    skill_names: list[str]
+    skill_names: List[str]
     health_point: int
     power: int
     max_power: int
@@ -106,14 +106,14 @@ class CharacterEntity(Entity):
             ), f"Skill type {skill_type} is not unique."
             return self.skills[skill_types.index(skill_type)]
 
-    def passive_skill_handler(self, msg_queue: PriorityQueue[Message]):
+    def passive_skill_handler(self, msg_queue: PriorityQueue):
         updated = False
         for skill in self.skills:
             if skill.type == SkillType.PASSIVE_SKILL:
                 updated = skill.use_skill(msg_queue=msg_queue, parent=self)
         return updated
 
-    def msg_handler(self, msg_queue: PriorityQueue[Message]):
+    def msg_handler(self, msg_queue: PriorityQueue):
         """Will respond to `UseSkillMsg` etc."""
         msg = msg_queue.queue[0]
         if self._uuid in msg.responded_entities:

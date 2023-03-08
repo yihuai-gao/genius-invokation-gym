@@ -1,5 +1,5 @@
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, cast
+from typing import TYPE_CHECKING, Dict, cast
 
 from pydantic import BaseModel
 
@@ -21,13 +21,13 @@ if TYPE_CHECKING:
 class Card(BaseModel):
     id: int
     name: str
-    costs: dict[ElementType, int]
+    costs: Dict[ElementType, int]
     text: str
     card_type: CardType
 
     def use_card(
         self,
-        msg_queue: PriorityQueue[Message],
+        msg_queue: PriorityQueue,  # PriorityQueue[Message]
         game_info: "GameInfo",
     ):
         pass
@@ -42,7 +42,7 @@ class WeaponCard(Card):
     weapon_type: WeaponType
     card_type: CardType = CardType.WEAPON
 
-    def use_card(self, msg_queue: PriorityQueue[Message], game_info: "GameInfo"):
+    def use_card(self, msg_queue: PriorityQueue, game_info: "GameInfo"):
         top_msg = msg_queue.queue[0]
         top_msg = cast(UseCardMsg, top_msg)
         player_id, entity_type, idx = top_msg.card_target[0]

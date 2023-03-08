@@ -20,6 +20,7 @@ class Entity(BaseModel, ABC):
         ...
 
     # @abstractmethod
-    def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue) -> bool:
+        # PriorityQueue["Message"]
         """Return value should be a boolean to indicate whether the message queue is updated"""
         ...

@@ -19,6 +19,22 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 
 希望可以实现类似openai-gym的API，用于训练ai&评估卡组强度
 
+# Get Started
+
+Prerequisites:
+* Python >=3.9
+* [Poetry 1.1.14+](https://python-poetry.org)
+
+Installation: enter the project directory and execute the following command:
+```bash
+poetry install
+```
+
+Runnable basic demo locally: give the following a try:
+```bash
+poetry run python3 -u tests/test_framework.py
+```
+
 
 # Roadmap
 - [x] Encode the game status into a dictionary

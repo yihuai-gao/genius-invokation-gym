@@ -8,7 +8,10 @@ import logging
 import os
 
 logger = logging.getLogger(__name__)
-DISPLAY_LANGUAGE = locale.getdefaultlocale(("LANG",))[0].replace("_", "-").lower()
+try:
+    DISPLAY_LANGUAGE = locale.getdefaultlocale(("LANG",))[0].replace("_", "-").lower()
+except AttributeError:
+    DISPLAY_LANGUAGE = "en-us"
 
 
 path = os.path.join(os.path.dirname(__file__), "resources", "cards_20221205_i18n.json")
