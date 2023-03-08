@@ -1,9 +1,8 @@
 """
 Basic character card classes
 """
-from abc import abstractmethod
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, Optional, Type, cast
+from typing import TYPE_CHECKING, Optional, Dict, List, cast
 
 from pydantic import BaseModel, Field, validator
 
@@ -27,7 +26,7 @@ class CharacterSkill(BaseModel):
     id: int
     name: str
     text: str
-    costs: dict[ElementType, int]
+    costs: Dict[ElementType, int]
     type: SkillType
     resource: Optional[str] = None  # 图片链接
     accumulate_power: int = 1
@@ -35,7 +34,7 @@ class CharacterSkill(BaseModel):
     Elemental burst will accumulate no power by default."""
 
     # @abstractmethod
-    def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
+    def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         """
         Called when the skill is activated, by default, it parses the skill text and
         returns a list of messages to be sent to the game
@@ -68,7 +67,7 @@ class GenericSkill(CharacterSkill):
     heal_all_value: int = 0
     """Heal all your alive characters"""
 
-    def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
+    def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         msg = msg_queue.get()
         msg = cast(UseSkillMsg, msg)
         target_player_id, target_char_pos = msg.skill_targets[0]
@@ -153,9 +152,9 @@ class CharacterCard(BaseModel):
     id: int
     name: str
     element_type: ElementType
-    nations: list[Nation] = Field(..., min_items=1, max_items=3)  # 所属地区/阵营
+    nations: List[Nation] = Field(..., min_items=1, max_items=3)  # 所属地区/阵营
     health_point: int = 10
-    skills: list[CharacterSkill]
+    skills: List[CharacterSkill]
     resource: Optional[str] = None  # 图片链接
     power: int = 0
     max_power: int

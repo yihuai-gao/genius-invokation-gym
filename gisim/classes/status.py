@@ -23,7 +23,7 @@ class CharacterStatusEntity(Entity, ABC):
     remaining_usage: int
     value: int
 
-    def msg_handler(self, msg_queue: PriorityQueue["Message"]):
+    def msg_handler(self, msg_queue: PriorityQueue):
         ...
 
     def encode(self):
@@ -54,7 +54,7 @@ class ElementalInfusion(CharacterStatusEntity):
     active: bool = True
     remaining_usage: int = INF_INT
 
-    def msg_handler(self, msg_queue: PriorityQueue["Message"]):
+    def msg_handler(self, msg_queue: PriorityQueue):
         top_msg = msg_queue.queue[0]
         if self._uuid in top_msg.responded_entities:
             return False

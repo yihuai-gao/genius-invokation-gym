@@ -28,7 +28,7 @@ class Summon(Entity, ABC):
         return self.dict(exclude={"_uuid", "_logger"})
 
     @abstractmethod
-    def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         ...
 
 

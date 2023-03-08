@@ -1,7 +1,7 @@
 """神里绫华"""
 
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, cast
+from typing import TYPE_CHECKING, Dict, List, cast
 from xml.dom.minidom import Element
 
 from gisim.cards.base import TalentCard
@@ -41,7 +41,7 @@ class KamisatoArtKabuki(GenericSkill):
     text: str = """
     Deals 2 Physical DMG.
     """
-    costs: dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
     type: SkillType = SkillType.NORMAL_ATTACK
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
@@ -53,7 +53,7 @@ class KamisatoArtHyouka(GenericSkill):
     text: str = """
     Deals 3 Cryo DMG
     """
-    costs: dict[ElementType, int] = {ElementType.CRYO: 3}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 3}
     type: SkillType = SkillType.ELEMENTAL_SKILL
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 3
@@ -65,7 +65,7 @@ class KamisatoArtSoumetsu(GenericSkill):
     text: str = """
     Deals 4 Cryo DMG, summons 1 Frostflake Seki no To.
     """
-    costs: dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 3}
     type: SkillType = SkillType.ELEMENTAL_BURST
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 4
@@ -79,10 +79,10 @@ class KamisatoArtSenho(CharacterSkill):
     text: str = """
     (Passive) When switched to be the active character, this character gains Cryo Elemental Infusion.
     """
-    costs: dict[ElementType, int] = {}
+    costs: Dict[ElementType, int] = {}
     type: SkillType = SkillType.PASSIVE_SKILL
 
-    def use_skill(self, msg_queue: PriorityQueue[Message], parent: "CharacterEntity"):
+    def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         top_msg = msg_queue.queue[0]
         updated = False
         if isinstance(top_msg, ChangeCharacterMsg):
@@ -105,12 +105,12 @@ class KamisatoAyaka(CharacterCard):
     id: int = 1105
     name: str = "Kamisato Ayaka"
     element_type: ElementType = ElementType.CRYO
-    nations: list[Nation] = [Nation.Inazuma]
+    nations: List[Nation] = [Nation.Inazuma]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.SWORD
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         KamisatoArtKabuki(),
         KamisatoArtHyouka(),
         KamisatoArtSoumetsu(),
@@ -129,7 +129,7 @@ class KantenSenmyouBlessingCard(TalentCard):
     id = 211051
     name = "Kanten Senmyou Blessing"
     character_name: str = "Kamisato Ayaka"
-    costs: dict[ElementType, int] = {ElementType.CRYO: 2}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 2}
     text: str = """
     The Cryo Elemental Infusion created by your Kamisato Ayaka, who has this card equipped, allows the character to which it is attached to deal +1 Cryo DMG.
     When you switch to Kamisato Ayaka, who has this card equipped: Spend 1 less Elemental Die. (Once per Round)
@@ -138,7 +138,7 @@ class KantenSenmyouBlessingCard(TalentCard):
 
     def use_card(
         self,
-        msg_queue: PriorityQueue[Message],
+        msg_queue: PriorityQueue,
         game_info: "GameInfo",
     ):
         top_msg = msg_queue.queue[0]
@@ -157,7 +157,7 @@ class KantenSenmyouBlessingCard(TalentCard):
 class KantenSenmyouBlessing(TalentEntity):
     name: str = "Kanten Senmyou Blessing"
 
-    def msg_handler(self, msg_queue: PriorityQueue["Message"]) -> bool:
+    def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
         updated = False
         if self._uuid in top_msg.responded_entities:

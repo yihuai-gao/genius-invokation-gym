@@ -1,3 +1,4 @@
+from typing import Tuple
 from gisim.cards.base import Card
 from gisim.cards.characters import *
 from gisim.cards.equipments import *
@@ -22,7 +23,7 @@ def get_card(card_name: str):
     return card
 
 
-def get_equipment(equipment_name: str, target: tuple[PlayerID, CharPos]):
+def get_equipment(equipment_name: str, target: Tuple[PlayerID, CharPos]):
     equipment_name = equipment_name.replace(" ", "").replace("'", "")
     equipment_class = globals()[equipment_name]
     equipment: EquipmentEntity = equipment_class(
