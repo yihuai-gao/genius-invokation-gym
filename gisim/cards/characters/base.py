@@ -2,7 +2,7 @@
 Basic character card classes
 """
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, Optional, Dict, List, cast
+from typing import TYPE_CHECKING, Dict, List, Optional, cast
 
 from pydantic import BaseModel, Field, validator
 

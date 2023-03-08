@@ -7,7 +7,7 @@ from collections import OrderedDict
 from logging import getLogger
 from queue import PriorityQueue
 from random import Random
-from typing import TYPE_CHECKING, Generic, Optional, TypeVar, List, cast
+from typing import TYPE_CHECKING, Generic, List, Optional, TypeVar, cast
 from uuid import uuid4
 
 from gisim.cards import get_card, get_equipment, get_summon_entity

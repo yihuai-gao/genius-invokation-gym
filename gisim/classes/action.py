@@ -10,6 +10,7 @@ In each round: RerollDice (also happens after using some cards, e.g. 乾坤一�
 
 from abc import ABC
 from typing import List, Tuple
+
 from pydantic import BaseModel
 
 from gisim.classes.entity import Entity

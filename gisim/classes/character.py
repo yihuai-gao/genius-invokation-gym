@@ -3,7 +3,7 @@ A character in the game should be an instant of the specific character class def
 from abc import ABC, abstractmethod
 from collections import OrderedDict
 from queue import PriorityQueue
-from typing import Optional, List, cast
+from typing import List, Optional, cast
 
 from gisim.cards.characters import get_character_card
 from gisim.cards.characters.base import CharacterCard, CharacterSkill

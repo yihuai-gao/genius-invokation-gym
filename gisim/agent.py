@@ -2,7 +2,7 @@
 """
 from abc import ABC, abstractmethod
 from collections import Counter
-from typing import OrderedDict, List, Dict
+from typing import Dict, List, OrderedDict
 
 from gisim.cards.characters import get_character_card
 from gisim.classes.action import (

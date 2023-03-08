@@ -1,14 +1,16 @@
 from queue import PriorityQueue
-from typing import cast, Dict
+from typing import Dict, cast
 
 from gisim.cards.base import WeaponCard
 from gisim.cards.characters import get_skill_type
-from gisim.classes.enums import ElementType, EquipmentType, WeaponType
+from gisim.classes.enums import ElementType, EquipmentType, SkillType, WeaponType
 from gisim.classes.equipment import WeaponEntity
-from gisim.classes.message import AfterUsingSkillMsg, DealDamageMsg, Message
-
-from gisim.classes.enums import SkillType
-from gisim.classes.message import ChangeDiceMsg
+from gisim.classes.message import (
+    AfterUsingSkillMsg,
+    ChangeDiceMsg,
+    DealDamageMsg,
+    Message,
+)
 
 
 class MagicGuideCard(WeaponCard):
