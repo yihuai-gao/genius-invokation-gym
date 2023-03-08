@@ -1,4 +1,5 @@
 from typing import Tuple
+
 from gisim.cards.base import Card
 from gisim.cards.characters import *
 from gisim.cards.equipments import *

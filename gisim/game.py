@@ -4,7 +4,7 @@ import os
 from collections import OrderedDict
 from queue import PriorityQueue
 from random import Random
-from typing import Optional, List, Dict, cast
+from typing import Dict, List, Optional, cast
 
 from .classes.action import *
 from .classes.action import Action

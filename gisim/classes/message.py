@@ -4,7 +4,7 @@
 import itertools
 from abc import ABC, abstractmethod
 from ast import Param
-from typing import Optional, List, Tuple, Dict
+from typing import Dict, List, Optional, Tuple
 from uuid import UUID
 
 from pydantic import BaseModel, root_validator

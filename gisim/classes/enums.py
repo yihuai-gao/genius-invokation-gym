@@ -61,7 +61,7 @@ class ElementType(IntEnum):
     """穿透伤害"""
 
     @staticmethod
-    def get_basic_elements(): #-> set["ElementType"]:
+    def get_basic_elements():  # -> set["ElementType"]:
         """七种基础元素"""
         return {
             ElementType.CRYO,
