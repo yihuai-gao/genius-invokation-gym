@@ -27,7 +27,7 @@ class WhisperofWater(GenericSkill):
     """
     type: SkillType = SkillType.NORMAL_ATTACK
     costs: dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
-    damage_element: ElementType = ElementType.Hydro
+    damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
 
 
@@ -44,7 +44,7 @@ class LettheShowBegin(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.HYDRO: 3}
-    damage_element: ElementType = ElementType.Hydro
+    damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
     summon_name: str = "Melody Loop"
 
