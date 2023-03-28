@@ -26,7 +26,7 @@ class WhisperofWater(GenericSkill):
     Deals 1 Hydro DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.HYDRO, 1, ElementType.ANY, 2}
+    costs: dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.Hydro
     damage_value: int = 1
 
@@ -43,7 +43,7 @@ class LettheShowBegin(GenericSkill):
     Deals 1 Hydro DMG, summons 1 Melody Loop.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.HYDRO, 3}
+    costs: dict[ElementType, int] = {ElementType.HYDRO: 3}
     damage_element: ElementType = ElementType.Hydro
     damage_value: int = 1
     summon_name: str = "Melody Loop"
@@ -61,15 +61,15 @@ class ShiningMiracle(GenericSkill):
     Heals all of your characters for 4 HP.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.HYDRO, 3, ElementType.POWER, 3}
+    costs: dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 3}
 
 
 class SummonMelodyLoop(AttackSummon):
     """
-    Melody Loop
+    歌声之环
     ~~~~~~
-    `召唤物`Melody Loop
-    请完善这个类的效果,应该是召唤物或者战斗效果
+    `召唤物`歌声之环
+    在`结束阶段`治疗我方角色1点，然后对我方出战角色`附着水元素`，可以使用两次
     """
     name: str = "Melody Loop"
 
