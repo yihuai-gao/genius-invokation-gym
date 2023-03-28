@@ -3092,7 +3092,7 @@ def auto_skil(character_name):
     # TODO: Generate text for each CharacterSkill and CharacterCard using KamisatoAyaka.py as a template
     # TODO: Find out all skills that cannot be parsed and mark them at the end of each file
     zh_cn_name = ts_zhcn[character_name]
-    with open(f"./autoSkil/{character_name}.py", "w", encoding="utf-8") as f:
+    with open(f"./AutoGenerate/{character_name}.py", "w", encoding="utf-8") as f:
         f.write(f'"""{zh_cn_name}"""')
         f.write(
         """
