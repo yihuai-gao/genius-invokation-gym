@@ -233,9 +233,12 @@ class Game:
                     self.active_player = ~self.active_player
                 else:
                     opponent_ended = self.player_area[~self.active_player].declare_end
-                    if top_msg.change_active_player and not opponent_ended:
-                        if self.active_player == top_msg.sender_id:
-                            self.active_player = ~self.active_player
+                    if (
+                        top_msg.change_active_player
+                        and not opponent_ended
+                        and self.active_player == top_msg.sender_id
+                    ):
+                        self.active_player = ~self.active_player
                 # TODO: Other impact on the game FSM
                 self.msg_queue.get()
                 if isinstance(top_msg, CharacterDiedMsg):

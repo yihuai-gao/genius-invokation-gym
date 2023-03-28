@@ -22,7 +22,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
           "name": "Liutian Archery",
           "id": "11011"
         },
@@ -42,7 +42,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/80d61bdb70eef0d57ca877bb39dbb0d9.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/80d61bdb70eef0d57ca877bb39dbb0d9.png",
           "name": "Trail of the Qilin",
           "id": "11012"
         },
@@ -62,7 +62,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
           "name": "Frostflake Arrow",
           "id": "11013"
         },
@@ -82,7 +82,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fcda5c89f7d783e8bff69719c0d30692.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/fcda5c89f7d783e8bff69719c0d30692.png",
           "name": "Celestial Shower",
           "id": "11014"
         }
@@ -94,7 +94,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dec5ba575fc5720ec15b8964a826f2b5.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/dec5ba575fc5720ec15b8964a826f2b5.png"
     },
     {
       "id": 1102,
@@ -118,7 +118,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
           "name": "Kätzlein Style",
           "id": "11021"
         },
@@ -138,7 +138,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/90c513d6b26cc20a6ce30fb82750f2e7.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/90c513d6b26cc20a6ce30fb82750f2e7.png",
           "name": "Icy Paws",
           "id": "11022"
         },
@@ -158,7 +158,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6ab5e0c2e95117950515b23a875006c0.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/6ab5e0c2e95117950515b23a875006c0.png",
           "name": "Signature Mix",
           "id": "11023"
         }
@@ -170,7 +170,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7c8b166b3254b11d33a5bc1b78fb3034.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/7c8b166b3254b11d33a5bc1b78fb3034.png"
     },
     {
       "id": 1103,
@@ -194,7 +194,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
           "name": "Ceremonial Bladework",
           "id": "11031"
         },
@@ -214,7 +214,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/de0abe0fb5f2904c8695d4207f472cdb.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/de0abe0fb5f2904c8695d4207f472cdb.png",
           "name": "Frostgnaw",
           "id": "11032"
         },
@@ -234,7 +234,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f9e5cb46ba3bf6d4ec2f9e4455dc6238.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f9e5cb46ba3bf6d4ec2f9e4455dc6238.png",
           "name": "Glacial Waltz",
           "id": "11033"
         }
@@ -246,7 +246,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/877beb9d2fa9201737f43b12b68a7c41.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/877beb9d2fa9201737f43b12b68a7c41.png"
     },
     {
       "id": 1104,
@@ -270,7 +270,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
           "name": "Demonbane",
           "id": "11041"
         },
@@ -290,7 +290,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e023be3e82b38b50202ecf4d4fb0fa81.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/e023be3e82b38b50202ecf4d4fb0fa81.png",
           "name": "Chonghua's Layered Frost",
           "id": "11042"
         },
@@ -310,7 +310,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/153a77400dc95c9b51733d0d0d9a4ac0.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/153a77400dc95c9b51733d0d0d9a4ac0.png",
           "name": "Cloud-Parting Star",
           "id": "11043"
         }
@@ -322,7 +322,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5e61c140b9a2e5bed18c09c8d1115150.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5e61c140b9a2e5bed18c09c8d1115150.png"
     },
     {
       "id": 1105,
@@ -346,7 +346,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
           "name": "Kamisato Art: Kabuki",
           "id": "11051"
         },
@@ -366,7 +366,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7b59308313512c3c7350eb6a92b3ea27.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/7b59308313512c3c7350eb6a92b3ea27.png",
           "name": "Kamisato Art: Hyouka",
           "id": "11052"
         },
@@ -386,7 +386,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3668bb20f0b7fb4cfb1fb4162d6fa28f.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3668bb20f0b7fb4cfb1fb4162d6fa28f.png",
           "name": "Kamisato Art: Soumetsu",
           "id": "11053"
         },
@@ -406,7 +406,7 @@
             "Passive Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/959584488f20484942c1403df073f954.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/959584488f20484942c1403df073f954.png",
           "name": "Kamisato Art: Senho",
           "id": "11054"
         }
@@ -418,7 +418,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3c864f3a914d0de0a416e25f0234fe89.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3c864f3a914d0de0a416e25f0234fe89.png"
     },
     {
       "id": 1201,
@@ -442,7 +442,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
           "name": "Whisper of Water",
           "id": "12011"
         },
@@ -462,7 +462,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/63c2345902423b25788f104985348cfd.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/63c2345902423b25788f104985348cfd.png",
           "name": "Let the Show Begin♪",
           "id": "12012"
         },
@@ -482,7 +482,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8da9eff0a67380b83cb6c3360e509695.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/8da9eff0a67380b83cb6c3360e509695.png",
           "name": "Shining Miracle♪",
           "id": "12013"
         }
@@ -494,7 +494,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9e4098dbdaac941957fb3af0e34bac6e.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/9e4098dbdaac941957fb3af0e34bac6e.png"
     },
     {
       "id": 1202,
@@ -518,7 +518,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
           "name": "Guhua Style",
           "id": "12021"
         },
@@ -538,7 +538,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5578cdac2dd8187149544e0898ddf1fd.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5578cdac2dd8187149544e0898ddf1fd.png",
           "name": "Fatal Rainscreen",
           "id": "12022"
         },
@@ -558,7 +558,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/41d0bb68b4558ff4583b48268b5ecb1b.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/41d0bb68b4558ff4583b48268b5ecb1b.png",
           "name": "Raincutter",
           "id": "12023"
         }
@@ -570,7 +570,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4fed2d8054aa757b8081d5cfc8dbc5e5.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4fed2d8054aa757b8081d5cfc8dbc5e5.png"
     },
     {
       "id": 1203,
@@ -594,7 +594,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
           "name": "Ripple of Fate",
           "id": "12031"
         },
@@ -614,7 +614,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c821ff150eb08b2512e3bfa39c19b20d.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/c821ff150eb08b2512e3bfa39c19b20d.png",
           "name": "Mirror Reflection of Doom",
           "id": "12032"
         },
@@ -634,7 +634,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bd9c6c5db4f7cfd3ce555aaa00a4a1dd.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/bd9c6c5db4f7cfd3ce555aaa00a4a1dd.png",
           "name": "Stellaris Phantasm",
           "id": "12033"
         },
@@ -654,7 +654,7 @@
             "Passive Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6c924aed33d3b0cbdcd6b280c2b52631.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/6c924aed33d3b0cbdcd6b280c2b52631.png",
           "name": "Illusory Torrent",
           "id": "12034"
         }
@@ -666,7 +666,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e6031f667a1da4f83bc75ab5a5e868a0.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/e6031f667a1da4f83bc75ab5a5e868a0.png"
     },
     {
       "id": 1301,
@@ -690,7 +690,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
           "name": "Tempered Sword",
           "id": "13011"
         },
@@ -710,7 +710,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/31863c524d54277f038d60c77c8a85ef.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/31863c524d54277f038d60c77c8a85ef.png",
           "name": "Searing Onslaught",
           "id": "13012"
         },
@@ -730,7 +730,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/441499b2202e58aa6df0ebbd21bb4f67.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/441499b2202e58aa6df0ebbd21bb4f67.png",
           "name": "Dawn",
           "id": "13013"
         }
@@ -742,7 +742,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c00f19ba52c4497b81f1654c705240b8.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/c00f19ba52c4497b81f1654c705240b8.png"
     },
     {
       "id": 1302,
@@ -766,7 +766,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eff1794fed54da5f9132873f84b6f41c.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/eff1794fed54da5f9132873f84b6f41c.png",
           "name": "Dough-Fu",
           "id": "13021"
         },
@@ -786,7 +786,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5a6d6002064487f449b61a96300a79b8.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5a6d6002064487f449b61a96300a79b8.png",
           "name": "Guoba Attack",
           "id": "13022"
         },
@@ -806,7 +806,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4a5ced0f3db7bd4a0553f837544ecb99.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4a5ced0f3db7bd4a0553f837544ecb99.png",
           "name": "Pyronado",
           "id": "13023"
         }
@@ -818,7 +818,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f6f310d5276e6d7656eb5b42913ec8b0.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f6f310d5276e6d7656eb5b42913ec8b0.png"
     },
     {
       "id": 1303,
@@ -842,7 +842,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
           "name": "Strike of Fortune",
           "id": "13031"
         },
@@ -862,7 +862,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3b102a63444d271b250d9b199568bd79.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3b102a63444d271b250d9b199568bd79.png",
           "name": "Passion Overload",
           "id": "13032"
         },
@@ -882,7 +882,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a0063dea821a2e70e3ad6d8731e65c44.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a0063dea821a2e70e3ad6d8731e65c44.png",
           "name": "Fantastic Voyage",
           "id": "13033"
         }
@@ -894,7 +894,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6d539b8c4ec001cf0e651bf2af3b828d.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/6d539b8c4ec001cf0e651bf2af3b828d.png"
     },
     {
       "id": 1305,
@@ -918,7 +918,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
           "name": "Firework Flare-Up",
           "id": "13051"
         },
@@ -938,19 +938,19 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bd53cae9bde22c0efae9e696adf58b3b.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/bd53cae9bde22c0efae9e696adf58b3b.png",
           "name": "Niwabi Fire-Dance",
           "id": "13052"
         },
         {
-          "skill_text": "Deals 3 <color=#FF9999FF>Pyro DMG</color>, creates 1 <color=#FFFFFFFF>Aurous Blaze</color>.",
+          "skill_text": "Deals 4 <color=#FF9999FF>Pyro DMG</color>, creates 1 <color=#FFFFFFFF>Aurous Blaze</color>.",
           "skill_costs": [
             {
-              "cost_num": "3",
+              "cost_num": "4",
               "cost_icon": "13"
             },
             {
-              "cost_num": "2",
+              "cost_num": "3",
               "cost_icon": "1"
             }
           ],
@@ -958,7 +958,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a7ce012f5ae1e409862e6b98c3367391.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a7ce012f5ae1e409862e6b98c3367391.png",
           "name": "Ryuukin Saxifrage",
           "id": "13053"
         }
@@ -970,7 +970,83 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/55c408c3b086c396d35a734e0ac61691.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/55c408c3b086c396d35a734e0ac61691.png"
+    },
+    {
+      "id": 1306,
+      "name": "Klee",
+      "element_type": "ETFire",
+      "rank_id": 1306,
+      "role_skill_infos": [
+        {
+          "skill_text": "Deals 1 <color=#FF9999FF>Pyro DMG</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Normal Attack",
+            ""
+          ],
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "name": "Kaboom!",
+          "id": "13061"
+        },
+        {
+          "skill_text": "Deals 3 <color=#FF9999FF>Pyro DMG</color>. This character gains <color=#FFFFFFFF>Explosive Spark</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elemental Skill",
+            ""
+          ],
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/b6c61b3c6f8bba28a55db50de81707bd.png",
+          "name": "Jumpy Dumpty",
+          "id": "13062"
+        },
+        {
+          "skill_text": "Deals 3 <color=#FF9999FF>Pyro DMG</color>, creates 1 <color=#FFFFFFFF>Sparks 'n' Splash</color> at the opponent's play area.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "13"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Elemental Burst",
+            ""
+          ],
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3128faa41c9d7b52c3df95b34d29057a.png",
+          "name": "Sparks 'n' Splash",
+          "id": "13063"
+        }
+      ],
+      "weapon": "Catalyst",
+      "belong_to": [
+        "Mondstadt",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/795f644590f0079f119b36638d81e7e5.png"
     },
     {
       "id": 1401,
@@ -994,7 +1070,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
           "name": "Bolts of Downfall",
           "id": "14011"
         },
@@ -1014,7 +1090,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4b4b654a14e8ca726e105af1666f4fc4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4b4b654a14e8ca726e105af1666f4fc4.png",
           "name": "Nightrider",
           "id": "14012"
         },
@@ -1034,7 +1110,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51f354b2f813bfc1de68460be40d435.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a51f354b2f813bfc1de68460be40d435.png",
           "name": "Midnight Phantasmagoria",
           "id": "14013"
         }
@@ -1046,7 +1122,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b9dbb5a2cf9c0ceb63443f7409d19fe7.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/b9dbb5a2cf9c0ceb63443f7409d19fe7.png"
     },
     {
       "id": 1402,
@@ -1070,7 +1146,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
           "name": "Steel Fang",
           "id": "14021"
         },
@@ -1090,7 +1166,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efb029187262b0892b0a85a7be3c81c6.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/efb029187262b0892b0a85a7be3c81c6.png",
           "name": "Claw and Thunder",
           "id": "14022"
         },
@@ -1110,7 +1186,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/43720b9540661d37f397adddc08f984d.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/43720b9540661d37f397adddc08f984d.png",
           "name": "Lightning Fang",
           "id": "14023"
         }
@@ -1122,7 +1198,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/00e87c7e7518713e3bc65c12068c598a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/00e87c7e7518713e3bc65c12068c598a.png"
     },
     {
       "id": 1403,
@@ -1146,7 +1222,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
           "name": "Yunlai Swordsmanship",
           "id": "14031"
         },
@@ -1166,7 +1242,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eb94518489d930ab5fa02434b64b206e.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/eb94518489d930ab5fa02434b64b206e.png",
           "name": "Stellar Restoration",
           "id": "14032"
         },
@@ -1186,7 +1262,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4caa9b938cb1e72fa2cf4dca79b51fb8.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4caa9b938cb1e72fa2cf4dca79b51fb8.png",
           "name": "Starward Sword",
           "id": "14033"
         }
@@ -1198,7 +1274,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f6f3d3d3b183e676f9912dfec572b237.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f6f3d3d3b183e676f9912dfec572b237.png"
     },
     {
       "id": 1404,
@@ -1222,7 +1298,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eff1794fed54da5f9132873f84b6f41c.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/eff1794fed54da5f9132873f84b6f41c.png",
           "name": "Invoker's Spear",
           "id": "14041"
         },
@@ -1242,7 +1318,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/70d35fde5a93ea9706b5c82e223ed57c.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/70d35fde5a93ea9706b5c82e223ed57c.png",
           "name": "Secret Rite: Chasmic Soulfarer",
           "id": "14042"
         },
@@ -1262,7 +1338,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/df77d411c3039ab4c7455f62aa0fe43c.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/df77d411c3039ab4c7455f62aa0fe43c.png",
           "name": "Sacred Rite: Wolf's Swiftness",
           "id": "14043"
         },
@@ -1282,7 +1358,7 @@
             "Passive Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3fee355d6f0090f9079b6a8bd15dd839.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3fee355d6f0090f9079b6a8bd15dd839.png",
           "name": "Lawful Enforcer",
           "id": "14044"
         }
@@ -1294,7 +1370,103 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1c0359bdc24635a0808ca2046f00793f.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/1c0359bdc24635a0808ca2046f00793f.png"
+    },
+    {
+      "id": 1405,
+      "name": "Beidou",
+      "element_type": "ETThunder",
+      "rank_id": 1405,
+      "role_skill_infos": [
+        {
+          "skill_text": "Deals 2 <color=#FFFFFFFF>Physical DMG</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "1",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "2",
+              "cost_icon": "10"
+            }
+          ],
+          "type": [
+            "Normal Attack",
+            ""
+          ],
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "name": "Oceanborne",
+          "id": "14051"
+        },
+        {
+          "skill_text": "This character gains a <color=#FFFFFFFF>Tidecaller: Surf Embrace</color>. <color=#FFFFFFFF>Prepare Skill</color>: <color=#FFFFFFFF>Wavestrider</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "3",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elemental Skill",
+            ""
+          ],
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4a89d425a7012848bd53b30a07db0767.png",
+          "name": "Tidecaller",
+          "id": "14052"
+        },
+        {
+          "skill_text": "Deals 3 <color=#FFACFFFF>Electro DMG</color>, creates 1 <color=#FFFFFFFF>Thunderbeast's Targe</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "4",
+              "cost_icon": "14"
+            },
+            {
+              "cost_num": "3",
+              "cost_icon": "1"
+            }
+          ],
+          "type": [
+            "Elemental Burst",
+            ""
+          ],
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/bcacde02f6f83c377022ae8789ece544.png",
+          "name": "Stormbreaker",
+          "id": "14053"
+        },
+        {
+          "skill_text": "(Prepare for 1 turn)\\nDeals 2 <color=#FFACFFFF>Electro DMG</color>.",
+          "skill_costs": [
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            },
+            {
+              "cost_num": "",
+              "cost_icon": ""
+            }
+          ],
+          "type": [
+            "Elemental Skill",
+            ""
+          ],
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4a89d425a7012848bd53b30a07db0767.png",
+          "name": "Wavestrider",
+          "id": "14054"
+        }
+      ],
+      "weapon": "Claymore",
+      "belong_to": [
+        "Liyue",
+        "",
+        ""
+      ],
+      "hp": "10",
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/d4de10020e7ab22dfa52375e20c97590.png"
     },
     {
       "id": 1501,
@@ -1318,7 +1490,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
           "name": "Wind Spirit Creation",
           "id": "15011"
         },
@@ -1338,7 +1510,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6c091fa8a5b6e71ad8b876dd1e45e407.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/6c091fa8a5b6e71ad8b876dd1e45e407.png",
           "name": "Astable Anemohypostasis Creation - 6308",
           "id": "15012"
         },
@@ -1358,7 +1530,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/38cc0d7de9627cf89d3f19c326d2e890.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/38cc0d7de9627cf89d3f19c326d2e890.png",
           "name": "Forbidden Creation - Isomer 75 / Type II",
           "id": "15013"
         }
@@ -1370,7 +1542,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0bef56ba7c462ad8c593096ba6e3af81.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/0bef56ba7c462ad8c593096ba6e3af81.png"
     },
     {
       "id": 1502,
@@ -1394,7 +1566,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3d73149ed08fc08529476d7f1b4a5db2.png",
           "name": "Favonius Bladework",
           "id": "15021"
         },
@@ -1414,7 +1586,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/906be849304f62b87b34122e050333b8.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/906be849304f62b87b34122e050333b8.png",
           "name": "Gale Blade",
           "id": "15022"
         },
@@ -1434,7 +1606,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dfc823559c0cfa4f6febda9d9ea32d60.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/dfc823559c0cfa4f6febda9d9ea32d60.png",
           "name": "Dandelion Breeze",
           "id": "15023"
         }
@@ -1446,7 +1618,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1a51029f206394310232b449839464be.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/1a51029f206394310232b449839464be.png"
     },
     {
       "id": 1601,
@@ -1470,7 +1642,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
           "name": "Sparkling Scatter",
           "id": "16011"
         },
@@ -1490,7 +1662,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2bd0da27a460a5cd1b552c13180ecb5e.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/2bd0da27a460a5cd1b552c13180ecb5e.png",
           "name": "Jade Screen",
           "id": "16012"
         },
@@ -1510,7 +1682,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e7fcd17292e0f2c5c3aa10434f454f0a.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/e7fcd17292e0f2c5c3aa10434f454f0a.png",
           "name": "Starshatter",
           "id": "16013"
         }
@@ -1522,7 +1694,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/be2f95433c64c62c9788b081f8115ec5.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/be2f95433c64c62c9788b081f8115ec5.png"
     },
     {
       "id": 1602,
@@ -1546,7 +1718,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/1f2774a0570701e52f573952cd3436ce.png",
           "name": "Favonius Bladework - Maid",
           "id": "16021"
         },
@@ -1566,7 +1738,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/46096c958f0cce3073cac75e540eec9d.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/46096c958f0cce3073cac75e540eec9d.png",
           "name": "Breastplate",
           "id": "16022"
         },
@@ -1586,7 +1758,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2a78695dc2147234a2bb70c6fa13543c.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/2a78695dc2147234a2bb70c6fa13543c.png",
           "name": "Sweeping Time",
           "id": "16023"
         }
@@ -1598,7 +1770,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5f52fdb0a80066e8ba65578962fc305e.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5f52fdb0a80066e8ba65578962fc305e.png"
     },
     {
       "id": 1701,
@@ -1622,7 +1794,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5d510bb74d2c14e2fe53edbdfc955ba4.png",
           "name": "Supplicant's Bowmanship",
           "id": "17011"
         },
@@ -1642,7 +1814,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/31c6bae6d30b2389e9717f5aa00bb617.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/31c6bae6d30b2389e9717f5aa00bb617.png",
           "name": "Floral Brush",
           "id": "17012"
         },
@@ -1662,7 +1834,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/aeb8db26f8f3fe637353801bdf1407c7.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/aeb8db26f8f3fe637353801bdf1407c7.png",
           "name": "Trump-Card Kitty",
           "id": "17013"
         }
@@ -1674,7 +1846,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efddc4c03c5f0997fbe5ef31ac70a505.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/efddc4c03c5f0997fbe5ef31ac70a505.png"
     },
     {
       "id": 2201,
@@ -1698,7 +1870,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
           "name": "Surge",
           "id": "22011"
         },
@@ -1718,7 +1890,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f25ce524e9fb01340a45dcf85c72b6f2.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f25ce524e9fb01340a45dcf85c72b6f2.png",
           "name": "Oceanid Mimic Summoning",
           "id": "22012"
         },
@@ -1738,7 +1910,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/62bc1e938e36a78b18a85f7b2f7ed3b0.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/62bc1e938e36a78b18a85f7b2f7ed3b0.png",
           "name": "The Myriad Wilds",
           "id": "22013"
         },
@@ -1758,7 +1930,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0f148384285f60cf949d5d9b34f8fa92.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/0f148384285f60cf949d5d9b34f8fa92.png",
           "name": "Tide and Torrent",
           "id": "22014"
         }
@@ -1770,7 +1942,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/90422150d3267bdf9ec9a6535a7b001f.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/90422150d3267bdf9ec9a6535a7b001f.png"
     },
     {
       "id": 2202,
@@ -1794,7 +1966,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a51c9140615f7682c79e6dd2af3366e4.png",
           "name": "Water Ball",
           "id": "22021"
         },
@@ -1814,7 +1986,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/02e8a759adb9dd6f7862f18a638cefcb.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/02e8a759adb9dd6f7862f18a638cefcb.png",
           "name": "Influx Blast",
           "id": "22022"
         },
@@ -1834,7 +2006,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e968bcf122be55187bd11a6bc3ce8c7f.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/e968bcf122be55187bd11a6bc3ce8c7f.png",
           "name": "Rippled Reflection",
           "id": "22023"
         }
@@ -1846,7 +2018,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9ffdee8d345bec9dca1946902df5969a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/9ffdee8d345bec9dca1946902df5969a.png"
     },
     {
       "id": 2301,
@@ -1870,7 +2042,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
           "name": "Thrust",
           "id": "23011"
         },
@@ -1890,7 +2062,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4b3d7470c2443c3438fcc7e86ff69dcc.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4b3d7470c2443c3438fcc7e86ff69dcc.png",
           "name": "Prowl",
           "id": "23012"
         },
@@ -1910,7 +2082,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f58850c0fa15b11271c164ae7e249785.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f58850c0fa15b11271c164ae7e249785.png",
           "name": "Blade Ablaze",
           "id": "23013"
         },
@@ -1930,7 +2102,7 @@
             "Passive Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/52db57120e52fb2584a696c34b38aac9.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/52db57120e52fb2584a696c34b38aac9.png",
           "name": "Stealth Master",
           "id": "23014"
         }
@@ -1942,7 +2114,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/95bd6d63973f827cf93db1ca11886b44.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/95bd6d63973f827cf93db1ca11886b44.png"
     },
     {
       "id": 2501,
@@ -1966,12 +2138,12 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
           "name": "Ichimonji",
           "id": "25011"
         },
         {
-          "skill_text": "Deals 1 <color=#80FFD7FF>Anemo DMG</color>, summons 1 <color=#FFFFFFFF>Shadowsword: Lone Gale</color>.",
+          "skill_text": "Summons 1 <color=#FFFFFFFF>Shadowsword: Lone Gale</color>.",
           "skill_costs": [
             {
               "cost_num": "3",
@@ -1986,12 +2158,12 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/697861409887f41bf4b5c90f2f3815ff.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/697861409887f41bf4b5c90f2f3815ff.png",
           "name": "Blustering Blade",
           "id": "25012"
         },
         {
-          "skill_text": "Deals 1 <color=#99FFFFFF>Cryo DMG</color>, summons 1 <color=#FFFFFFFF>Shadowsword: Galloping Frost</color>.",
+          "skill_text": "Summons 1 <color=#FFFFFFFF>Shadowsword: Galloping Frost</color>.",
           "skill_costs": [
             {
               "cost_num": "3",
@@ -2006,7 +2178,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/95c0d647c78c6058bfbd352a44fd4911.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/95c0d647c78c6058bfbd352a44fd4911.png",
           "name": "Frosty Assault",
           "id": "25013"
         },
@@ -2026,7 +2198,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/51a851b66792a160e211ff84020d3610.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/51a851b66792a160e211ff84020d3610.png",
           "name": "Pseudo Tengu Sweeper",
           "id": "25014"
         }
@@ -2038,7 +2210,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efad8cd6d5bd6907341115e050f69b86.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/efad8cd6d5bd6907341115e050f69b86.png"
     },
     {
       "id": 2601,
@@ -2062,7 +2234,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
           "name": "Plama Lawa",
           "id": "26011"
         },
@@ -2082,7 +2254,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dba642d3d9f4dc42820168db15b95de2.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/dba642d3d9f4dc42820168db15b95de2.png",
           "name": "Movo Lawa",
           "id": "26012"
         },
@@ -2102,7 +2274,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/418ae77cc4622a67d6286b4be44ff910.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/418ae77cc4622a67d6286b4be44ff910.png",
           "name": "Upa Shato",
           "id": "26013"
         },
@@ -2122,7 +2294,7 @@
             "Passive Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/058b86d139526b2518ce20e3badbb4ef.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/058b86d139526b2518ce20e3badbb4ef.png",
           "name": "Infused Stonehide",
           "id": "26014"
         }
@@ -2134,7 +2306,7 @@
         ""
       ],
       "hp": "8",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/721a409699b498d66b64bdc212a21c74.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/721a409699b498d66b64bdc212a21c74.png"
     },
     {
       "id": 2701,
@@ -2158,7 +2330,7 @@
             "Normal Attack",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f667af23ed9c0f26bd5b1cf676dae52c.png",
           "name": "Majestic Dance",
           "id": "27011"
         },
@@ -2178,7 +2350,7 @@
             "Elemental Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/121e09032218105e54a51cbd1c2ce731.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/121e09032218105e54a51cbd1c2ce731.png",
           "name": "Volatile Spore Cloud",
           "id": "27012"
         },
@@ -2198,7 +2370,7 @@
             "Elemental Burst",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f7843567c0056ab7fe1132d9875d2c26.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f7843567c0056ab7fe1132d9875d2c26.png",
           "name": "Feather Spreading",
           "id": "27013"
         },
@@ -2218,7 +2390,7 @@
             "Passive Skill",
             ""
           ],
-          "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fc3e95c05191996151a572a15b3a99fb.png",
+          "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/fc3e95c05191996151a572a15b3a99fb.png",
           "name": "Radical Vitality",
           "id": "27014"
         }
@@ -2230,7 +2402,7 @@
         ""
       ],
       "hp": "10",
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bd089cefb123e25131de1932395dde26.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/bd089cefb123e25131de1932395dde26.png"
     }
   ],
   "action_card_infos": [
@@ -2266,7 +2438,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/47c8e7895ae24c822873f185b6b30384.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/47c8e7895ae24c822873f185b6b30384.png"
     },
     {
       "id": 211021,
@@ -2300,7 +2472,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e1416b5c54b9b65004dc783c8757522f.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/e1416b5c54b9b65004dc783c8757522f.png"
     },
     {
       "id": 211031,
@@ -2334,7 +2506,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e8c4d2e639de2d80c164ef19a9510f15.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/e8c4d2e639de2d80c164ef19a9510f15.png"
     },
     {
       "id": 211041,
@@ -2368,7 +2540,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d2f6adf65b19c503957cdfd5197bf6c7.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/d2f6adf65b19c503957cdfd5197bf6c7.png"
     },
     {
       "id": 211051,
@@ -2402,7 +2574,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4d6cf66cc2bd1fea199439dc424a131f.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4d6cf66cc2bd1fea199439dc424a131f.png"
     },
     {
       "id": 212011,
@@ -2436,7 +2608,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c7ae77e556eb0f61f0980b2732c45c06.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/c7ae77e556eb0f61f0980b2732c45c06.png"
     },
     {
       "id": 212021,
@@ -2470,7 +2642,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/72dc8e77ccb94c82b0477fe54b2f3f7b.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/72dc8e77ccb94c82b0477fe54b2f3f7b.png"
     },
     {
       "id": 212031,
@@ -2504,7 +2676,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/954255e33d91711e15f70e2a5fc4d471.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/954255e33d91711e15f70e2a5fc4d471.png"
     },
     {
       "id": 213011,
@@ -2538,7 +2710,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b0684cc862916abb8de607a51b30146e.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/b0684cc862916abb8de607a51b30146e.png"
     },
     {
       "id": 213021,
@@ -2572,7 +2744,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d8117eeed0f9d0b6a643edab827a9660.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/d8117eeed0f9d0b6a643edab827a9660.png"
     },
     {
       "id": 213031,
@@ -2606,7 +2778,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/38b3de96a59d907de002fc3945eac139.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/38b3de96a59d907de002fc3945eac139.png"
     },
     {
       "id": 213051,
@@ -2640,7 +2812,41 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8c94946ce10566dbac8e3b9f8e940bb3.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/8c94946ce10566dbac8e3b9f8e940bb3.png"
+    },
+    {
+      "id": 213061,
+      "name": "Pounding Surprise",
+      "content": "<color=#FFFFFFFF>Combat Action</color>: When your active character is <color=#FFFFFFFF>Klee</color>, equip this card.\\nAfter Klee equips this card, immediately use <color=#FFD780FF>Jumpy Dumpty</color> once.\\nWhen your Klee, who has this card equipped, creates an <color=#FFFFFFFF>Explosive Spark</color>, its <color=#FFFFFFFF>Usage(s)</color> +1.\\n(You must have Klee in your deck to add this card to your deck.)",
+      "action_type": "AcEquip",
+      "rank_id": 213061,
+      "cost_num1": "3",
+      "cost_type1_icon": "13",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Combat Action"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f10687332c4d1bdd8a90f15920a722eb.png"
     },
     {
       "id": 214011,
@@ -2674,12 +2880,12 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ab875a421d04f1d478710a0d008d7c4a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/ab875a421d04f1d478710a0d008d7c4a.png"
     },
     {
       "id": 214021,
       "name": "Awakening",
-      "content": "<color=#FFFFFFFF>Combat Action</color>: When your active character is <color=#FFFFFFFF>Razor</color>, equip this card.\\nAfter Razor equips this card, immediately use <color=#FFD780FF>Claw and Thunder</color> once.\\nAfter your Razor, who has this card equipped, <color=#FFFFFFFF>uses Claw and Thunder</color>: 1 of your Electro characters gains 1 Energy. (Active Character prioritized)\\n(You must have Razor in your deck to add this card to your deck.)",
+      "content": "<color=#FFFFFFFF>Combat Action</color>: When your active character is <color=#FFFFFFFF>Razor</color>, equip this card.\\nAfter Razor equips this card, immediately use <color=#FFD780FF>Claw and Thunder</color> once.\\nAfter your Razor, who has this card equipped, uses <color=#FFFFFFFF>Claw and Thunder</color>: 1 of your Electro characters gains 1 Energy. (Active Character prioritized)\\n(You must have Razor in your deck to add this card to your deck.)",
       "action_type": "AcEquip",
       "rank_id": 214021,
       "cost_num1": "4",
@@ -2708,7 +2914,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2c5bc5400e8a57a1112520f18ad7321b.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/2c5bc5400e8a57a1112520f18ad7321b.png"
     },
     {
       "id": 214031,
@@ -2742,7 +2948,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/52c1de49129738f61d8e0eff7ec47cff.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/52c1de49129738f61d8e0eff7ec47cff.png"
     },
     {
       "id": 214041,
@@ -2776,7 +2982,41 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9236fbf043df960137c91ab99340e312.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/9236fbf043df960137c91ab99340e312.png"
+    },
+    {
+      "id": 214051,
+      "name": "Lightning Storm",
+      "content": "<color=#FFFFFFFF>Combat Action</color>: When your active character is <color=#FFFFFFFF>Beidou</color>, equip this card.\\nAfter Beidou equips this card, immediately use <color=#FFD780FF>Tidecaller</color> once.\\nWhen Beidou, who has this card equipped, uses <color=#FFFFFFFF>Wavestrider</color>: If DMG is taken while <color=#FFFFFFFF>Prepare Skill</color> is active, Beidou's Normal Attacks this Round will cost 1 less <color=#FFFFFFFF>Unaligned Element</color>. (Can be triggered 2 times)\\n(You must have Beidou in your deck to add this card to your deck.)",
+      "action_type": "AcEquip",
+      "rank_id": 214051,
+      "cost_num1": "3",
+      "cost_type1_icon": "14",
+      "cost_num2": "",
+      "cost_type2_icon": "",
+      "action_card_tags": [
+        {
+          "id": "6",
+          "text": "Talent"
+        },
+        {
+          "id": "2",
+          "text": "Combat Action"
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        },
+        {
+          "id": "",
+          "text": ""
+        }
+      ],
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/1cc08284f680baf6bb326685c50453cd.png"
     },
     {
       "id": 215011,
@@ -2810,7 +3050,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a5aac435470025e43269160f96bc7c9e.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a5aac435470025e43269160f96bc7c9e.png"
     },
     {
       "id": 215021,
@@ -2844,7 +3084,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ed539a5fe7e48519126c935b0c0140c4.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/ed539a5fe7e48519126c935b0c0140c4.png"
     },
     {
       "id": 216011,
@@ -2878,7 +3118,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a5ecda6e325efb344e7e077352cbe834.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a5ecda6e325efb344e7e077352cbe834.png"
     },
     {
       "id": 216021,
@@ -2912,7 +3152,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9d7e1c7e174103ef69610f30a4eef269.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/9d7e1c7e174103ef69610f30a4eef269.png"
     },
     {
       "id": 217011,
@@ -2920,7 +3160,7 @@
       "content": "<color=#FFFFFFFF>Combat Action</color>: When your active character is <color=#FFFFFFFF>Collei</color>, equip this card.\\nAfter Collei equips this card, immediately use <color=#FFD780FF>Floral Brush</color> once.\\nAfter your Collei, who has this card equipped, <color=#FFFFFFFF>uses Floral Brush</color>, during this Round, when your characters' Skills trigger <color=#7EC236FF>Dendro-Related Reactions</color>: Deal 1 <color=#7EC236FF>Dendro DMG</color>. (Once per Round)\\n(You must have Collei in your deck to add this card to your deck.)",
       "action_type": "AcEquip",
       "rank_id": 217011,
-      "cost_num1": "3",
+      "cost_num1": "4",
       "cost_type1_icon": "16",
       "cost_num2": "",
       "cost_type2_icon": "",
@@ -2946,7 +3186,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a388c8bdf22b02b1bb1d2e2fbc94cb2b.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a388c8bdf22b02b1bb1d2e2fbc94cb2b.png"
     },
     {
       "id": 222011,
@@ -2980,7 +3220,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/580a01c97ddb6f0a7c13b4979811a076.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/580a01c97ddb6f0a7c13b4979811a076.png"
     },
     {
       "id": 222021,
@@ -3014,7 +3254,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/70bdb94530bd142767e4e27e555e4eed.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/70bdb94530bd142767e4e27e555e4eed.png"
     },
     {
       "id": 223011,
@@ -3048,7 +3288,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/79de5814ae7ce1faafd337cc6aacbf07.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/79de5814ae7ce1faafd337cc6aacbf07.png"
     },
     {
       "id": 225011,
@@ -3082,7 +3322,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fa52163556a9b026ab8eb53cb7b9045c.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/fa52163556a9b026ab8eb53cb7b9045c.png"
     },
     {
       "id": 226011,
@@ -3116,7 +3356,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a8101906389983db75c167dac16dec21.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a8101906389983db75c167dac16dec21.png"
     },
     {
       "id": 227011,
@@ -3150,7 +3390,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7681527ff3e18426f275347b2d4817b2.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/7681527ff3e18426f275347b2d4817b2.png"
     },
     {
       "id": 311101,
@@ -3184,7 +3424,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a85e24e19d8d895f5cf51ddab9212c87.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a85e24e19d8d895f5cf51ddab9212c87.png"
     },
     {
       "id": 311102,
@@ -3218,7 +3458,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d1c5794631a2e19c1aa985d102f546e5.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/d1c5794631a2e19c1aa985d102f546e5.png"
     },
     {
       "id": 311103,
@@ -3252,7 +3492,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6ec96e78504a0fb3292721d480cbed42.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/6ec96e78504a0fb3292721d480cbed42.png"
     },
     {
       "id": 311201,
@@ -3286,7 +3526,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0939061540227e749fdcb03bdd3770cf.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/0939061540227e749fdcb03bdd3770cf.png"
     },
     {
       "id": 311202,
@@ -3320,7 +3560,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/98a95d057ec93e97e0e90c3a2e9985c3.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/98a95d057ec93e97e0e90c3a2e9985c3.png"
     },
     {
       "id": 311203,
@@ -3354,7 +3594,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/eb1c1b8d7bb8df363633b272f366b794.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/eb1c1b8d7bb8df363633b272f366b794.png"
     },
     {
       "id": 311301,
@@ -3388,7 +3628,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bf3c1abdc800510f40f1819ff5365c3c.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/bf3c1abdc800510f40f1819ff5365c3c.png"
     },
     {
       "id": 311302,
@@ -3422,7 +3662,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8a879e5d756a07a0cde3ba42311f9790.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/8a879e5d756a07a0cde3ba42311f9790.png"
     },
     {
       "id": 311303,
@@ -3456,7 +3696,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9fc2fb800874212c3cce32b28ee6de5f.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/9fc2fb800874212c3cce32b28ee6de5f.png"
     },
     {
       "id": 311401,
@@ -3490,12 +3730,12 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/6f37ed4fbb3f495f94396f2ba51cc292.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/6f37ed4fbb3f495f94396f2ba51cc292.png"
     },
     {
       "id": 311402,
       "name": "Lithic Spear",
-      "content": "<color=#FFFFFFFF>The character deals +1 DMG</color>.\\nWhen played: For each party member from Liyue, grant <color=#FFFFFFFF>1 <color=#FFFFFFFF>Shield</color> point</color> to the character to which this is attached. (Max 3 points)\\n(<color=#FFFFFFFF>Only Polearm Characters</color> can equip this. A character can equip a maximum of 1 Weapon)",
+      "content": "<color=#FFFFFFFF>The character deals +1 DMG</color>.\\n<color=#FFFFFFFF>When played:</color> For each party member from Liyue, grant <color=#FFFFFFFF>1 <color=#FFFFFFFF>Shield</color> point</color> to the character to which this is attached. (Max 3 points)\\n(<color=#FFFFFFFF>Only Polearm Characters</color> can equip this. A character can equip a maximum of 1 Weapon)",
       "action_type": "AcEquip",
       "rank_id": 311402,
       "cost_num1": "3",
@@ -3524,7 +3764,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a00bc7daebd6a3fbb05981e7c4fde8e7.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a00bc7daebd6a3fbb05981e7c4fde8e7.png"
     },
     {
       "id": 311403,
@@ -3558,7 +3798,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/65849e70884e45188e0658abf44caa7f.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/65849e70884e45188e0658abf44caa7f.png"
     },
     {
       "id": 311501,
@@ -3592,7 +3832,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9dbbcddd4d69ae1683ba8b62ae50bb6a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/9dbbcddd4d69ae1683ba8b62ae50bb6a.png"
     },
     {
       "id": 311502,
@@ -3626,7 +3866,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bc60d80dfa83f779b01845ec46ad636e.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/bc60d80dfa83f779b01845ec46ad636e.png"
     },
     {
       "id": 311503,
@@ -3660,7 +3900,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/dbecaf6c9c38016aa04dc1ad090de10a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/dbecaf6c9c38016aa04dc1ad090de10a.png"
     },
     {
       "id": 312001,
@@ -3694,12 +3934,12 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/537d9c9398945da9a85bc5d3bfd7c00a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/537d9c9398945da9a85bc5d3bfd7c00a.png"
     },
     {
       "id": 312002,
       "name": "Lucky Dog's Silver Circlet",
-      "content": "<color=#FFFFFFFF>After the character uses an Elemental Skill:</color> Heal self for 2 HP. (Once per Round)\\n(A character can equip a maximum of 1 Artifact)",
+      "content": "<color=#FFFFFFFF>After a character uses an Elemental Skill:</color> Heal self for 2 HP. (Once per Round)\\n(A character can equip a maximum of 1 Artifact)",
       "action_type": "AcEquip",
       "rank_id": 312002,
       "cost_num1": "2",
@@ -3728,7 +3968,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4ecb7e631b9faa929d538dfdcba97892.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4ecb7e631b9faa929d538dfdcba97892.png"
     },
     {
       "id": 312003,
@@ -3762,7 +4002,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/34da5173304f9d8162cf29792a29c314.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/34da5173304f9d8162cf29792a29c314.png"
     },
     {
       "id": 312004,
@@ -3796,7 +4036,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5375d721bee781f8a1c7189134631bde.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5375d721bee781f8a1c7189134631bde.png"
     },
     {
       "id": 312005,
@@ -3830,7 +4070,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db71657f341ea66c63cce583306697e0.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/db71657f341ea66c63cce583306697e0.png"
     },
     {
       "id": 312006,
@@ -3864,7 +4104,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/07f949af51f955188f7a76868afec4d2.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/07f949af51f955188f7a76868afec4d2.png"
     },
     {
       "id": 312101,
@@ -3898,7 +4138,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0a87ecadbc664295b0a6d8887a0245e4.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/0a87ecadbc664295b0a6d8887a0245e4.png"
     },
     {
       "id": 312102,
@@ -3932,7 +4172,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4ac494b7dabb571ba3175c97e133efca.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4ac494b7dabb571ba3175c97e133efca.png"
     },
     {
       "id": 312201,
@@ -3966,7 +4206,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/d330bf2e825d0611adbd31165a2988a3.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/d330bf2e825d0611adbd31165a2988a3.png"
     },
     {
       "id": 312202,
@@ -4000,7 +4240,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/94f5da40c8f4dabec67094c9ba33f398.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/94f5da40c8f4dabec67094c9ba33f398.png"
     },
     {
       "id": 312301,
@@ -4034,7 +4274,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/414e93b5089718722e2c754c328017cb.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/414e93b5089718722e2c754c328017cb.png"
     },
     {
       "id": 312302,
@@ -4068,7 +4308,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/072a95811cce4b7cde82b7125f948153.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/072a95811cce4b7cde82b7125f948153.png"
     },
     {
       "id": 312401,
@@ -4102,7 +4342,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/aa14c1d68f06aee6e56af6c5561d5c62.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/aa14c1d68f06aee6e56af6c5561d5c62.png"
     },
     {
       "id": 312402,
@@ -4136,7 +4376,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3d0a4bac703c65e7cc7760e251e6bfcb.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3d0a4bac703c65e7cc7760e251e6bfcb.png"
     },
     {
       "id": 312501,
@@ -4170,7 +4410,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/17b36e554ad3b25234313228f7cf0697.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/17b36e554ad3b25234313228f7cf0697.png"
     },
     {
       "id": 312502,
@@ -4204,7 +4444,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/74f346d6221d9c06b40677177706dcd8.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/74f346d6221d9c06b40677177706dcd8.png"
     },
     {
       "id": 312601,
@@ -4238,7 +4478,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/cee410a612a0951dff5f7998ee221742.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/cee410a612a0951dff5f7998ee221742.png"
     },
     {
       "id": 312602,
@@ -4272,7 +4512,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/f3b570dda5890b6660abc11f8091ade0.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/f3b570dda5890b6660abc11f8091ade0.png"
     },
     {
       "id": 312701,
@@ -4306,7 +4546,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db4f9b3efc9976dbfc872086b8d88cbc.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/db4f9b3efc9976dbfc872086b8d88cbc.png"
     },
     {
       "id": 312702,
@@ -4340,7 +4580,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/84842576ae51a40f7447ff943ef5e1ca.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/84842576ae51a40f7447ff943ef5e1ca.png"
     },
     {
       "id": 321001,
@@ -4374,7 +4614,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b845964f3adbb8985b3185de51121e6a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/b845964f3adbb8985b3185de51121e6a.png"
     },
     {
       "id": 321002,
@@ -4408,7 +4648,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/38c552f8de603be63d73fd2b79091206.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/38c552f8de603be63d73fd2b79091206.png"
     },
     {
       "id": 321003,
@@ -4442,7 +4682,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3e19d5c01bf6d0d9ef6e6282be5fc440.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3e19d5c01bf6d0d9ef6e6282be5fc440.png"
     },
     {
       "id": 321004,
@@ -4476,7 +4716,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7867c76111398c7f6345c5429778eee1.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/7867c76111398c7f6345c5429778eee1.png"
     },
     {
       "id": 321005,
@@ -4510,7 +4750,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7f3bc4a66a1f9972d6b1f02bcfe425da.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/7f3bc4a66a1f9972d6b1f02bcfe425da.png"
     },
     {
       "id": 321006,
@@ -4544,7 +4784,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b44c09e722a0c411553a070eca10a159.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/b44c09e722a0c411553a070eca10a159.png"
     },
     {
       "id": 322001,
@@ -4578,7 +4818,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db7d26573b704b6505679e4f8d74eb07.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/db7d26573b704b6505679e4f8d74eb07.png"
     },
     {
       "id": 322002,
@@ -4612,7 +4852,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/fb7562041775d44f9b874a657d71c238.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/fb7562041775d44f9b874a657d71c238.png"
     },
     {
       "id": 322003,
@@ -4646,7 +4886,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/992692db4e9bcf92b0571e73313b6714.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/992692db4e9bcf92b0571e73313b6714.png"
     },
     {
       "id": 322004,
@@ -4680,7 +4920,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3fd5f4a8a3e92f7254e832e119728e96.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3fd5f4a8a3e92f7254e832e119728e96.png"
     },
     {
       "id": 322005,
@@ -4714,7 +4954,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/af07ead58a533d3a60868c713c27fca4.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/af07ead58a533d3a60868c713c27fca4.png"
     },
     {
       "id": 322006,
@@ -4748,7 +4988,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/0c1afc4b96fda2d052a09ca364da79e3.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/0c1afc4b96fda2d052a09ca364da79e3.png"
     },
     {
       "id": 322007,
@@ -4782,7 +5022,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/94dbfc0531ac4e258940a9c6e0950a28.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/94dbfc0531ac4e258940a9c6e0950a28.png"
     },
     {
       "id": 322008,
@@ -4816,12 +5056,12 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9ea108ce4cc9b11ad65573ad2d507196.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/9ea108ce4cc9b11ad65573ad2d507196.png"
     },
     {
       "id": 322009,
       "name": "Chang the Ninth",
-      "content": "<color=#FFFFFFFF>When either side uses a Skill:</color> If <color=#FFFFFFFF>Physical DMG</color> or <color=#FFFFFFFF>Piercing DMG</color> was dealt, or an <color=#FFFFFFFF>Elemental Reaction</color> was triggered, this card gains <color=#FFFFFFFF>1 Inspiration</color>.\\nWhen this card gains <color=#FFFFFFFF>3 Inspiration</color>, discard this card, then draw 2 cards.",
+      "content": "<color=#FFFFFFFF>After either side uses a Skill:</color> If <color=#FFFFFFFF>Physical DMG</color> or <color=#FFFFFFFF>Piercing DMG</color> was dealt, or an <color=#FFFFFFFF>Elemental Reaction</color> was triggered, this card gains <color=#FFFFFFFF>1 Inspiration</color>.\\nWhen this card gains <color=#FFFFFFFF>3 Inspiration</color>, discard this card, then draw 2 cards.",
       "action_type": "AcSupport",
       "rank_id": 322009,
       "cost_num1": "",
@@ -4850,7 +5090,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/92b3cf38a18c2314dbec4c46a629ba42.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/92b3cf38a18c2314dbec4c46a629ba42.png"
     },
     {
       "id": 322010,
@@ -4884,7 +5124,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/18200092294453a833bbeefb64ba511e.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/18200092294453a833bbeefb64ba511e.png"
     },
     {
       "id": 322011,
@@ -4918,7 +5158,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/2fd219ef9d68a9d15a1ba5965233ffdc.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/2fd219ef9d68a9d15a1ba5965233ffdc.png"
     },
     {
       "id": 322012,
@@ -4952,7 +5192,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/260f8abb74f2760962aefc8ea932f143.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/260f8abb74f2760962aefc8ea932f143.png"
     },
     {
       "id": 323001,
@@ -4986,7 +5226,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/07ab70e19810c449f0b5d99e09081861.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/07ab70e19810c449f0b5d99e09081861.png"
     },
     {
       "id": 323002,
@@ -5020,7 +5260,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a70e9287dde09182a722b812f4714766.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a70e9287dde09182a722b812f4714766.png"
     },
     {
       "id": 331101,
@@ -5054,7 +5294,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e3ab100c8ca4d73035f9895b53d50993.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/e3ab100c8ca4d73035f9895b53d50993.png"
     },
     {
       "id": 331102,
@@ -5088,7 +5328,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/52779dcfcc6ba6a05b10d3ef133863f4.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/52779dcfcc6ba6a05b10d3ef133863f4.png"
     },
     {
       "id": 331201,
@@ -5122,7 +5362,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/77defc79598f6bccce1bb572cc2bb2bc.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/77defc79598f6bccce1bb572cc2bb2bc.png"
     },
     {
       "id": 331202,
@@ -5156,7 +5396,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/901d5c47b4ad3b43fa0532d2211003bf.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/901d5c47b4ad3b43fa0532d2211003bf.png"
     },
     {
       "id": 331301,
@@ -5190,7 +5430,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ac8ad60bf5dd362cbc8463f0313b7ac2.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/ac8ad60bf5dd362cbc8463f0313b7ac2.png"
     },
     {
       "id": 331302,
@@ -5224,7 +5464,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/cd9cf0223ca3f3f701a7cc0872aba1b8.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/cd9cf0223ca3f3f701a7cc0872aba1b8.png"
     },
     {
       "id": 331401,
@@ -5258,7 +5498,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9c459bb91099364db76d6341a28d711a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/9c459bb91099364db76d6341a28d711a.png"
     },
     {
       "id": 331402,
@@ -5292,7 +5532,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5704ca82488fdcf936a92fbe43dab3a7.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5704ca82488fdcf936a92fbe43dab3a7.png"
     },
     {
       "id": 331501,
@@ -5326,7 +5566,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5cb623640ce25ffad3139b700e16742b.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5cb623640ce25ffad3139b700e16742b.png"
     },
     {
       "id": 331502,
@@ -5360,7 +5600,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/62e6bff59dfed1727f9d6ab5dc17dfc5.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/62e6bff59dfed1727f9d6ab5dc17dfc5.png"
     },
     {
       "id": 331601,
@@ -5394,7 +5634,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/68143fb2321cfd0e825507644bddfbd0.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/68143fb2321cfd0e825507644bddfbd0.png"
     },
     {
       "id": 331602,
@@ -5428,7 +5668,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/030d866b1d04c66dac181f348afe5277.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/030d866b1d04c66dac181f348afe5277.png"
     },
     {
       "id": 331701,
@@ -5462,7 +5702,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/e277fb9bd8666758b95a2db4fb460f19.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/e277fb9bd8666758b95a2db4fb460f19.png"
     },
     {
       "id": 331702,
@@ -5496,7 +5736,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/9451d0edf2f7683db502955bf0083f6a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/9451d0edf2f7683db502955bf0083f6a.png"
     },
     {
       "id": 332001,
@@ -5530,7 +5770,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/efb74ea1ef50b6cc01d254a79c43c662.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/efb74ea1ef50b6cc01d254a79c43c662.png"
     },
     {
       "id": 332002,
@@ -5564,12 +5804,12 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3e95232b50289b947ed129e8f19bed28.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3e95232b50289b947ed129e8f19bed28.png"
     },
     {
       "id": 332003,
       "name": "Toss-Up",
-      "content": "Select any Elemental Die to <color=#FFFFFFFF>reroll</color>. Can reroll 2 times.",
+      "content": "Select any Elemental Dice to <color=#FFFFFFFF>reroll</color>. Can reroll 2 times.",
       "action_type": "AcEvent",
       "rank_id": 332003,
       "cost_num1": "",
@@ -5598,7 +5838,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/33573a4ae35d7ca5ec8c2d449b935069.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/33573a4ae35d7ca5ec8c2d449b935069.png"
     },
     {
       "id": 332004,
@@ -5632,7 +5872,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/66f9759e17f89bd51d3a6154bb723b68.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/66f9759e17f89bd51d3a6154bb723b68.png"
     },
     {
       "id": 332005,
@@ -5666,7 +5906,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/05ae574ceebb8daf03b204ff613b41af.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/05ae574ceebb8daf03b204ff613b41af.png"
     },
     {
       "id": 332006,
@@ -5700,7 +5940,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/4c8f69645fd9216ba316ce92fcf7e4d5.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/4c8f69645fd9216ba316ce92fcf7e4d5.png"
     },
     {
       "id": 332007,
@@ -5734,7 +5974,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8ea589fb6fd78cc97b5da6c939f69abc.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/8ea589fb6fd78cc97b5da6c939f69abc.png"
     },
     {
       "id": 332008,
@@ -5768,7 +6008,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/b028594c2715a91c7f82371cc08a060a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/b028594c2715a91c7f82371cc08a060a.png"
     },
     {
       "id": 332009,
@@ -5802,7 +6042,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ee9d0ec0a60b374f542ab81f2ee5d667.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/ee9d0ec0a60b374f542ab81f2ee5d667.png"
     },
     {
       "id": 332010,
@@ -5836,7 +6076,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/8ca2cc1382679c0aa8af94aea2184e07.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/8ca2cc1382679c0aa8af94aea2184e07.png"
     },
     {
       "id": 332011,
@@ -5870,7 +6110,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/972d1798e8f820f6b99a78796583e213.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/972d1798e8f820f6b99a78796583e213.png"
     },
     {
       "id": 332012,
@@ -5904,7 +6144,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/5a6801f382aabbaf758a2d3711aad172.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/5a6801f382aabbaf758a2d3711aad172.png"
     },
     {
       "id": 332013,
@@ -5938,7 +6178,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/3063c1a3627af9d64da78b0702c4aa7e.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/3063c1a3627af9d64da78b0702c4aa7e.png"
     },
     {
       "id": 332014,
@@ -5972,7 +6212,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/20b7c2c4a90218cd6633870321eb4984.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/20b7c2c4a90218cd6633870321eb4984.png"
     },
     {
       "id": 332015,
@@ -6006,7 +6246,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/a466ec4208c54c9139b2de6d6903f863.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/a466ec4208c54c9139b2de6d6903f863.png"
     },
     {
       "id": 333001,
@@ -6040,7 +6280,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/c2414b928eaa3e09abe0d922f72dfc69.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/c2414b928eaa3e09abe0d922f72dfc69.png"
     },
     {
       "id": 333002,
@@ -6074,7 +6314,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/01a88b782c2833e2860913027b24346c.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/01a88b782c2833e2860913027b24346c.png"
     },
     {
       "id": 333003,
@@ -6108,7 +6348,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/ebab50237f2b856ea33401a2b06999f7.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/ebab50237f2b856ea33401a2b06999f7.png"
     },
     {
       "id": 333004,
@@ -6142,7 +6382,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/987a5e903a720cd5ec8024f88bd299df.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/987a5e903a720cd5ec8024f88bd299df.png"
     },
     {
       "id": 333005,
@@ -6176,7 +6416,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/195564a6365bdfcd05e5858cdcf8f276.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/195564a6365bdfcd05e5858cdcf8f276.png"
     },
     {
       "id": 333006,
@@ -6210,7 +6450,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/7bf2632305786051e53fa5d1ed5c373a.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/7bf2632305786051e53fa5d1ed5c373a.png"
     },
     {
       "id": 333007,
@@ -6244,12 +6484,12 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/db557ed89fa84667f8c02c6b3a97a910.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/db557ed89fa84667f8c02c6b3a97a910.png"
     },
     {
       "id": 333008,
       "name": "Minty Meat Rolls",
-      "content": "Before this Round ends, the target character's <color=#FFFFFFFF>Normal Attacks</color> cost 1 less <color=#FFFFFFFF>Unaligned Element</color>.\\n(A character can consume at most 1 Food per Round)",
+      "content": "Before this Round ends, the target character's next 3 <color=#FFFFFFFF>Normal Attacks</color> cost 1 less <color=#FFFFFFFF>Unaligned Element</color>.\\n(A character can consume at most 1 Food per Round)",
       "action_type": "AcEvent",
       "rank_id": 333008,
       "cost_num1": "1",
@@ -6278,7 +6518,7 @@
           "text": ""
         }
       ],
-      "resource": "https://webstatic-sea.hoyoverse.com/hk4e/e20221205drawcard/picture/bc693d751427336349b8726589546c26.png"
+      "resource": "https://webstatic.hoyoverse.com/hk4e/e20221205drawcard/picture/bc693d751427336349b8726589546c26.png"
     }
   ]
 }

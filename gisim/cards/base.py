@@ -19,6 +19,10 @@ if TYPE_CHECKING:
 
 
 class Card(BaseModel):
+    """
+    卡牌基类
+    ~~~~~~~
+    """
     id: int
     name: str
     costs: Dict[ElementType, int]

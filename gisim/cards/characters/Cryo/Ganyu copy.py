@@ -83,12 +83,18 @@ class IceLotus(CombatStatusEntity):
         if self._uuid in top_msg.responded_entities:
             return False
         updated = False
-        # # 受到护盾保护的角色 会随着出战角色的切换而切换
-        # if isinstance(top_msg, ChangeCharacterMsg):
-        #     pass
-        # 减免受到的伤害并减少可使用次数
-        if isinstance(top_msg, 1):
-            pass
+        # 受到护盾保护的角色 会随着出战角色的切换而切换
+        if isinstance(top_msg, ChangeCharacterMsg):
+            top_msg = cast(ChangeCharacterMsg, top_msg)
+            new_msg = GenerateCombatStatusMsg(
+                sender_id=parent.player_id,
+                status_name="Cryo Infusion",
+                target=(parent.player_id, parent.position),
+                remaining_round=1,
+                remaining_usage=INF_INT,
+            )
+
+
 
 
 class CelestialShower(GenericSkill):

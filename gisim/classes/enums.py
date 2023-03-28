@@ -23,6 +23,11 @@ class GamePhase(Enum):
     def __str__(self):
         return self.name
 
+class Occupation(Enum):
+    Carry: 1
+    Back:2
+    def __str__(self):
+        return self.name
 
 class ElementType(IntEnum):
     """Element types (including power, any, omni)"""

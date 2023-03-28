@@ -14,7 +14,7 @@ ALL_LANGUAGES = [
     "ja-jp",
     "ko-kr",
     "id-id",
-    "th-th",
+    # "th-th",
     "vi-vn",
     "de-de",
     "fr-fr",
@@ -81,12 +81,12 @@ if __name__ == "__main__":
     print("Processing cards...")
     english_cards, i18n_data = process_i18n(cards)
 
-    base_path = Path("gisim/cards/resources/")
+    base_path = Path("gisim/resources")
 
-    with open(base_path / "cards_20221205_en-us.json", "w") as f:
+    with open(base_path / "cards_20221205_en-us.json", "w",encoding='utf8') as f:
         json.dump(english_cards, f, indent=2, ensure_ascii=False)
 
-    with open(base_path / "cards_20221205_i18n.json", "w") as f:
+    with open(base_path / "cards_20221205_i18n.json", "w",encoding='utf8') as f:
         json.dump(i18n_data, f, indent=2, ensure_ascii=False)
 
     print("Done.")

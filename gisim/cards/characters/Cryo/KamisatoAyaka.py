@@ -36,6 +36,11 @@ if TYPE_CHECKING:
 
 
 class KamisatoArtKabuki(GenericSkill):
+    """
+    神里流·倾
+    ~~~~~~~~
+    `普通攻击` 造成2点`物理伤害`。
+    """
     id: int = 11051
     name: str = "Kamisato Art: Kabuki"
     text: str = """
@@ -48,6 +53,11 @@ class KamisatoArtKabuki(GenericSkill):
 
 
 class KamisatoArtHyouka(GenericSkill):
+    """
+    神里流·冰华
+    ~~~~~~~~~~
+    `元素战技`造成3点`冰元素伤害`。
+    """
     id: int = 11052
     name: str = "Kamisato Art: Hyouka"
     text: str = """
@@ -60,6 +70,11 @@ class KamisatoArtHyouka(GenericSkill):
 
 
 class KamisatoArtSoumetsu(GenericSkill):
+    """
+    神里流·霜灭
+    ~~~~~~~~~~
+    `元素爆发`造成4点`冰元素伤害`，召唤`霜见雪关扉`。
+    """
     id: int = 11053
     name: str = "Kamisato Art: Soumetsu"
     text: str = """
@@ -73,6 +88,11 @@ class KamisatoArtSoumetsu(GenericSkill):
 
 
 class KamisatoArtSenho(CharacterSkill):
+    """
+    神里流·霰步
+    ~~~~~~~~~
+    `被动技能`当此角色被切换为`出战角色`时，附属`冰元素附魔`。
+    """
 
     id: int = 11054
     name: str = "Kamisato Art: Senho"
@@ -102,6 +122,7 @@ class KamisatoArtSenho(CharacterSkill):
 
 
 class KamisatoAyaka(CharacterCard):
+    """神里凌华"""
     id: int = 1105
     name: str = "Kamisato Ayaka"
     element_type: ElementType = ElementType.CRYO
@@ -119,6 +140,11 @@ class KamisatoAyaka(CharacterCard):
 
 
 class FrostflakeSekinoTo(AttackSummon):
+    """
+    霜见雪关扉
+    ~~~~~~~~~
+    `召唤物`在结束阶段造成两点`冰元素伤害`，该召唤物可以被使用两次。
+    """
     name: str = "Frostflake Seki no To"
     usages: int = 2
     damage_element: ElementType = ElementType.CRYO
@@ -164,18 +190,18 @@ class KantenSenmyouBlessing(TalentEntity):
             return False
 
         if isinstance(top_msg, PayChangeCharacterCostMsg):
+            # 切凌华花费 -1
             top_msg = cast(PayChangeCharacterCostMsg, top_msg)
             if (
                 self.active
                 and top_msg.sender_id == self.player_id
                 and top_msg.target_pos == self.char_pos
-            ):
-                if top_msg.required_cost[ElementType.ANY] > 0:
-                    top_msg.required_cost[ElementType.ANY] -= 1
-                    updated = True
-                    if not top_msg.simulate:
-                        self.active = False
-                        self.triggered_in_a_round = 1
+            ) and top_msg.required_cost[ElementType.ANY] > 0:
+                top_msg.required_cost[ElementType.ANY] -= 1
+                updated = True
+                if not top_msg.simulate:
+                    self.active = False
+                    self.triggered_in_a_round = 1
 
         elif isinstance(top_msg, RoundEndMsg):
             top_msg = cast(RoundEndMsg, top_msg)
@@ -184,16 +210,19 @@ class KantenSenmyouBlessing(TalentEntity):
             updated = True
 
         elif isinstance(top_msg, DealDamageMsg):
+            # 造成的冰元素伤害 + 1
             top_msg = cast(DealDamageMsg, top_msg)
-            if top_msg.attacker == (self.player_id, self.char_pos):
-                if top_msg.targets[0][2] == ElementType.CRYO:
-                    top_msg.targets[0] = (
-                        top_msg.targets[0][0],
-                        top_msg.targets[0][1],
-                        top_msg.targets[0][2],
-                        top_msg.targets[0][3] + 1,
-                    )
-                    updated = True
+            if (
+                top_msg.attacker == (self.player_id, self.char_pos)
+                and top_msg.targets[0][2] == ElementType.CRYO
+            ):
+                top_msg.targets[0] = (
+                    top_msg.targets[0][0],
+                    top_msg.targets[0][1],
+                    top_msg.targets[0][2],
+                    top_msg.targets[0][3] + 1,
+                )
+                updated = True
 
         if updated:
             top_msg.responded_entities.append(self._uuid)
