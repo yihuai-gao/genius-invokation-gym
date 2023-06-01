@@ -1,0 +1,1022 @@
+<!DOCTYPE html><html><head>
+      <title>&#x4E03;&#x5723;&#x53EC;&#x5524;&#x6E38;&#x620F;&#x89C4;&#x5219;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <style>
+    .element {
+        border: 1px solid #ccc;
+        padding: 5px;
+    }
+
+    .element>.title {
+        font-size: 30px;
+        /* color: #bdf7b2; */
+    }
+
+    .h35:before {
+        height: 35px;
+        width: 35px;
+    }
+
+    .h20:before {
+        height: 20px;
+        width: 20px;
+    }
+
+    .warn {
+        color: #d8a60c;
+        font-weight: bold;
+    }
+
+    .warn:before {
+        background-size: cover;
+        content: "";
+        display: inline-block;
+        vertical-align: text-bottom;
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/UserIcon/warn.png_icon);
+    }
+
+    .piercing {
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .piercing:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/UserIcon/Piercing.png_icon);
+        background-size: cover;
+        content: " ";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .shield{
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .shield:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Shield.webp_icon);
+        background-size: cover;
+        content: " ";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .physical{
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .physical:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Physical.webp_icon);
+        background-size: cover;
+        content: " ";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .text-hydro {
+        color: #568ec6ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .hydro {
+        color: #568ec6ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .hydro:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Hydro.png_icon);
+        background-size: cover;
+        content: " ";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .icon-hydro {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Hydro.png_icon);
+        background-size: cover;
+        display: inline-block;
+        vertical-align: text-bottom;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #80c0ff29;
+        box-shadow: 0px 0px 10px 0px #80c0ff29;
+    }
+
+    .text-pyro {
+        color: #ff9999ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .pyro {
+        color: #ff9999ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .pyro:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Pyro.png_icon);
+        background-size: cover;
+        content: " ";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .icon-pyro {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Pyro.png_icon);
+        background-size: cover;
+        display: inline-block;
+        vertical-align: text-bottom;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #ff999929;
+        box-shadow: 0px 0px 10px 0px #ff999929;
+    }
+
+    .text-geo {
+        color: #7a5d03ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .geo {
+        color: #7a5d03ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .geo:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Geo.png_icon);
+        background-size: cover;
+        content: " ";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .icon-geo {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Geo.png_icon);
+        background-size: cover;
+        display: inline-block;
+        vertical-align: text-bottom;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #ffe69929;
+        box-shadow: 0px 0px 10px 0px #ffe69929;
+    }
+
+    .text-electro {
+        color: #6455a6ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .electro {
+        color: #6455a6ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .electro:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Electro.png_icon);
+        background-size: cover;
+        content: " ";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .icon-electro {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Electro.png_icon);
+        background-size: cover;
+        display: inline-block;
+        vertical-align: text-bottom;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #ffacff29;
+        box-shadow: 0px 0px 10px 0px #ffacff29;
+    }
+
+    .text-cryo {
+        color: #68bfd8ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .cryo {
+        color: #68bfd8ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .cryo:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Cryo.png_icon);
+        background-size: cover;
+        content: " ";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .icon-cryo {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Cryo.png_icon);
+        background-size: cover;
+        display: inline-block;
+        vertical-align: text-bottom;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #99ffff29;
+        box-shadow: 0px 0px 10px 0px #99ffff29;
+    }
+
+    .text-anemo {
+        color: #09bb83ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .anemo {
+        color: #09bb83ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .anemo:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Anemo.png_icon);
+        background-size: cover;
+        content: " ";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .icon-anemo {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Anemo.png_icon);
+        background-size: cover;
+        display: inline-block;
+        vertical-align: text-bottom;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #80ffd729;
+        box-shadow: 0px 0px 10px 0px #80ffd729;
+    }
+
+    .text-dendro {
+        color: #1ba504ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .dendro {
+        color: #1ba504ff;
+        font-weight: bold;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+
+    .dendro:before {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Dendro.png_icon);
+        background-size: cover;
+        content: "";
+        display: inline-block;
+        height: 20px;
+        vertical-align: text-bottom;
+        width: 20px;
+    }
+
+    .icon-dendro {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Dendro.png_icon);
+        background-size: cover;
+        display: inline-block;
+        vertical-align: text-bottom;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #99ff8829;
+        box-shadow: 0px 0px 10px 0px #99ff8829;
+    }
+
+    .cost {
+        font-size: 13px;
+        display: inline-flex;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 20px;
+        height: 20px;
+        line-height: 22px;
+        text-align: center;
+        justify-content: center;
+        color: white;
+        font-weight: 300;
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
+            1px 1px 0 black;
+    }
+
+    .aligned-dice {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Aligned_dice.png_icon);
+    }
+
+    .anemo-dice {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Anemo_dice.png_icon);
+    }
+
+    .electro-dice {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Electro_dice.png_icon);
+    }
+
+    .pyro-dice {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Pyro_dice.png_icon);
+    }
+
+    .cryo-dice {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Cryo_dice.png_icon);
+    }
+
+    .hydro-dice {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Hydro_dice.png_icon);
+    }
+
+    .dendro-dice {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Dendro_dice.png_icon);
+    }
+
+    .geo-dice {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Geo_dice.png_icon);
+    }
+
+    .unaligned-dice {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/unaligned_dice.png_icon);
+    }
+
+    .energy {
+        background-image: url(https://githubimg.ngworks.cn/GeniusInvokationImg/ElementalReaction/Energy.png_icon);
+    }
+</style>
+<h1 class="mume-header" id="%E4%B8%83%E5%9C%A3%E5%8F%AC%E5%94%A4%E6%B8%B8%E6%88%8F%E8%A7%84%E5%88%99">&#x4E03;&#x5723;&#x53EC;&#x5524;&#x6E38;&#x620F;&#x89C4;&#x5219;</h1>
+
+<p>&#x8981;&#x8FDB;&#x884C;&#x5F3A;&#x5316;&#x5B66;&#x4E60;&#xFF0C;&#x9996;&#x5148;&#x5F00;&#x53D1;&#x8005;&#x5FC5;&#x987B;&#x77E5;&#x9053;&#x4F55;&#x4E3A;&#x4E03;&#x5723;&#x53EC;&#x5524;&#xFF0C;&#x6E38;&#x620F;&#x5982;&#x4F55;&#x8FDB;&#x884C;&#xFF0C;&#x6709;&#x4EC0;&#x4E48;&#x5361;&#x724C;&#xFF0C;&#x4EC0;&#x4E48;&#x73AF;&#x8282;&#xFF0C;&#x8FD9;&#x90FD;&#x5BF9;&#x5F00;&#x53D1;&#x6709;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x7684;&#x5E2E;&#x52A9;&#x3002;</p>
+<blockquote>
+<p>&#x672C;&#x6587;&#x4E0D;&#x4F1A;&#x53BB;&#x7279;&#x522B;&#x7684;&#x5F3A;&#x8C03;&#x5361;&#x724C;&#x5982;&#x4F55;&#x83B7;&#x5F97;&#x3001;&#x5982;&#x4F55;&#x63D0;&#x5347;&#x724C;&#x624B;&#x7B49;&#x7EA7;&#x7B49;&#x76F8;&#x5173;&#x524D;&#x7F6E;&#x6761;&#x4EF6;&#xFF0C;&#x672C;&#x6587;<strong>&#x5047;&#x5B9A;&#x8BFB;&#x8005;&#x5DF2;&#x7ECF;&#x83B7;&#x5F97;&#x4E86;&#x5168;&#x90E8;&#x7684;&#x5361;&#x724C;&#xFF0C;&#x5E76;&#x4E14;&#x724C;&#x624B;&#x7ECF;&#x9A8C;&#x5DF2;&#x7ECF; 10 &#x7EA7;</strong>&#x3002;</p>
+</blockquote>
+<h2 class="mume-header" id="%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%83%E5%9C%A3%E5%8F%AC%E5%94%A4">&#x4EC0;&#x4E48;&#x662F;&#x4E03;&#x5723;&#x53EC;&#x5524;</h2>
+
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/banner.png_icon" alt="&#x901A;&#x8FC7;&#x5730;&#x56FE;&#x67E5;&#x770B;&#x724C;&#x624B;"></p>
+<p>&#x4E03;&#x5723;&#x53EC;&#x5524;&#xFF0C;&#x662F;&#x7C73;&#x54C8;&#x6E38;&#x51FA;&#x54C1;&#x7684;&#x6E38;&#x620F;&#x300A;&#x539F;&#x795E;&#x300B;&#x4E2D;&#x7684;&#x5361;&#x724C;&#x7C7B;&#x684C;&#x9762;&#x5BF9;&#x6218;&#x6E38;&#x620F;&#xFF0C;&#x8BBE;&#x5B9A;&#x4E0A;&#x662F;&#x7531;&#x6559;&#x4EE4;&#x9662;&#x7814;&#x53D1;&#x7684;&#x98CE;&#x9761;&#x63D0;&#x74E6;&#x7279;&#x5927;&#x9646;&#x7684;&#x684C;&#x9762;&#x5361;&#x724C;&#x6E38;&#x620F;&#x3002;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x4E8E; 3.3 &#x7248;&#x672C;&#x6B63;&#x5F0F;&#x4E0A;&#x7EBF;&#x3002;</p>
+<h2 class="mume-header" id="%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1">&#x6E38;&#x620F;&#x5BF9;&#x8C61;</h2>
+
+<p>&#x5728;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x4E2D;&#xFF0C;&#x6709; PVP &#x4E0E; PVE &#x4E24;&#x79CD;&#x6A21;&#x5F0F;&#x3002;&#x73A9;&#x5BB6;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x724C;&#x7EC4;&#xFF08;&#x6709;&#x4E9B;&#x6D3B;&#x52A8;&#x6307;&#x5B9A;&#x724C;&#x7EC4;&#xFF09;&#x5411; NPC &#x548C;&#x771F;&#x4EBA;&#x73A9;&#x5BB6;&#x8FDB;&#x884C;&#x6E38;&#x620F;&#x3002;</p>
+<ul>
+<li>&#x5BFB;&#x627E;&#x5927;&#x4E16;&#x754C;&#x4E2D;&#x7684;&#x724C;&#x624B;&#xFF0C;&#x6216;&#x4E0E;&#x732B;&#x5C3E;&#x9152;&#x9986;&#x4E2D;<code>&#x6BCF;&#x5468;&#x6765;&#x5BA2;</code>&#x8FDB;&#x884C;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x7684;&#x5BF9;&#x5C40;&#xFF0C;&#x5373;&#x53EF;&#x83B7;&#x5F97;&#x300C;&#x724C;&#x624B;&#x7ECF;&#x9A8C;&#x300D;&#x548C;&#x300C;&#x5E78;&#x8FD0;&#x724C;&#x5E01;&#x300D;&#x3002;(PVE)</li>
+<li>&#x5411;&#x724C;&#x624B;&#x540D;&#x5F55;&#x4E2D;&#x7684;&#x724C;&#x624B;&#x53D1;&#x9001;<code>&#x5BF9;&#x5C40;&#x9080;&#x8BF7;&#x51FD;</code>&#xFF0C;&#x53EF;&#x4EE5;&#x4E0E;&#x4ED6;&#x4EEC;&#x8FDB;&#x884C;<code>&#x9080;&#x7EA6;&#x5BF9;&#x5C40;</code>&#x3002;&#x5728;&#x9080;&#x7EA6;&#x5BF9;&#x5C40;&#x4E2D;&#x83B7;&#x5F97;&#x80DC;&#x5229;&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x89D2;&#x8272;&#x724C;&#x53CA;&#x5176;&#x5929;&#x8D4B;&#x724C;&#x3002;(PVE)</li>
+<li>&#x901A;&#x8FC7;&#x9080;&#x8BF7;&#x677F;&#xFF0C;&#x9080;&#x8BF7;&#x8054;&#x673A;&#x72B6;&#x6001;&#x4E0B;&#x7684;&#x597D;&#x53CB;&#x8FDB;&#x884C;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x5BF9;&#x5C40;&#x3002;&#x5F53;&#x724C;&#x624B;&#x7B49;&#x7EA7;&#x8FBE;&#x5230; 4 &#x7EA7;&#x540E;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x8FDC;&#x65B9;&#x7684;&#x964C;&#x751F;&#x724C;&#x624B;&#x8FDB;&#x884C;&#x5BF9;&#x5C40;&#x3002;(PVP)</li>
+</ul>
+<h3 class="mume-header" id="%E5%A4%A7%E4%B8%96%E7%95%8C%E7%9A%84%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1">&#x5927;&#x4E16;&#x754C;&#x7684;&#x6E38;&#x620F;&#x5BF9;&#x8C61;</h3>
+
+<p>&#x5728;&#x5927;&#x4E16;&#x754C;&#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x6311;&#x6218;&#x7684;&#x5BF9;&#x624B;&#xFF08;&#x90E8;&#x5206;&#x6D3B;&#x52A8;&#x9664;&#x5916;&#xFF09;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5DE6;&#x4E0B;&#x89D2;<code>&#x5BFB;&#x627E;&#x724C;&#x624B;</code>&#x5F00;&#x5173;&#x6765;&#x67E5;&#x770B;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x6E38;&#x620F;&#x7684;&#x724C;&#x624B;&#x5C06;&#x4F1A;&#x4EE5;&#x84DD;&#x8272;&#x5361;&#x724C;&#x56FE;&#x6807;&#x663E;&#x793A;&#x3002;</p>
+<p>&#x84DD;&#x8272;&#x5361;&#x724C;&#x56FE;&#x6807;&#x7684;&#x53F3;&#x4E0B;&#x89D2;&#x6709;&#x5706;&#x5708;&#x5185;&#x5BF9;&#x52FE;&#x7684;&#x6807;&#x8BC6;&#x56FE;&#x6807;&#xFF08;&#x4E0B;&#x79F0;&#x8868;&#x793A;&#x56FE;&#x6807;&#xFF09;&#xFF0C;&#x5982;&#x679C;&#x8BE5;&#x724C;&#x624B;&#x672A;&#x7ECF;&#x8FC7;&#x6311;&#x6218;&#xFF0C;&#x5219;&#x4E0D;&#x663E;&#x793A;&#x6807;&#x8BC6;&#x56FE;&#x6807;&#x3002;&#x5982;&#x6311;&#x6218;&#x76EE;&#x6807;&#x672A;&#x5B8C;&#x6210;&#x6216;&#x662F;&#x8BE5;&#x724C;&#x624B;&#x8FD8;&#x6709;&#x5176;&#x4ED6;&#x5BF9;&#x5C40;&#x65F6;&#xFF0C;&#x6807;&#x8BC6;&#x56FE;&#x6807;&#x4E3A;&#x84DD;&#x8272;&#xFF0C;&#x82E5;&#x8BE5;&#x724C;&#x624B;&#x6240;&#x6709;&#x5BF9;&#x5C40;&#x5DF2;&#x5B8C;&#x6210;&#xFF0C;&#x5E76;&#x4E14;&#x6311;&#x6218;&#x76EE;&#x6807;&#x5747;&#x5DF2;&#x5B8C;&#x6210;&#xFF0C;&#x6807;&#x8BC6;&#x56FE;&#x6807;&#x4E3A;&#x7EFF;&#x8272;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameObject/%E9%80%9A%E8%BF%87%E5%9C%B0%E5%9B%BE%E6%9F%A5%E7%9C%8B%E7%89%8C%E6%89%8B.png_github" alt="&#x901A;&#x8FC7;&#x5730;&#x56FE;&#x67E5;&#x770B;&#x724C;&#x624B;"></p>
+<h4 class="mume-header" id="%E5%86%92%E9%99%A9%E6%8C%91%E6%88%98">&#x5192;&#x9669;&#x6311;&#x6218;</h4>
+
+<p><code>&#x5192;&#x9669;&#x6311;&#x6218;</code>&#x662F;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x724C;&#x7EC4;&#x4E0E; NPC &#x8FDB;&#x884C;&#x6E38;&#x620F;&#xFF0C;&#x73A9;&#x5BB6;&#x83B7;&#x80DC;&#x540E;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x4E00;&#x5B9A;&#x7684;&#x5956;&#x52B1;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameObject/%E5%A4%A7%E4%B8%96%E7%95%8C%E5%86%92%E9%99%A9%E6%8C%91%E6%88%98.png_github" alt="&#x5192;&#x9669;&#x6311;&#x6218;"><br>
+&#x5B8C;&#x6210;<code>&#x5192;&#x9669;&#x6311;&#x6218;</code>&#xFF0C;&#x662F;&#x83B7;&#x53D6;<code>&#x724C;&#x624B;&#x7ECF;&#x9A8C;</code>&#x548C;<code>&#x5E78;&#x8FD0;&#x724C;&#x5E01;</code>&#x7684;&#x9014;&#x5F84;&#x4E4B;&#x4E00;&#x3002;&#x73A9;&#x5BB6;&#x4E0E; NPC &#x724C;&#x624B;&#x8FDB;&#x884C;&#x6E38;&#x620F;&#xFF0C;&#x5E76;&#x4E14;&#x5B8C;&#x6210;&#x76F8;&#x5E94;&#x7684;&#x6311;&#x6218;&#x76EE;&#x6807;&#x540E;&#xFF08;&#x901A;&#x5E38;&#x662F;&#x4E09;&#x6321;&#xFF09;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x5BF9;&#x5E94;&#x6321;&#x4F4D;&#x7684;&#x5956;&#x52B1;&#x3002;<br>
+&#x6709;&#x65F6;&#x5B8C;&#x6210;<code>&#x5192;&#x9669;&#x6311;&#x6218;</code>&#x7684;&#x6311;&#x6218;&#x76EE;&#x6807;&#x4F1A;&#x6709;<code>&#x5361;&#x724C;</code>&#x4F5C;&#x4E3A;&#x5956;&#x52B1;&#x3002;</p>
+<h4 class="mume-header" id="%E5%86%B3%E6%96%97%E5%AF%B9%E5%B1%80">&#x51B3;&#x6597;&#x5BF9;&#x5C40;</h4>
+
+<p><code>&#x51B3;&#x6597;&#x5BF9;&#x5C40;</code>&#x4E0E;<code>&#x5192;&#x9669;&#x6311;&#x6218;</code>&#x4E00;&#x6837;&#xFF0C;&#x4E5F;&#x662F;&#x540C; NPC &#x724C;&#x624B;&#x8FDB;&#x884C;&#x6E38;&#x620F;&#xFF0C;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x7684;&#x5956;&#x52B1;&#x4E0E;<code>&#x5192;&#x9669;&#x6311;&#x6218;</code>&#x4E00;&#x81F4;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameObject/%E5%A4%A7%E4%B8%96%E7%95%8C%E5%86%B3%E6%96%97%E5%AF%B9%E5%B1%80.png_github" alt="&#x51B3;&#x6597;&#x5BF9;&#x5C40;"></p>
+<h3 class="mume-header" id="%E9%85%92%E9%A6%86%E4%B8%AD%E7%9A%84%E6%B8%B8%E6%88%8F%E5%AF%B9%E8%B1%A1">&#x9152;&#x9986;&#x4E2D;&#x7684;&#x6E38;&#x620F;&#x5BF9;&#x8C61;</h3>
+
+<p>&#x732B;&#x5C3E;&#x9152;&#x9986;&#xFF0C;&#x662F;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x91CD;&#x8981;&#x7684;&#x529F;&#x80FD;&#x533A;&#x57DF;&#xFF0C;&#x5728;&#x8FD9;&#x91CC;&#x73A9;&#x5BB6;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x89D2;&#x8272;&#x7684;<code>&#x9080;&#x7EA6;&#x5BF9;&#x5C40;</code>&#x3001;&#x4E0E;&#x771F;&#x4EBA;&#x73A9;&#x5BB6;&#x5BF9;&#x6218;&#x7684;<code>&#x80DC;&#x51A0;&#x4E4B;&#x8BD5;</code>&#x4E0E;<code>&#x8054;&#x673A;&#x5BF9;&#x5C40;</code>&#x3001;&#x6BCF;&#x5468;&#x5237;&#x65B0;&#x7684;<code>&#x6765;&#x5BA2;&#x6311;&#x6218;</code>&#x3001;&#x83B7;&#x5F97;&#x602A;&#x7269;&#x89D2;&#x8272;&#x5361;&#x724C;&#x7684;<code>&#x9152;&#x9986;&#x724C;&#x5C40;&#x6311;&#x6218;</code>&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/CatsTailTavern.png_github" alt="&#x732B;&#x5C3E;&#x9152;&#x9986;"></p>
+<p>&#x4E0E;&#x5927;&#x4E16;&#x754C;&#x4E0D;&#x540C;&#xFF0C;&#x732B;&#x5C3E;&#x9152;&#x9986;&#x4E2D;&#x53EF;&#x4EE5;&#x6311;&#x6218;&#x7684;&#x5BF9;&#x624B;&#x76F4;&#x63A5;&#x4EE5;&#x84DD;&#x8272;&#x5361;&#x724C;&#x56FE;&#x6807;&#x663E;&#x793A;&#xFF0C;&#x5F53;&#x5B8C;&#x6210;&#x4E0E;&#x8BE5;&#x5BF9;&#x624B;&#x7684;&#x6311;&#x6218;&#x540E;&#xFF0C;&#x84DD;&#x8272;&#x5361;&#x724C;&#x56FE;&#x6807;&#x5C06;&#x4F1A;&#x6D88;&#x5931;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/CatsTailTavernMap.png_github" alt="&#x732B;&#x5C3E;&#x9152;&#x9986;&#x5730;&#x56FE;"></p>
+<h4 class="mume-header" id="%E6%9D%A5%E5%AE%A2%E6%8C%91%E6%88%98">&#x6765;&#x5BA2;&#x6311;&#x6218;</h4>
+
+<p><code>&#x6765;&#x5BA2;&#x6311;&#x6218;</code>&#x662F;&#x4F7F;&#x7528;&#x81EA;&#x5B9A;&#x4E49;&#x724C;&#x7EC4;&#x4E0E; NPC &#x8FDB;&#x884C;&#x6E38;&#x620F;&#xFF0C;&#x73A9;&#x5BB6;&#x83B7;&#x80DC;&#x540E;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x4E00;&#x5B9A;&#x7684;&#x5956;&#x52B1;&#x3002;&#x6765;&#x5BA2;&#x6311;&#x6218;&#x4E00;&#x5171;&#x6709;&#x56DB;&#x4E2A;&#xFF0C;&#x6BCF;&#x5468;&#x5237;&#x65B0;&#x4E00;&#x6B21;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameObject/%E6%9D%A5%E5%AE%A2%E6%8C%91%E6%88%98.png_github" alt="&#x6765;&#x5BA2;&#x6311;&#x6218;"></p>
+<p>&#x5B8C;&#x6210;<code>&#x6765;&#x5BA2;&#x6311;&#x6218;</code>&#xFF0C;&#x662F;&#x83B7;&#x53D6;<code>&#x724C;&#x624B;&#x7ECF;&#x9A8C;</code>&#x548C;<code>&#x5E78;&#x8FD0;&#x724C;&#x5E01;</code>&#x7684;&#x9014;&#x5F84;&#x4E4B;&#x4E00;&#x3002;</p>
+<h4 class="mume-header" id="%E9%82%80%E7%BA%A6%E5%AF%B9%E5%B1%80">&#x9080;&#x7EA6;&#x5BF9;&#x5C40;</h4>
+
+<p><code>&#x9080;&#x7EA6;&#x5BF9;&#x5C40;</code>&#x662F;&#x901A;&#x8FC7;&#x6D88;&#x8017;<code>&#x5BF9;&#x5C40;&#x9080;&#x8BF7;&#x51FD;</code>&#x5411;&#x724C;&#x624B;&#x540D;&#x5F55;&#x4E2D;&#x7684;&#x724C;&#x624B;&#x53D1;&#x9001;&#x5BF9;&#x5C40;&#x9080;&#x8BF7;&#xFF0C;&#x53EF;&#x4EE5;&#x4E0E;&#x4ED6;&#x4EEC;&#x8FDB;&#x884C;<code>&#x9080;&#x7EA6;&#x5BF9;&#x5C40;</code>&#x3002;&#x5728;&#x9080;&#x7EA6;&#x5BF9;&#x5C40;&#x4E2D;&#x83B7;&#x5F97;&#x80DC;&#x5229;&#xFF0C;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x76F8;&#x5E94;&#x7684;&#x89D2;&#x8272;&#x724C;&#x53CA;&#x5176;&#x5929;&#x8D4B;&#x724C;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameObject/%E7%89%8C%E6%89%8B%E5%90%8D%E5%BD%95.png_github" alt="&#x724C;&#x624B;&#x540D;&#x5F55;"><br>
+<code>&#x9080;&#x7EA6;&#x5BF9;&#x5C40;</code>&#x4E5F;&#x8BBE;&#x6709;&#x5BF9;&#x5E94;&#x7684;&#x6311;&#x6218;&#x76EE;&#x6807;&#x540E;&#xFF08;&#x901A;&#x5E38;&#x662F;&#x4E09;&#x6321;&#xFF09;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x5BF9;&#x5E94;&#x6321;&#x4F4D;&#x7684;&#x5956;&#x52B1;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameObject/%E9%82%80%E7%BA%A6%E5%AF%B9%E5%B1%80.png_github" alt="&#x9080;&#x7EA6;&#x5BF9;&#x5C40;"></p>
+<h4 class="mume-header" id="%E8%81%94%E6%9C%BA%E5%AF%B9%E5%B1%80">&#x8054;&#x673A;&#x5BF9;&#x5C40;</h4>
+
+<p><code>&#x8054;&#x673A;&#x5BF9;&#x5C40;</code>&#x662F;&#x901A;&#x8FC7;&#x9080;&#x8BF7;&#x677F;&#xFF0C;&#x9080;&#x8BF7;&#x8054;&#x673A;&#x72B6;&#x6001;&#x4E0B;&#x7684;&#x597D;&#x53CB;&#x8FDB;&#x884C;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x5BF9;&#x5C40;&#x3002;&#x5F53;&#x724C;&#x624B;&#x7B49;&#x7EA7;&#x8FBE;&#x5230; 4 &#x7EA7;&#x540E;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5339;&#x914D;&#x8FDC;&#x65B9;&#x7684;&#x964C;&#x751F;&#x724C;&#x624B;&#x8FDB;&#x884C;&#x5BF9;&#x5C40;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameObject/%E8%81%94%E6%9C%BA%E5%AF%B9%E5%B1%80.png_github" alt="&#x8054;&#x673A;&#x5BF9;&#x5C40;"></p>
+<h4 class="mume-header" id="%E8%83%9C%E5%86%A0%E4%B9%8B%E8%AF%95">&#x80DC;&#x51A0;&#x4E4B;&#x8BD5;</h4>
+
+<p><code>&#x80DC;&#x51A0;&#x4E4B;&#x8BD5;</code>&#x5B9A;&#x671F;&#x5F00;&#x653E; PVP &#x7279;&#x6B8A;&#x6311;&#x6218;&#xFF0C;&#x6BCF;&#x6708; 1&#x3001;16 &#x65E5;&#x5237;&#x65B0;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameObject/%E8%83%9C%E5%86%A0%E4%B9%8B%E8%AF%95.png_github" alt="&#x80DC;&#x51A0;&#x4E4B;&#x8BD5;"></p>
+<h4 class="mume-header" id="%E9%85%92%E9%A6%86%E7%89%8C%E5%B1%80%E6%8C%91%E6%88%98">&#x9152;&#x9986;&#x724C;&#x5C40;&#x6311;&#x6218;</h4>
+
+<p>&#x9664;&#x8FC7;<code>&#x9080;&#x7EA6;&#x5BF9;&#x5C40;</code>&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x89D2;&#x8272;&#x5361;&#x5916;&#xFF0C;<code>&#x9152;&#x9986;&#x724C;&#x5C40;&#x6311;&#x6218;</code>&#x4E5F;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x602A;&#x7269;&#x89D2;&#x8272;&#x5361;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameObject/%E9%85%92%E9%A6%86%E7%89%8C%E5%B1%80%E6%8C%91%E6%88%98.png_github" alt="&#x9152;&#x9986;&#x724C;&#x5C40;&#x6311;&#x6218;"></p>
+<h2 class="mume-header" id="span-classwarn-h35%E8%A7%84%E8%8C%83%E5%8C%96%E8%AF%AD%E8%A8%80span"><span class="warn h35">&#x89C4;&#x8303;&#x5316;&#x8BED;&#x8A00;</span></h2>
+
+<blockquote>
+<p>&#x51E1;&#x662F;&#x4EE5;<span class="warn h20">&#x7A81;&#x51FA;&#x663E;&#x793A;</span>&#x6807;&#x8BB0;&#x7684;&#x7AE0;&#x8282;&#x5747;&#x4E3A;&#x91CD;&#x8981;&#x5185;&#x5BB9;&#xFF0C;&#x5982;&#x679C;&#x8DF3;&#x8FC7;&#x6B64;&#x7AE0;&#xFF0C;&#x53EF;&#x80FD;&#x5BFC;&#x81F4;&#x5BF9;&#x6587;&#x7AE0;&#x7684;&#x542B;&#x4E49;&#x7406;&#x89E3;&#x9519;&#x8BEF;&#x3002;</p>
+</blockquote>
+<p>&#x672C;&#x8282;&#x63CF;&#x8FF0;&#x4E86;&#x4E00;&#x4E9B;&#x5E38;&#x89C1;&#x7684;&#x8BCD;&#x6C47;&#xFF0C;&#x8FD9;&#x5C06;&#x65B9;&#x4FBF;&#x9605;&#x8BFB;&#x548C;&#x7406;&#x89E3;&#x672C;&#x6587;&#x3002;</p>
+<h3 class="mume-header" id="%E7%8A%B6%E6%80%81">&#x72B6;&#x6001;</h3>
+
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E5%9C%A8%E5%86%BB%E7%BB%93%E7%8A%B6%E6%80%81%E4%B8%8B%E9%81%AD%E5%8F%97%E7%81%AB%E5%85%83%E7%B4%A0%E6%94%BB%E5%87%BB.png_github" alt="&#x5728;&#x51BB;&#x7ED3;&#x72B6;&#x6001;&#x4E0B;&#x906D;&#x53D7;&#x706B;&#x5143;&#x7D20;&#x653B;&#x51FB;"></p>
+<p>&#x72B6;&#x6001;&#xFF0C;&#x662F;<strong>&#x89D2;&#x8272;&#x72B6;&#x6001;</strong>&#x548C;<strong>&#x9635;&#x8425;&#x51FA;&#x6218;&#x72B6;&#x6001;</strong>&#x7684;&#x7EDF;&#x79F0;&#x3002;&#x4F4D;&#x4E8E;&#x89D2;&#x8272;&#x5361;&#x724C;&#x7684;&#x5E95;&#x90E8;&#x7684;&#x5C0F;&#x56FE;&#x6807;&#xFF0C;&#x5C0F;&#x56FE;&#x6807;&#x53F3;&#x4E0B;&#x89D2;&#x6709;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7684;&#x6B21;&#x6570;&#x3002;</p>
+<div class="element">
+    <div class="title">&#x89D2;&#x8272;&#x72B6;&#x6001;</div>
+    <div class="desc">&#x89D2;&#x8272;&#x72B6;&#x6001;&#x662F;&#x9644;&#x5C5E;&#x5728;&#x89D2;&#x8272;&#x5361;&#x724C;&#x4E0A;&#x7684;&#x4E00;&#x79CD;&#x72B6;&#x6001;&#x3002;</div>
+</div>
+<p>&#x89D2;&#x8272;&#x72B6;&#x6001;&#x662F;&#x9644;&#x5C5E;&#x5728;&#x89D2;&#x8272;&#x5361;&#x724C;&#x4E0A;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5982;&#x4E0A;&#x56FE;<span class="text-pyro">&#x80E1;&#x6843;</span>&#x5361;&#x724C;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x5143;&#x7D20;&#x6218;&#x6280;<span class="pyro-dice cost">2</span><span class="text-pyro">&#x8776;&#x5F15;&#x6765;&#x751F;</span>&#x540E;&#xFF0C;&#x6280;&#x80FD;&#x6548;&#x679C;&#x4F1A;&#x4E3A;<span class="text-pyro">&#x80E1;&#x6843;</span>&#xFF08;&#x4E5F;&#x5C31;&#x662F;&#x6280;&#x80FD;&#x63CF;&#x8FF0;&#x4E2D;&#x7684;&#x672C;&#x89D2;&#x8272;&#xFF09;&#x9644;&#x5C5E;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E24;&#x6B21;&#x7684;<strong>&#x5F7C;&#x5CB8;&#x8776;&#x821E;</strong>&#x72B6;&#x6001;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5361;&#x724C;&#x5E95;&#x7AEF;&#x5185;&#x4FA7;&#xFF08;&#x5361;&#x724C;&#x91CC;&#x9762;&#xFF09;&#x4F1A;&#x51FA;&#x73B0;&#x201C;&#x4F24;&#x5BB3;&#x63D0;&#x5347;&#x201D;&#x7684;&#x56FE;&#x6807;&#x3002;</p>
+<blockquote>
+<p>&#x89D2;&#x8272;&#x72B6;&#x6001;&#xFF0C;&#x5728;&#x5B98;&#x65B9; wiki &#x4E2D;&#x4E00;&#x822C;&#x88AB;&#x79F0;&#x4E4B;&#x4E3A;&#x201C;&#x72B6;&#x6001;&#x201D;&#xFF0C;&#x8BF7;&#x4E0E;&#x672C;&#x6587;&#x4E2D;&#x7684;<strong>&#x72B6;&#x6001;</strong>&#x8FDB;&#x884C;&#x533A;&#x5206;&#x3002;</p>
+</blockquote>
+<div class="element">
+    <div class="title">&#x9635;&#x8425;&#x51FA;&#x6218;&#x72B6;&#x6001;</div>
+    <div class="desc">&#x9635;&#x8425;&#x51FA;&#x6218;&#x72B6;&#x6001;&#x662F;&#x6574;&#x4E2A;&#x9635;&#x8425;&#x6DFB;&#x52A0;&#x7684;&#x4E00;&#x79CD;&#x72B6;&#x6001;&#x3002;</div>
+</div>
+<p>&#x9635;&#x8425;&#x51FA;&#x6218;&#x72B6;&#x6001;&#x662F;&#x6574;&#x4E2A;&#x9635;&#x8425;&#x6DFB;&#x52A0;&#x7684;&#x4E00;&#x79CD;&#x72B6;&#x6001;&#xFF0C;&#x548C;<strong>&#x89D2;&#x8272;&#x72B6;&#x6001;</strong>&#x4E0D;&#x540C;&#x7684;&#x662F;<strong>&#x9635;&#x8425;&#x51FA;&#x6218;&#x72B6;&#x6001;</strong>&#x4F1A;&#x968F;&#x7740;&#x51FA;&#x6218;&#x89D2;&#x8272;&#x7684;&#x5207;&#x6362;&#x800C;&#x8F6C;&#x79FB;&#xFF0C;&#x5982;&#x4E0A;&#x56FE;<span class="text-pyro">&#x80E1;&#x6843;</span>&#x5361;&#x724C;&#xFF0C;&#x5728;&#x5176;&#x5E95;&#x7AEF;&#x5916;&#x4FA7;&#xFF08;&#x5361;&#x724C;&#x5916;&#x9762;&#xFF09;&#x4F1A;&#x51FA;&#x73B0;&#x201C;&#x62A4;&#x76FE;&#x201D;&#x56FE;&#x6807;&#x3002;&#x8FD9;&#x662F;&#x4E0A;&#x4E00;&#x4E2A;&#x51FA;&#x6218;&#x89D2;&#x8272;<span class="text-cryo">&#x7518;&#x96E8;</span>&#x4F7F;&#x7528;&#x4E86;&#x5143;&#x7D20;&#x6218;&#x6280;<span class="cryo-dice cost">3</span><span class="text-cryo">&#x5C71;&#x6CFD;&#x9E9F;&#x8FF9;</span>&#x4EA7;&#x751F;&#x7684;&#x6548;&#x679C;&#xFF0C;&#x751F;&#x6210;&#x4E86;&#x9635;&#x8425;&#x51FA;&#x6218;&#x72B6;&#x6001;<strong>&#x51B0;&#x83B2;</strong>&#x3002;</p>
+<blockquote>
+<p>&#x9635;&#x8425;&#x51FA;&#x6218;&#x72B6;&#x6001;&#xFF0C;&#x5728;&#x5B98;&#x65B9; wiki &#x4E2D;&#x4E00;&#x822C;&#x88AB;&#x79F0;&#x4E4B;&#x4E3A;&#x201C;&#x51FA;&#x6218;&#x72B6;&#x6001;&#x201D;&#x3002;</p>
+</blockquote>
+<p><span class="warn h20">&#x5173;&#x4E8E;&#x63CF;&#x8FF0;&#x72B6;&#x6001;&#x7684;&#x4EA7;&#x751F;&#xFF1A;&#x4E3A;&#x89D2;&#x8272;&#x6DFB;&#x52A0;&#x89D2;&#x8272;&#x72B6;&#x6001;&#x7684;&#x52A8;&#x4F5C;&#xFF0C;&#x5C06;&#x5176;&#x79F0;&#x4E3A;<strong>&#x9644;&#x5C5E;</strong>&#x3002;&#x4E3A;&#x9635;&#x8425;&#x6DFB;&#x52A0;&#x9635;&#x8425;&#x51FA;&#x6218;&#x72B6;&#x6001;&#x7684;&#x52A8;&#x4F5C;&#xFF0C;&#x5C06;&#x5176;&#x79F0;&#x4E3A;<strong>&#x751F;&#x6210;</strong>&#x3002;</span></p>
+<h3 class="mume-header" id="%E5%8F%AC%E5%94%A4%E7%89%A9">&#x53EC;&#x5524;&#x7269;</h3>
+
+<div class="element">
+    <div class="title">&#x53EC;&#x5524;&#x7269;</div>
+    <div class="desc">&#x53EC;&#x5524;&#x7269;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x89D2;&#x8272;&#x4F7F;&#x7528;&#x6280;&#x80FD;&#xFF0C;&#x4F9D;&#x636E;&#x6280;&#x80FD;&#x6548;&#x679C;&#x53EC;&#x5524;&#x751F;&#x6210;&#x7684;&#x534F;&#x52A9;&#x4F5C;&#x6218;&#x5355;&#x4F4D;&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E5%8F%AC%E5%94%A4%E7%89%A9.png_github" alt="&#x53EC;&#x5524;&#x7269;"></p>
+<p>&#x53EC;&#x5524;&#x7269;&#xFF0C;&#x4E00;&#x822C;&#x662F;&#x89D2;&#x8272;&#x4F7F;&#x7528;&#x6280;&#x80FD;&#xFF0C;&#x4F9D;&#x636E;&#x6280;&#x80FD;&#x6548;&#x679C;&#x53EC;&#x5524;&#x751F;&#x6210;&#x7684;&#x534F;&#x52A9;&#x4F5C;&#x6218;&#x5355;&#x4F4D;&#x3002;&#x53EC;&#x5524;&#x7269;&#x5982;&#x4E0A;&#x56FE;&#xFF0C;&#x4F4D;&#x4E8E;&#x5C4F;&#x5E55;&#x53F3;&#x4FA7;&#x3002;&#x5176;&#x5DE6;&#x4E0B;&#x89D2;&#x662F;&#x53EC;&#x5524;&#x7269;&#x7684;&#x4F24;&#x5BB3;&#x503C;&#x6216;&#x8005;&#x6CBB;&#x7597;&#x91CF;&#xFF0C;&#x53F3;&#x4E0A;&#x89D2;&#x662F;&#x8BE5;&#x53EC;&#x5524;&#x7269;&#x8FD8;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x51E0;&#x6B21;&#x3002;</p>
+<p><span class="warn h20">&#x5173;&#x4E8E;&#x63CF;&#x8FF0;&#x53EC;&#x5524;&#x7269;&#x7684;&#x4EA7;&#x751F;&#x3002;&#x901A;&#x8FC7;&#x89D2;&#x8272;&#x6280;&#x80FD;&#x4EA7;&#x751F;&#x7684;&#xFF0C;&#x5C06;&#x5176;&#x79F0;&#x4E3A;<strong>&#x53EC;&#x5524;</strong>&#x3002;&#x901A;&#x8FC7;<strong>&#x5143;&#x7D20;&#x53CD;&#x5E94;</strong>&#x4EA7;&#x751F;&#x7684;&#xFF0C;&#x5C06;&#x5176;&#x79F0;&#x4E3A;<strong>&#x751F;&#x6210;</strong>&#x3002;</span></p>
+<blockquote>
+<p>&#x622A;&#x81F3;&#x76EE;&#x524D;&#xFF0C;&#x901A;&#x8FC7;&#x71C3;&#x70E7;&#x53CD;&#x5E94;&#x53EF;&#x4EE5;&#x751F;&#x6210;<strong>&#x71C3;&#x70E7;&#x70C8;&#x7130;</strong>&#x53EC;&#x5524;&#x7269;&#x3002;&#x76EE;&#x524D;&#x4EC5;&#x6709;&#x8BE5;&#x53EC;&#x5524;&#x7269;&#x7684;&#x4EA7;&#x751F;&#x52A8;&#x4F5C;&#x4F7F;&#x7528;<strong>&#x751F;&#x6210;</strong>&#x63CF;&#x8FF0;&#x3002;</p>
+</blockquote>
+<h3 class="mume-header" id="%E5%87%BB%E5%80%92">&#x51FB;&#x5012;</h3>
+
+<div class="element">
+    <div class="title">&#x51FB;&#x5012;</div>
+    <div class="desc">&#x89D2;&#x8272;&#x7684;&#x751F;&#x547D;&#x503C;&#x88AB;&#x964D;&#x81F3;0&#x65F6;&#xFF0C;&#x89D2;&#x8272;&#x88AB;&#x51FB;&#x5012;&#x3002;</div>
+</div>
+<p>&#x5F53;&#x89D2;&#x8272;&#x88AB;&#x51FB;&#x5012;&#x65F6;&#xFF0C;&#x89D2;&#x8272;&#x6240;&#x9644;&#x5C5E;&#x7684;&#x88C5;&#x5907;&#x548C;&#x72B6;&#x6001;&#x4F1A;&#x88AB;&#x5F03;&#x7F6E;&#xFF0C;&#x5145;&#x80FD;&#x4E5F;&#x4F1A;&#x88AB;&#x6E05;&#x7A7A;&#x3002;</p>
+<blockquote>
+<p>&#x4E00;&#x4E9B;&#x72B6;&#x6001;&#x4E2D;&#x5305;&#x542B;<strong>&#x514D;&#x4E8E;&#x88AB;&#x51FB;&#x5012;</strong>&#x7684;&#x6548;&#x679C;&#xFF0C;&#x5176;&#x53EF;&#x4EE5;&#x5728;&#x89D2;&#x8272;&#x5C06;&#x88AB;&#x51FB;&#x5012;&#x65F6;&#x53D1;&#x6325;&#x4F5C;&#x7528;&#x3002;</p>
+</blockquote>
+<p><span class="warn h20"><strong>&#x514D;&#x4E8E;&#x88AB;&#x51FB;&#x5012;</strong>&#x6548;&#x679C;&#x53D1;&#x6325;&#x65F6;&#xFF0C;&#x89D2;&#x8272;&#x4E0D;&#x89C6;&#x4E3A;&#x88AB;&#x51FB;&#x5012;&#x8FC7;&#x3002;&#x89D2;&#x8272;&#x6240;&#x9644;&#x5C5E;&#x7684;&#x88C5;&#x5907;&#x548C;&#x72B6;&#x6001;&#x4E0D;&#x4F1A;&#x88AB;&#x5F03;&#x7F6E;&#xFF0C;&#x5145;&#x80FD;&#x4E5F;&#x4E0D;&#x4F1A;&#x88AB;&#x6E05;&#x7A7A;&#x3002;</span></p>
+<p><span class="text-pyro">&#x6DF1;&#x6E0A;&#x548F;&#x8005;&#xB7;&#x6E0A;&#x706B;</span>&#x7684;&#x88AB;&#x52A8;&#x6280;&#x80FD;<span class="text-pyro">&#x706B;&#x4E4B;&#x65B0;&#x751F;</span>&#x4F1A;&#x4E3A;&#x5176;&#x672C;&#x8EAB;&#x6DFB;&#x52A0;&#x4E0D;&#x88AB;&#x51FB;&#x5012;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<h2 class="mume-header" id="%E6%B8%B8%E6%88%8F%E5%8C%BA%E5%9F%9F">&#x6E38;&#x620F;&#x533A;&#x57DF;</h2>
+
+<h2 class="mume-header" id="%E5%85%83%E7%B4%A0%E5%8F%8D%E5%BA%94">&#x5143;&#x7D20;&#x53CD;&#x5E94;</h2>
+
+<p>&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x662F;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x6700;&#x6709;&#x7279;&#x8272;&#x7684;&#x73A9;&#x6CD5;&#xFF0C;&#x4E5F;&#x662F;&#x6700;&#x590D;&#x6742;&#x7684;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x9700;&#x8981;&#x901A;&#x900F;&#x7684;&#x7406;&#x89E3;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x624D;&#x80FD;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x5F00;&#x53D1;&#x3002;</p>
+<h3 class="mume-header" id="%E5%85%83%E7%B4%A0">&#x5143;&#x7D20;</h3>
+
+<p>&#x5728;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x4E2D;&#xFF0C;&#x6709;&#x4EE5;&#x4E0B; 7 &#x79CD;&#x5143;&#x7D20;&#xFF0C;&#x4ED6;&#x4EEC;&#x4E4B;&#x95F4;&#x53EF;&#x4EE5;&#x53D1;&#x751F;&#x53CD;&#x5E94;&#x6216;&#x4EA7;&#x751F;&#x5176;&#x4ED6;&#x6548;&#x679C;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;</p>
+<p><span class="icon-anemo"></span> <span class="icon-cryo"></span> <span class="icon-dendro"></span> <span class="icon-electro"></span> <span class="icon-geo"></span> <span class="icon-pyro"></span> <span class="icon-hydro"></span></p>
+<p>&#x4ECE;&#x5DE6;&#x5411;&#x53F3;&#x4F9D;&#x6B21;&#x662F;:<br>
+<span class="anemo">&#x98CE;&#x5143;&#x7D20;</span>&#x3001;<span class="cryo">&#x51B0;&#x5143;&#x7D20;</span>&#x3001;<span class="dendro">&#x8349;&#x5143;&#x7D20;</span>&#x3001;<span class="electro">&#x96F7;&#x5143;&#x7D20;</span>&#x3001;<span class="geo">&#x5CA9;&#x5143;&#x7D20;</span>&#x3001;<span class="pyro">&#x706B;&#x5143;&#x7D20;</span>&#x3001;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#xFF0C;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x533A;&#x5206;&#x548C;&#x4FBF;&#x4E8E;&#x9605;&#x8BFB;&#xFF0C;&#x672C;&#x6587;&#x540E;&#x7EED;&#x4F1A;&#x4F7F;&#x7528;[<span class="hydro"></span>]&#x5143;&#x7D20;&#x56FE;&#x6807;+[<span class="text-hydro">&#x6C34;&#x5143;&#x7D20;</span>]&#x63CF;&#x8FF0;&#x6587;&#x5B57;&#x6765;&#x63CF;&#x8FF0;&#x5BF9;&#x5E94;&#x5143;&#x7D20;&#x3002;</p>
+<h3 class="mume-header" id="%E5%85%83%E7%B4%A0%E9%99%84%E7%9D%80">&#x5143;&#x7D20;&#x9644;&#x7740;</h3>
+
+<p>&#x5982;&#x4E0B;&#x56FE;&#xFF0C;<strong>&#x53EF;&#x9644;&#x7740;&#x5143;&#x7D20;</strong>&#x53D1;&#x751F;&#x5143;&#x7D20;&#x9644;&#x7740;&#x540E;&#x4F1A;&#x5728;&#x5361;&#x724C;&#x9876;&#x90E8;&#x4EA7;&#x751F;&#x5BF9;&#x5E94;&#x5143;&#x7D20;&#x7684;&#x56FE;&#x6807;&#xFF0C;&#x4E0D;&#x80FD;&#x53D1;&#x751F;&#x53CD;&#x5E94;&#x7684;&#x53EF;&#x9644;&#x7740;&#x5143;&#x7D20;&#x4F1A;&#x5404;&#x81EA;&#x72EC;&#x7ACB;&#x9644;&#x7740;&#xFF08;&#x5982;<span class="text-electro">&#x96F7;&#x65A7;&#x4E18;&#x4E18;&#x66B4;&#x5F92;</span>&#x3001;<span class="text-dendro">&#x6709;&#x7FFC;&#x8349;&#x672C;&#x771F;&#x8548;</span>&#x65E2;&#x9644;&#x7740;&#x4E86;<span class="cryo">&#x51B0;&#x5143;&#x7D20;</span>&#x53C8;&#x9644;&#x7740;&#x4E86;<span class="dendro">&#x8349;&#x5143;&#x7D20;</span>&#xFF09;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E5%85%83%E7%B4%A0%E9%99%84%E7%9D%80.png_github" alt="&#x5143;&#x7D20;&#x9644;&#x7740;"><br>
+&#x67D0;&#x4E9B;&#x89D2;&#x8272;&#x5728;&#x4F7F;&#x7528;&#x6280;&#x80FD;&#xFF08;&#x5982;<span class="text-hydro">&#x884C;&#x79CB;</span>&#x5728;&#x4F7F;&#x7528;&#x5143;&#x7D20;&#x6218;&#x6280;<span class="hydro-dice cost">3</span><span class="text-hydro">&#x753B;&#x96E8;&#x7B3C;&#x5C71;</span>&#x540E;&#xFF0C;&#x4F1A;&#x4E3A;&#x81EA;&#x8EAB;&#x9644;&#x7740;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#xFF09;&#x3001;&#x53D7;&#x5230;&#x5143;&#x7D20;&#x4F24;&#x5BB3;&#x65F6;&#x3001;&#x6216;&#x662F;&#x5176;&#x4ED6;&#x9644;&#x7740;&#x6709;&#x5143;&#x7D20;&#x7684;&#x89D2;&#x8272;&#x53D7;&#x5230;<span class="anemo">&#x98CE;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x540E;&#x89E6;&#x53D1;&#x6269;&#x6563;&#x53CD;&#x5E94;&#x540E;&#x4F7F;&#x5176;&#x4ED6;&#x89D2;&#x8272;&#x88AB;&#x9644;&#x7740;&#x4E0A;&#x5143;&#x7D20;&#x3001;&#x6216;&#x8005;&#x662F;&#x7279;&#x6B8A;&#x89C4;&#x5219;&#x5BF9;&#x5C40;&#xFF08;&#x5982;<span class="text-hydro">&#x5730;&#x8109;&#x5F02;&#x5E38;&#xB7;&#x6F6E;&#x6E7F;</span>&#x4F1A;&#x5728;&#x56DE;&#x5408;&#x5F00;&#x59CB;&#x9636;&#x6BB5;&#x4E3A;&#x51FA;&#x6218;&#x89D2;&#x8272;&#x9644;&#x7740;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#xFF09;&#x3001;&#x6DF1;&#x6E0A;&#x6CD5;&#x5E08;&#x7684;&#x5143;&#x7D20;&#x62A4;&#x76FE;&#x4F1A;&#x4E3A;&#x81EA;&#x8EAB;&#x9644;&#x7740;&#x62A4;&#x76FE;&#x5BF9;&#x5E94;&#x7684;&#x5143;&#x7D20;&#xFF0C;&#x76F4;&#x81F3;&#x62A4;&#x76FE;&#x5143;&#x7D20;&#x88AB;&#x6D88;&#x8017;&#x6B86;&#x5C3D;&#x7B49;&#xFF0C;&#x53EF;&#x4EE5;&#x8BF4;<strong>&#x5143;&#x7D20;&#x9644;&#x7740;&#x662F;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x7684;&#x524D;&#x63D0;&#x6761;&#x4EF6;</strong>&#x3002;<br>
+<span class="warn h20">&#x8F83;&#x4E3A;&#x7279;&#x6B8A;&#x7684;&#xFF0C;<span class="anemo">&#x98CE;&#x5143;&#x7D20;</span>&#x548C;<span class="geo">&#x5CA9;&#x5143;&#x7D20;</span>&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x5143;&#x7D20;&#x9644;&#x7740;&#x3002;</span></p>
+<h3 class="mume-header" id="%E5%85%83%E7%B4%A0%E9%99%84%E7%9D%80%E7%9A%84%E9%87%8F-%E6%97%B6%E9%97%B4">&#x5143;&#x7D20;&#x9644;&#x7740;&#x7684;&#x91CF;&#x3001;&#x65F6;&#x95F4;</h3>
+
+<p>&#x4E0E;&#x539F;&#x795E;&#x4E0D;&#x540C;&#xFF0C;&#x5728;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x4E2D;&#xFF0C;&#x5143;&#x7D20;&#x9644;&#x7740;&#x7684;&#x91CF;&#x5747;&#x76F8;&#x540C;&#x3002;&#x91CD;&#x590D;&#x9644;&#x7740;&#x76F8;&#x540C;&#x5143;&#x7D20;&#x4E0D;&#x4F1A;&#x53E0;&#x52A0;&#x9644;&#x7740;&#x91CF;&#xFF0C;&#x9644;&#x7740;&#x7684;&#x5143;&#x7D20;&#x4E5F;&#x4E0D;&#x4F1A;&#x968F;&#x7740;&#x65F6;&#x95F4;&#x7684;&#x63A8;&#x79FB;&#x800C;&#x6D88;&#x8017;&#x3002;&#x4EC5;&#x6709;&#x5728;&#x89E6;&#x53D1;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x65F6;&#x624D;&#x80FD;&#x6D88;&#x8017;&#xFF0C;&#x6D88;&#x8017;&#x6BD4;&#x4F8B;&#x4E3A; 1:1&#x3002;&#x5373;&#x89E6;&#x53D1;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x540E;&#xFF0C;&#x53C2;&#x4E0E;&#x53CD;&#x5E94;&#x7684;&#x5143;&#x7D20;&#x5168;&#x90E8;&#x6D88;&#x8017;&#x6B86;&#x5C3D;&#xFF0C;&#x4E0D;&#x4F1A;&#x6709;&#x5143;&#x7D20;&#x6B8B;&#x7559;&#x3002;<br>
+&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x4E2D;<strong>&#x5143;&#x7D20;&#x9644;&#x7740;&#x4E0D;&#x4F1A;&#x968F;&#x65F6;&#x95F4;&#x6D88;&#x8017;&#x3001;&#x5143;&#x7D20;&#x9644;&#x7740;&#x65E0;&#x5F3A;&#x5F31;&#x4E4B;&#x5206;&#x3001;&#x53CD;&#x5E94;&#x65E0;&#x6D88;&#x8017;&#x6BD4;&#x4F8B;&#x4E4B;&#x5206;</strong>&#x3002;</p>
+<h3 class="mume-header" id="%E5%85%83%E7%B4%A0%E5%8F%8D%E5%BA%94-1">&#x5143;&#x7D20;&#x53CD;&#x5E94;</h3>
+
+<p>&#x5728;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x4E2D;&#xFF0C;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x66F4;&#x7B80;&#x5355;&#xFF0C;<strong>&#x5143;&#x7D20;&#x9644;&#x7740;&#x4E0D;&#x4F1A;&#x968F;&#x65F6;&#x95F4;&#x6D88;&#x8017;&#x3001;&#x5143;&#x7D20;&#x9644;&#x7740;&#x65E0;&#x5F3A;&#x5F31;&#x4E4B;&#x5206;&#x3001;&#x53CD;&#x5E94;&#x65E0;&#x6D88;&#x8017;&#x6BD4;&#x4F8B;&#x4E4B;&#x5206;</strong>&#x6240;&#x6709;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x90FD;&#x662F; 1:1 &#x6D88;&#x8017;&#xFF0C;&#x5148;&#x624B;&#x540E;&#x624B;&#x6548;&#x679C;&#x4E00;&#x6837;&#x3002;<br>
+&#x6BD4;&#x5982;&#x89E6;&#x53D1;&#x84B8;&#x53D1;&#x53CD;&#x5E94;&#xFF0C;&#x6C34;&#x6253;&#x706B;&#x548C;&#x706B;&#x6253;&#x6C34;&#x7684;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#x6548;&#x679C;&#x3002;<br>
+&#x5728;&#x6E38;&#x620F;&#x754C;&#x9762;&#xFF08;&#x5982;&#x4E0B;&#x56FE;&#xFF09;&#x5C06;&#x8981;&#x53D1;&#x751F;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x65F6;&#xFF0C;&#x73A9;&#x5BB6;&#x53EF;&#x4EE5;&#x5728;&#x53D1;&#x52A8;&#x653B;&#x51FB;&#x65F6;&#x770B;&#x5230;&#x5373;&#x5C06;&#x4E3A;&#x81EA;&#x5DF1;/&#x5BF9;&#x624B;&#x9644;&#x7740;&#x7684;&#x5143;&#x7D20;&#x548C;&#x5373;&#x5C06;&#x53D1;&#x751F;&#x7684;&#x53CD;&#x5E94;&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E5%8D%B3%E5%B0%86%E5%8F%91%E7%94%9F%E7%9A%84%E5%85%83%E7%B4%A0%E5%8F%8D%E5%BA%94.png_github" alt="&#x5373;&#x5C06;&#x53D1;&#x751F;&#x7684;&#x5143;&#x7D20;&#x53CD;&#x5E94;"><br>
+<span class="text-hydro">&#x884C;&#x79CB;</span>&#x5728;&#x4F7F;&#x7528;&#x5143;&#x7D20;&#x6218;&#x6280;<span class="hydro-dice cost">3</span><span class="text-hydro">&#x753B;&#x96E8;&#x7B3C;&#x5C71;</span>&#x540E;&#xFF0C;&#x4F1A;&#x4E3A;&#x81EA;&#x8EAB;&#x9644;&#x7740;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#xFF0C;&#x9644;&#x7740;&#x7684;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#x4F1A;&#x4E0E;&#x5148;&#x524D;<span class="text-electro">&#x96F7;&#x65A7;&#x4E18;&#x4E18;&#x66B4;&#x5F92;</span>&#x4E3A;<span class="text-hydro">&#x884C;&#x79CB;</span>&#x9644;&#x7740;&#x7684;<span class="electro">&#x96F7;&#x5143;&#x7D20;</span>&#x53D1;&#x751F;&#x53CD;&#x5E94;&#x3002;<br>
+&#x800C;<span class="text-electro">&#x96F7;&#x65A7;&#x4E18;&#x4E18;&#x66B4;&#x5F92;</span>&#x88AB;&#x9644;&#x7740;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#x540E;&#xFF0C;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#x4F1A;&#x548C;<span class="text-cryo">&#x795E;&#x91CC;&#x7EEB;&#x534E;</span>&#x539F;&#x5148;&#x9644;&#x7740;<span class="cryo">&#x51B0;&#x5143;&#x7D20;</span>&#x53D1;&#x751F;&#x53CD;&#x5E94;&#xFF0C;&#x5E76;&#x4E14;&#x4EA7;&#x751F;&#x4F24;&#x5BB3;&#x3002;<br>
+&#x53EF;&#x53CD;&#x5E94;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x76F8;&#x4E92;&#x6D88;&#x8017;&#xFF0C;&#x4EA7;&#x751F;&#x6548;&#x679C;&#x4E3A;&#x89D2;&#x8272;&#x653B;&#x51FB;&#x5E26;&#x6765;&#x589E;&#x76CA;&#x6216;&#x662F;&#x51CF;&#x5C11;&#x654C;&#x65B9;&#x62A4;&#x76FE;&#xFF0C;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x88AB;&#x79F0;&#x4E3A;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x3002;</p>
+<h4 class="mume-header" id="%E8%92%B8%E5%8F%91">&#x84B8;&#x53D1;</h4>
+
+<p>&#x84B8;&#x53D1;&#x53CD;&#x5E94;&#x662F;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#x548C;<span class="pyro">&#x706B;&#x5143;&#x7D20;</span>&#x76F8;&#x9047;&#x3002;</p>
+<div class="element">
+    <div>
+        <span class="icon-pyro"></span><span class="icon-hydro"></span>
+    </div>
+    <div class="title">&#x84B8;&#x53D1;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+2&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E8%92%B8%E5%8F%91.png_github" alt="&#x84B8;&#x53D1;"></p>
+<h4 class="mume-header" id="%E8%9E%8D%E5%8C%96">&#x878D;&#x5316;</h4>
+
+<p>&#x878D;&#x5316;&#x53CD;&#x5E94;&#x662F;<span class="cryo">&#x51B0;&#x5143;&#x7D20;</span>&#x548C;<span class="pyro">&#x706B;&#x5143;&#x7D20;</span>&#x76F8;&#x9047;&#x3002;</p>
+<div class="element">
+    <div>
+        <span class="icon-pyro"></span><span class="icon-cryo"></span>
+    </div>
+    <div class="title">&#x878D;&#x5316;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+2&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E8%9E%8D%E5%8C%96.png_github" alt="&#x878D;&#x5316;"></p>
+<h4 class="mume-header" id="%E8%B6%85%E8%BD%BD">&#x8D85;&#x8F7D;</h4>
+
+<p>&#x8D85;&#x8F7D;&#x53CD;&#x5E94;&#x662F;<span class="pyro">&#x706B;&#x5143;&#x7D20;</span>&#x548C;<span class="electro">&#x96F7;&#x5143;&#x7D20;</span>&#x76F8;&#x9047;&#x3002;&#x9664;&#x4E86;&#x4F1A;&#x9020;&#x6210;&#x989D;&#x5916;&#x4F24;&#x5BB3;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x6709;&#x5F3A;&#x5236;&#x5207;&#x6362;&#x654C;&#x65B9;&#x51FA;&#x6218;&#x89D2;&#x8272;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<div class="element">
+    <div>
+        <span class="icon-pyro"></span><span class="icon-electro"></span>
+    </div>
+    <div class="title">&#x8D85;&#x8F7D;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+2&#xFF1B;&#x5982;&#x679C;&#x76EE;&#x6807;&#x662F;[&#x51FA;&#x6218;&#x89D2;&#x8272;]&#xFF0C;&#x5C31;&#x5F3A;&#x5236;&#x5207;&#x6362;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x89D2;&#x8272;&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E8%B6%85%E8%BD%BD.png_github" alt="&#x8D85;&#x8F7D;"></p>
+<blockquote>
+<p>&#x5F3A;&#x5236;&#x5207;&#x6362;&#xFF1A;<span class="text-cryo">&#x51B0;&#x7BAD;&#x4E18;&#x4E18;&#x4EBA;</span>&#x5361;&#x724C;&#x4E0A;&#x7684;&#x5207;&#x6362;&#x6807;&#x5FD7;&#x4E3A;&#x51FA;&#x6218;&#x89D2;&#x8272;&#x89E6;&#x53D1;&#x8D85;&#x8F7D;&#x53CD;&#x5E94;&#x540E;&#x9020;&#x6210;&#x7684;&#x5F3A;&#x5236;&#x5207;&#x6362;&#x6548;&#x679C;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x5728;&#x53D1;&#x751F;&#x53CD;&#x5E94;&#x540E;&#x4F1A;&#x7ACB;&#x5373;&#x5207;&#x6362;&#x5230;&#x8FD9;&#x5F20;&#x5361;&#x724C;&#x3002;</p>
+</blockquote>
+<h4 class="mume-header" id="%E8%B6%85%E5%AF%BC">&#x8D85;&#x5BFC;</h4>
+
+<p>&#x8D85;&#x5BFC;&#x53CD;&#x5E94;&#x662F;<span class="electro">&#x96F7;&#x5143;&#x7D20;</span>&#x548C;<span class="cryo">&#x51B0;&#x5143;&#x7D20;</span>&#x76F8;&#x9047;&#x3002;&#x9664;&#x4E86;&#x4F1A;&#x9020;&#x6210;&#x989D;&#x5916;&#x4F24;&#x5BB3;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x4F1A;&#x5BF9;&#x9664;&#x8FC7;&#x76EE;&#x6807;&#x7684;&#x5176;&#x4ED6;&#x89D2;&#x8272;&#x9020;&#x6210;<span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x3002;</p>
+<div class="element">
+    <div>
+        <span class="icon-electro"></span><span class="icon-cryo"></span>
+    </div>
+    <div class="title">&#x8D85;&#x5BFC;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+1&#xFF1B;&#x5BF9;&#x76EE;&#x6807;&#x4EE5;&#x5916;&#x7684;&#x6240;&#x6709;&#x654C;&#x65B9;&#x89D2;&#x8272;&#x9020;&#x6210;1&#x70B9;<span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E8%B6%85%E5%AF%BC.png_github" alt="&#x8D85;&#x5BFC;"></p>
+<h4 class="mume-header" id="%E6%84%9F%E7%94%B5">&#x611F;&#x7535;</h4>
+
+<p>&#x611F;&#x7535;&#x53CD;&#x5E94;&#x662F;<span class="electro">&#x96F7;&#x5143;&#x7D20;</span>&#x548C;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#x76F8;&#x9047;&#x3002;&#x9664;&#x4E86;&#x4F1A;&#x9020;&#x6210;&#x989D;&#x5916;&#x4F24;&#x5BB3;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x4F1A;&#x5BF9;&#x9664;&#x8FC7;&#x76EE;&#x6807;&#x7684;&#x5176;&#x4ED6;&#x89D2;&#x8272;&#x9020;&#x6210;<span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x3002;</p>
+<div class="element">
+    <div>
+        <span class="icon-electro"></span><span class="icon-hydro"></span>
+    </div>
+    <div class="title">&#x611F;&#x7535;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+1&#xFF1B;&#x5BF9;&#x76EE;&#x6807;&#x4EE5;&#x5916;&#x7684;&#x6240;&#x6709;&#x654C;&#x65B9;&#x89D2;&#x8272;&#x9020;&#x6210;1&#x70B9;<span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E6%84%9F%E7%94%B5.png_github" alt="&#x611F;&#x7535;"></p>
+<h4 class="mume-header" id="%E5%86%BB%E7%BB%93">&#x51BB;&#x7ED3;</h4>
+
+<p>&#x51BB;&#x7ED3;&#x53CD;&#x5E94;&#x662F;<span class="cryo">&#x51B0;&#x5143;&#x7D20;</span>&#x548C;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#x76F8;&#x9047;&#x3002;&#x9664;&#x4E86;&#x4F1A;&#x9020;&#x6210;&#x989D;&#x5916;&#x4F24;&#x5BB3;&#x4EE5;&#x5916;&#xFF0C;&#x8FD8;&#x4F1A;&#x4F7F;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x9020;&#x6210;<span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x3002;</p>
+<div class="element">
+    <div>
+        <span class="icon-cryo"></span><span class="icon-hydro"></span>
+    </div>
+    <div class="title">&#x51BB;&#x7ED3;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+1&#xFF1B;&#x4F7F;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x9644;&#x5C5E;[&#x51BB;&#x7ED3;]&#x72B6;&#x6001;&#xFF1B;</div>
+    <div class="desc">&#x89D2;&#x8272;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x6280;&#x80FD;&#xFF08;&#x72B6;&#x6001;&#x6301;&#x7EED;&#x5230;&#x56DE;&#x5408;&#x7ED3;&#x675F;&#x4E3A;&#x6B62;&#xFF09;&#xFF1B;</div>
+    <div class="desc">&#x89D2;&#x8272;&#x53D7;&#x5230;<span class="pyro">&#x706B;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x6216;<span class="physical">&#x7269;&#x7406;&#x4F24;&#x5BB3;</span>&#x65F6;&#x4F24;&#x5BB3;+2&#xFF0C;&#x5E76;&#x89E3;&#x9664;&#x6B64;&#x72B6;&#x6001;&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E5%86%BB%E7%BB%93.png_github" alt="&#x51BB;&#x7ED3;"><br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E5%86%BB%E7%BB%93%E7%8A%B6%E6%80%81.png_github" alt="&#x51BB;&#x7ED3;&#x72B6;&#x6001;"><br>
+&#x5728;&#x51BB;&#x7ED3;&#x72B6;&#x6001;&#x4E0B;&#x906D;&#x53D7;&#x706B;&#x5143;&#x7D20;&#x653B;&#x51FB;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E5%9C%A8%E5%86%BB%E7%BB%93%E7%8A%B6%E6%80%81%E4%B8%8B%E9%81%AD%E5%8F%97%E7%81%AB%E5%85%83%E7%B4%A0%E6%94%BB%E5%87%BB.png_github" alt="&#x5728;&#x51BB;&#x7ED3;&#x72B6;&#x6001;&#x4E0B;&#x906D;&#x53D7;&#x706B;&#x5143;&#x7D20;&#x653B;&#x51FB;"></p>
+<h4 class="mume-header" id="%E6%89%A9%E6%95%A3">&#x6269;&#x6563;</h4>
+
+<p>&#x6269;&#x6563;&#x53CD;&#x5E94;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x5927;&#x7684;&#x4F53;&#x7CFB;&#xFF0C;<span class="anemo">&#x98CE;&#x5143;&#x7D20;</span>&#x78B0;&#x5230;<span class="cryo">&#x51B0;</span>&#x3001;<span class="hydro">&#x6C34;</span>&#x3001;<span class="pyro">&#x706B;</span>&#x3001;<span class="electro">&#x96F7;</span>&#x53EF;&#x4EE5;&#x6269;&#x6563;&#xFF0C;&#x548C;&#x539F;&#x795E;&#x4E2D;&#x4E00;&#x6837;<span class="dendro">&#x8349;&#x5143;&#x7D20;</span>&#x3001;<span class="geo">&#x5CA9;&#x5143;&#x7D20;</span>&#x4E0D;&#x80FD;&#x88AB;<span class="anemo">&#x98CE;</span>&#x6269;&#x6563;&#x3002;</p>
+<div class="element">
+    <div style="font-size: 30px;">
+        <span class="icon-cryo"></span><span class="icon-hydro"></span><span class="icon-electro"></span><span class="icon-pyro"></span>
+        + <span class="icon-anemo"></span>
+    </div>
+    <div class="title">&#x6269;&#x6563;</div>
+    <div class="desc">&#x5BF9;&#x76EE;&#x6807;&#x4EE5;&#x5916;&#x7684;&#x6240;&#x6709;&#x654C;&#x65B9;&#x89D2;&#x8272;&#x9020;&#x6210;&#x4E00;&#x70B9;<span class="cryo">&#x51B0;</span>/<span class="hydro">&#x6C34;</span>/<span class="electro">&#x96F7;</span>/<span class="pyro">&#x706B;</span>&#x5143;&#x7D20;&#x4F24;&#x5BB3;&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E6%89%A9%E6%95%A3.png_github" alt="&#x6269;&#x6563;"></p>
+<h4 class="mume-header" id="%E7%BB%93%E6%99%B6">&#x7ED3;&#x6676;</h4>
+
+<p>&#x7ED3;&#x6676;&#x53CD;&#x5E94;&#x662F;&#xFF0C;<span class="geo">&#x5CA9;&#x5143;&#x7D20;</span>&#x78B0;&#x5230;<span class="cryo">&#x51B0;</span>&#x3001;<span class="hydro">&#x6C34;</span>&#x3001;<span class="pyro">&#x706B;</span>&#x3001;<span class="electro">&#x96F7;</span>&#x53EF;&#x4EE5;&#x4EA7;&#x751F;&#x7ED3;&#x6676;&#xFF0C;&#x548C;&#x539F;&#x795E;&#x4E2D;&#x4E00;&#x6837;<span class="dendro">&#x8349;&#x5143;&#x7D20;</span>&#x3001;<span class="anemo">&#x98CE;&#x5143;&#x7D20;</span>&#x4E0D;&#x80FD;&#x4E0E;<span class="geo">&#x5CA9;&#x5143;&#x7D20;</span>&#x53CD;&#x5E94;&#x4EA7;&#x751F;&#x7ED3;&#x6676;&#x3002;</p>
+<div class="element">
+    <div style="font-size: 30px;">
+        <span class="icon-cryo"></span><span class="icon-hydro"></span><span class="icon-electro"></span><span class="icon-pyro"></span>
+        + <span class="icon-geo"></span>
+    </div>
+    <div class="title">&#x7ED3;&#x6676;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+1&#xFF0C;&#x63D0;&#x4F9B;&#x4E00;&#x70B9;<span class="shield">&#x62A4;&#x76FE;</span>&#xFF0C;&#x4FDD;&#x62A4;&#x6211;&#x65B9;&#x51FA;&#x6218;&#x89D2;&#x8272;&#xFF08;&#x62A4;&#x76FE;&#x503C;&#x53EF;&#x4EE5;&#x53E0;&#x52A0;&#xFF0C;&#x6700;&#x591A;2&#x70B9;&#xFF09;&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E7%BB%93%E6%99%B6.png_github" alt="&#x7ED3;&#x6676;"><br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E7%BB%93%E6%99%B6%E6%8A%A4%E7%9B%BE.png_github" alt="&#x7ED3;&#x6676;&#x62A4;&#x76FE;"></p>
+<h4 class="mume-header" id="%E7%87%83%E7%83%A7">&#x71C3;&#x70E7;</h4>
+
+<p><span class="dendro">&#x8349;&#x5143;&#x7D20;</span>&#x4E0E;<span class="pyro">&#x706B;&#x5143;&#x7D20;</span>&#x53CD;&#x5E94;&#x3002;</p>
+<div class="element">
+    <div>
+        <span class="icon-dendro"></span><span class="icon-pyro"></span>
+    </div>
+    <div class="title">&#x71C3;&#x70E7;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+1&#xFF0C;&#x751F;&#x6210;[&#x71C3;&#x70E7;&#x70C8;&#x7130;]&#xFF1B;</div>
+    <div class="desc">&#x7ED3;&#x675F;&#x9636;&#x6BB5;&#xFF1A;&#x9020;&#x6210;&#x4E00;&#x70B9;<span class="pyro">&#x706B;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3002;&#xFF08;&#x53EF;&#x7528;&#x6B21;&#x6570;1&#xFF0C;&#x6700;&#x591A;&#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x5230;2&#xFF09;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E7%87%83%E7%83%A7.png_github" alt="&#x71C3;&#x70E7;"></p>
+<blockquote>
+<p><span class="text-cryo">&#x51B0;&#x7BAD;&#x4E18;&#x4E18;&#x4EBA;</span>&#x4E3A;&#x4EC0;&#x4E48;&#x4F1A;&#x53D7;&#x5230;1&#x70B9;&#x4F24;&#x5BB3;&#xFF1A;&#x8FD9;&#x662F;<span class="text-dendro">&#x7EB3;&#x897F;&#x59B2;</span>&#x7684;&#x5143;&#x7D20;&#x6218;&#x6280;<span class="dendro-dice cost">2</span><span class="text-dendro">&#x6240;&#x95FB;&#x904D;&#x8BA1;</span>&#x9644;&#x5C5E;[&#x8574;&#x79CD;&#x5370;]&#x9020;&#x6210;&#x7684;<span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x3002;</p>
+</blockquote>
+<p>&#x5728;&#x7ED3;&#x675F;&#x9636;&#x6BB5;&#xFF0C;<strong>&#x71C3;&#x70E7;&#x70C8;&#x7130;</strong>&#x9020;&#x6210; 1 &#x70B9;<span class="pyro">&#x706B;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3002;<br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E7%87%83%E7%83%A7%E7%83%88%E7%84%B0.png_github" alt="&#x71C3;&#x70E7;&#x70C8;&#x7130;"></p>
+<h4 class="mume-header" id="%E7%BB%BD%E6%94%BE">&#x7EFD;&#x653E;</h4>
+
+<p><span class="dendro">&#x8349;&#x5143;&#x7D20;</span>&#x4E0E;<span class="hydro">&#x6C34;&#x5143;&#x7D20;</span>&#x53CD;&#x5E94;&#x3002;</p>
+<div class="element">
+    <div>
+        <span class="icon-dendro"></span><span class="icon-hydro"></span>
+    </div>
+    <div class="title">&#x7EFD;&#x653E;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+1&#xFF0C;&#x751F;&#x6210;[&#x8349;&#x539F;&#x6838;]&#xFF1B;</div>
+    <div class="desc">&#x6211;&#x65B9;&#x89D2;&#x8272;&#x5BF9;&#x654C;&#x65B9;&#x51FA;&#x6218;&#x89D2;&#x8272;&#x9020;&#x6210;<span class="pyro">&#x706B;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x6216;<span class="electro">&#x96F7;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x65F6;&#xFF0C;&#x4F24;&#x5BB3;&#x503C;+2&#x3002;&#xFF08;&#x53EF;&#x7528;&#x6B21;&#x6570;1&#xFF09;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E7%BB%BD%E6%94%BE.png_github" alt="&#x7EFD;&#x653E;"><br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E8%8D%89%E5%8E%9F%E6%A0%B8.png_github" alt="&#x8349;&#x539F;&#x6838;"></p>
+<h4 class="mume-header" id="%E5%8E%9F%E6%BF%80%E5%8C%96">&#x539F;&#x6FC0;&#x5316;</h4>
+
+<p><span class="dendro">&#x8349;&#x5143;&#x7D20;</span>&#x4E0E;<span class="electro">&#x96F7;&#x5143;&#x7D20;</span>&#x53CD;&#x5E94;&#x3002;</p>
+<div class="element">
+    <div>
+        <span class="icon-dendro"></span><span class="icon-electro"></span>
+    </div>
+    <div class="title">&#x539F;&#x6FC0;&#x5316;</div>
+    <div class="desc">&#x672C;&#x4F24;&#x5BB3;+1&#xFF0C;&#x751F;&#x6210;[&#x6FC0;&#x5316;&#x9886;&#x57DF;]&#xFF1B;</div>
+    <div class="desc">&#x6211;&#x65B9;&#x89D2;&#x8272;&#x5BF9;&#x654C;&#x65B9;&#x51FA;&#x6218;&#x89D2;&#x8272;&#x9020;&#x6210;<span class="electro">&#x96F7;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x6216;<span class="dendro">&#x8349;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x65F6;&#xFF0C;&#x4F24;&#x5BB3;&#x503C;+1&#x3002;&#xFF08;&#x53EF;&#x7528;&#x6B21;&#x6570;3&#xFF09;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E5%8E%9F%E6%BF%80%E5%8C%96.png_github" alt="&#x539F;&#x6FC0;&#x5316;"><br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E6%BF%80%E5%8C%96%E9%A2%86%E5%9F%9F.png_github" alt="&#x6FC0;&#x5316;&#x9886;&#x57DF;"><br>
+<img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E6%BF%80%E5%8C%96%E9%A2%86%E5%9F%9F%E4%BC%A4%E5%AE%B3%E5%8A%A0%E6%88%90.png_github" alt="&#x6FC0;&#x5316;&#x9886;&#x57DF;&#x4F24;&#x5BB3;&#x52A0;&#x6210;"></p>
+<h2 class="mume-header" id="%E4%BC%A4%E5%AE%B3">&#x4F24;&#x5BB3;</h2>
+
+<p>&#x4F24;&#x5BB3;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x89D2;&#x8272;&#x6280;&#x80FD;&#x3001;&#x53EC;&#x5524;&#x7269;&#x6548;&#x679C;&#x3001;&#x4E3A;&#x654C;&#x65B9;&#x89D2;&#x8272;&#x9644;&#x5C5E;&#x7684;&#x8D1F;&#x9762;&#x72B6;&#x6001;&#x4EA7;&#x751F;&#x3002;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x3001;&#x6211;&#x65B9;&#x7684;&#x9644;&#x5C5E;&#x7684;&#x72B6;&#x6001;&#x589E;&#x5E45;&#xFF0C;&#x88AB;&#x654C;&#x65B9;&#x7684;&#x72B6;&#x6001;&#x6280;&#x80FD;&#x51CF;&#x514D;&#x3002;</p>
+<div class="element">
+    <div class="title">&#x5143;&#x7D20;&#x4F24;&#x5BB3;</div>
+    <div class="desc">&#x5BF9;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x9020;&#x6210;&#x4F24;&#x5BB3;&#xFF0C;&#x5E76;&#x4E3A;&#x5176;&#x9644;&#x7740;&#x5143;&#x7D20;&#xFF1B;&#x82E5;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x5DF2;&#x9644;&#x7740;&#x6709;&#x5176;&#x4ED6;&#x53EF;&#x53CD;&#x5E94;&#x5143;&#x7D20;&#xFF0C;&#x5219;&#x53D1;&#x751F;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#xFF0C;&#x589E;&#x5E45;&#x4F24;&#x5BB3;&#x5E76;&#x4EA7;&#x751F;&#x6548;&#x679C;&#x3002;</div>
+</div>
+<p>&#x5143;&#x7D20;&#x4F24;&#x5BB3;&#x4E00;&#x5171;&#x6709;&#x4E03;&#x79CD;&#xFF0C;&#x5206;&#x522B;&#x662F;&#xFF1A;<span class="anemo">&#x98CE;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3001;<span class="cryo">&#x51B0;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3001;<span class="dendro">&#x8349;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3001;<span class="electro">&#x96F7;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3001;<span class="geo">&#x5CA9;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3001;<span class="pyro">&#x706B;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3001;<span class="hydro">&#x6C34;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#xFF0C;&#x5BF9;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x9020;&#x6210;&#x5143;&#x7D20;&#x4F24;&#x5BB3;&#x540E;&#xFF0C;&#x4F1A;&#x4E3A;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x9644;&#x7740;&#x53EF;&#x9644;&#x7740;&#x7684;&#x5143;&#x7D20;&#x3002;&#x6EE1;&#x8DB3;&#x6761;&#x4EF6;&#x65F6;&#xFF0C;&#x8FD8;&#x4F1A;&#x53D1;&#x751F;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x3002;</p>
+<div class="element">
+    <div class="title">&#x7269;&#x7406;&#x4F24;&#x5BB3;</div>
+    <div class="desc">&#x5BF9;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x9020;&#x6210;&#x4F24;&#x5BB3;&#xFF0C;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x9644;&#x7740;&#x5143;&#x7D20;&#x3002;</div>
+</div>
+<p><span class="physical">&#x7269;&#x7406;&#x4F24;&#x5BB3;</span>&#x4EC5;&#x4F1A;&#x5BF9;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x9020;&#x6210;&#x4F24;&#x5BB3;&#xFF0C;&#x4E0D;&#x80FD;&#x89E6;&#x53D1;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x9020;&#x6210;&#x5143;&#x7D20;&#x9644;&#x7740;&#x3002;</p>
+<div class="element">
+    <div class="title">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</div>
+    <div class="desc">&#x5BF9;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x9020;&#x6210;&#x4F24;&#x5BB3;&#xFF0C;&#x65E0;&#x6CD5;&#x53D7;&#x5230;&#x4F24;&#x5BB3;&#x52A0;&#x6210;&#xFF0C;&#x65E0;&#x6CD5;&#x88AB;<span class="shield">&#x62A4;&#x76FE;</span>&#x3001;&#x4F24;&#x5BB3;&#x514D;&#x75AB;&#x7B49;&#x51CF;&#x514D;&#x3002;</div>
+</div>
+<p><img src="https://githubimg.ngworks.cn/GeniusInvokationImg/GameScene/%E7%A9%BF%E9%80%8F%E4%BC%A4%E5%AE%B3.png_github" alt="&#x7A7F;&#x900F;&#x4F24;&#x5BB3;"><br>
+<span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x4E0D;&#x80FD;&#x88AB;<span class="shield">&#x62A4;&#x76FE;</span>&#x548C;&#x4F24;&#x5BB3;&#x514D;&#x75AB;&#x7B49;&#x51CF;&#x514D;&#xFF0C;&#x540C;&#x65F6;&#x4E5F;&#x65E0;&#x6CD5;&#x53D7;&#x5230;&#x4F24;&#x5BB3;&#x52A0;&#x6210;&#x3002;</p>
+<blockquote>
+<p><span class="warn h20">&#x5373;&#x4F7F;&#x9644;&#x5C5E;&#x5305;&#x542B;<strong>&#x514D;&#x75AB;&#x6240;&#x6709;&#x4F24;&#x5BB3;</strong>&#x6548;&#x679C;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x4E5F;&#x4E0D;&#x80FD;&#x514D;&#x75AB;<span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x3002;</span></p>
+</blockquote>
+<p>&#x4E0A;&#x56FE;<span class="text-hydro">&#x6C34;&#x6DF1;&#x6E0A;&#x6CD5;&#x5E08;</span>&#x9644;&#x5C5E;&#x5305;&#x542B;<strong>&#x514D;&#x75AB;&#x6240;&#x6709;&#x4F24;&#x5BB3;</strong>&#x6548;&#x679C;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x4F9D;&#x7136;&#x4F1A;&#x53D7;&#x5230;<span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x3002;</p>
+<img height="50px" src="https://githubimg.ngworks.cn/GeniusInvokationImg/UserIcon/Piercing.png_icon">
+<p><span class="piercing">&#x7A7F;&#x900F;&#x4F24;&#x5BB3;</span>&#x7684;&#x6807;&#x5FD7;&#x662F;&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x533A;&#x5206;&#x800C;&#x989D;&#x5916;&#x7ED8;&#x5236;&#x7684;&#xFF0C;&#x4E0E;&#x6E38;&#x620F;&#x4E2D;&#x7684;&#x6807;&#x8BC6;&#x65B9;&#x6CD5;&#x65E0;&#x5173;&#x3002;</p>
+<h3 class="mume-header" id="%E4%BC%A4%E5%AE%B3%E7%9A%84%E4%BA%A7%E7%94%9F%E8%BF%87%E7%A8%8B-%E8%AE%A1%E7%AE%97">&#x4F24;&#x5BB3;&#x7684;&#x4EA7;&#x751F;&#x8FC7;&#x7A0B;&#x3001;&#x8BA1;&#x7B97;</h3>
+
+<p>&#x4F24;&#x5BB3;&#x7684;&#x4EA7;&#x751F;&#x8FC7;&#x7A0B;&#x5206;&#x4E3A;&#xFF1A;&#x4F24;&#x5BB3;&#x7684;&#x8BA1;&#x7B97;&#x9636;&#x6BB5;&#x3001;&#x4F24;&#x5BB3;&#x7684;&#x7ED3;&#x7B97;&#x9636;&#x6BB5;&#x4E24;&#x4E2A;&#x8FC7;&#x7A0B;&#x3002;<br>
+&#x5728;&#x4F24;&#x5BB3;&#x7684;&#x8BA1;&#x7B97;&#x9636;&#x6BB5;&#x5E94;&#x8BE5;&#x8FDB;&#x884C;&#x4E0B;&#x5217;&#x8BA1;&#x7B97;&#xFF1A;</p>
+<ul>
+<li>&#x8BA1;&#x7B97;&#x51FA;&#x4F24;&#x5BB3;&#x6765;&#x6E90;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x9020;&#x6210;&#x7684;&#x539F;&#x59CB;&#x4F24;&#x5BB3;&#xFF08;&#x4EC5;&#x548C;&#x4F24;&#x5BB3;&#x6765;&#x6E90;&#x7684;&#x72B6;&#x6001;&#x3001;&#x6B66;&#x5668;&#x7B49;&#x76F8;&#x5173;&#xFF0C;&#x4E0D;&#x8BA1;&#x7B97;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#xFF09;</li>
+</ul>
+<p>&#x4F24;&#x5BB3;&#x52A0;&#x6210;&#x7CFB;&#x6570;&#x662F;&#x51B3;&#x5B9A;&#x672C;&#x4F24;&#x5BB3;&#x662F;&#x5426;&#x4F1A;&#x53D7;&#x5230;&#x589E;&#x5E45;&#x6548;&#x679C;&#x7684;&#x5F71;&#x54CD;&#xFF0C;&#x53D6;&#x503C;&#x4E3A;0&#x6216;1&#x3002;&#x4F8B;&#x5982;&#x7A7F;&#x900F;&#x4F24;&#x5BB3;&#x4E0D;&#x80FD;&#x53D7;&#x5230;&#x4F24;&#x5BB3;&#x52A0;&#x6210;&#xFF0C;&#x5176;&#x4F24;&#x5BB3;&#x52A0;&#x6210;&#x7CFB;&#x6570;&#x4E3A;0&#x3002;<br>
+<span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mtext>&#x539F;&#x59CB;&#x4F24;&#x5BB3;</mtext><mo>=</mo><mtext>&#x6280;&#x80FD;&#x6548;&#x679C;&#x4F24;&#x5BB3;</mtext><mo>+</mo><mtext>&#x4F24;&#x5BB3;&#x52A0;&#x6210;&#x7CFB;&#x6570;</mtext><mo stretchy="false">(</mo><mtext>&#x6B66;&#x5668;</mtext><mo>+</mo><mtext>&#x72B6;&#x6001;</mtext><mo stretchy="false">)</mo></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(1.1)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">&#x539F;&#x59CB;&#x4F24;&#x5BB3; = &#x6280;&#x80FD;&#x6548;&#x679C;&#x4F24;&#x5BB3; + &#x4F24;&#x5BB3;&#x52A0;&#x6210;&#x7CFB;&#x6570;(&#x6B66;&#x5668; + &#x72B6;&#x6001;)\tag{1.1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">&#x539F;&#x59CB;&#x4F24;&#x5BB3;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord cjk_fallback">&#x6280;&#x80FD;&#x6548;&#x679C;&#x4F24;&#x5BB3;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">&#x4F24;&#x5BB3;&#x52A0;&#x6210;&#x7CFB;&#x6570;</span><span class="mopen">(</span><span class="mord cjk_fallback">&#x6B66;&#x5668;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord cjk_fallback">&#x72B6;&#x6001;</span><span class="mclose">)</span></span><span class="tag"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.1</span></span><span class="mord">)</span></span></span></span></span></span></p>
+<p>&#x4F24;&#x5BB3;&#x7684;&#x8BA1;&#x7B97;&#x4E0D;&#x5E94;&#x5305;&#x542B;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x7684;&#x589E;&#x5E45;&#x8FC7;&#x7A0B;&#xFF0C;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x4F24;&#x5BB3;&#x5E94;&#x5F53;&#x5728;<strong>&#x4F24;&#x5BB3;&#x7684;&#x7ED3;&#x7B97;&#x9636;&#x6BB5;</strong>&#x8FDB;&#x884C;&#x8BA1;&#x7B97;&#x3002;<br>
+&#x5728;&#x4F24;&#x5BB3;&#x7684;&#x8BA1;&#x7B97;&#x9636;&#x6BB5;&#x53D1;&#x751F;&#x4E86;(1.1)&#x6240;&#x793A;&#x7684;&#x8BA1;&#x7B97;&#xFF0C;&#x8BA1;&#x7B97;&#x51FA;&#x5BF9;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x9020;&#x6210;&#x7684;&#x4F24;&#x5BB3;&#xFF0C;&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x5305;&#x542B;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x589E;&#x5E45;&#x4E0E;&#x6548;&#x679C;&#x3002;<br>
+&#x6545;&#xFF0C;&#x5728;&#x7ED3;&#x7B97;&#x9636;&#x6BB5;&#x5E94;&#x5F53;&#x8FDB;&#x884C;&#x4E24;&#x6B65;&#x8BA1;&#x7B97;&#xFF1A;</p>
+<ul>
+<li>&#x53D1;&#x751F;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x65F6;&#xFF0C;&#x8BA1;&#x7B97;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x9020;&#x6210;&#x7684;&#x589E;&#x5E45;&#x3002;</li>
+<li>&#x8FDB;&#x884C;&#x4F24;&#x5BB3;&#x7684;&#x51CF;&#x514D;&#x3002;</li>
+</ul>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mtext>&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x6574;&#x5E45;</mtext><mo>=</mo><mtext>&#x89C4;&#x5B9A;&#x7684;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x589E;&#x5E45;</mtext></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(1.2)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x6574;&#x5E45; = &#x89C4;&#x5B9A;&#x7684;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x589E;&#x5E45;\tag{1.2}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x6574;&#x5E45;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">&#x89C4;&#x5B9A;&#x7684;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x589E;&#x5E45;</span></span><span class="tag"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.2</span></span><span class="mord">)</span></span></span></span></span></span></p>
+<p>&#x4F24;&#x5BB3;&#x547D;&#x4E2D;&#x7CFB;&#x6570;&#xFF0C;&#x662F;&#x51B3;&#x5B9A;&#x4F24;&#x5BB3;&#x662F;&#x5426;&#x5FFD;&#x7565;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x51CF;&#x514D;&#xFF0C;&#x53D6;&#x503C;&#x4E3A;0&#x6216;1&#x3002;&#x5982;&#x7A7F;&#x900F;&#x4F24;&#x5BB3;&#xFF0C;&#x53EF;&#x4EE5;&#x65E0;&#x89C6;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x7684;<span class="shield">&#x62A4;&#x76FE;</span>&#x3001;&#x4F24;&#x5BB3;&#x514D;&#x75AB;&#x7B49;&#x51CF;&#x514D;&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x4F24;&#x5BB3;&#x547D;&#x4E2D;&#x7CFB;&#x6570;&#x4E3A;1&#x3002;</p>
+<p>&#x4F24;&#x5BB3;&#x62B5;&#x6297;&#x7CFB;&#x6570;&#xFF0C;&#x662F;&#x51B3;&#x5B9A;&#x4E86;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x662F;&#x5426;&#x5B8C;&#x5168;&#x62B5;&#x6297;&#x4F24;&#x5BB3;&#xFF0C;&#x53D6;&#x503C;&#x4E3A;0&#x6216;1&#x3002;&#x6BD4;&#x5982;&#x76EE;&#x6807;&#x89D2;&#x8272;&#x5BF9;<span class="hydro">&#x6C34;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x6709;&#x514D;&#x75AB;&#x6548;&#x679C;&#xFF0C;&#x82E5;&#x53D7;&#x5230;&#x7684;&#x4F24;&#x5BB3;&#x4E3A;<span class="hydro">&#x6C34;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x65F6;&#xFF0C;&#x5176;&#x4F24;&#x5BB3;&#x62B5;&#x6297;&#x7CFB;&#x6570;&#x4E3A;1&#x3002;&#x5904;&#x4E8E;&#x514D;&#x75AB;&#x6240;&#x6709;&#x4F24;&#x5BB3;&#x72B6;&#x6001;&#x4E0B;&#x7684;&#x76EE;&#x6807;&#x89D2;&#x8272;&#xFF0C;&#x5176;&#x4F24;&#x5BB3;&#x62B5;&#x6297;&#x7CFB;&#x6570;&#x4E5F;&#x4E3A;1&#x3002;</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mtext>&#x4F24;&#x5BB3;&#x7684;&#x51CF;&#x514D;</mtext><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>&#x51CF;&#x514D;&#x72B6;&#x6001;</mtext><mo>+</mo><mtext>&#x62A4;&#x76FE;</mtext></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>&#x4F24;&#x5BB3;&#x547D;&#x4E2D;&#x7CFB;&#x6570;</mtext><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>&#x4F24;&#x5BB3;&#x547D;&#x4E2D;&#x7CFB;&#x6570;</mtext><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(1.3)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">&#x4F24;&#x5BB3;&#x7684;&#x51CF;&#x514D;=\begin{cases}
+&#x51CF;&#x514D;&#x72B6;&#x6001;+&#x62A4;&#x76FE; &amp; &#x4F24;&#x5BB3;&#x547D;&#x4E2D;&#x7CFB;&#x6570; = 0 \\
+0 &amp; &#x4F24;&#x5BB3;&#x547D;&#x4E2D;&#x7CFB;&#x6570; = 1 \\
+\end{cases} \tag{1.3}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">&#x4F24;&#x5BB3;&#x7684;&#x51CF;&#x514D;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">&#x51CF;&#x514D;&#x72B6;&#x6001;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">&#x62A4;&#x76FE;</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">&#x4F24;&#x5BB3;&#x547D;&#x4E2D;&#x7CFB;&#x6570;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">0</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">&#x4F24;&#x5BB3;&#x547D;&#x4E2D;&#x7CFB;&#x6570;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="tag"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.3</span></span><span class="mord">)</span></span></span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mtable width="100%"><mtr><mtd width="50%"></mtd><mtd><mrow><mtext>&#x9020;&#x6210;&#x7684;&#x4F24;&#x5BB3;</mtext><mo>=</mo><mrow><mo fence="true">{</mo><mtable rowspacing="0.36em" columnalign="left left" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>&#x539F;&#x59CB;&#x4F24;&#x5BB3;</mtext><mo>+</mo><mtext>&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x6574;&#x5E45;</mtext><mo>&#x2212;</mo><mtext>&#x4F24;&#x5BB3;&#x7684;&#x51CF;&#x514D;</mtext></mrow></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>&#x4F24;&#x5BB3;&#x62B5;&#x6297;&#x7CFB;&#x6570;</mtext><mo>=</mo><mn>0</mn></mrow></mstyle></mtd></mtr><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>0</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mrow><mtext>&#x4F24;&#x5BB3;&#x62B5;&#x6297;&#x7CFB;&#x6570;</mtext><mo>=</mo><mn>1</mn></mrow></mstyle></mtd></mtr></mtable></mrow></mrow></mtd><mtd width="50%"></mtd><mtd><mtext>(1.4)</mtext></mtd></mtr></mtable><annotation encoding="application/x-tex">&#x9020;&#x6210;&#x7684;&#x4F24;&#x5BB3;=\begin{cases}
+&#x539F;&#x59CB;&#x4F24;&#x5BB3; + &#x5143;&#x7D20;&#x53CD;&#x5E94;&#x6574;&#x5E45; - &#x4F24;&#x5BB3;&#x7684;&#x51CF;&#x514D; &amp; &#x4F24;&#x5BB3;&#x62B5;&#x6297;&#x7CFB;&#x6570; = 0 \\
+0 &amp; &#x4F24;&#x5BB3;&#x62B5;&#x6297;&#x7CFB;&#x6570; = 1 \\ 
+\end{cases} \tag{1.4}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">&#x9020;&#x6210;&#x7684;&#x4F24;&#x5BB3;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="minner"><span class="mopen delimcenter" style="top:0em;"><span class="delimsizing size4">{</span></span><span class="mord"><span class="mtable"><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">&#x539F;&#x59CB;&#x4F24;&#x5BB3;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x6574;&#x5E45;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">&#x2212;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord cjk_fallback">&#x4F24;&#x5BB3;&#x7684;&#x51CF;&#x514D;</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord">0</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span><span class="arraycolsep" style="width:1em;"></span><span class="col-align-l"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.69em;"><span style="top:-3.69em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">&#x4F24;&#x5BB3;&#x62B5;&#x6297;&#x7CFB;&#x6570;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">0</span></span></span><span style="top:-2.25em;"><span class="pstrut" style="height:3.008em;"></span><span class="mord"><span class="mord cjk_fallback">&#x4F24;&#x5BB3;&#x62B5;&#x6297;&#x7CFB;&#x6570;</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mord">1</span></span></span></span><span class="vlist-s">&#x200B;</span></span><span class="vlist-r"><span class="vlist" style="height:1.19em;"><span></span></span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span></span><span class="tag"><span class="strut" style="height:3em;vertical-align:-1.25em;"></span><span class="mord text"><span class="mord">(</span><span class="mord"><span class="mord">1.4</span></span><span class="mord">)</span></span></span></span></span></span></p>
+<p>&#x9020;&#x6210;&#x7684;&#x4F24;&#x5BB3;&#x5E94;&#x5E94;&#x5F53;&#x4E3A;&#x5927;&#x4E8E;&#x7B49;&#x4E8E;0&#x7684;&#x6570;&#x503C;&#x3002;</p>
+<h3 class="mume-header" id="%E4%BC%A4%E5%AE%B3%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2">&#x4F24;&#x5BB3;&#x7C7B;&#x578B;&#x7684;&#x8F6C;&#x6362;</h3>
+
+<p>&#x4F24;&#x5BB3;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x88AB;&#x88AB;&#x52A8;&#x3001;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x4E3A;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x4F24;&#x5BB3;&#x3002;<br>
+<span class="text-pyro">&#x80E1;&#x6843;</span>&#x89D2;&#x8272;&#xFF0C;&#x5728;&#x4F7F;&#x7528;&#x5143;&#x7D20;&#x6218;&#x6280;<span class="pyro-dice cost">2</span><span class="text-pyro">&#x8776;&#x5F15;&#x6765;&#x751F;</span>&#x540E;&#x9644;&#x5C5E;&#x7684;<span class="text-pyro">&#x5F7C;&#x5CB8;&#x8776;&#x821E;</span>&#x53EF;&#x4EE5;&#x4F7F;<span class="physical">&#x7269;&#x7406;&#x4F24;&#x5BB3;</span>&#x88AB;&#x8F6C;&#x6362;&#x4E3A;<span class="pyro">&#x706B;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3002;</p>
+<p><span class="text-cryo">&#x795E;&#x91CC;&#x7EEB;&#x534E;</span>&#x5361;&#x724C;&#xFF0C;&#x89E6;&#x53D1;&#x88AB;&#x52A8;<span class="text-cryo">&#x795E;&#x91CC;&#x6D41;&#xB7;&#x9730;&#x6B65;</span>&#x540E;&#xFF0C;&#x4F1A;&#x4E3A;&#x5176;&#x6DFB;&#x52A0;<span class="cryo">&#x51B0;&#x5143;&#x7D20;&#x9644;&#x9B54;</span>&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;<span class="physical">&#x7269;&#x7406;&#x4F24;&#x5BB3;</span>&#x88AB;&#x8F6C;&#x6362;&#x4E3A;<span class="cryo">&#x51B0;&#x5143;&#x7D20;&#x4F24;&#x5BB3;</span>&#x3002;</p>
+<h3 class="mume-header" id="%E5%8F%91%E7%94%9F%E4%BC%A4%E5%AE%B3%E7%9A%84%E6%97%B6%E6%9C%BA">&#x53D1;&#x751F;&#x4F24;&#x5BB3;&#x7684;&#x65F6;&#x673A;</h3>
+
+<p>&#x5728;&#x7ED3;&#x7B97;&#x4F24;&#x5BB3;&#x65F6;&#x3001;&#x5728;&#x72B6;&#x6001;&#x751F;&#x6548;&#x65F6;&#x3001;&#x53EC;&#x5524;&#x7269;&#x53D1;&#x751F;&#x6548;&#x679C;&#x65F6;&#xFF0C;&#x624D;&#x4F1A;&#x53D1;&#x751F;&#x4F24;&#x5BB3;&#x3002;<br>
+&#x53D1;&#x751F;&#x8D85;&#x5BFC;&#x3001;&#x611F;&#x7535;&#x3001;&#x6269;&#x6563;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x65F6;&#xFF0C;&#x4F1A;&#x5BF9;&#x540E;&#x53F0;&#x89D2;&#x8272;&#x9020;&#x6210;&#x4F24;&#x5BB3;&#x3002;&#x8FD9;&#x89C6;&#x4E3A;&#x65B0;&#x7684;&#x4F24;&#x5BB3;&#x53D1;&#x751F;&#xFF0C;&#x9075;&#x5FAA;&#x4E0A;&#x8FF0;&#x4F24;&#x5BB3;&#x8BA1;&#x7B97;&#x7684;&#x65B9;&#x6CD5;&#x3002;</p>
+<blockquote>
+<p>&#x6240;&#x4EE5;&#x89D2;&#x8272;&#x4E3A;&#x81EA;&#x8EAB;&#x9644;&#x7740;&#x5143;&#x7D20;&#x5BFC;&#x81F4;&#x5143;&#x7D20;&#x53CD;&#x5E94;&#x7684;&#x53D1;&#x751F;&#xFF0C;&#x4E0D;&#x4F1A;&#x53D1;&#x751F;&#x4F24;&#x5BB3;&#x3002;</p>
+</blockquote>
+<h2 class="mume-header" id="%E9%AA%B0%E5%AD%90">&#x9AB0;&#x5B50;</h2>
+
+<p>&#x901A;&#x8FC7;&#x6D88;&#x8017;<span class="unaligned-dice cost">1</span><strong>&#x5143;&#x7D20;&#x9AB0;&#x5B50;</strong>&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x5404;&#x79CD;&#x5404;&#x6837;&#x7684;&#x6E38;&#x620F;&#x64CD;&#x4F5C;&#xFF0C;&#x5728;&#x4E03;&#x5723;&#x53EC;&#x5524;&#x4E2D;&#xFF0C;&#x5143;&#x7D20;&#x9AB0;&#x5B50;&#x7C7B;&#x578B;&#x548C;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x4E00;&#x81F4;&#xFF0C;&#x4E00;&#x5171;&#x6709;&#x4E03;&#x79CD;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x8868;&#x793A;&#x4E2D;&#xFF0C;&#x6709;&#x5341;&#x79CD;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x3002;&#x5206;&#x522B;&#x662F;&#xFF1A;<br>
+&#x4E03;&#x79CD;&#x57FA;&#x7840;&#x5143;&#x7D20;&#x9AB0;&#x5B50;&#x8868;&#x793A;&#x65B9;&#x6CD5;<span class="anemo-dice cost">1</span><span class="text-anemo">&#x98CE;&#x5143;&#x7D20;&#x9AB0;&#x5B50;</span>&#x3001;<span class="cryo-dice cost">1</span><span class="text-cryo">&#x51B0;&#x5143;&#x7D20;&#x9AB0;&#x5B50;</span>&#x3001;<span class="dendro-dice cost">1</span><span class="text-dendro">&#x8349;&#x5143;&#x7D20;&#x9AB0;&#x5B50;</span>&#x3001;<span class="electro-dice cost">1</span><span class="text-electro">&#x96F7;&#x5143;&#x7D20;&#x9AB0;&#x5B50;</span>&#x3001;<span class="geo-dice cost">1</span><span class="text-geo">&#x5CA9;&#x5143;&#x7D20;&#x9AB0;&#x5B50;</span>&#x3001;<span class="hydro-dice cost">1</span><span class="text-hydro">&#x6C34;&#x5143;&#x7D20;&#x9AB0;&#x5B50;</span>&#x3001;<span class="pyro-dice cost">1</span><span class="text-pyro">&#x706B;&#x5143;&#x7D20;&#x9AB0;&#x5B50;</span>&#x3002;&#x56FE;&#x6807;<span class="dendro-dice cost">1</span>&#x4E2D;&#x7684;&#x6570;&#x5B57;<span class=" cost">1</span>&#x4EE3;&#x8868;&#x9700;&#x8981;&#x6D88;&#x8017;&#x51E0;&#x4E2A;&#x8BE5;&#x5143;&#x7D20;&#x7C7B;&#x578B;&#x7684;&#x9AB0;&#x5B50;&#x3002;</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
