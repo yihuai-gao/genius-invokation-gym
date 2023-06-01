@@ -81,6 +81,31 @@ class ElementType(IntEnum):
     def __str__(self):
         return self.name
 
+class ReactionType(IntEnum):
+    NONE = 0
+    """不能发生反应"""
+    FROZEN = 1
+    """冻结"""
+    MELT = 2
+    """融化"""
+    SUPERCONDUCT = 3
+    """超导"""
+    CRYSTALLIZE = 4
+    """结晶"""
+    VAPORIZE = 5
+    """蒸发"""
+    SWIRL = 6
+    """扩散"""
+    ELECTROCHARGED = 7
+    """感电"""
+    OVERLOADED = 8
+    """超载"""
+    BLOOM = 9
+    """绽放"""
+    BURNING = 10
+    """燃烧"""
+    QUICKEN = 11
+    """激化"""
 
 class ElementalReactionType(Enum):
     NONE = auto()

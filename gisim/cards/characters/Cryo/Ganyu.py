@@ -1,9 +1,9 @@
 """甘雨"""
-from typing import Dict,List,cast
+from typing import Dict,List,cast,TYPE_CHECKING
 from queue import PriorityQueue
 from gisim.classes.summon import AttackSummon, Summon
-from gisim.classes.status import CombatStatusEntity
 from gisim.classes.message import GenerateCombatStatusMsg,ChangeCharacterMsg
+
 
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -13,23 +13,27 @@ from gisim.classes.enums import (
     Nation,
     WeaponType,
 )
+from gisim.classes.status import CombatStatusEntity
 
+if TYPE_CHECKING:
+    from gisim.classes.character import CharacterEntity
+    from gisim.game import GameInfo
 
-class LiutianArchery(GenericSkill):
-    """
-    流天射术
-    ~~~~~~~~
-    `普通攻击` 造成2点`物理伤害`。
-    """
-    id: int = 11011
-    name: str = "Liutian Archery"
-    text: str = """
-    Deals 2 Physical DMG.
-    """
-    costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
-    type: SkillType = SkillType.NORMAL_ATTACK
-    damage_element: ElementType = ElementType.NONE
-    damage_value: int = 2
+# class LiutianArchery(GenericSkill):
+#     """
+#     流天射术
+#     ~~~~~~~~
+#     `普通攻击` 造成2点`物理伤害`。
+#     """
+#     id: int = 11011
+#     name: str = "Liutian Archery"
+#     text: str = """
+#     Deals 2 Physical DMG.
+#     """
+#     costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
+#     type: SkillType = SkillType.NORMAL_ATTACK
+#     damage_element: ElementType = ElementType.NONE
+#     damage_value: int = 2
 
 class FrostflakeArrow(GenericSkill):
     """
@@ -72,24 +76,16 @@ class IceLotus(CombatStatusEntity):
     """
     冰莲
     ~~~
-    `技能效果`给出战角色 添加一个护盾 盾值为1，最多可以使用2次
+    `战斗行动`给出战角色 添加一个护盾 盾值为1，最多可以使用2次
     """
     name: str = "Ice Lotus"
     description: str = "给出战角色 添加一个护盾 盾值为1，最多可以使用2次。"
+    value: int = 2
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
-        updated = False
-        if self._uuid in top_msg.responded_entities:
-            return False
-        updated = False
-        # # 受到护盾保护的角色 会随着出战角色的切换而切换
-        # if isinstance(top_msg, ChangeCharacterMsg):
-        #     pass
-        # 减免受到的伤害并减少可使用次数
-        if isinstance(top_msg, 1):
-            pass
-
+        print(top_msg)
+        return True
 
 class CelestialShower(GenericSkill):
     """
@@ -121,7 +117,7 @@ class SacredCryoPearl(AttackSummon):
     damage_value: int = 1
     piercing_damage_value: int = 1
 
-class KamisatoAyaka(CharacterCard):
+class Ganyu(CharacterCard):
     """甘雨"""
     id: int = 1101
     name: str = "Ganyu"
@@ -132,7 +128,7 @@ class KamisatoAyaka(CharacterCard):
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.BOW
     skills: List[CharacterSkill] = [
-        LiutianArchery(),
+        # LiutianArchery(),
         FrostflakeArrow(),
         TrailoftheQilin(),
         CelestialShower(),

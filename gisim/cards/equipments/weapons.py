@@ -215,20 +215,23 @@ class SacrificialSword(WeaponEntity):
                             dmg_val + 1,
                         )
                         updated = True
-        if isinstance(top_msg, AfterUsingSkillMsg):
-            if self.active == True and self.triggered_in_a_round == 0:
-                top_msg = cast(AfterUsingSkillMsg, top_msg)
-                if get_skill_type(top_msg.skill_name) == SkillType.ELEMENTAL_SKILL:
-                    # TODO: Get the element type of the current character (Essentially one need to get all the game information visible for all entities)
-                    new_msg = ChangeDiceMsg(
-                        sender_id=self.player_id,
-                        remove_dice_idx=[],
-                        new_target_element=[ElementType.OMNI],
-                    )
-                    msg_queue.put(new_msg)
-                    updated = True
-                    self.triggered_in_a_round += 1
-                    self.active = False
+        if (
+            isinstance(top_msg, AfterUsingSkillMsg)
+            and self.active == True
+            and self.triggered_in_a_round == 0
+        ):
+            top_msg = cast(AfterUsingSkillMsg, top_msg)
+            if get_skill_type(top_msg.skill_name) == SkillType.ELEMENTAL_SKILL:
+                # TODO: Get the element type of the current character (Essentially one need to get all the game information visible for all entities)
+                new_msg = ChangeDiceMsg(
+                    sender_id=self.player_id,
+                    remove_dice_idx=[],
+                    new_target_element=[ElementType.OMNI],
+                )
+                msg_queue.put(new_msg)
+                updated = True
+                self.triggered_in_a_round += 1
+                self.active = False
 
         if updated:
             top_msg.responded_entities.append(self._uuid)

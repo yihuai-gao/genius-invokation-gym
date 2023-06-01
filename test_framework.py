@@ -11,16 +11,18 @@ if __name__ == "__main__":
     # }
     # player2_deck = {"characters": ["Fischl", "Collei", "Xiangling"], "cards": []}
     player1_deck = {
-        "characters": ["Kamisato Ayaka", "Kamisato Ayaka", "Kamisato Ayaka"],
-        "cards": ["Kanten Senmyou Blessing", "Traveler's Handy Sword"],
+        "characters": ["Kamisato Ayaka","Ganyu","Kamisato Ayaka"],
+        # "cards": ["Kanten Senmyou Blessing", "Traveler's Handy Sword"],
+        "cards": [],
     }
     player2_deck = {
-        "characters": ["Kamisato Ayaka", "Kamisato Ayaka", "Kamisato Ayaka"],
+        "characters": ["Ganyu","Ganyu","Kamisato Ayaka"],
         "cards": [],
     }
     game = Game(player1_deck, player2_deck, seed=10)
     player1_agent = AttackOnlyAgent(PlayerID.PLAYER1)
-    player2_agent = NoAttackAgent(PlayerID.PLAYER2)
+    player2_agent = AttackOnlyAgent(PlayerID.PLAYER2)
+    # player2_agent = NoAttackAgent(PlayerID.PLAYER2)
     game_end = False
     game_info = game.encode_game_info(PlayerID.SPECTATOR)
 

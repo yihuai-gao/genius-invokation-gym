@@ -5,6 +5,7 @@ from collections import OrderedDict
 from queue import PriorityQueue
 from typing import List, Optional, cast
 
+from gisim.classes.reaction import can_attachable
 from gisim.cards.characters import get_character_card
 from gisim.cards.characters.base import CharacterCard, CharacterSkill
 from gisim.classes.entity import Entity
@@ -18,6 +19,7 @@ from gisim.classes.message import (
     PaySkillCostMsg,
     UseSkillMsg,
 )
+from gisim.classes.status import CombatStatusEntity
 
 
 class CharacterEntity(Entity):
@@ -27,8 +29,14 @@ class CharacterEntity(Entity):
     active: bool = False
     """ Whether this character in set forward. There should be only one character in the active state for each player"""
     alive: bool = True
-    elemental_attachment = ElementType.NONE
-    """角色元素附着"""
+
+    # elemental_attachment = ElementType.NONE
+
+    elemental_attachment: List[ElementType] = []
+    """
+    可附着元素发生元素附着后会在卡牌顶部产生对应元素的图标，不能发生反应的可附着元素会各自独立附着。
+    比如冰元素和草元素，之间不可以发生反应，他们会各自独立附着。
+    """
 
     character_card: CharacterCard
     id: int
@@ -41,6 +49,8 @@ class CharacterEntity(Entity):
     health_point: int
     power: int
     max_power: int
+    combat_status: List[CombatStatusEntity] = []
+    """角色状态；卡牌底部（里面）的那一行"""
 
     def __init__(self, name: str, player_id: PlayerID, position: CharPos):
         card = get_character_card(name)
@@ -74,6 +84,7 @@ class CharacterEntity(Entity):
             "health_point",
             "power",
             "max_power",
+            "combat_status"
         ]
         return {key: getattr(self, key) for key in properties}
 
@@ -166,19 +177,27 @@ class CharacterEntity(Entity):
                     continue
                 if self.active and target_pos == CharPos.ACTIVE:
                     # Modify the target position of the message to the correct character. In case the active character changed due to character death.
-                    msg.targets[idx] = (target_id, self.position, element_type, dmg_val)
+                    msg.targets[idx] = (
+                        target_id, self.position, element_type, dmg_val)
                 if (
                     self.position == target_pos
                     or self.active
                     and target_pos == CharPos.ACTIVE
                 ):
-                    if self.elemental_attachment == ElementType.NONE:
-                        self.elemental_attachment = element_type
+                    # if self.elemental_attachment == ElementType.NONE:
+                    #     self.elemental_attachment = element_type
+                    if len(self.elemental_attachment) == 0 and can_attachable(element_type):
+                        # 如果改角色没有被附着过元素，且受到的元素伤害是可附着的元素，进行元素附着。
+                        self.elemental_attachment.append(element_type)
                     else:
-                        # TODO: add elemental reaction effects
+                        # 反应
                         pass
+                    # 伤害的计算 减免
+                    dmg_val = dmg_val
                     self.health_point -= min(self.health_point, dmg_val)
                     if self.health_point == 0:
+                        # 击倒
+                        # TODO: 免于被击倒的效果
                         self.alive = False
                         # self.active = False
                         dead_msg = CharacterDiedMsg(

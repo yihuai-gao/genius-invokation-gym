@@ -102,7 +102,7 @@ class KamisatoArtSenho(CharacterSkill):
     costs: Dict[ElementType, int] = {}
     type: SkillType = SkillType.PASSIVE_SKILL
 
-    def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
+    def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity",):
         top_msg = msg_queue.queue[0]
         updated = False
         if isinstance(top_msg, ChangeCharacterMsg):

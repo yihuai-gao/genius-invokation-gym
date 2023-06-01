@@ -26,8 +26,8 @@ class Oceanborne(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 1, ElementType.ANY: 2}
-    damage_element: ElementType = ElementType.NONE
+    costs: dict[ElementType, int] = {ElementType.ELECTRO, 1, ElementType.ANY, 2}
+    damage_element: ElementType = ElementType.Physical
     damage_value: int = 2
 
 
@@ -43,7 +43,7 @@ class Tidecaller(GenericSkill):
     This character gains a Tidecaller: Surf Embrace. Prepare Skill: Wavestrider.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 3}
+    costs: dict[ElementType, int] = {ElementType.ELECTRO, 3}
 
 
 class Stormbreaker(GenericSkill):
@@ -58,18 +58,16 @@ class Stormbreaker(GenericSkill):
     Deals 3 Electro DMG, creates 1 Thunderbeast's Targe.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 4, ElementType.POWER: 3}
-    damage_element: ElementType = ElementType.ELECTRO
+    costs: dict[ElementType, int] = {ElementType.ELECTRO, 4, ElementType.POWER, 3}
+    damage_element: ElementType = ElementType.Electro
     damage_value: int = 3
-    combat_status_name: str = "Thunderbeast s Targe"
-
 
 
 class Wavestrider(GenericSkill):
     """
     踏潮
     ~~~~
-    （需准备1个行动轮）造成2点`雷元素伤害`。
+    （需准备1个行动轮）\n造成2点`雷元素伤害`。
     """
     id: int = 14054
     name: str = "Wavestrider"
@@ -78,23 +76,6 @@ class Wavestrider(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {}
-    damage_element: ElementType = ElementType.ELECTRO
-    damage_value: int = 2
-
-class ThunderbeastsTarge():
-    """
-    雷兽之盾
-    ~~~~~~~
-    `战斗行动`Thunderbeast's Targe
-
-    出战状态
-    - 我方角色普通攻击后：造成1点雷元素伤害。
-    - 我方角色受到至少为3的伤害时：抵消1点伤害
-    - 持续回合：2
-    """
-    name: str = "Thunderbeast s Targe"
-    def msg_handler(self, msg_queue: PriorityQueue) -> bool:
-        pass
 
 
 class Beidou(CharacterCard):
