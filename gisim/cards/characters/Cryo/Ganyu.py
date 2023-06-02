@@ -6,6 +6,7 @@ from gisim.classes.message import GenerateCombatStatusMsg,ChangeCharacterMsg
 
 
 
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     ElementType,
