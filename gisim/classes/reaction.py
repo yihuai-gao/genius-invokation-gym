@@ -5,31 +5,42 @@ from enum import IntEnum
 from typing import List
 from gisim.ElementalReaction import get_reaction_system, get_reaction_system_by_type
 from gisim.ElementalReaction.base import Reaction
+import copy
 
 
 RTE = np.zeros((8, 8), dtype="int")
 
-FROZEN_VAL = [ElementType.HYDRO], [ElementType.CRYO], ReactionType.FROZEN
-MELT_VAL = [ElementType.PYRO], [ElementType.CRYO], ReactionType.MELT
-SUPERCONDUCT_VAL = [ElementType.ELECTRO], [
-    ElementType.CRYO], ReactionType.SUPERCONDUCT
-VAPORIZE_VAL = [ElementType.PYRO], [ElementType.HYDRO], ReactionType.VAPORIZE
-ELECTROCHARGED_VAL = [ElementType.ELECTRO], [
-    ElementType.HYDRO], ReactionType.ELECTROCHARGED
-OVERLOADED_VAL = [ElementType.ELECTRO], [
-    ElementType.PYRO], ReactionType.OVERLOADED
-BLOOM_VAL = [ElementType.DENDRO], [ElementType.HYDRO], ReactionType.BLOOM
-BURNING_VAL = [ElementType.DENDRO], [ElementType.PYRO], ReactionType.BURNING
-QUICKEN_VAL = [ElementType.DENDRO], [ElementType.ELECTRO], ReactionType.QUICKEN
-CRYSTALLIZE_VAL = [ElementType.GEO], [ElementType.CRYO, ElementType.HYDRO,
-                                      ElementType.PYRO, ElementType.ELECTRO], ReactionType.CRYSTALLIZE
-SWIRL_VAL = [ElementType.ANEMO], [ElementType.CRYO, ElementType.HYDRO,
-                                  ElementType.PYRO, ElementType.ELECTRO], ReactionType.SWIRL
+"""草元素对应的行和列一定要靠后一些，最好位于最后一位，否则多元素反应会出现问题。
+详情见https://github.com/hegugu-ng/genius-invokation-gym/blob/main/element_reaction_note.ipynb"""
+
+FROZEN_VAL = [ElementType.HYDRO], [ElementType.CRYO], ElementalReactionType.FROZEN
+"""冻结反应"""
+MELT_VAL = [ElementType.PYRO], [ElementType.CRYO], ElementalReactionType.MELT
+"""融化反应"""
+SUPERCONDUCT_VAL = [ElementType.ELECTRO], [ElementType.CRYO], ElementalReactionType.SUPERCONDUCT
+"""超导反应"""
+VAPORIZE_VAL = [ElementType.PYRO], [ElementType.HYDRO], ElementalReactionType.VAPORIZE
+"""蒸发反应"""
+ELECTROCHARGED_VAL = [ElementType.ELECTRO], [ElementType.HYDRO], ElementalReactionType.ELECTROCHARGED
+"""感电反应"""
+OVERLOADED_VAL = [ElementType.ELECTRO], [ElementType.PYRO], ElementalReactionType.OVERLOADED
+"""超载反应"""
+BLOOM_VAL = [ElementType.DENDRO], [ElementType.HYDRO], ElementalReactionType.BLOOM
+"""绽放反应"""
+BURNING_VAL = [ElementType.DENDRO], [ElementType.PYRO], ElementalReactionType.BURNING
+"""燃烧反应"""
+QUICKEN_VAL = [ElementType.DENDRO], [ElementType.ELECTRO], ElementalReactionType.QUICKEN
+"""激化反应"""
+CRYSTALIZE_VAL = [ElementType.GEO], [ElementType.CRYO, ElementType.HYDRO, ElementType.PYRO, ElementType.ELECTRO], ElementalReactionType.CRYSTALIZE
+"""结晶反应"""
+SWIRL_VAL = [ElementType.ANEMO], [ElementType.CRYO, ElementType.HYDRO, ElementType.PYRO, ElementType.ELECTRO], ElementalReactionType.SWIRL
+"""扩散反应"""
 
 ATTACHMENT_GEO_VAL = [ElementType.GEO], [0], 1
+"""岩元素不能附着"""
 ATTACHMENT_ANEMO_VAL = [ElementType.ANEMO], [0], 1
-ELEMENT_REACTION_MAP = [FROZEN_VAL, MELT_VAL, SUPERCONDUCT_VAL, VAPORIZE_VAL, ELECTROCHARGED_VAL, OVERLOADED_VAL,
-                        BLOOM_VAL, BURNING_VAL, QUICKEN_VAL, CRYSTALLIZE_VAL, SWIRL_VAL, ATTACHMENT_GEO_VAL, ATTACHMENT_ANEMO_VAL]
+"""风元素不能附着"""
+ELEMENT_REACTION_MAP = [FROZEN_VAL, MELT_VAL, SUPERCONDUCT_VAL, VAPORIZE_VAL, ELECTROCHARGED_VAL, OVERLOADED_VAL, BLOOM_VAL, BURNING_VAL, QUICKEN_VAL, CRYSTALIZE_VAL, SWIRL_VAL, ATTACHMENT_GEO_VAL, ATTACHMENT_ANEMO_VAL]
 
 
 for row, col, val in ELEMENT_REACTION_MAP:
@@ -47,21 +58,22 @@ def can_attachable(element: ElementType) -> bool:
     return attachment[0][0] == 0
 
 
-def sum_element_reaction(ElementalAttachment: List[ElementType], AddElement: ElementType) -> tuple[ReactionType, int]:
+def sum_element_reaction(ElementalAttachment: List[ElementType], AddElement: ElementType) -> tuple[ElementalReactionType, int]:
     """计算发生的元素反应"""
     reaction = RTE[np.ix_(ElementalAttachment, [AddElement])]
     multiple_reaction = dict(enumerate(np.nditer(reaction), start=0))
     multiple_reaction = {key: value for key, value in multiple_reaction.items() if value != 0}
     multiple_reaction = sorted(multiple_reaction.items(), key=lambda x: x[1])
     if len(multiple_reaction) == 0:
-        return ReactionType.NONE,0
+        return ElementalReactionType.NONE,0
     index, reaction_type = multiple_reaction[0]
-    return ReactionType(reaction_type), index
+    return ElementalReactionType(reaction_type), index
 
 
 def element_reaction(ElementalAttachment: List[ElementType], AddElement: ElementType) -> tuple[list, Reaction]:
     """进行元素反应"""
-    cannot_reaction = get_reaction_system_by_type(ReactionType.NONE)
+    ElementalAttachment = copy.deepcopy(ElementalAttachment)
+    cannot_reaction = get_reaction_system_by_type(ElementalReactionType.NONE)
     if AddElement.value <= 0 or AddElement.value >= 8:
         # 草，为什么伤害类型会算到元素类型里面，我建议为了方便伤害的结算，建议给伤害做个类。
         return ElementalAttachment,cannot_reaction
@@ -82,7 +94,7 @@ def element_reaction(ElementalAttachment: List[ElementType], AddElement: Element
     # 判断元素反应
     reaction_type, index = sum_element_reaction(
         ElementalAttachment, AddElement)
-    if reaction_type == ReactionType.NONE:
+    if reaction_type == ElementalReactionType.NONE:
         if not attachable:
             return ElementalAttachment, cannot_reaction
         ElementalAttachment.append(AddElement)
