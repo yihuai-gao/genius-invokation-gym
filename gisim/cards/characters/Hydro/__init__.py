@@ -1,1 +1,2 @@
-"""岩"""
+"""水"""
+from .Xingqiu import *

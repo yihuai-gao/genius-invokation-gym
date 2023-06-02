@@ -11,12 +11,12 @@ if __name__ == "__main__":
     # }
     # player2_deck = {"characters": ["Fischl", "Collei", "Xiangling"], "cards": []}
     player1_deck = {
-        "characters": ["Kamisato Ayaka","Ganyu","Kamisato Ayaka"],
+        "characters": ["Kamisato Ayaka","Kamisato Ayaka","Kamisato Ayaka"],
         # "cards": ["Kanten Senmyou Blessing", "Traveler's Handy Sword"],
         "cards": [],
     }
     player2_deck = {
-        "characters": ["Ganyu","Ganyu","Kamisato Ayaka"],
+        "characters": ["XingQiu","XingQiu","XingQiu"],
         "cards": [],
     }
     game = Game(player1_deck, player2_deck, seed=10)
