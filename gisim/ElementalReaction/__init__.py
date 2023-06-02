@@ -10,8 +10,10 @@ from .Superconduct import *
 from .Swirl import *
 from .Vaporize import *
 from .base import *
+from .CannotReaction import *
 
 REACTIONLIST = {
+    ReactionType.NONE: "CannotReaction",
     ReactionType.BLOOM: "Bloom",
     ReactionType.BURNING: "Burning",
     ReactionType.CRYSTALLIZE: "Crystallize",

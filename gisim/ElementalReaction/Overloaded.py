@@ -16,6 +16,4 @@ class Overloaded(Reaction):
     name: str = "Overloaded"
     effect_text: str = "Overloaded: [Increased Bonuses]DMG +2 for this instance, the target is forcibly switched to the next character"
     reaction_type: ReactionType = ReactionType.OVERLOADED
-    main_element: ElementType = ElementType.PYRO
-    secondary_element: List[ElementType] = [ElementType.ELECTRO]
     increased_bonuses: int = 2

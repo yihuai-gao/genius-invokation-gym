@@ -16,6 +16,4 @@ class Melt(Reaction):
     name: str = "Melt"
     effect_text: str = "Melt:[Increased Bonuses] Deal +2 DMG for this instance."
     reaction_type: ReactionType = ReactionType.MELT
-    main_element: ElementType = ElementType.CRYO
-    secondary_element: List[ElementType] = [ElementType.PYRO]
     increased_bonuses: int = 2

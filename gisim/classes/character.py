@@ -5,7 +5,7 @@ from collections import OrderedDict
 from queue import PriorityQueue
 from typing import List, Optional, cast
 
-from gisim.classes.reaction import can_attachable
+from gisim.classes.reaction import element_reaction
 from gisim.cards.characters import get_character_card
 from gisim.cards.characters.base import CharacterCard, CharacterSkill
 from gisim.classes.entity import Entity
@@ -184,19 +184,18 @@ class CharacterEntity(Entity):
                     or self.active
                     and target_pos == CharPos.ACTIVE
                 ):
-                    # if self.elemental_attachment == ElementType.NONE:
-                    #     self.elemental_attachment = element_type
-                    if len(self.elemental_attachment) == 0 and can_attachable(element_type):
-                        # 如果改角色没有被附着过元素，且受到的元素伤害是可附着的元素，进行元素附着。
-                        self.elemental_attachment.append(element_type)
-                    else:
-                        # 反应
-                        pass
-                    # 伤害的计算 减免
-                    dmg_val = dmg_val
+                    # 进行元素反应并产生效果
+                    self.elemental_attachment,reaction_effect = element_reaction(self.elemental_attachment,element_type)
+                    reaction_effect.to_reaction(msg_queue,self.player_id,self)
+                    # 伤害 = 原始伤害 + 来源角色增益 + 元素反应增益
+                    # 减免 = 状态or护盾对伤害的减免 （元素抗性） 可以抵抗对应元素伤害  免疫所有伤害
+                    # 穿透伤害 穿透伤害不受增益 也不能被抵消 包括 免疫所有伤害 效果
+                    # TODO :伤害来源的计算（更好的办法是使用技能的角色在他的Character中建立一个伤害的对象，里面放的是增益后伤害值）
+                    dmg_val = dmg_val + reaction_effect.increased_bonuses
+
                     self.health_point -= min(self.health_point, dmg_val)
                     if self.health_point == 0:
-                        # 击倒
+                        """击倒：角色的生命值被降至0时，角色被击倒。当角色被击倒时，角色所附属的装备和状态会被弃置，充能也会被清空。"""
                         # TODO: 免于被击倒的效果
                         self.alive = False
                         # self.active = False

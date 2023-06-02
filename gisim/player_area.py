@@ -550,3 +550,4 @@ class CharacterInfo:
         self.weapon = character_info_dict["weapon"]
         self.artifact = character_info_dict["artifact"]
         self.status = character_info_dict["status"]
+        

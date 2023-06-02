@@ -87,6 +87,7 @@ if __name__ == "__main__":
             print(
                 f"        Artifact: {artifact['name']}, active: {artifact['active']}, triggered times: {artifact['triggered_in_a_round']}"
             )
+
         if len(ch_status_list) >= 1:
             print(f"        Character Status:")
             for status in ch_status_list:

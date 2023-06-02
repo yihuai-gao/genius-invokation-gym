@@ -85,6 +85,41 @@ class ElementalInfusion(CharacterStatusEntity):
         return updated
 
 
+class FrozenEffect(CharacterStatusEntity):
+    """元素反应冻结效果"""
+    name: str = "Frozen Effect"
+    element: ElementType = ElementType.NONE
+    description: str = """
+    [Character Status]the target is unable to perform any Actions this round
+    (Can be removed in advance after the target receives Physical or Pyro DMG, 
+    in which case they will take +2 DMG)
+    """
+    value: int = 0
+    active: bool = True
+    remaining_usage: int = INF_INT
+
+    def msg_handler(self, msg_queue: PriorityQueue):
+        top_msg = msg_queue.queue[0]
+        if self._uuid in top_msg.responded_entities:
+            return False
+        updated = False
+        if isinstance(top_msg, DealDamageMsg):
+            top_msg = cast(DealDamageMsg, top_msg)
+            if top_msg.attacker == (self.player_id, self.position):
+                for idx, target in enumerate(top_msg.targets):
+                    if target[2] in [ElementType.NONE, ElementType.CRYO]:
+                        top_msg.targets[idx] = (
+                            target[0],
+                            target[1],
+                            target[2],
+                            target[3] + 2,
+                        )
+                        updated = True
+        if updated:
+            msg_queue.queue[0].responded_entities.append(self._uuid)
+        return updated
+
+
 def get_character_status_entity(
     name: str, player_id: PlayerID, position: CharPos, remaining_round: int
 ):

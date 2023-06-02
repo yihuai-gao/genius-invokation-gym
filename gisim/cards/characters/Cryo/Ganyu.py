@@ -19,21 +19,21 @@ if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
     from gisim.game import GameInfo
 
-# class LiutianArchery(GenericSkill):
-#     """
-#     流天射术
-#     ~~~~~~~~
-#     `普通攻击` 造成2点`物理伤害`。
-#     """
-#     id: int = 11011
-#     name: str = "Liutian Archery"
-#     text: str = """
-#     Deals 2 Physical DMG.
-#     """
-#     costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
-#     type: SkillType = SkillType.NORMAL_ATTACK
-#     damage_element: ElementType = ElementType.NONE
-#     damage_value: int = 2
+class LiutianArchery(GenericSkill):
+    """
+    流天射术
+    ~~~~~~~~
+    `普通攻击` 造成2点`物理伤害`。
+    """
+    id: int = 11011
+    name: str = "Liutian Archery"
+    text: str = """
+    Deals 2 Physical DMG.
+    """
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
+    type: SkillType = SkillType.NORMAL_ATTACK
+    damage_element: ElementType = ElementType.HYDRO
+    damage_value: int = 2
 
 class FrostflakeArrow(GenericSkill):
     """
@@ -50,7 +50,7 @@ class FrostflakeArrow(GenericSkill):
     type: SkillType = SkillType.NORMAL_ATTACK
     piercing_damage_value: int = 2
 
-    damage_element: ElementType = ElementType.CRYO
+    damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 2
 
 class TrailoftheQilin(GenericSkill):
@@ -101,7 +101,7 @@ class CelestialShower(GenericSkill):
     costs: Dict[ElementType, int] = {ElementType.CRYO: 3,ElementType.POWER: 2}
     type: SkillType = SkillType.ELEMENTAL_BURST
     piercing_damage_value: int = 1
-    damage_element: ElementType = ElementType.CRYO
+    damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
     summon_name: str = "Sacred Cryo Pearl"
     
@@ -121,7 +121,7 @@ class Ganyu(CharacterCard):
     """甘雨"""
     id: int = 1101
     name: str = "Ganyu"
-    element_type: ElementType = ElementType.CRYO
+    element_type: ElementType = ElementType.HYDRO
     nations: List[Nation] = [Nation.Liyue]
     health_point: int = 10
     power: int = 0

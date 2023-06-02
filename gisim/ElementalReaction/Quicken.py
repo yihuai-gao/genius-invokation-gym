@@ -16,6 +16,4 @@ class Quicken(Reaction):
     name: str = "Quicken"
     effect_text: str = "Quicken: [Increased Bonuses]DMG +1 for this instance, [Combat Status]creates a Catalyzing Field Buff Icon Catalyzing Field that grants +1 DMG to the next 2 instances of Dendro/Electro DMG"
     reaction_type: ReactionType = ReactionType.QUICKEN
-    main_element: ElementType = ElementType.ELECTRO
-    secondary_element: List[ElementType] = [ElementType.DENDRO]
     increased_bonuses: int = 1

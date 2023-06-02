@@ -40,6 +40,9 @@ RTE = RTE + RTE.T - np.diag(RTE.diagonal())
 
 def can_attachable(element: ElementType) -> bool:
     """是否为可附着元素 `True` 可附着"""
+    if element.value <= 0 or element.value >= 8:
+        # 草，为什么伤害类型会算到元素类型里面，我建议为了方便伤害的结算，建议给伤害做个类。
+        return False
     attachment = RTE[np.ix_([element], [0])].tolist()
     return attachment[0][0] == 0
 
@@ -57,28 +60,33 @@ def sum_element_reaction(ElementalAttachment: List[ElementType], AddElement: Ele
 
 
 def element_reaction(ElementalAttachment: List[ElementType], AddElement: ElementType) -> tuple[list, Reaction]:
+    """进行元素反应"""
+    cannot_reaction = get_reaction_system_by_type(ReactionType.NONE)
+    if AddElement.value <= 0 or AddElement.value >= 8:
+        # 草，为什么伤害类型会算到元素类型里面，我建议为了方便伤害的结算，建议给伤害做个类。
+        return ElementalAttachment,cannot_reaction
     if ElementType.GEO in ElementalAttachment or ElementType.ANEMO in ElementalAttachment:
         raise ValueError("There are non attachable elements in the attachment list")
     if AddElement in ElementalAttachment:
         # 挂已经附着的元素没有效果
-        return ElementalAttachment, None
+        return ElementalAttachment, cannot_reaction
     attachable = can_attachable(AddElement)
     if not ElementalAttachment and attachable:
         # 如果角色没有元素附着，且新挂的元素是可附着元素
         ElementalAttachment.append(AddElement)
-        return ElementalAttachment, None
+        return ElementalAttachment, cannot_reaction
 
     if not ElementalAttachment:
         # 如果角色没有元素附着，且新挂的元素是不可附着元素
-        return ElementalAttachment, None
+        return ElementalAttachment, cannot_reaction
     # 判断元素反应
     reaction_type, index = sum_element_reaction(
         ElementalAttachment, AddElement)
     if reaction_type == ReactionType.NONE:
         if not attachable:
-            return ElementalAttachment, None
+            return ElementalAttachment, cannot_reaction
         ElementalAttachment.append(AddElement)
-        return ElementalAttachment, None
+        return ElementalAttachment, cannot_reaction
     # 发生了元素反应产生效果 获取效果
     ElementalAttachment.pop(index)
     reaction_effect = get_reaction_system_by_type(reaction_type)

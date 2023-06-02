@@ -16,6 +16,4 @@ class Crystallize(Reaction):
     name: str = "Crystallize"
     effect_text: str = "Crystallize: [Increased Bonuses]DMG +1 for this instance, [Combat Status]your active character gains 1 Shield point (Can stack, max 2 points)"
     reaction_type: ReactionType = ReactionType.CRYSTALLIZE
-    main_element: ElementType = ElementType.GEO
-    secondary_element: List[ElementType] = []
     increased_bonuses: int = 1

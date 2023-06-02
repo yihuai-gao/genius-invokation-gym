@@ -15,6 +15,4 @@ class Superconduct(Reaction):
     name: str = "Superconduct"
     effect_text: str = "Superconduct: [Increased Bonuses]DMG +1 for this instance, [Piercing DMG]deal 1 Piercing DMG to all opposing characters except the target"
     reaction_type: ReactionType = ReactionType.SUPERCONDUCT
-    main_element: ElementType = ElementType.CRYO
-    secondary_element: List[ElementType] = [ElementType.ELECTRO]
     increased_bonuses: int = 1
