@@ -9,5 +9,5 @@ class CannotReaction(Reaction):
     id: int = 0
     name: str = "CannotReaction"
     effect_text: str = "CannotReaction: No elemental reactions have occurred and there is no effect"
-    reaction_type: ReactionType = ReactionType.NONE
+    reaction_type: ElementalReactionType = ElementalReactionType.NONE
     increased_bonuses: int = 0

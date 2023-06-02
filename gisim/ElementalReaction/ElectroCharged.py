@@ -14,5 +14,5 @@ class ElectroCharged(Reaction):
     id: int = 8
     name: str = "ElectroCharged"
     effect_text: str = "Electro Charged: [Increased Bonuses]DMG +1 for this instance, [Piercing DMG]deal 1 Piercing DMG to all opposing characters except the target"
-    reaction_type: ReactionType = ReactionType.ELECTROCHARGED
+    reaction_type: ElementalReactionType = ElementalReactionType.ELECTROCHARGED
     increased_bonuses: int = 1

@@ -15,5 +15,5 @@ class Bloom(Reaction):
     id: int = 12
     name: str = "Bloom"
     effect_text: str = "Bloom: [Increased Bonuses]DMG +1 for this instance, [Character Status]creates a Dendro Core Buff Icon Dendro Core that grants +2 DMG to the next instance of Pyro/Electro DMG"
-    reaction_type: ReactionType = ReactionType.BLOOM
+    reaction_type: ElementalReactionType = ElementalReactionType.BLOOM
     increased_bonuses: int = 1

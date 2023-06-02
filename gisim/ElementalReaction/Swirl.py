@@ -15,5 +15,5 @@ class Swirl(Reaction):
     id: int = 7
     name: str = "Swirl"
     effect_text: str = "Swirl: Deals 1 DMG of the involved non-Anemo Element to all opposing characters except the target"
-    reaction_type: ReactionType = ReactionType.SWIRL
+    reaction_type: ElementalReactionType = ElementalReactionType.SWIRL
     increased_bonuses: int = 0

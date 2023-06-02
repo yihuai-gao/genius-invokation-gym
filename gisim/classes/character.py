@@ -18,6 +18,7 @@ from gisim.classes.message import (
     Message,
     PaySkillCostMsg,
     UseSkillMsg,
+    ElementalReactionTriggeredMsg
 )
 from gisim.classes.status import CombatStatusEntity
 
@@ -49,8 +50,6 @@ class CharacterEntity(Entity):
     health_point: int
     power: int
     max_power: int
-    combat_status: List[CombatStatusEntity] = []
-    """角色状态；卡牌底部（里面）的那一行"""
 
     def __init__(self, name: str, player_id: PlayerID, position: CharPos):
         card = get_character_card(name)
@@ -84,7 +83,6 @@ class CharacterEntity(Entity):
             "health_point",
             "power",
             "max_power",
-            "combat_status"
         ]
         return {key: getattr(self, key) for key in properties}
 
@@ -167,7 +165,9 @@ class CharacterEntity(Entity):
                 elif self.position != msg.target[1] and self.active:
                     self.active = False
                     updated = True
-
+        elif isinstance(msg, ElementalReactionTriggeredMsg):
+            # 元素反应消息在伤害发生之前就应该处理
+            pass
         elif isinstance(msg, DealDamageMsg):
             msg = cast(DealDamageMsg, msg)
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
@@ -185,8 +185,12 @@ class CharacterEntity(Entity):
                     and target_pos == CharPos.ACTIVE
                 ):
                     # 进行元素反应并产生效果
-                    self.elemental_attachment,reaction_effect = element_reaction(self.elemental_attachment,element_type)
-                    reaction_effect.to_reaction(msg_queue,self.player_id,self)
+                    ele_attachment,reaction_effect = element_reaction(self.elemental_attachment,element_type)
+                    reaction_effect.to_reaction( msg_queue, self.player_id, self)
+                    print(f"    Attacker:\n        Type: {msg.attack_type.name}\n        ElenentType: {element_type.name} Dmg: Origin: {dmg_val} + Add: {reaction_effect.increased_bonuses}\n        From: {msg.attacker[0].name}-{msg.attacker[1].name} -> To: {self.player_id.name}-{self.position.name}({self.name})")
+                    print(f"        Elemental Reaction:  {reaction_effect.reaction_type.name}\n           Effect: {reaction_effect.effect_text}")
+                    print(f"           {self.player_id.name}-{self.position.name}({self.name}) Elemental Attachment: Befor: {self.elemental_attachment} -> After: {ele_attachment}\n\n")
+                    self.elemental_attachment = ele_attachment
                     # 伤害 = 原始伤害 + 来源角色增益 + 元素反应增益
                     # 减免 = 状态or护盾对伤害的减免 （元素抗性） 可以抵抗对应元素伤害  免疫所有伤害
                     # 穿透伤害 穿透伤害不受增益 也不能被抵消 包括 免疫所有伤害 效果

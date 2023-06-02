@@ -54,12 +54,12 @@ class ElementType(IntEnum):
     """火"""
     ELECTRO = 4
     """雷"""
-    GEO = 5
-    """岩"""
-    DENDRO = 6
-    """草"""
-    ANEMO = 7
+    ANEMO = 5
     """风"""
+    GEO = 6
+    """岩"""
+    DENDRO = 7
+    """草"""
     BASIC = 8
     """Used in dice. All basic elements without OMNI"""
     PIERCE = 10
@@ -107,17 +107,19 @@ class ReactionType(IntEnum):
     QUICKEN = 11
     """激化"""
 
-class ElementalReactionType(Enum):
-    NONE = auto()
-    VAPORIZE = auto()
-    MELT = auto()
-    FROZEN = auto()
-    OVERLOADED = auto()
-    SWIRL = auto()
-    CRYSTALIZE = auto()
-    QUICKEN = auto()
-    BURNING = auto()
-    BLOOM = auto()
+class ElementalReactionType(IntEnum):
+    NONE = 0
+    FROZEN = 1
+    MELT = 2
+    SUPERCONDUCT = 3
+    CRYSTALIZE = 4
+    VAPORIZE = 5
+    SWIRL = 6
+    ELECTROCHARGED = 7
+    OVERLOADED = 8
+    BLOOM = 9
+    BURNING = 10
+    QUICKEN = 11
     #  = auto() # TODO: 扩散、石化……
 
     def __str__(self):

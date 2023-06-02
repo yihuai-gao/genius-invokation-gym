@@ -64,6 +64,7 @@ class ElementalInfusion(CharacterStatusEntity):
             if top_msg.attacker == (self.player_id, self.position):
                 for idx, target in enumerate(top_msg.targets):
                     if target[2] == ElementType.NONE:
+                        print(f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {target[2]} -> {target[3]} + Add: 0\n        {self.player_id.name}-{self.position}")
                         top_msg.targets[idx] = (
                             target[0],
                             target[1],
@@ -89,14 +90,10 @@ class FrozenEffect(CharacterStatusEntity):
     """元素反应冻结效果"""
     name: str = "Frozen Effect"
     element: ElementType = ElementType.NONE
-    description: str = """
-    [Character Status]the target is unable to perform any Actions this round
-    (Can be removed in advance after the target receives Physical or Pyro DMG, 
-    in which case they will take +2 DMG)
-    """
+    description: str = """[Character Status]the target is unable to perform any Actions this round(Can be removed in advance after the target receives Physical or Pyro DMG, in which case they will take +2 DMG)"""
     value: int = 0
     active: bool = True
-    remaining_usage: int = INF_INT
+    remaining_usage: int = 1
 
     def msg_handler(self, msg_queue: PriorityQueue):
         top_msg = msg_queue.queue[0]
@@ -105,16 +102,25 @@ class FrozenEffect(CharacterStatusEntity):
         updated = False
         if isinstance(top_msg, DealDamageMsg):
             top_msg = cast(DealDamageMsg, top_msg)
-            if top_msg.attacker == (self.player_id, self.position):
-                for idx, target in enumerate(top_msg.targets):
-                    if target[2] in [ElementType.NONE, ElementType.CRYO]:
-                        top_msg.targets[idx] = (
-                            target[0],
-                            target[1],
-                            target[2],
-                            target[3] + 2,
-                        )
-                        updated = True
+            # 负面buff 为别人加伤
+            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(top_msg.targets):
+                if (target_id, target_pos) == (self.player_id, self.position) and element_type in [ElementType.NONE, ElementType.PYRO]:
+                    print(f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + Add: 2\n        {self.player_id.name}-{self.position} be subjected to Physical or Pyro DMG")
+                    top_msg.targets[idx] = (
+                        target_id,
+                        target_pos,
+                        element_type,
+                        dmg_val + 2,
+                    )
+                    updated = True
+                    # 冻结时遭受物理攻击或者火元素伤害 冻结撤销
+                    self.remaining_round = 0
+                    self.active = False
+
+        if isinstance(top_msg, RoundEndMsg):
+            # 回合结束冻结 撤销
+            self.remaining_round = 0
+            self.active = False
         if updated:
             msg_queue.queue[0].responded_entities.append(self._uuid)
         return updated

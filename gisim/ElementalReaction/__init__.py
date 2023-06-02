@@ -1,6 +1,6 @@
 from .Bloom import *
 from .Burning import *
-from .Crystallize import *
+from .Crystalize import *
 from .ElectroCharged import *
 from .Frozen import *
 from .Melt import *
@@ -13,18 +13,18 @@ from .base import *
 from .CannotReaction import *
 
 REACTIONLIST = {
-    ReactionType.NONE: "CannotReaction",
-    ReactionType.BLOOM: "Bloom",
-    ReactionType.BURNING: "Burning",
-    ReactionType.CRYSTALLIZE: "Crystallize",
-    ReactionType.ELECTROCHARGED: "ElectroCharged",
-    ReactionType.FROZEN: "Frozen",
-    ReactionType.MELT: "Melt",
-    ReactionType.OVERLOADED: "Overloaded",
-    ReactionType.QUICKEN: "Quicken",
-    ReactionType.SUPERCONDUCT: "Superconduct",
-    ReactionType.SWIRL: "Swirl",
-    ReactionType.VAPORIZE: "Vaporize",
+    ElementalReactionType.NONE: "CannotReaction",
+    ElementalReactionType.BLOOM: "Bloom",
+    ElementalReactionType.BURNING: "Burning",
+    ElementalReactionType.CRYSTALIZE: "Crystalize",
+    ElementalReactionType.ELECTROCHARGED: "ElectroCharged",
+    ElementalReactionType.FROZEN: "Frozen",
+    ElementalReactionType.MELT: "Melt",
+    ElementalReactionType.OVERLOADED: "Overloaded",
+    ElementalReactionType.QUICKEN: "Quicken",
+    ElementalReactionType.SUPERCONDUCT: "Superconduct",
+    ElementalReactionType.SWIRL: "Swirl",
+    ElementalReactionType.VAPORIZE: "Vaporize",
 }
 
 
@@ -36,7 +36,7 @@ def get_reaction_system(reaction_name: str):
     return reaction_system
 
 
-def get_reaction_system_by_type(reaction_type: ReactionType):
+def get_reaction_system_by_type(reaction_type: ElementalReactionType):
     """通过反应类型查找反应体系"""
     reaction_name = REACTIONLIST[reaction_type]
     return get_reaction_system(reaction_name)

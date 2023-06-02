@@ -13,6 +13,7 @@ from .classes.message import *
 from .classes.status import CombatStatusEntity
 from .classes.summon import Summon
 from .classes.support import Support
+from .classes.reaction import *
 from .player_area import BaseZone, PlayerArea, PlayerInfo
 
 

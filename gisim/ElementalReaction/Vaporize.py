@@ -15,5 +15,5 @@ class Vaporize(Reaction):
     id: int = 6
     name: str = "Vaporize"
     effect_text: str = "Vaporize: [Increased Bonuses]DMG +2 for this instance"
-    reaction_type: ReactionType = ReactionType.VAPORIZE
+    reaction_type: ElementalReactionType = ElementalReactionType.VAPORIZE
     increased_bonuses: int = 2

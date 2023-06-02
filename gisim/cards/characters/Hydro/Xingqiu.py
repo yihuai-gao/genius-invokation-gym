@@ -28,7 +28,7 @@ class GuhuaStyle(GenericSkill):
     """
     type: SkillType = SkillType.NORMAL_ATTACK
     costs: dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
-    damage_element: ElementType = ElementType.Physical
+    damage_element: ElementType = ElementType.HYDRO # 这里应该不是元素伤害 为了测试
     damage_value: int = 2
 
 
@@ -45,9 +45,9 @@ class FatalRainscreen(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.HYDRO: 3}
-    damage_element: ElementType = ElementType.Hydro
+    damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 2
-    combat_status_name: str = "Rain Sword"
+    # combat_status_name: str = "Rain Sword"
 
 
 class Raincutter(GenericSkill):
@@ -63,37 +63,37 @@ class Raincutter(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
     costs: dict[ElementType, int] = {ElementType.HYDRO:3, ElementType.POWER: 2}
-    damage_element: ElementType = ElementType.Hydro
+    damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
-    combat_status_name: str = "Rainbow Bladework"
+    # combat_status_name: str = "Rainbow Bladework"
 
 
-class CombatStatuRainSword(CombatStatusEntity):
-    """
-    Rain Sword
-    ~~~~~~
-    `战斗行动`Rain Sword
-    请完善这个类的效果,应该是召唤物或者战斗效果
-    """
-    name: str = "Rain Sword"
+# class CombatStatuRainSword(CombatStatusEntity):
+#     """
+#     Rain Sword
+#     ~~~~~~
+#     `战斗行动`Rain Sword
+#     请完善这个类的效果,应该是召唤物或者战斗效果
+#     """
+#     name: str = "Rain Sword"
 
-    def msg_handler(self, msg_queue: PriorityQueue) -> bool:
-        """请编写处理函数"""
-        pass
+#     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
+#         """请编写处理函数"""
+#         pass
 
 
-class CombatStatuRainbowBladework(CombatStatusEntity):
-    """
-    Rainbow Bladework
-    ~~~~~~
-    `战斗行动`Rainbow Bladework
-    请完善这个类的效果,应该是召唤物或者战斗效果
-    """
-    name: str = "Rainbow Bladework"
+# class CombatStatuRainbowBladework(CombatStatusEntity):
+#     """
+#     Rainbow Bladework
+#     ~~~~~~
+#     `战斗行动`Rainbow Bladework
+#     请完善这个类的效果,应该是召唤物或者战斗效果
+#     """
+#     name: str = "Rainbow Bladework"
 
-    def msg_handler(self, msg_queue: PriorityQueue) -> bool:
-        """请编写处理函数"""
-        pass
+#     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
+#         """请编写处理函数"""
+#         pass
 
 
 class Xingqiu(CharacterCard):
