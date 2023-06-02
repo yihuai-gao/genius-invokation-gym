@@ -10,9 +10,8 @@ from gisim.classes.message import (
     GenerateSummonMsg,
     GenerateCharacterStatusMsg,
     GenerateCombatStatusMsg,
-
-
 )
+
 
 if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
@@ -42,54 +41,6 @@ class Reaction(BaseModel):
     summon_name: str = ""
     """生成的召唤物"""
 
-    def to_reaction(self, msg_queue: PriorityQueue, player_id: PlayerID, parent: "CharacterEntity"):
+    def to_reaction(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         msg = msg_queue.get()
-        if self.reaction_type != ElementalReactionType.NONE:
-            msg = ElementalReactionTriggeredMsg(
-                elemental_reaction_type= self.reaction_type,
-                target=
-            )
-        msg = cast(ElementalReactionTriggeredMsg, msg)
-        target_player_id, target_char_pos = msg.targets[0]
-        if self.piercing_damage_value > 0:
-            new_msg = DealDamageMsg(
-                attack_type=AttackType(self.type.value),
-                attacker=(parent.player_id, parent.position),
-                sender_id=parent.player_id,
-                targets=[
-                    (
-                        target_player_id,
-                        target_char_pos + k,
-                        ElementType.PIERCE,
-                        self.piercing_damage_value,
-                    )
-                    for k in [1, 2]  # Deals damage to two other characters
-                ],
-            )
-            msg_queue.put(new_msg)
-
-        if self.summon_name:
-            new_msg = GenerateSummonMsg(
-                sender_id=parent.player_id, summon_name=self.summon_name
-            )
-            msg_queue.put(new_msg)
-
-        if self.status_name:
-            new_msg = GenerateCharacterStatusMsg(
-                sender_id=parent.player_id,
-                target=(parent.player_id, parent.position),
-                status_name=self.status_name,
-                remaining_round=self.status_remaining_round,
-                remaining_usage=self.status_remaining_usage,
-            )
-            msg_queue.put(new_msg)
-
-        if self.combat_status_name:
-            new_msg = GenerateCombatStatusMsg(
-                sender_id=parent.player_id,
-                target_player_id=parent.player_id,
-                combat_status_name=self.combat_status_name,
-                remaining_round=self.combat_status_remaining_round,
-                remaining_usage=self.combat_status_remaining_usage,
-            )
-            msg_queue.put(new_msg)
+        # print(msg)

@@ -30,7 +30,7 @@ class Frozen(Reaction):
     reaction_type: ElementalReactionType = ElementalReactionType.FROZEN
     increased_bonuses: int = 1
 
-    def to_reaction(self, msg_queue: PriorityQueue, player_id: PlayerID, parent: "CharacterEntity",OriginMsg):
+    def to_reaction(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         """[Character Status]the target is unable to perform any Actions this round
           (Can be removed in advance after the target receives Physical or Pyro DMG, in which case they will take +2 DMG)"""
         new_msg = GenerateCharacterStatusMsg(

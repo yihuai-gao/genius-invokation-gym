@@ -121,6 +121,28 @@ class CharacterEntity(Entity):
             if skill.type == SkillType.PASSIVE_SKILL:
                 updated = skill.use_skill(msg_queue=msg_queue, parent=self)
         return updated
+    
+    def element_reaction_handler(self, msg_queue: PriorityQueue):
+        updated = False
+        msg = msg_queue.queue[0]
+        if isinstance(msg, DealDamageMsg):
+            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(msg.targets):
+                if target_id == self.player_id and target_pos == self.position:
+                    ele_attachment,reaction_effect = element_reaction(self.elemental_attachment,element_type)
+                    if reaction_effect.increased_bonuses > 0:
+                        msg.targets[idx] = (
+                            target_id,
+                            target_pos,
+                            element_type,
+                            dmg_val + reaction_effect.increased_bonuses,
+                        )
+                    reaction_effect.to_reaction( msg_queue, self)
+                    print(f"    Attacker:\n        Type: {msg.attack_type.name}\n        ElenentType: {element_type.name} Dmg: Origin: {dmg_val} + Add: {reaction_effect.increased_bonuses}\n        From: {msg.attacker[0].name}-{msg.attacker[1].name} -> To: {self.player_id.name}-{self.position.name}({self.name})")
+                    print(f"        Elemental Reaction:  {reaction_effect.reaction_type.name}\n           Effect: {reaction_effect.effect_text}")
+                    print(f"           {self.player_id.name}-{self.position.name}({self.name}) Elemental Attachment: Befor: {self.elemental_attachment} -> After: {ele_attachment}\n\n")
+                    self.elemental_attachment = ele_attachment
+                    updated = True
+        return updated
 
     def msg_handler(self, msg_queue: PriorityQueue):
         """Will respond to `UseSkillMsg` etc."""
@@ -128,6 +150,8 @@ class CharacterEntity(Entity):
         if self._uuid in msg.responded_entities:
             return False
         updated = self.passive_skill_handler(msg_queue)
+        self.element_reaction_handler(msg_queue)
+
         if isinstance(msg, PaySkillCostMsg):
             msg = cast(PaySkillCostMsg, msg)
             if msg.user_pos == self.position:
@@ -165,9 +189,6 @@ class CharacterEntity(Entity):
                 elif self.position != msg.target[1] and self.active:
                     self.active = False
                     updated = True
-        elif isinstance(msg, ElementalReactionTriggeredMsg):
-            # 元素反应消息在伤害发生之前就应该处理
-            pass
         elif isinstance(msg, DealDamageMsg):
             msg = cast(DealDamageMsg, msg)
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
@@ -185,18 +206,13 @@ class CharacterEntity(Entity):
                     and target_pos == CharPos.ACTIVE
                 ):
                     # 进行元素反应并产生效果
-                    ele_attachment,reaction_effect = element_reaction(self.elemental_attachment,element_type)
-                    reaction_effect.to_reaction( msg_queue, self.player_id, self)
-                    print(f"    Attacker:\n        Type: {msg.attack_type.name}\n        ElenentType: {element_type.name} Dmg: Origin: {dmg_val} + Add: {reaction_effect.increased_bonuses}\n        From: {msg.attacker[0].name}-{msg.attacker[1].name} -> To: {self.player_id.name}-{self.position.name}({self.name})")
-                    print(f"        Elemental Reaction:  {reaction_effect.reaction_type.name}\n           Effect: {reaction_effect.effect_text}")
-                    print(f"           {self.player_id.name}-{self.position.name}({self.name}) Elemental Attachment: Befor: {self.elemental_attachment} -> After: {ele_attachment}\n\n")
-                    self.elemental_attachment = ele_attachment
-                    # 伤害 = 原始伤害 + 来源角色增益 + 元素反应增益
-                    # 减免 = 状态or护盾对伤害的减免 （元素抗性） 可以抵抗对应元素伤害  免疫所有伤害
-                    # 穿透伤害 穿透伤害不受增益 也不能被抵消 包括 免疫所有伤害 效果
-                    # TODO :伤害来源的计算（更好的办法是使用技能的角色在他的Character中建立一个伤害的对象，里面放的是增益后伤害值）
-                    dmg_val = dmg_val + reaction_effect.increased_bonuses
-
+                    # ele_attachment,reaction_effect = element_reaction(self.elemental_attachment,element_type)
+                    # reaction_effect.to_reaction( msg_queue, self)
+                    # print(f"    Attacker:\n        Type: {msg.attack_type.name}\n        ElenentType: {element_type.name} Dmg: Origin: {dmg_val} + Add: {reaction_effect.increased_bonuses}\n        From: {msg.attacker[0].name}-{msg.attacker[1].name} -> To: {self.player_id.name}-{self.position.name}({self.name})")
+                    # print(f"        Elemental Reaction:  {reaction_effect.reaction_type.name}\n           Effect: {reaction_effect.effect_text}")
+                    # print(f"           {self.player_id.name}-{self.position.name}({self.name}) Elemental Attachment: Befor: {self.elemental_attachment} -> After: {ele_attachment}\n\n")
+                    # self.elemental_attachment = ele_attachment
+                    dmg_val = dmg_val # + reaction_effect.increased_bonuses
                     self.health_point -= min(self.health_point, dmg_val)
                     if self.health_point == 0:
                         """击倒：角色的生命值被降至0时，角色被击倒。当角色被击倒时，角色所附属的装备和状态会被弃置，充能也会被清空。"""
