@@ -1,4 +1,4 @@
-"""迪卢克"""
+"""可莉"""
 from queue import PriorityQueue
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
@@ -14,33 +14,33 @@ from gisim.classes.enums import (
 from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
 
-class TemperedSword(GenericSkill):
+class Kaboom(GenericSkill):
     """
-    淬炼之剑
-    ~~~~~~~~
-    造成2点`物理伤害`。
+    砰砰
+    ~~~~
+    造成1点`火元素伤害`。
     """
-    id: int = 13011
-    name: str = "Tempered Sword"
+    id: int = 13061
+    name: str = "Kaboom!"
     text: str = """
-    Deals 2 Physical DMG.
+    Deals 1 Pyro DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
     costs: dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
-    damage_element: ElementType = ElementType.NONE
-    damage_value: int = 2
+    damage_element: ElementType = ElementType.PYRO
+    damage_value: int = 1
 
 
-class SearingOnslaught(GenericSkill):
+class JumpyDumpty(GenericSkill):
     """
-    逆焰之刃
+    蹦蹦炸弹
     ~~~~~~~~
-    造成3点`火元素伤害`。每回合第三次使用本技能时，伤害+2。
+    造成3点`火元素伤害`，本角色附属`爆裂火花`。
     """
-    id: int = 13012
-    name: str = "Searing Onslaught"
+    id: int = 13062
+    name: str = "Jumpy Dumpty"
     text: str = """
-    Deals 3 Pyro DMG. For the third use of this Skill each Round, deals +2 DMG.
+    Deals 3 Pyro DMG. This character gains Explosive Spark.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.PYRO: 3}
@@ -48,36 +48,36 @@ class SearingOnslaught(GenericSkill):
     damage_value: int = 3
 
 
-class Dawn(GenericSkill):
+class SparksnSplash(GenericSkill):
     """
-    黎明
-    ~~~~
-    造成8点`火元素伤害`，本角色附属`火元素附魔`。
+    轰轰火花
+    ~~~~~~~~
+    造成3点`火元素伤害`，在对方场上生成`轰轰火花`。
     """
-    id: int = 13013
-    name: str = "Dawn"
+    id: int = 13063
+    name: str = "Sparks 'n' Splash"
     text: str = """
-    Deals 8 Pyro DMG. This character gains Pyro Infusion.
+    Deals 3 Pyro DMG, creates 1 Sparks 'n' Splash at the opponent's play area.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.PYRO: 4, ElementType.POWER: 3}
+    costs: dict[ElementType, int] = {ElementType.PYRO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.PYRO
-    damage_value: int = 8
+    damage_value: int = 3
 
 
-class Diluc(CharacterCard):
-    """迪卢克"""
-    id: int = 1301
-    name: str = "Diluc"
+class Klee(CharacterCard):
+    """可莉"""
+    id: int = 1306
+    name: str = "Klee"
     element_type: ElementType = ElementType.PYRO
     nations: list[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
-    weapon_type: WeaponType = WeaponType.CLAYMORE
+    weapon_type: WeaponType = WeaponType.CATALYST
     skills: list[CharacterSkill] = [
-        TemperedSword(),
-        SearingOnslaught(),
-        Dawn(),
+        Kaboom(),
+        JumpyDumpty(),
+        SparksnSplash(),
     ]
 

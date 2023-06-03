@@ -6,8 +6,3 @@ coverage.xml
 *.egg-info
 tools/*.txt
 .gitignore
-tests/
-gisim/cards/
-generate_character_cards.py
-test_messages.py
-damage_calculation.py
