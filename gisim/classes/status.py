@@ -64,7 +64,6 @@ class ElementalInfusion(CharacterStatusEntity):
             if top_msg.attacker == (self.player_id, self.position):
                 for idx, target in enumerate(top_msg.targets):
                     if target[2] == ElementType.NONE:
-                        print(f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {target[2]} -> {target[3]} + Add: 0\n        {self.player_id.name}-{self.position}")
                         top_msg.targets[idx] = (
                             target[0],
                             target[1],
@@ -84,6 +83,7 @@ class ElementalInfusion(CharacterStatusEntity):
         if updated:
             msg_queue.queue[0].responded_entities.append(self._uuid)
         return updated
+
 
 def get_character_status_entity(
     name: str, player_id: PlayerID, position: CharPos, remaining_round: int

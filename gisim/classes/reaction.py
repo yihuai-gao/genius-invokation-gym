@@ -1,7 +1,5 @@
 from gisim.classes.enums import *
-from gisim.classes.entity import Entity
 import numpy as np
-from enum import IntEnum
 from typing import List
 from gisim.elementalReaction import get_reaction_system, get_reaction_system_by_type
 from gisim.elementalReaction.base import Reaction

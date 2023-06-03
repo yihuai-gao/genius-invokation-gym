@@ -122,46 +122,13 @@ class CharacterEntity(Entity):
                 updated = skill.use_skill(msg_queue=msg_queue, parent=self)
         return updated
 
-    def element_reaction_handler(self, msg_queue: PriorityQueue):
-        updated = False
-        msg = msg_queue.queue[0]
-        if isinstance(msg, DealDamageMsg):
-            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(msg.targets):
-                if target_id == self.player_id and target_pos == self.position:
-                    ele_attachment, reaction_effect = element_reaction(
-                        self.elemental_attachment, element_type)
-                    if reaction_effect.increased_bonuses > 0:
-                        msg.targets[idx] = (
-                            target_id,
-                            target_pos,
-                            element_type,
-                            dmg_val + reaction_effect.increased_bonuses,
-                        )
-                    reaction_effect.to_reaction(msg_queue, self)
-                    print(
-                        f"    Attacker:\n        Type: {msg.attack_type.name}\n        ElenentType: {element_type.name} Dmg: Origin: {dmg_val} + Add: {reaction_effect.increased_bonuses}\n        From: {msg.attacker[0].name}-{msg.attacker[1].name} -> To: {self.player_id.name}-{self.position.name}({self.name})")
-                    print(
-                        f"        Elemental Reaction:  {reaction_effect.reaction_type.name}\n           Effect: {reaction_effect.effect_text}")
-                    print(
-                        f"           {self.player_id.name}-{self.position.name}({self.name}) Elemental Attachment: Befor: {self.elemental_attachment} -> After: {ele_attachment}\n\n")
-                    self.elemental_attachment = ele_attachment
-                    if reaction_effect.reaction_type != ElementalReactionType.NONE:
-                        elemental_attachment_msg = ElementalReactionTriggeredMsg(
-                            sender_id=self.player_id,
-                            elemental_reaction_type=reaction_effect.reaction_type,
-                            target=(target_id,target_pos)
-                        )
-                        msg_queue.put(elemental_attachment_msg)
-                    # updated = True
-        return updated
-
     def msg_handler(self, msg_queue: PriorityQueue):
+        # sourcery skip: low-code-quality
         """Will respond to `UseSkillMsg` etc."""
         msg = msg_queue.queue[0]
         if self._uuid in msg.responded_entities:
             return False
         updated = self.passive_skill_handler(msg_queue)
-
         if isinstance(msg, PaySkillCostMsg):
             msg = cast(PaySkillCostMsg, msg)
             if msg.user_pos == self.position:
@@ -217,25 +184,21 @@ class CharacterEntity(Entity):
                     continue
                 if self.active and target_pos == CharPos.ACTIVE:
                     # Modify the target position of the message to the correct character. In case the active character changed due to character death.
-                    msg.targets[idx] = (
-                        target_id, self.position, element_type, dmg_val)
+                    msg.targets[idx] = (target_id, self.position, element_type, dmg_val)
                 if (
                     self.position == target_pos
                     or self.active
                     and target_pos == CharPos.ACTIVE
                 ):
-                    # 进行元素反应并产生效果
-                    # ele_attachment,reaction_effect = element_reaction(self.elemental_attachment,element_type)
-                    # reaction_effect.to_reaction( msg_queue, self)
-                    # print(f"    Attacker:\n        Type: {msg.attack_type.name}\n        ElenentType: {element_type.name} Dmg: Origin: {dmg_val} + Add: {reaction_effect.increased_bonuses}\n        From: {msg.attacker[0].name}-{msg.attacker[1].name} -> To: {self.player_id.name}-{self.position.name}({self.name})")
-                    # print(f"        Elemental Reaction:  {reaction_effect.reaction_type.name}\n           Effect: {reaction_effect.effect_text}")
-                    # print(f"           {self.player_id.name}-{self.position.name}({self.name}) Elemental Attachment: Befor: {self.elemental_attachment} -> After: {ele_attachment}\n\n")
-                    # self.elemental_attachment = ele_attachment
-                    dmg_val = dmg_val  # + reaction_effect.increased_bonuses
+                    
+                    self.elemental_attachment, reaction_effect = element_reaction(
+                        self.elemental_attachment,
+                        element_type
+                    )
+                    reaction_effect.to_reaction(msg_queue, parent=self)
+
                     self.health_point -= min(self.health_point, dmg_val)
                     if self.health_point == 0:
-                        """击倒：角色的生命值被降至0时，角色被击倒。当角色被击倒时，角色所附属的装备和状态会被弃置，充能也会被清空。"""
-                        # TODO: 免于被击倒的效果
                         self.alive = False
                         # self.active = False
                         dead_msg = CharacterDiedMsg(
@@ -247,6 +210,7 @@ class CharacterEntity(Entity):
         if updated:
             msg.responded_entities.append(self._uuid)
         return updated
+
 
 
 class CharacterEntityInfo:
