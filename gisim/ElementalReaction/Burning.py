@@ -2,7 +2,7 @@
 from typing import TYPE_CHECKING, List
 
 from gisim.classes.enums import *
-from gisim.ElementalReaction.base import Reaction
+from gisim.elementalReaction.base import Reaction
 
 from gisim.classes.summon import AttackSummon
 

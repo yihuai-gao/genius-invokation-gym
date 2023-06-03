@@ -1,6 +1,6 @@
 """无效果"""
 from gisim.classes.enums import *
-from gisim.ElementalReaction.base import Reaction
+from gisim.elementalReaction.base import Reaction
 
 
 
