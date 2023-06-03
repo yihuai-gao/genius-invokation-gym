@@ -3,6 +3,7 @@ Basic character card classes
 """
 from queue import PriorityQueue
 from typing import TYPE_CHECKING, Dict, List, Optional, cast
+from gisim.classes.reaction import element_reaction
 
 from pydantic import BaseModel, Field, validator
 
@@ -66,6 +67,9 @@ class GenericSkill(CharacterSkill):
     """Heal the current character"""
     heal_all_value: int = 0
     """Heal all your alive characters"""
+
+    self_element_attachment: ElementType = ElementType.NONE
+    """Some skills will add elemental attachments to themselves, such as Xingqiu."""
 
     def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         msg = msg_queue.get()

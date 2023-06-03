@@ -33,7 +33,7 @@ class CharacterEntity(Entity):
 
     # elemental_attachment = ElementType.NONE
 
-    elemental_attachment: List[ElementType] = []
+    elemental_attachment: List[ElementType] = [ElementType.HYDRO]
     """
     可附着元素发生元素附着后会在卡牌顶部产生对应元素的图标，不能发生反应的可附着元素会各自独立附着。
     比如冰元素和草元素，之间不可以发生反应，他们会各自独立附着。
@@ -121,14 +121,15 @@ class CharacterEntity(Entity):
             if skill.type == SkillType.PASSIVE_SKILL:
                 updated = skill.use_skill(msg_queue=msg_queue, parent=self)
         return updated
-    
+
     def element_reaction_handler(self, msg_queue: PriorityQueue):
         updated = False
         msg = msg_queue.queue[0]
         if isinstance(msg, DealDamageMsg):
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(msg.targets):
                 if target_id == self.player_id and target_pos == self.position:
-                    ele_attachment,reaction_effect = element_reaction(self.elemental_attachment,element_type)
+                    ele_attachment, reaction_effect = element_reaction(
+                        self.elemental_attachment, element_type)
                     if reaction_effect.increased_bonuses > 0:
                         msg.targets[idx] = (
                             target_id,
@@ -136,12 +137,22 @@ class CharacterEntity(Entity):
                             element_type,
                             dmg_val + reaction_effect.increased_bonuses,
                         )
-                    reaction_effect.to_reaction( msg_queue, self)
-                    print(f"    Attacker:\n        Type: {msg.attack_type.name}\n        ElenentType: {element_type.name} Dmg: Origin: {dmg_val} + Add: {reaction_effect.increased_bonuses}\n        From: {msg.attacker[0].name}-{msg.attacker[1].name} -> To: {self.player_id.name}-{self.position.name}({self.name})")
-                    print(f"        Elemental Reaction:  {reaction_effect.reaction_type.name}\n           Effect: {reaction_effect.effect_text}")
-                    print(f"           {self.player_id.name}-{self.position.name}({self.name}) Elemental Attachment: Befor: {self.elemental_attachment} -> After: {ele_attachment}\n\n")
+                    reaction_effect.to_reaction(msg_queue, self)
+                    print(
+                        f"    Attacker:\n        Type: {msg.attack_type.name}\n        ElenentType: {element_type.name} Dmg: Origin: {dmg_val} + Add: {reaction_effect.increased_bonuses}\n        From: {msg.attacker[0].name}-{msg.attacker[1].name} -> To: {self.player_id.name}-{self.position.name}({self.name})")
+                    print(
+                        f"        Elemental Reaction:  {reaction_effect.reaction_type.name}\n           Effect: {reaction_effect.effect_text}")
+                    print(
+                        f"           {self.player_id.name}-{self.position.name}({self.name}) Elemental Attachment: Befor: {self.elemental_attachment} -> After: {ele_attachment}\n\n")
                     self.elemental_attachment = ele_attachment
-                    updated = True
+                    if reaction_effect.reaction_type != ElementalReactionType.NONE:
+                        elemental_attachment_msg = ElementalReactionTriggeredMsg(
+                            sender_id=self.player_id,
+                            elemental_reaction_type=reaction_effect.reaction_type,
+                            target=(target_id,target_pos)
+                        )
+                        msg_queue.put(elemental_attachment_msg)
+                    # updated = True
         return updated
 
     def msg_handler(self, msg_queue: PriorityQueue):
@@ -150,7 +161,6 @@ class CharacterEntity(Entity):
         if self._uuid in msg.responded_entities:
             return False
         updated = self.passive_skill_handler(msg_queue)
-        self.element_reaction_handler(msg_queue)
 
         if isinstance(msg, PaySkillCostMsg):
             msg = cast(PaySkillCostMsg, msg)
@@ -175,6 +185,15 @@ class CharacterEntity(Entity):
             if msg.sender_id == self.player_id and msg.user_pos == self.position:
                 skill_name = msg.skill_name
                 skill = self.get_skill(skill_name=skill_name)
+                if skill.self_element_attachment is not ElementType.NONE:
+                    """Some skills will add elemental attachments to themselves, 
+                    such as Xingqiu."""
+                    self.elemental_attachment, reaction_effect = element_reaction(
+                        self.elemental_attachment,
+                        skill.self_element_attachment
+                    )
+                    reaction_effect.to_reaction(msg_queue, parent=self)
+
                 if skill.accumulate_power and skill.type != SkillType.ELEMENTAL_BURST:
                     self.power = min(
                         self.power + skill.accumulate_power, self.max_power
@@ -212,7 +231,7 @@ class CharacterEntity(Entity):
                     # print(f"        Elemental Reaction:  {reaction_effect.reaction_type.name}\n           Effect: {reaction_effect.effect_text}")
                     # print(f"           {self.player_id.name}-{self.position.name}({self.name}) Elemental Attachment: Befor: {self.elemental_attachment} -> After: {ele_attachment}\n\n")
                     # self.elemental_attachment = ele_attachment
-                    dmg_val = dmg_val # + reaction_effect.increased_bonuses
+                    dmg_val = dmg_val  # + reaction_effect.increased_bonuses
                     self.health_point -= min(self.health_point, dmg_val)
                     if self.health_point == 0:
                         """击倒：角色的生命值被降至0时，角色被击倒。当角色被击倒时，角色所附属的装备和状态会被弃置，充能也会被清空。"""

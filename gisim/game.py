@@ -213,7 +213,6 @@ class Game:
                 updated = zone.msg_handler(self.msg_queue)
                 if updated:
                     break
-
             if not updated:
                 # All entities in the respondent zones does not respond to the message queue
                 # For some special messages, game FSM should be updated

@@ -336,7 +336,6 @@ class DeclareEndMsg(Message):
 # Changing hp/power/ related
 # This kind of message is usually responded by a lot of entities, from the current character/summon to its target
 
-
 class DealDamageMsg(Message):
     """Send from Character(Skill)/Character Status/Summon/Combat Status"""
 
@@ -391,10 +390,12 @@ class ChangePowerMsg(Message):
 
 class ElementalReactionTriggeredMsg(Message):
     """Send from Character(under attack)/Summon"""
-
     priority: MsgPriority = MsgPriority.ELEMENTAL_REACTION_EFFECT
     elemental_reaction_type: ElementalReactionType
     target: Tuple[PlayerID, CharPos]
+    """发生反应的场所"""
+    source: Tuple[PlayerID, CharPos]
+    """来源"""
 
 
 class CharacterDiedMsg(Message):

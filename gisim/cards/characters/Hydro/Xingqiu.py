@@ -28,7 +28,7 @@ class GuhuaStyle(GenericSkill):
     """
     type: SkillType = SkillType.NORMAL_ATTACK
     costs: dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
-    damage_element: ElementType = ElementType.HYDRO # 这里应该不是元素伤害 为了测试
+    damage_element: ElementType = ElementType.NONE# 这里应该不是元素伤害 为了测试
     damage_value: int = 2
 
 

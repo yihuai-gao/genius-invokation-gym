@@ -181,6 +181,7 @@ class AttackType(Enum):
     PASSIVE_SKILL = 4
     COMBAT_STATUS = auto()
     SUMMON = auto()
+    ELEMENTAL_REACTION = auto()
 
 
 class CharPos(Enum):

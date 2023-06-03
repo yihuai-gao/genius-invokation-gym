@@ -29,7 +29,8 @@ from gisim.classes.message import (
     RoundEndMsg,
     UseCardMsg,
 )
-from gisim.classes.status import CharacterStatusEntity, get_character_status_entity
+# from gisim.classes.status import CharacterStatusEntity, get_character_status_entity
+from gisim.status import CharacterStatusEntity,get_character_status_entity
 
 if TYPE_CHECKING:
     from gisim.classes.status import CombatStatusEntity

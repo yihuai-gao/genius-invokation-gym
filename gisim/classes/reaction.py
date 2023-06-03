@@ -3,8 +3,8 @@ from gisim.classes.entity import Entity
 import numpy as np
 from enum import IntEnum
 from typing import List
-from gisim.ElementalReaction import get_reaction_system, get_reaction_system_by_type
-from gisim.ElementalReaction.base import Reaction
+from gisim.elementalReaction import get_reaction_system, get_reaction_system_by_type
+from gisim.elementalReaction.base import Reaction
 import copy
 
 
