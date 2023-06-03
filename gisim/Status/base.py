@@ -40,5 +40,8 @@ class CombatStatusEntity(Entity, ABC):
     remaining_round: int
     value: int
 
+    def msg_handler(self, msg_queue: PriorityQueue):
+        ...
+
     def encode(self):
         return OrderedDict(self.dict(exclude={"_uuid", "_logger"}))

@@ -20,6 +20,7 @@ from gisim.classes.message import (
     ChangeCardsMsg,
     ChangeDiceMsg,
     GenerateCharacterStatusMsg,
+    GenerateCombatStatusMsg,
     GenerateEquipmentMsg,
     GenerateSummonMsg,
     Message,
@@ -30,7 +31,12 @@ from gisim.classes.message import (
     UseCardMsg,
 )
 # from gisim.classes.status import CharacterStatusEntity, get_character_status_entity
-from gisim.status import CharacterStatusEntity,get_character_status_entity
+from gisim.status import (
+    CharacterStatusEntity,
+    get_character_status_entity,
+    CombatStatusEntity,
+    get_combat_status_entity
+)
 
 if TYPE_CHECKING:
     from gisim.classes.status import CombatStatusEntity
@@ -422,7 +428,38 @@ class CombatStatusZone(BaseZone):
         return [status_entity.encode() for status_entity in self.status_entities]
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
-        ...
+        top_msg = msg_queue.queue[0]
+
+        if isinstance(top_msg, GenerateCombatStatusMsg):
+            top_msg = cast(GenerateCombatStatusMsg, top_msg)
+            if top_msg.target_player_id == self._parent.player_id :
+                status_entity = get_combat_status_entity(
+                    top_msg.combat_status_name,
+                    self._parent.player_id,
+                    top_msg.remaining_round,
+                    top_msg.remaining_usage
+                )
+                self.status_entities.append(status_entity)
+                top_msg.responded_entities.append((self._uuid))
+
+        for entity in self.status_entities:
+            if updated := entity.msg_handler(msg_queue):
+                return True
+
+        # 删除用完或者到回合次数的出战阵营状态
+        if isinstance(top_msg, RoundEndMsg):
+            invalid_idxes = [
+                idx
+                for idx, status in enumerate(self.status_entities)
+                if (status.remaining_round == 0 or status.remaining_usage == 0)
+                and status.active == False
+            ]
+            invalid_idxes.reverse()
+            for idx in invalid_idxes:
+                self.status_entities.pop(idx)
+        return False
+
+
 
 
 class CharacterZone(BaseZone):

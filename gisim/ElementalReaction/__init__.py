@@ -27,7 +27,6 @@ REACTIONLIST = {
     ElementalReactionType.VAPORIZE: "Vaporize",
 }
 
-
 def get_reaction_system(reaction_name: str):
     """通过反应名称查找反应体系"""
     reaction_name = reaction_name.replace(" ", "").replace("'", "")

@@ -45,12 +45,9 @@ class Reaction(BaseModel):
     def to_reaction(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         # sourcery skip: low-code-quality
         player_id, parent_pos = parent.player_id, parent.position
-        # 没有触发反应无需任何动作
         if self.reaction_type == ElementalReactionType.NONE:
             return None
-        # 获取正在被处理的消息
         top_msg = msg_queue.queue[0]
-        # 注意，元素反应不一定是伤害触发的，有时是效果触发的，技能触发，自身触发
         if isinstance(top_msg,UseSkillMsg):
             top_msg = cast(UseSkillMsg, top_msg)
             new_msg = ElementalReactionTriggeredMsg(
@@ -61,11 +58,9 @@ class Reaction(BaseModel):
             )
 
         elif isinstance(top_msg, DealDamageMsg):
-            # 由于伤害触发的
             top_msg = cast(DealDamageMsg, top_msg)
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(top_msg.targets):
                 if target_id == player_id and target_pos == parent_pos:
-                    # 加伤 添加元素反应类型
                     top_msg.targets[idx] = (
                         target_id,
                         target_pos,
