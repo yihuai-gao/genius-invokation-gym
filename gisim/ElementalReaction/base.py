@@ -48,6 +48,7 @@ class Reaction(BaseModel):
         if self.reaction_type == ElementalReactionType.NONE:
             return None
         top_msg = msg_queue.queue[0]
+        print(f"\nElemental Reaction :{self.reaction_type.name}\n")
         if isinstance(top_msg,UseSkillMsg):
             top_msg = cast(UseSkillMsg, top_msg)
             new_msg = ElementalReactionTriggeredMsg(
@@ -56,6 +57,7 @@ class Reaction(BaseModel):
                 target = (player_id, parent_pos),
                 source = (player_id, parent_pos)
             )
+            msg_queue.put(new_msg)
 
         elif isinstance(top_msg, DealDamageMsg):
             top_msg = cast(DealDamageMsg, top_msg)
@@ -73,6 +75,8 @@ class Reaction(BaseModel):
                         target = (player_id, parent_pos),
                         source = top_msg.attacker
                     )
+                    msg_queue.put(new_msg)
+
                     attacker_id,attacker_pos = top_msg.attacker
                     if self.piercing_damage_value > 0:
                         new_msg = DealDamageMsg(
@@ -91,33 +95,31 @@ class Reaction(BaseModel):
                         )
                         msg_queue.put(new_msg)
 
-                    if self.summon_name:
-                        new_msg = GenerateSummonMsg(
-                            sender_id=attacker_id , summon_name=self.summon_name
-                        )
-                        msg_queue.put(new_msg)
+        if self.summon_name:
+            new_msg = GenerateSummonMsg(
+                sender_id=attacker_id , summon_name=self.summon_name
+            )
+            msg_queue.put(new_msg)
 
-                    if self.status_name:
-                        new_msg = GenerateCharacterStatusMsg(
-                            sender_id= player_id,
-                            target=(parent.player_id, parent.position),
-                            status_name=self.status_name,
-                            remaining_round=self.status_remaining_round,
-                            remaining_usage=self.status_remaining_usage,
-                        )
-                        msg_queue.put(new_msg)
+        if self.status_name:
+            new_msg = GenerateCharacterStatusMsg(
+                sender_id= player_id,
+                target=(parent.player_id, parent.position),
+                status_name=self.status_name,
+                remaining_round=self.status_remaining_round,
+                remaining_usage=self.status_remaining_usage,
+            )
+            msg_queue.put(new_msg)
 
-                    if self.combat_status_name:
-                        new_msg = GenerateCombatStatusMsg(
-                            sender_id=player_id,
-                            target_player_id=parent.player_id,
-                            combat_status_name=self.combat_status_name,
-                            remaining_round=self.combat_status_remaining_round,
-                            remaining_usage=self.combat_status_remaining_usage,
-                        )
-                        msg_queue.put(new_msg)
-        msg_queue.put(new_msg)
-
+        if self.combat_status_name:
+            new_msg = GenerateCombatStatusMsg(
+                sender_id=player_id,
+                target_player_id=parent.player_id,
+                combat_status_name=self.combat_status_name,
+                remaining_round=self.combat_status_remaining_round,
+                remaining_usage=self.combat_status_remaining_usage,
+            )
+            msg_queue.put(new_msg)
 
 
 

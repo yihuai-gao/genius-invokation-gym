@@ -58,6 +58,7 @@ if __name__ == "__main__":
         artifact = {}
         cards = active_player_info.hand_cards
         pos = active_player_info.active_character_position
+        co_status_list = active_player_info.combat_status_zone
         if pos.value is not None:
             ch = active_player_info.characters[pos.value].character
             ch_status_list = active_player_info.characters[pos.value].status
@@ -98,6 +99,13 @@ if __name__ == "__main__":
             print(f"    Current Summons:")
             for summon in summons:
                 print(f"          {summon['name']}: usages: {summon['usages']}")
+        
+        if len(co_status_list) >= 1:
+            print(f"    Combat Status:")
+            for co_status in co_status_list:
+                print(
+                    f"      {co_status['player_id']},{co_status['name']}, active: {co_status['active']}, remaining round: {co_status['remaining_round']}, remaining usage: {co_status['remaining_usage']}"
+                )
 
         print(f"\n    {action_type}: {action.dict()}")
         print("\n")

@@ -449,7 +449,7 @@ class CombatStatusZone(BaseZone):
         # 删除用完或者到回合次数的出战阵营状态
         if isinstance(top_msg, RoundEndMsg):
             invalid_idxes = [
-                idx
+                idx 
                 for idx, status in enumerate(self.status_entities)
                 if (status.remaining_round == 0 or status.remaining_usage == 0)
                 and status.active == False

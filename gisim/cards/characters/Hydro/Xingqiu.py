@@ -13,6 +13,7 @@ from gisim.classes.enums import (
 )
 from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.env import INF_INT
 
 
 class GuhuaStyle(GenericSkill):
@@ -48,6 +49,9 @@ class FatalRainscreen(GenericSkill):
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 2
     combat_status_name: str = "Rain Sword"
+    combat_status_remaining_round:int = INF_INT
+    combat_status_remaining_usage:int = 2
+    self_element_attachment:ElementType = ElementType.HYDRO
 
 
 class Raincutter(GenericSkill):
@@ -66,6 +70,9 @@ class Raincutter(GenericSkill):
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
     combat_status_name: str = "Rainbow Bladework"
+    combat_status_remaining_round:int = INF_INT
+    combat_status_remaining_usage:int = 3
+
 
 
 

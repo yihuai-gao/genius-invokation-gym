@@ -37,6 +37,7 @@ class CombatStatusEntity(Entity, ABC):
     name: str
     description: str
     active: bool
+    remaining_usage: int
     remaining_round: int
     value: int
 

@@ -33,7 +33,7 @@ class CharacterEntity(Entity):
 
     # elemental_attachment = ElementType.NONE
 
-    elemental_attachment: List[ElementType] = [ElementType.HYDRO]
+    elemental_attachment: List[ElementType] = []
     """
     可附着元素发生元素附着后会在卡牌顶部产生对应元素的图标，不能发生反应的可附着元素会各自独立附着。
     比如冰元素和草元素，之间不可以发生反应，他们会各自独立附着。
