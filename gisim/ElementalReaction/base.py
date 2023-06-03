@@ -54,6 +54,7 @@ class Reaction(BaseModel):
         if isinstance(top_msg,UseSkillMsg):
             top_msg = cast(UseSkillMsg, top_msg)
             new_msg = ElementalReactionTriggeredMsg(
+                sender_id=player_id,
                 elemental_reaction_type=self.reaction_type,
                 target = (player_id, parent_pos),
                 source = (player_id, parent_pos)
@@ -72,6 +73,7 @@ class Reaction(BaseModel):
                         dmg_val + self.increased_bonuses,
                     )
                     new_msg = ElementalReactionTriggeredMsg(
+                        sender_id=player_id,
                         elemental_reaction_type=self.reaction_type,
                         target = (player_id, parent_pos),
                         source = top_msg.attacker
@@ -102,7 +104,7 @@ class Reaction(BaseModel):
 
                     if self.status_name:
                         new_msg = GenerateCharacterStatusMsg(
-                            sender_id=top_msg.attacker,
+                            sender_id= player_id,
                             target=(parent.player_id, parent.position),
                             status_name=self.status_name,
                             remaining_round=self.status_remaining_round,
@@ -112,7 +114,7 @@ class Reaction(BaseModel):
 
                     if self.combat_status_name:
                         new_msg = GenerateCombatStatusMsg(
-                            sender_id=top_msg.attacker,
+                            sender_id=player_id,
                             target_player_id=parent.player_id,
                             combat_status_name=self.combat_status_name,
                             remaining_round=self.combat_status_remaining_round,

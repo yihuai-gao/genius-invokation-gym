@@ -5,10 +5,15 @@ from gisim.classes.enums import CharPos, ElementType, PlayerID
 from gisim.status.base import CharacterStatusEntity
 from gisim.status.characterStatus import *
 from gisim.status.reactionStatus import *
+from gisim.env import INF_INT
 
 
 def get_character_status_entity(
-    name: str, player_id: PlayerID, position: CharPos, remaining_round: int
+    name: str,
+    player_id: PlayerID,
+    position: CharPos,
+    remaining_round: int,
+    remaining_usage: int = INF_INT
 ):
     stripped_name = name.replace(" ", "")
     if stripped_name.endswith("Infusion"):
@@ -26,6 +31,9 @@ def get_character_status_entity(
 
     status_cls = globals()[stripped_name]
     status: CharacterStatusEntity = status_cls(
-        player_id=player_id, position=position, remaining_round=remaining_round
+        player_id=player_id,
+        position=position,
+        remaining_round=remaining_round,
+        remaining_usage=remaining_usage
     )
     return status

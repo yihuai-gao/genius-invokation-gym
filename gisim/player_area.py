@@ -467,6 +467,7 @@ class CharacterZone(BaseZone):
                         self._parent.player_id,
                         self.position,
                         top_msg.remaining_round,
+                        top_msg.remaining_usage
                     )
                     self.status.append(status_entity)
                     top_msg.responded_entities.append((self._uuid))
