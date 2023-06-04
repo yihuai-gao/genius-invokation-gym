@@ -23,6 +23,7 @@ from gisim.classes.message import (
     GenerateCombatStatusMsg,
     GenerateEquipmentMsg,
     GenerateSummonMsg,
+    DealDamageMsg,
     Message,
     PayCardCostMsg,
     PayCostMsg,
@@ -426,13 +427,17 @@ class CombatStatusZone(BaseZone):
 
     def encode(self):
         return [status_entity.encode() for status_entity in self.status_entities]
-
+    
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
 
         if isinstance(top_msg, GenerateCombatStatusMsg):
+            # 创建出战阵营状态
             top_msg = cast(GenerateCombatStatusMsg, top_msg)
             if top_msg.target_player_id == self._parent.player_id :
+                for idx, entity in enumerate(self.status_entities):
+                    if entity.name == top_msg.combat_status_name:
+                        self.status_entities.pop(idx)
                 status_entity = get_combat_status_entity(
                     top_msg.combat_status_name,
                     self._parent.player_id,
@@ -442,8 +447,10 @@ class CombatStatusZone(BaseZone):
                 self.status_entities.append(status_entity)
                 top_msg.responded_entities.append((self._uuid))
 
-        for entity in self.status_entities:
-            if updated := entity.msg_handler(msg_queue):
+        for idx, entity in enumerate(self.status_entities):
+            if entity.active == False:
+                self.status_entities.pop(idx)
+            elif updated := entity.msg_handler(msg_queue):
                 return True
 
         # 删除用完或者到回合次数的出战阵营状态
@@ -503,8 +510,10 @@ class CharacterZone(BaseZone):
                         top_msg.status_name,
                         self._parent.player_id,
                         self.position,
+                        top_msg.status_type,
                         top_msg.remaining_round,
-                        top_msg.remaining_usage
+                        top_msg.remaining_usage,
+
                     )
                     self.status.append(status_entity)
                     top_msg.responded_entities.append((self._uuid))
@@ -528,30 +537,51 @@ class CharacterZone(BaseZone):
                         raise ValueError("Wrong equipment type!")
                     top_msg.responded_entities.append((self._uuid))
 
+        atk_buff = []
+        def_buff = []
+        under_atk_buff = []
+        neg_buff = []
+        for idx, entity in enumerate(self.status):
+            if entity.active == False:
+                self.status.pop(idx)
+
+
+        for buff in self.status:
+            if buff.status_type == StatusType.ATTACK_BUFF:
+                atk_buff.append(buff)
+            elif buff.status_type == StatusType.DEFENSE_BUFF:
+                def_buff.append(buff)
+            elif buff.status_type == StatusType.UNDER_ATTACK_BUFF:
+                under_atk_buff.append(buff)
+            elif buff.status_type == StatusType.NEGATIVE_BUFF:
+                neg_buff.append(buff)
+
+
         entities = [
+            *under_atk_buff,
+            *def_buff,
             self.character,
             self.talent,
             self.weapon,
             self.artifact,
-            *self.status,
+            *atk_buff,
+            *neg_buff
         ]
         entities = cast(List[Entity], entities)
         for entity in entities:
             if entity is None:
                 continue
-            updated = entity.msg_handler(msg_queue)
-            if updated:
+            if updated := entity.msg_handler(msg_queue):
                 return True
 
         # Remove
         if isinstance(top_msg, RoundEndMsg):
-            invalid_idxes = []
-            for idx, status in enumerate(self.status):
-                if (
-                    status.remaining_round == 0 or status.remaining_usage == 0
-                ) and status.active == False:
-                    # Remove this status
-                    invalid_idxes.append(idx)
+            invalid_idxes = [
+                idx
+                for idx, status in enumerate(self.status)
+                if (status.remaining_round == 0 or status.remaining_usage == 0)
+                and status.active == False
+            ]
             invalid_idxes.reverse()
             for idx in invalid_idxes:
                 self.status.pop(idx)

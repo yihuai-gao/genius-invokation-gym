@@ -2,7 +2,6 @@
 
 from queue import PriorityQueue
 from typing import TYPE_CHECKING, Dict, List, cast
-from xml.dom.minidom import Element
 
 from gisim.cards.base import TalentCard
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill

@@ -16,6 +16,7 @@ from gisim.classes.message import (
     HealHpMsg,
     Message,
     UseSkillMsg,
+    StatusType
 )
 from gisim.env import get_display_text
 
@@ -55,6 +56,7 @@ class GenericSkill(CharacterSkill):
     """Skill description format: this character gains xxx"""
     status_remaining_round: int = 0
     status_remaining_usage: int = 0
+    status_buff_type:StatusType = StatusType.ATTACK_BUFF
 
     combat_status_name: str = ""
     """Skill description format: creates xxx"""
@@ -121,6 +123,7 @@ class GenericSkill(CharacterSkill):
                 status_name=self.status_name,
                 remaining_round=self.status_remaining_round,
                 remaining_usage=self.status_remaining_usage,
+                status_type=self.status_buff_type
             )
             msg_queue.put(new_msg)
 

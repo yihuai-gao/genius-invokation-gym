@@ -5,14 +5,14 @@ from queue import PriorityQueue
 from typing import cast
 
 from gisim.classes.entity import Entity
-from gisim.classes.enums import CharPos,  PlayerID
+from gisim.classes.enums import CharPos,  PlayerID,StatusType
 
 
 class CharacterStatusEntity(Entity, ABC):
     """Status which is attached to a fixed character.
     Shown in the upper line of the character card. Will be calculated earlier."""
-
     player_id: PlayerID
+    status_type:StatusType
     position: CharPos
     name: str
     description: str

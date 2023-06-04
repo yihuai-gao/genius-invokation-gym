@@ -31,6 +31,8 @@ class Reaction(BaseModel):
     """为角色附加的效果，冻结"""
     status_remaining_round: int = 0
     status_remaining_usage: int = 0
+    status_buff_type:StatusType = StatusType.ATTACK_BUFF
+
 
     combat_status_name: str = ""
     """为阵营附加的效果 草原核 激化领域"""
@@ -47,8 +49,8 @@ class Reaction(BaseModel):
         player_id, parent_pos = parent.player_id, parent.position
         if self.reaction_type == ElementalReactionType.NONE:
             return None
+        typmsg = "By Self"
         top_msg = msg_queue.queue[0]
-        print(f"\nElemental Reaction :{self.reaction_type.name}\n")
         if isinstance(top_msg,UseSkillMsg):
             top_msg = cast(UseSkillMsg, top_msg)
             new_msg = ElementalReactionTriggeredMsg(
@@ -57,6 +59,7 @@ class Reaction(BaseModel):
                 target = (player_id, parent_pos),
                 source = (player_id, parent_pos)
             )
+            typmsg = "By Self"
             msg_queue.put(new_msg)
 
         elif isinstance(top_msg, DealDamageMsg):
@@ -93,7 +96,10 @@ class Reaction(BaseModel):
                                 for k in [1, 2]  # Deals damage to two other characters
                             ],
                         )
+                        typmsg = "From Attack"
                         msg_queue.put(new_msg)
+
+        print(f"    Initiate Elemental Reactions:\n        Elemental Reaction :{self.reaction_type.name}\n        Target :{(player_id, parent_pos)}\n        Reaction Type:{typmsg}\n")
 
         if self.summon_name:
             new_msg = GenerateSummonMsg(
@@ -108,6 +114,7 @@ class Reaction(BaseModel):
                 status_name=self.status_name,
                 remaining_round=self.status_remaining_round,
                 remaining_usage=self.status_remaining_usage,
+                status_type=self.status_buff_type
             )
             msg_queue.put(new_msg)
 

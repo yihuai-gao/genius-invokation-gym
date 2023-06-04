@@ -26,7 +26,7 @@ class ElementalInfusion(CharacterStatusEntity):
                 for idx, target in enumerate(top_msg.targets):
                     if target[2] == ElementType.NONE:
                         print(
-                            f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {target[2]} -> {target[3]} + Add: 0\n        {self.player_id.name}-{self.position}")
+                            f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {target[2]} -> {target[3]} + Add: 0\n        {self.player_id.name}-{self.position}\n")
                         top_msg.targets[idx] = (
                             target[0],
                             target[1],

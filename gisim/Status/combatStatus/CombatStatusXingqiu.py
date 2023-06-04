@@ -2,8 +2,10 @@ from gisim.status.base import CombatStatusEntity
 from queue import PriorityQueue
 from gisim.classes.message import (
     DealDamageMsg,
-    RoundEndMsg
+    RoundEndMsg,
 )
+from typing import cast
+from gisim.classes.enums import *
 from gisim.env import INF_INT
 
 
@@ -19,11 +21,23 @@ class RainSword(CombatStatusEntity):
     remaining_round: int = INF_INT
     remaining_usage: int = 2
     
-
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
-        top_msg = msg_queue.queue[0]
+        top_msg = msg_queue.queue[0]        
         if isinstance(top_msg, DealDamageMsg):
-            pass
+            top_msg = cast(DealDamageMsg, top_msg)
+
+            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(top_msg.targets):
+                if target_id == self.player_id:
+                    top_msg.targets[idx] = (
+                        target_id,
+                        target_pos,
+                        element_type,
+                        dmg_val - 1 if dmg_val >= 3 else dmg_val,
+                    )
+                    self.remaining_usage -= 1
+            if self.remaining_usage == 0 or self.remaining_round == 0:
+                self.active = False
+
         return False
 
 

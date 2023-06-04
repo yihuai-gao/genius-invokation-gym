@@ -3,7 +3,7 @@ A character in the game should be an instant of the specific character class def
 from abc import ABC, abstractmethod
 from collections import OrderedDict
 from queue import PriorityQueue
-from typing import List, Optional, cast
+from typing import List, Optional, cast, TYPE_CHECKING
 
 from gisim.classes.reaction import element_reaction
 from gisim.cards.characters import get_character_card
@@ -21,6 +21,9 @@ from gisim.classes.message import (
     ElementalReactionTriggeredMsg
 )
 from gisim.classes.status import CombatStatusEntity
+
+if TYPE_CHECKING:
+    from gisim.game import Game
 
 
 class CharacterEntity(Entity):
@@ -184,20 +187,23 @@ class CharacterEntity(Entity):
                     continue
                 if self.active and target_pos == CharPos.ACTIVE:
                     # Modify the target position of the message to the correct character. In case the active character changed due to character death.
-                    msg.targets[idx] = (target_id, self.position, element_type, dmg_val)
+                    msg.targets[idx] = (
+                        target_id, self.position, element_type, dmg_val)
                 if (
                     self.position == target_pos
                     or self.active
                     and target_pos == CharPos.ACTIVE
                 ):
-                    
+                    msg_queue.get()
                     self.elemental_attachment, reaction_effect = element_reaction(
                         self.elemental_attachment,
                         element_type
                     )
                     reaction_effect.to_reaction(msg_queue, parent=self)
-
                     self.health_point -= min(self.health_point, dmg_val)
+                    print(f"    Cause Damage:\n        Elemental :{element_type}\n        Attacker: {msg.attacker}\n        Target :{(target_id, target_pos)}\n        Val: {dmg_val}\n")
+
+
                     if self.health_point == 0:
                         self.alive = False
                         # self.active = False
@@ -210,7 +216,6 @@ class CharacterEntity(Entity):
         if updated:
             msg.responded_entities.append(self._uuid)
         return updated
-
 
 
 class CharacterEntityInfo:

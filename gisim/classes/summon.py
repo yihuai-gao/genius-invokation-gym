@@ -63,3 +63,4 @@ class AttackSummon(Summon):
             msg.responded_entities.append(self._uuid)
             updated = True
         return updated
+

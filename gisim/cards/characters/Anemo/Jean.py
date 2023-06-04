@@ -1,9 +1,15 @@
 """琴"""
 from queue import PriorityQueue
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
+from gisim.classes.message import (
+    DealDamageMsg,
+    UseSkillMsg,
+    ChangeCharacterMsg
+)
 from gisim.classes.enums import (
     CharPos,
     ElementType,
+    AttackType,
     EntityType,
     EquipmentType,
     Nation,
@@ -13,6 +19,14 @@ from gisim.classes.enums import (
 )
 from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.env import INF_INT
+from typing import TYPE_CHECKING, Dict, List, cast
+
+if TYPE_CHECKING:
+    from gisim.classes.character import CharacterEntity
+    from gisim.game import GameInfo
+
+
 
 class FavoniusBladework(GenericSkill):
     """
@@ -48,7 +62,7 @@ class GaleBlade(GenericSkill):
     damage_value: int = 3
 
 
-class DandelionBreeze(GenericSkill):
+class DandelionBreeze(CharacterSkill):
     """
     蒲公英之风
     ~~~~~~~~~~
@@ -61,17 +75,22 @@ class DandelionBreeze(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
     costs: dict[ElementType, int] = {ElementType.ANEMO: 4, ElementType.POWER: 3}
+    heal_all_value:int = 2
     summon_name: str = "Dandelion Field"
 
 
-class SummonDandelionField(AttackSummon):
+class DandelionField(AttackSummon):
     """
     Dandelion Field
     ~~~~~~
-    `召唤物`Dandelion Field
-    请完善这个类的效果,应该是召唤物或者战斗效果
+    结束阶段：造成2点风元素伤害，治疗我方出战角色1点。
+    可用次数：2
     """
     name: str = "Dandelion Field"
+    damage_element: ElementType = ElementType.ANEMO
+    damage_value: int = 1
+    usages: int = 2
+
 
 
 class Jean(CharacterCard):

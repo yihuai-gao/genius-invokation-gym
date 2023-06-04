@@ -4,7 +4,7 @@
 import itertools
 from abc import ABC, abstractmethod
 from ast import Param
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple,Any
 from uuid import UUID
 
 from pydantic import BaseModel, root_validator
@@ -21,6 +21,7 @@ from .enums import (
     MsgPriority,
     PlayerID,
     RegionType,
+    StatusType,
     SkillType,
 )
 
@@ -57,7 +58,6 @@ class Message(Entity, ABC):
             ]
         values["_msg_id"] = next(Message._id_counter)  # Add message id
         return values
-
 
 # Immediate operations
 
@@ -107,6 +107,7 @@ class GenerateSupportMsg(Message):
 
 class GenerateCharacterStatusMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
+    status_type: StatusType = StatusType.UNDER_ATTACK_BUFF
     target: Tuple[PlayerID, CharPos]
     status_name: str
     remaining_round: int

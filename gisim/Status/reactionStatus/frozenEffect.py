@@ -27,7 +27,9 @@ class FrozenEffect(CharacterStatusEntity):
         if isinstance(top_msg, DealDamageMsg):
             top_msg = cast(DealDamageMsg, top_msg)
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(top_msg.targets):
-                if target_id == self.player_id and target_pos == self.position and element_type in [ElementType.NONE, ElementType.PYRO]:
+                if target_id == self.player_id and target_pos == self.position and element_type in [ElementType.NONE, ElementType.PYRO,ElementType.CRYO]:
+                    print(f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + Add: 2\n        {self.player_id.name}-{self.position}\n")
+
                     top_msg.targets[idx] = (
                         target_id,
                         target_pos,

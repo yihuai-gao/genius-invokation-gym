@@ -108,7 +108,6 @@ if __name__ == "__main__":
                 )
 
         print(f"\n    {action_type}: {action.dict()}")
-        print("\n")
         valid = game.judge_action(action)
         if valid:
             game.step(action)

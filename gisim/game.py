@@ -209,6 +209,7 @@ class Game:
             updated = False
             respondent_zones = top_msg.respondent_zones
             zones = self.get_zones(respondent_zones)
+
             for zone in zones:
                 updated = zone.msg_handler(self.msg_queue)
                 if updated:

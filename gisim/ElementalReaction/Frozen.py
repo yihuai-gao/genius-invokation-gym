@@ -40,6 +40,7 @@ class Frozen(Reaction):
     status_name: str = "Frozen Effect"
     status_remaining_round: int = 1
     status_remaining_usage: int = 1
+    status_buff_type: StatusType = StatusType.UNDER_ATTACK_BUFF
 
 
 
