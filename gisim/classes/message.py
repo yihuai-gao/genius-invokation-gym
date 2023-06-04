@@ -357,6 +357,9 @@ class DealDamageMsg(Message):
     """Will be modified if elemental reaction is triggered"""
     all_buffs_included = False
     """Whether every attack/defense buffs are included"""
+    damage_calculation_ended:bool = False
+    """表示本伤害已经计算完毕，后续状态不应该继续响应这个消息"""
+
 
 
 class AttachElementMsg(Message):

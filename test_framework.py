@@ -16,7 +16,7 @@ if __name__ == "__main__":
         "cards": [],
     }
     player2_deck = {
-        "characters": ["Hutao","Kamisato Ayaka","Xingqiu"],
+        "characters": ["Hutao","Hutao","Xingqiu"],
         "cards": [],
     }
     game = Game(player1_deck, player2_deck, seed=10)

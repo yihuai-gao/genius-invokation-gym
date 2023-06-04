@@ -180,9 +180,8 @@ class CharacterEntity(Entity):
                     updated = True
         elif isinstance(msg, DealDamageMsg):
             msg = cast(DealDamageMsg, msg)
-            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                msg.targets
-            ):
+            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(msg.targets
+):
                 if not self.player_id == target_id:
                     continue
                 if self.active and target_pos == CharPos.ACTIVE:
@@ -194,15 +193,18 @@ class CharacterEntity(Entity):
                     or self.active
                     and target_pos == CharPos.ACTIVE
                 ):
-                    msg_queue.get()
+                    # msg_queue.get()
                     self.elemental_attachment, reaction_effect = element_reaction(
                         self.elemental_attachment,
                         element_type
                     )
+                    # enumerate 方法迭代出来的值不是实时的数值，请注意
                     reaction_effect.to_reaction(msg_queue, parent=self)
+                    dmg_val = msg.targets[idx][3]
+                    # 标志伤害已经计算完毕了，这个消息不应该继续被处理了
+                    msg.damage_calculation_ended = True
                     self.health_point -= min(self.health_point, dmg_val)
                     print(f"    Cause Damage:\n        Elemental :{element_type}\n        Attacker: {msg.attacker}\n        Target :{(target_id, target_pos)}\n        Val: {dmg_val}\n")
-
 
                     if self.health_point == 0:
                         self.alive = False

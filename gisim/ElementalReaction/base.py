@@ -46,18 +46,19 @@ class Reaction(BaseModel):
 
     def to_reaction(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         # sourcery skip: low-code-quality
+        top_msg = msg_queue.queue[0]
+
         player_id, parent_pos = parent.player_id, parent.position
         if self.reaction_type == ElementalReactionType.NONE:
             return None
         typmsg = "By Self"
-        top_msg = msg_queue.queue[0]
         if isinstance(top_msg,UseSkillMsg):
             top_msg = cast(UseSkillMsg, top_msg)
             new_msg = ElementalReactionTriggeredMsg(
-                sender_id=player_id,
+                sender_id=parent.player_id,
                 elemental_reaction_type=self.reaction_type,
-                target = (player_id, parent_pos),
-                source = (player_id, parent_pos)
+                target = (parent.player_id, parent.position),
+                source = (parent.player_id, parent.position)
             )
             typmsg = "By Self"
             msg_queue.put(new_msg)
@@ -79,7 +80,7 @@ class Reaction(BaseModel):
                         source = top_msg.attacker
                     )
                     msg_queue.put(new_msg)
-
+                    typmsg = "From Attack"
                     attacker_id,attacker_pos = top_msg.attacker
                     if self.piercing_damage_value > 0:
                         new_msg = DealDamageMsg(
@@ -96,7 +97,6 @@ class Reaction(BaseModel):
                                 for k in [1, 2]  # Deals damage to two other characters
                             ],
                         )
-                        typmsg = "From Attack"
                         msg_queue.put(new_msg)
 
         print(f"    Initiate Elemental Reactions:\n        Elemental Reaction :{self.reaction_type.name}\n        Target :{(player_id, parent_pos)}\n        Reaction Type:{typmsg}\n")
