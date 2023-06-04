@@ -1,15 +1,14 @@
-"""琴"""
-from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.enums import ElementType, Nation, SkillType,WeaponType
+"""Jean"""
+from gisim.cards.characters.base import (CharacterCard, CharacterSkill,
+                                         GenericSkill)
+from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 from gisim.classes.summon import AttackSummon
-
 
 
 class FavoniusBladework(GenericSkill):
     """
-    西风剑术
-    ~~~~~~~~
-    造成2点`物理伤害`。
+    Normal Attack: Favonius Bladework
+    Deals 2 Physical DMG.
     """
     id: int = 15021
     name: str = "Favonius Bladework"
@@ -24,9 +23,8 @@ class FavoniusBladework(GenericSkill):
 
 class GaleBlade(GenericSkill):
     """
-    风压剑
-    ~~~~~~
-    造成3点`风元素伤害`，使对方强制切换到下一个角色。
+    Elemental Skill: Gale Blade
+    Deals 3 Anemo DMG, the target is forcibly switched to the next character.
     """
     id: int = 15022
     name: str = "Gale Blade"
@@ -37,14 +35,13 @@ class GaleBlade(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.ANEMO: 3}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 3
-    # TODO:强制切换
+    # TODO: forcibly switched to the next character
 
 
 class DandelionBreeze(CharacterSkill):
     """
-    蒲公英之风
-    ~~~~~~~~~~
-    治疗所有我方角色2点，召唤`蒲公英领域`。
+    Elemental Burst: Dandelion Breeze
+    Heals all your characters for 2 HP, summons 1 Dandelion Field.
     """
     id: int = 15023
     name: str = "Dandelion Breeze"
@@ -52,17 +49,17 @@ class DandelionBreeze(CharacterSkill):
     Heals all your characters for 2 HP, summons 1 Dandelion Field.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 4, ElementType.POWER: 3}
+    costs: dict[ElementType, int] = {
+        ElementType.ANEMO: 4, ElementType.POWER: 3}
     heal_all_value: int = 2
     summon_name: str = "Dandelion Field"
 
 
 class DandelionField(AttackSummon):
     """
-    Dandelion Field
-    ~~~~~~
-    结束阶段：造成2点风元素伤害，治疗我方出战角色1点。
-    可用次数：2
+    Summon: Dandelion Field
+    End Phase: Deal 2 Anemo DMG, heal your active character for 1 HP.
+    Usage(s): 2
     """
     name: str = "Dandelion Field"
     damage_element: ElementType = ElementType.ANEMO
@@ -71,7 +68,7 @@ class DandelionField(AttackSummon):
 
 
 class Jean(CharacterCard):
-    """琴"""
+    """Jean"""
     id: int = 1502
     name: str = "Jean"
     element_type: ElementType = ElementType.ANEMO

@@ -1,25 +1,15 @@
-"""砂糖"""
-from queue import PriorityQueue
+"""Sucrose"""
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
-    CharPos,
     ElementType,
-    EntityType,
-    EquipmentType,
     Nation,
-    PlayerID,
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
-from gisim.classes.status import CombatStatusEntity
-
+from gisim.classes.summon import AttackSummon
 class WindSpiritCreation(GenericSkill):
-    """
-    简式风灵作成
-    ~~~~~~~~~~~~
-    造成1点`风元素伤害`。
-    """
+    """Normal Attack: Wind Spirit Creation
+    Deals 1 Anemo DMG."""
     id: int = 15011
     name: str = "Wind Spirit Creation"
     text: str = """
@@ -31,14 +21,11 @@ class WindSpiritCreation(GenericSkill):
     damage_value: int = 1
 
 
-class AstableAnemohypostasisCreation(GenericSkill):
-    """
-    风灵作成·陆叁零捌
-    ~~~~~~~~~~~~~~~~~~
-    造成3点`风元素伤害`，使对方强制切换到前一个角色。
-    """
+class AstableAnemohypostasisCreation6308(GenericSkill):
+    """Elemental Skill: Astable Anemohypostasis Creation - 6308
+    Deals 3 Anemo DMG, the target is forcibly switched to the previous character."""
     id: int = 15012
-    name: str = "Astable Anemohypostasis Creation - 6308"
+    name: str = "Astable Anemohypostasis Creation 6308"
     text: str = """
     Deals 3 Anemo DMG, the target is forcibly switched to the previous character.
     """
@@ -48,14 +35,11 @@ class AstableAnemohypostasisCreation(GenericSkill):
     damage_value: int = 3
 
 
-class ForbiddenCreationIsomerTypeII(GenericSkill):
-    """
-    禁·风灵作成·柒伍同构贰型
-    ~~~~~~~~~~~~~~~~~~~~~~~~~~
-    造成1点`风元素伤害`，召唤`大型风灵`。
-    """
+class ForbiddenCreationIsomer75TypeII(GenericSkill):
+    """Elemental Burst: Forbidden Creation - Isomer 75 / Type II
+    Deals 1 Anemo DMG, summons 1 Large Wind Spirit."""
     id: int = 15013
-    name: str = "Forbidden Creation - Isomer 75 / Type II"
+    name: str = "Forbidden Creation Isomer 75  Type II"
     text: str = """
     Deals 1 Anemo DMG, summons 1 Large Wind Spirit.
     """
@@ -66,18 +50,17 @@ class ForbiddenCreationIsomerTypeII(GenericSkill):
     summon_name: str = "Large Wind Spirit"
 
 
-class SummonLargeWindSpirit(AttackSummon):
-    """
-    Large Wind Spirit
-    ~~~~~~
-    `召唤物`Large Wind Spirit
-    请完善这个类的效果,应该是召唤物或者战斗效果
+class LargeWindSpirit(AttackSummon):
+    """Summon: Large Wind Spirit
+    End Phase: Deal 2 Anemo DMG.
+    Usage(s): 3
+    After your character or Summon triggers a Swirl reaction: Convert the Elemental Type of this card and change its DMG dealt to the element Swirled. (Can only be converted once before leaving the field)
     """
     name: str = "Large Wind Spirit"
 
 
 class Sucrose(CharacterCard):
-    """砂糖"""
+    """Sucrose"""
     id: int = 1501
     name: str = "Sucrose"
     element_type: ElementType = ElementType.ANEMO
@@ -88,7 +71,7 @@ class Sucrose(CharacterCard):
     weapon_type: WeaponType = WeaponType.CATALYST
     skills: list[CharacterSkill] = [
         WindSpiritCreation(),
-        AstableAnemohypostasisCreation(),
-        ForbiddenCreationIsomerTypeII(),
+        AstableAnemohypostasisCreation6308(),
+        ForbiddenCreationIsomer75TypeII(),
     ]
 

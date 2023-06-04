@@ -1,25 +1,17 @@
-"""魔偶剑鬼"""
-from queue import PriorityQueue
+"""Maguu Kenki"""
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
-    CharPos,
     ElementType,
-    EntityType,
-    EquipmentType,
     Nation,
-    PlayerID,
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
-from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon
+
 
 class Ichimonji(GenericSkill):
-    """
-    一文字
-    ~~~~~~
-    造成2点`物理伤害`。
-    """
+    """Normal Attack: Ichimonji
+    Deals 2 Physical DMG."""
     id: int = 25011
     name: str = "Ichimonji"
     text: str = """
@@ -32,11 +24,8 @@ class Ichimonji(GenericSkill):
 
 
 class BlusteringBlade(GenericSkill):
-    """
-    孤风刀势
-    ~~~~~~~~
-    召唤`剑影·孤风`。
-    """
+    """Elemental Skill: Blustering Blade
+    Summons 1 Shadowsword: Lone Gale."""
     id: int = 25012
     name: str = "Blustering Blade"
     text: str = """
@@ -44,15 +33,19 @@ class BlusteringBlade(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.ANEMO: 3}
-    summon_name: str = "Shadowsword: Lone Gale"
+    summon_name: str = "Shadowsword Lone Gale"
+
+
+class ShadowswordLoneGale(AttackSummon):
+    """Summon: Shadowsword: Lone Gale
+    End Phase: Deal 1 Anemo DMG.
+    Usage(s): 2"""
+    name: str = "Shadowsword Lone Gale"
 
 
 class FrostyAssault(GenericSkill):
-    """
-    霜驰影突
-    ~~~~~~~~
-    召唤`剑影·霜驰`。
-    """
+    """Elemental Skill: Frosty Assault
+    Summons 1 Shadowsword: Galloping Frost."""
     id: int = 25013
     name: str = "Frosty Assault"
     text: str = """
@@ -60,44 +53,30 @@ class FrostyAssault(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.CRYO: 3}
-    summon_name: str = "Shadowsword: Galloping Frost"
+    summon_name: str = "Shadowsword Galloping Frost"
+
+
+class ShadowswordGallopingFrost(AttackSummon):
+    """Shadowsword: Galloping Frost
+    End Phase: Deal 1 Cryo DMG.
+    Usage(s): 2"""
+    name: str = "Shadowsword Galloping Frost"
 
 
 class PseudoTenguSweeper(GenericSkill):
-    """
-    机巧伪天狗抄
-    ~~~~~~~~~~~~
-    造成4点`风元素伤害`，触发所有我方`剑影`召唤物的效果。（不消耗其可用次数）
-    """
+    """Elemental Burst: Pseudo Tengu Sweeper
+    Deals 4 Anemo DMG, triggers the effect(s) of all your Shadowsword Summon(s). 
+    (Does not consume their Usages)"""
     id: int = 25014
     name: str = "Pseudo Tengu Sweeper"
     text: str = """
     Deals 4 Anemo DMG, triggers the effect(s) of all your Shadowsword Summon(s). (Does not consume their Usages)
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 3}
+    costs: dict[ElementType, int] = {
+        ElementType.ANEMO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 4
-
-
-class SummonShadowswordLoneGale(AttackSummon):
-    """
-    Shadowsword: Lone Gale
-    ~~~~~~
-    `召唤物`Shadowsword: Lone Gale
-    请完善这个类的效果,应该是召唤物或者战斗效果
-    """
-    name: str = "Shadowsword: Lone Gale"
-
-
-class SummonShadowswordGallopingFrost(AttackSummon):
-    """
-    Shadowsword: Galloping Frost
-    ~~~~~~
-    `召唤物`Shadowsword: Galloping Frost
-    请完善这个类的效果,应该是召唤物或者战斗效果
-    """
-    name: str = "Shadowsword: Galloping Frost"
 
 
 class MaguuKenki(CharacterCard):
@@ -116,4 +95,3 @@ class MaguuKenki(CharacterCard):
         FrostyAssault(),
         PseudoTenguSweeper(),
     ]
-
