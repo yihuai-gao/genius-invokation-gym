@@ -1,30 +1,7 @@
 """琴"""
-from queue import PriorityQueue
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.message import (
-    DealDamageMsg,
-    UseSkillMsg,
-    ChangeCharacterMsg
-)
-from gisim.classes.enums import (
-    CharPos,
-    ElementType,
-    AttackType,
-    EntityType,
-    EquipmentType,
-    Nation,
-    PlayerID,
-    SkillType,
-    WeaponType,
-)
-from gisim.classes.summon import AttackSummon, Summon
-from gisim.classes.status import CombatStatusEntity
-from gisim.env import INF_INT
-from typing import TYPE_CHECKING, Dict, List, cast
-
-if TYPE_CHECKING:
-    from gisim.classes.character import CharacterEntity
-    from gisim.game import GameInfo
+from gisim.classes.enums import ElementType, Nation, SkillType,WeaponType
+from gisim.classes.summon import AttackSummon
 
 
 
@@ -60,6 +37,7 @@ class GaleBlade(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.ANEMO: 3}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 3
+    # TODO:强制切换
 
 
 class DandelionBreeze(CharacterSkill):
@@ -75,7 +53,7 @@ class DandelionBreeze(CharacterSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
     costs: dict[ElementType, int] = {ElementType.ANEMO: 4, ElementType.POWER: 3}
-    heal_all_value:int = 2
+    heal_all_value: int = 2
     summon_name: str = "Dandelion Field"
 
 
@@ -90,7 +68,6 @@ class DandelionField(AttackSummon):
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 1
     usages: int = 2
-
 
 
 class Jean(CharacterCard):
@@ -108,4 +85,3 @@ class Jean(CharacterCard):
         GaleBlade(),
         DandelionBreeze(),
     ]
-
