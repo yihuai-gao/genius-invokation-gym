@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, List, cast
 from queue import PriorityQueue
 
 from gisim.classes.enums import *
-from gisim.elementalReaction.base import Reaction
+from gisim.elemental_reaction.base import Reaction
 from gisim.classes.status import CharacterStatusEntity
 
 from gisim.classes.message import (

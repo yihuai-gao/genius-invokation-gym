@@ -543,9 +543,6 @@ class CharacterZone(BaseZone):
         def_buff = []
         under_atk_buff = []
         neg_buff = []
-        # for idx, entity in enumerate(self.status):
-        #     if entity.active == False:
-        #         self.status.pop(idx)
 
 
         for buff in self.status:

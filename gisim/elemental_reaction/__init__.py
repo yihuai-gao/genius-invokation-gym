@@ -1,18 +1,18 @@
-from .Bloom import *
-from .Burning import *
-from .Crystalize import *
-from .ElectroCharged import *
-from .Frozen import *
-from .Melt import *
-from .Overloaded import *
-from .Quicken import *
-from .Superconduct import *
-from .Swirl import *
-from .Vaporize import *
+from .bloom import *
+from .burning import *
+from .crystalize import *
+from .electro_charged import *
+from .frozen import *
+from .melt import *
+from .overloaded import *
+from .quicken import *
+from .superconduct import *
+from .swirl import *
+from .vaporize import *
 from .base import *
-from .CannotReaction import *
+from .cannot_reaction import *
 
-REACTIONLIST = {
+REACTIONLIST_MAP = {
     ElementalReactionType.NONE: "CannotReaction",
     ElementalReactionType.BLOOM: "Bloom",
     ElementalReactionType.BURNING: "Burning",
@@ -37,5 +37,5 @@ def get_reaction_system(reaction_name: str):
 
 def get_reaction_system_by_type(reaction_type: ElementalReactionType):
     """通过反应类型查找反应体系"""
-    reaction_name = REACTIONLIST[reaction_type]
+    reaction_name = REACTIONLIST_MAP[reaction_type]
     return get_reaction_system(reaction_name)

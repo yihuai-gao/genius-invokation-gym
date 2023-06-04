@@ -3,9 +3,9 @@ from typing import cast
 
 from gisim.classes.enums import CharPos, ElementType, PlayerID,StatusType
 from gisim.status.base import CharacterStatusEntity,CombatStatusEntity
-from gisim.status.characterStatus import *
-from gisim.status.reactionStatus import *
-from gisim.status.combatStatus import get_combat_status_entity
+from gisim.status.character_status import *
+from gisim.status.reaction_status import *
+from gisim.status.combat_status import get_combat_status_entity
 from gisim.env import INF_INT
 
 

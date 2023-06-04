@@ -1,4 +1,4 @@
-from gisim.elementalReaction import get_reaction_system, get_reaction_system_by_type
+from gisim.elemental_reaction import get_reaction_system, get_reaction_system_by_type
 from gisim.classes.enums import ReactionType, ElementType
 from gisim.classes.reaction import sum_element_reaction, can_attachable, element_reaction
 from typing import List

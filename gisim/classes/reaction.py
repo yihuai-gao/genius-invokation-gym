@@ -1,8 +1,8 @@
 from gisim.classes.enums import *
 import numpy as np
 from typing import List
-from gisim.elementalReaction import get_reaction_system, get_reaction_system_by_type
-from gisim.elementalReaction.base import Reaction
+from gisim.elemental_reaction import get_reaction_system, get_reaction_system_by_type
+from gisim.elemental_reaction.base import Reaction
 import copy
 
 
@@ -50,7 +50,6 @@ RTE = RTE + RTE.T - np.diag(RTE.diagonal())
 def can_attachable(element: ElementType) -> bool:
     """是否为可附着元素 `True` 可附着"""
     if element.value <= 0 or element.value >= 8:
-        # 草，为什么伤害类型会算到元素类型里面，我建议为了方便伤害的结算，建议给伤害做个类。
         return False
     attachment = RTE[np.ix_([element], [0])].tolist()
     return attachment[0][0] == 0
@@ -73,7 +72,6 @@ def element_reaction(ElementalAttachment: List[ElementType], AddElement: Element
     ElementalAttachment = copy.deepcopy(ElementalAttachment)
     cannot_reaction = get_reaction_system_by_type(ElementalReactionType.NONE)
     if AddElement.value <= 0 or AddElement.value >= 8:
-        # 草，为什么伤害类型会算到元素类型里面，我建议为了方便伤害的结算，建议给伤害做个类。
         return ElementalAttachment,cannot_reaction
     if ElementType.GEO in ElementalAttachment or ElementType.ANEMO in ElementalAttachment:
         raise ValueError("There are non attachable elements in the attachment list")
