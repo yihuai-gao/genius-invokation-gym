@@ -20,10 +20,10 @@ class FrozenEffect(CharacterStatusEntity):
 
     def msg_handler(self, msg_queue: PriorityQueue):
         top_msg = msg_queue.queue[0]
+        updated = False
         if self._uuid in top_msg.responded_entities:
             return False
 
-        updated = False
         if isinstance(top_msg, DealDamageMsg):
             top_msg = cast(DealDamageMsg, top_msg)
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(top_msg.targets):
@@ -41,9 +41,10 @@ class FrozenEffect(CharacterStatusEntity):
 
         if isinstance(top_msg, RoundEndMsg):
             self.remaining_round -= 1
+            if self.remaining_round == 0:
+                self.active = False
+            updated = True
 
-        if self.remaining_usage == 0 or self.remaining_round == 0:
-            self.active = False
         if updated:
             msg_queue.queue[0].responded_entities.append(self._uuid)
         return updated

@@ -447,10 +447,8 @@ class CombatStatusZone(BaseZone):
                 self.status_entities.append(status_entity)
                 top_msg.responded_entities.append((self._uuid))
 
-        for idx, entity in enumerate(self.status_entities):
-            if entity.active == False:
-                self.status_entities.pop(idx)
-            elif updated := entity.msg_handler(msg_queue):
+        for entity in self.status_entities:
+            if updated := entity.msg_handler(msg_queue):
                 return True
 
         # 删除用完或者到回合次数的出战阵营状态
@@ -506,6 +504,10 @@ class CharacterZone(BaseZone):
             if isinstance(top_msg, GenerateCharacterStatusMsg):
                 top_msg = cast(GenerateCharacterStatusMsg, top_msg)
                 if top_msg.target == (self._parent.player_id, self.position):
+                    for idx, entity in enumerate(self.status):
+                        if entity.name == top_msg.status_name:
+                            self.status.pop(idx)
+
                     status_entity = get_character_status_entity(
                         top_msg.status_name,
                         self._parent.player_id,
@@ -541,9 +543,9 @@ class CharacterZone(BaseZone):
         def_buff = []
         under_atk_buff = []
         neg_buff = []
-        for idx, entity in enumerate(self.status):
-            if entity.active == False:
-                self.status.pop(idx)
+        # for idx, entity in enumerate(self.status):
+        #     if entity.active == False:
+        #         self.status.pop(idx)
 
 
         for buff in self.status:

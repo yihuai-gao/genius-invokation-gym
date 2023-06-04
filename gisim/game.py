@@ -2,9 +2,10 @@
 """
 import os
 from collections import OrderedDict
-from queue import PriorityQueue
+from queue import PriorityQueue,Queue
 from random import Random
 from typing import Dict, List, Optional, cast
+import threading
 
 from .classes.action import *
 from .classes.action import Action
@@ -46,6 +47,19 @@ class Game:
             PlayerID.PLAYER2: player2_area,
         }
         self.msg_queue = PriorityQueue()
+
+        self.service_queue = Queue()
+        """服务队列是为某些事项提供服务的先入先出队列"""
+    
+    def service_process_handel(self):
+        """服务处理事件会为所有玩家提供获取本局游戏对象的方法"""
+        while True:
+            msg: ServiceMessage = self.service_queue.get()
+
+
+
+        
+
 
     def encode_game_info_dict(self, viewer_id: PlayerID):
         return OrderedDict(

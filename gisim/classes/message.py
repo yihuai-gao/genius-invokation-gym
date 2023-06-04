@@ -4,7 +4,7 @@
 import itertools
 from abc import ABC, abstractmethod
 from ast import Param
-from typing import Dict, List, Optional, Tuple,Any
+from typing import Dict, List, Optional, Tuple, Any
 from uuid import UUID
 
 from pydantic import BaseModel, root_validator
@@ -22,8 +22,15 @@ from .enums import (
     PlayerID,
     RegionType,
     StatusType,
+    ServiceMessageSender,
     SkillType,
 )
+
+
+class ServiceMessage(Entity, ABC):
+    sender: ServiceMessageSender
+    data_type: str
+    data: Any
 
 
 class Message(Entity, ABC):
@@ -220,7 +227,8 @@ class PayCardCostMsg(PayCostMsg):
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
                 (values["sender_id"], RegionType.CARD_ZONE),
-                (values["sender_id"], RegionType(values["card_user_pos"][1].value)),
+                (values["sender_id"], RegionType(
+                    values["card_user_pos"][1].value)),
                 (values["sender_id"], RegionType.COMBAT_STATUS_ZONE),
                 (values["sender_id"], RegionType.SUPPORT_ZONE),
                 (values["sender_id"], RegionType.DICE_ZONE),
@@ -374,7 +382,8 @@ class ChangePowerMsg(Message):
     @root_validator
     def init_respondent_zones(cls, values):
         change_vals: List[int] = values["change_vals"]
-        change_targets: List[Tuple[PlayerID, CharPos]] = values["change_targets"]
+        change_targets: List[Tuple[PlayerID, CharPos]
+                             ] = values["change_targets"]
 
         if not values["respondent_zones"]:
             values["respondent_zones"] = [

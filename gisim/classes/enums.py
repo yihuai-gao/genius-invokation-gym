@@ -1,6 +1,9 @@
 from enum import Enum, IntEnum, auto
 from logging import getLogger
 
+class ServiceMessageSender(Enum):
+    GAMEOBJ = auto()
+    PLAYER = auto()
 
 class GameStatus(Enum):
     INITIALIZING = 0

@@ -2,7 +2,7 @@ from gisim.classes.enums import PlayerID
 from gisim.env import INF_INT
 from gisim.status.base import CombatStatusEntity
 
-from .CombatStatusXingqiu import *
+from .Xingqiu import *
 
 def get_combat_status_entity(
     name: str,
