@@ -195,9 +195,10 @@ class CharacterCard(BaseModel):
             assert skill_type is not None, "Should provide either skill id or its name."
             skill_types = [skill.type for skill in self.skills]
             assert skill_type in skill_types, f"Skill type {skill_type} does not exist."
-            assert (
-                skill_types.count(skill_type) == 1
-            ), f"Skill type {skill_type} is not unique."
+            # assert (
+            #     skill_types.count(skill_type) == 1
+            # ), f"Skill type {skill_type} is not unique."
+            """某些角色有2个战技"""
             return self.skills[skill_types.index(skill_type)]
 
     @validator("element_type")

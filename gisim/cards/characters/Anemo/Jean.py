@@ -22,8 +22,7 @@ class FavoniusBladework(GenericSkill):
 
 
 class GaleBlade(GenericSkill):
-    """
-    Elemental Skill: Gale Blade
+    """Elemental Skill: Gale Blade
     Deals 3 Anemo DMG, the target is forcibly switched to the next character.
     """
     id: int = 15022
@@ -39,8 +38,7 @@ class GaleBlade(GenericSkill):
 
 
 class DandelionBreeze(CharacterSkill):
-    """
-    Elemental Burst: Dandelion Breeze
+    """Elemental Burst: Dandelion Breeze
     Heals all your characters for 2 HP, summons 1 Dandelion Field.
     """
     id: int = 15023
