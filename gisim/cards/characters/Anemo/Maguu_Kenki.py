@@ -1,4 +1,5 @@
-"""Maguu Kenki"""
+"""MaguuKenki: 剑鬼魔偶"""
+        
 from queue import PriorityQueue
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 
