@@ -1,5 +1,6 @@
 """可莉"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class Kaboom(GenericSkill):
     """
@@ -20,6 +22,7 @@ class Kaboom(GenericSkill):
     ~~~~
     造成1点`火元素伤害`。
     """
+
     id: int = 13061
     name: str = "Kaboom!"
     text: str = """
@@ -37,6 +40,7 @@ class JumpyDumpty(GenericSkill):
     ~~~~~~~~
     造成3点`火元素伤害`，本角色附属`爆裂火花`。
     """
+
     id: int = 13062
     name: str = "Jumpy Dumpty"
     text: str = """
@@ -54,6 +58,7 @@ class SparksnSplash(GenericSkill):
     ~~~~~~~~
     造成3点`火元素伤害`，在对方场上生成`轰轰火花`。
     """
+
     id: int = 13063
     name: str = "Sparks 'n' Splash"
     text: str = """
@@ -67,6 +72,7 @@ class SparksnSplash(GenericSkill):
 
 class Klee(CharacterCard):
     """可莉"""
+
     id: int = 1306
     name: str = "Klee"
     element_type: ElementType = ElementType.PYRO
@@ -80,4 +86,3 @@ class Klee(CharacterCard):
         JumpyDumpty(),
         SparksnSplash(),
     ]
-

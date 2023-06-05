@@ -40,6 +40,7 @@ class KamisatoArtKabuki(GenericSkill):
     ~~~~~~~~
     `普通攻击` 造成2点`物理伤害`。
     """
+
     id: int = 11051
     name: str = "Kamisato Art: Kabuki"
     text: str = """
@@ -57,6 +58,7 @@ class KamisatoArtHyouka(GenericSkill):
     ~~~~~~~~~~
     `元素战技`造成3点`冰元素伤害`。
     """
+
     id: int = 11052
     name: str = "Kamisato Art: Hyouka"
     text: str = """
@@ -74,6 +76,7 @@ class KamisatoArtSoumetsu(GenericSkill):
     ~~~~~~~~~~
     `元素爆发`造成4点`冰元素伤害`，召唤`霜见雪关扉`。
     """
+
     id: int = 11053
     name: str = "Kamisato Art: Soumetsu"
     text: str = """
@@ -101,7 +104,11 @@ class KamisatoArtSenho(CharacterSkill):
     costs: Dict[ElementType, int] = {}
     type: SkillType = SkillType.PASSIVE_SKILL
 
-    def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity",):
+    def use_skill(
+        self,
+        msg_queue: PriorityQueue,
+        parent: "CharacterEntity",
+    ):
         top_msg = msg_queue.queue[0]
         updated = False
         if isinstance(top_msg, ChangeCharacterMsg):
@@ -122,6 +129,7 @@ class KamisatoArtSenho(CharacterSkill):
 
 class KamisatoAyaka(CharacterCard):
     """神里凌华"""
+
     id: int = 1105
     name: str = "Kamisato Ayaka"
     element_type: ElementType = ElementType.CRYO
@@ -144,6 +152,7 @@ class FrostflakeSekinoTo(AttackSummon):
     ~~~~~~~~~
     `召唤物`在结束阶段造成两点`冰元素伤害`，该召唤物可以被使用两次。
     """
+
     name: str = "Frostflake Seki no To"
     usages: int = 2
     damage_element: ElementType = ElementType.CRYO

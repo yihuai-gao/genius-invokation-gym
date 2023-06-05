@@ -1,5 +1,6 @@
 """凝光"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class SparklingScatter(GenericSkill):
     """
@@ -20,6 +22,7 @@ class SparklingScatter(GenericSkill):
     ~~~~~~
     造成1点`岩元素伤害`。
     """
+
     id: int = 16011
     name: str = "Sparkling Scatter"
     text: str = """
@@ -37,6 +40,7 @@ class JadeScreen(GenericSkill):
     ~~~~~~
     造成2点`岩元素伤害`，生成`璇玑屏`。
     """
+
     id: int = 16012
     name: str = "Jade Screen"
     text: str = """
@@ -55,6 +59,7 @@ class Starshatter(GenericSkill):
     ~~~~~~~~
     造成6点`岩元素伤害`；如果`璇玑屏`在场，就使此伤害+2。
     """
+
     id: int = 16013
     name: str = "Starshatter"
     text: str = """
@@ -73,6 +78,7 @@ class CombatStatuJadeScreen(CombatStatusEntity):
     `战斗行动`Jade Screen
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Jade Screen"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -82,6 +88,7 @@ class CombatStatuJadeScreen(CombatStatusEntity):
 
 class Ningguang(CharacterCard):
     """凝光"""
+
     id: int = 1601
     name: str = "Ningguang"
     element_type: ElementType = ElementType.GEO
@@ -95,4 +102,3 @@ class Ningguang(CharacterCard):
         JadeScreen(),
         Starshatter(),
     ]
-

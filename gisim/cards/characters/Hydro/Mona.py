@@ -1,5 +1,6 @@
 """莫娜"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class RippleofFate(GenericSkill):
     """
@@ -20,6 +22,7 @@ class RippleofFate(GenericSkill):
     ~~~~~~~~
     造成1点`水元素伤害`。
     """
+
     id: int = 12031
     name: str = "Ripple of Fate"
     text: str = """
@@ -37,6 +40,7 @@ class MirrorReflectionofDoom(GenericSkill):
     ~~~~~~~~
     造成1点`水元素伤害`，召唤`虚影`。
     """
+
     id: int = 12032
     name: str = "Mirror Reflection of Doom"
     text: str = """
@@ -55,6 +59,7 @@ class StellarisPhantasm(GenericSkill):
     ~~~~~~~~
     造成4点`水元素伤害`，生成`泡影`。
     """
+
     id: int = 12033
     name: str = "Stellaris Phantasm"
     text: str = """
@@ -73,6 +78,7 @@ class IllusoryTorrent(GenericSkill):
     ~~~~~~~~
     【被动】`此角色为出战角色，我方执行「切换角色」行动时：`将此次切换视为「`快速行动`」而非「`战斗行动`」。（每回合1次）
     """
+
     id: int = 12034
     name: str = "Illusory Torrent"
     text: str = """
@@ -89,6 +95,7 @@ class SummonReflection(AttackSummon):
     `召唤物`Reflection
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Reflection"
 
 
@@ -99,6 +106,7 @@ class CombatStatuIllusoryBubble(CombatStatusEntity):
     `战斗行动`Illusory Bubble
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Illusory Bubble"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -108,6 +116,7 @@ class CombatStatuIllusoryBubble(CombatStatusEntity):
 
 class Mona(CharacterCard):
     """莫娜"""
+
     id: int = 1203
     name: str = "Mona"
     element_type: ElementType = ElementType.HYDRO
@@ -122,4 +131,3 @@ class Mona(CharacterCard):
         StellarisPhantasm(),
         IllusoryTorrent(),
     ]
-

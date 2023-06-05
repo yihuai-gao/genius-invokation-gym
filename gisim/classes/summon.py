@@ -9,13 +9,17 @@ from uuid import UUID, uuid4
 from pydantic import BaseModel, Field
 
 from gisim.classes.enums import AttackType, CharPos, ElementType, PlayerID
-from gisim.classes.message import DealDamageMsg, Message, RoundEndMsg,TriggerSummonEffectMsg
+from gisim.classes.message import (
+    DealDamageMsg,
+    Message,
+    RoundEndMsg,
+    TriggerSummonEffectMsg,
+)
 
 from .entity import Entity
 
 
 class Summon(Entity, ABC):
-
     name: str
     usages: int
     player_id: PlayerID
@@ -42,7 +46,7 @@ class AttackSummon(Summon):
             return False
         updated = False
         if isinstance(msg, TriggerSummonEffectMsg):
-            msg = cast(TriggerSummonEffectMsg,msg)
+            msg = cast(TriggerSummonEffectMsg, msg)
             new_msg = DealDamageMsg(
                 attack_type=AttackType.SUMMON,
                 sender_id=self.player_id,
@@ -52,9 +56,9 @@ class AttackSummon(Summon):
                         ~self.player_id,
                         CharPos.ACTIVE,
                         self.damage_element,
-                        self.damage_value
+                        self.damage_value,
                     )
-                ]
+                ],
             )
             msg_queue.put(new_msg)
             if msg.consume_available_times:
@@ -86,4 +90,3 @@ class AttackSummon(Summon):
             msg.responded_entities.append(self._uuid)
             updated = True
         return updated
-

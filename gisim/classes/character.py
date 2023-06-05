@@ -3,9 +3,8 @@ A character in the game should be an instant of the specific character class def
 from abc import ABC, abstractmethod
 from collections import OrderedDict
 from queue import PriorityQueue
-from typing import List, Optional, cast, TYPE_CHECKING
+from typing import TYPE_CHECKING, List, Optional, cast
 
-from gisim.classes.reaction import element_reaction
 from gisim.cards.characters import get_character_card
 from gisim.cards.characters.base import CharacterCard, CharacterSkill
 from gisim.classes.entity import Entity
@@ -15,11 +14,12 @@ from gisim.classes.message import (
     ChangeCharacterMsg,
     CharacterDiedMsg,
     DealDamageMsg,
+    ElementalReactionTriggeredMsg,
     Message,
     PaySkillCostMsg,
     UseSkillMsg,
-    ElementalReactionTriggeredMsg
 )
+from gisim.classes.reaction import element_reaction
 from gisim.classes.status import CombatStatusEntity
 
 if TYPE_CHECKING:
@@ -156,11 +156,10 @@ class CharacterEntity(Entity):
                 skill_name = msg.skill_name
                 skill = self.get_skill(skill_name=skill_name)
                 if skill.self_element_attachment is not ElementType.NONE:
-                    """Some skills will add elemental attachments to themselves, 
+                    """Some skills will add elemental attachments to themselves,
                     such as Xingqiu."""
                     self.elemental_attachment, reaction_effect = element_reaction(
-                        self.elemental_attachment,
-                        skill.self_element_attachment
+                        self.elemental_attachment, skill.self_element_attachment
                     )
                     reaction_effect.to_reaction(msg_queue, parent=self)
 
@@ -180,14 +179,14 @@ class CharacterEntity(Entity):
                     updated = True
         elif isinstance(msg, DealDamageMsg):
             msg = cast(DealDamageMsg, msg)
-            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(msg.targets
-):
+            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
+                msg.targets
+            ):
                 if not self.player_id == target_id:
                     continue
                 if self.active and target_pos == CharPos.ACTIVE:
                     # Modify the target position of the message to the correct character. In case the active character changed due to character death.
-                    msg.targets[idx] = (
-                        target_id, self.position, element_type, dmg_val)
+                    msg.targets[idx] = (target_id, self.position, element_type, dmg_val)
                 if (
                     self.position == target_pos
                     or self.active
@@ -195,8 +194,7 @@ class CharacterEntity(Entity):
                 ):
                     # msg_queue.get()
                     self.elemental_attachment, reaction_effect = element_reaction(
-                        self.elemental_attachment,
-                        element_type
+                        self.elemental_attachment, element_type
                     )
                     # enumerate 方法迭代出来的值不是实时的数值，请注意
                     reaction_effect.to_reaction(msg_queue, parent=self)
@@ -204,7 +202,9 @@ class CharacterEntity(Entity):
                     # 标志伤害已经计算完毕了，这个消息不应该继续被处理了
                     msg.damage_calculation_ended = True
                     self.health_point -= min(self.health_point, dmg_val)
-                    print(f"    Cause Damage:\n        Elemental :{element_type}\n        Attacker: {msg.attacker}\n        Target :{(target_id, target_pos)}\n        Val: {dmg_val}\n")
+                    print(
+                        f"    Cause Damage:\n        Elemental :{element_type}\n        Attacker: {msg.attacker}\n        Target :{(target_id, target_pos)}\n        Val: {dmg_val}\n"
+                    )
 
                     if self.health_point == 0:
                         self.alive = False

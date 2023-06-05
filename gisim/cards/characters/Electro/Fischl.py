@@ -1,5 +1,6 @@
 """菲谢尔"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class BoltsofDownfall(GenericSkill):
     """
@@ -20,6 +22,7 @@ class BoltsofDownfall(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 14011
     name: str = "Bolts of Downfall"
     text: str = """
@@ -37,6 +40,7 @@ class Nightrider(GenericSkill):
     ~~~~~~~~
     造成1点`雷元素伤害`，召唤`奥兹`。
     """
+
     id: int = 14012
     name: str = "Nightrider"
     text: str = """
@@ -55,6 +59,7 @@ class MidnightPhantasmagoria(GenericSkill):
     ~~~~~~~~
     造成4点`雷元素伤害`，对所有敌方后台角色造成2点``穿透伤害``。
     """
+
     id: int = 14013
     name: str = "Midnight Phantasmagoria"
     text: str = """
@@ -74,11 +79,13 @@ class SummonOz(AttackSummon):
     `召唤物`Oz
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Oz"
 
 
 class Fischl(CharacterCard):
     """菲谢尔"""
+
     id: int = 1401
     name: str = "Fischl"
     element_type: ElementType = ElementType.ELECTRO
@@ -92,4 +99,3 @@ class Fischl(CharacterCard):
         Nightrider(),
         MidnightPhantasmagoria(),
     ]
-

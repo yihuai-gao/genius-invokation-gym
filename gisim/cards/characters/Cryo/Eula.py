@@ -1,22 +1,18 @@
 """Eula"""
-from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.enums import (
-    ElementType,
-    Nation,
-    SkillType,
-    WeaponType,
-    StatusType
-)
 from queue import PriorityQueue
-from gisim.classes.message import DealDamageMsg
 from typing import cast
-from gisim.status import CharacterStatusEntity
+
+from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
+from gisim.classes.enums import ElementType, Nation, SkillType, StatusType, WeaponType
+from gisim.classes.message import DealDamageMsg
 from gisim.classes.summon import AttackSummon
+from gisim.status import CharacterStatusEntity
 
 
 class FavoniusBladeworkEdel(GenericSkill):
     """Normal Attack: Favonius Bladework - Edel
     Deals 2 Physical DMG."""
+
     id: int = 61761
     name: str = "Favonius Bladework Edel"
     text: str = """Deals 2 Physical DMG."""
@@ -29,6 +25,7 @@ class FavoniusBladeworkEdel(GenericSkill):
 class IcetideVortex(GenericSkill):
     """Elemental Skill: Icetide Vortex
     Deals 2 Physical DMG."""
+
     id: int = 61762
     name: str = "Icetide Vortex"
     text: str = """Deals 2 Cryo DMG. If this character has not yet gained Grimheart, they will gain Grimheart."""
@@ -36,6 +33,7 @@ class IcetideVortex(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.CRYO: 3}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 2
+
 
 class Grimheart(CharacterStatusEntity):
     name: str = "Grimheart"
@@ -45,17 +43,19 @@ class Grimheart(CharacterStatusEntity):
     value: int = 0
     active: bool = True
 
+
 class BaneofAllEvil(GenericSkill):
     """Elemental Burst: Glacial Illumination
     Deals 2 Cryo DMG, summons 1 Lightfall Sword."""
+
     id: int = 65623
     name: str = "Glacial Illumination"
     text: str = """Deals 2 Cryo DMG, summons 1 Lightfall Sword."""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {
-        ElementType.CRYO: 3, ElementType.POWER: 2}
+    costs: dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 4
+
 
 class LightfallSword(AttackSummon):
     """Summon: Lightfall Sword
@@ -63,10 +63,13 @@ class LightfallSword(AttackSummon):
     End Phase: Discard this card and deal 2 Physical DMG.
     Each Zeal stack adds 1 DMG to this damage instance.
     (Effects on this card's Usage will apply to Zeal.)"""
+
     name: str = "Lightfall Sword"
+
 
 class Eula(CharacterCard):
     """Eula"""
+
     id: int = 6176
     name: str = "Eula"
     element_type: ElementType = ElementType.CRYO
@@ -80,5 +83,3 @@ class Eula(CharacterCard):
         IcetideVortex(),
         BaneofAllEvil(),
     ]
-
-

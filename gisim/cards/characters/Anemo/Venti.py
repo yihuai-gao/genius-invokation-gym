@@ -1,22 +1,19 @@
 """Venti"""
-from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.enums import (
-    ElementType,
-    Nation,
-    SkillType,
-    WeaponType,
-)
-from gisim.classes.summon import AttackSummon
-from gisim.status import CombatStatusEntity
-from gisim.env import INF_INT
 from queue import PriorityQueue
-from gisim.classes.message import PayChangeCharacterCostMsg
 from typing import cast
+
+from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
+from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
+from gisim.classes.message import PayChangeCharacterCostMsg
+from gisim.classes.summon import AttackSummon
+from gisim.env import INF_INT
+from gisim.status import CombatStatusEntity
 
 
 class DivineMarksmanship(GenericSkill):
     """Normal Attack: Divine Marksmanship
     Deals 2 Physical DMG."""
+
     id: int = 65611
     name: str = "Divine Marksmanship"
     text: str = """Deals 2 Physical DMG."""
@@ -29,6 +26,7 @@ class DivineMarksmanship(GenericSkill):
 class SkywardSonnet(GenericSkill):
     """Elemental Skill: Skyward Sonnet
     Deals 2 Anemo DMG, creates 1 Stormzone."""
+
     id: int = 65612
     name: str = "Skyward Sonnet"
     text: str = """Deals 2 Anemo DMG, creates 1 Stormzone."""
@@ -43,6 +41,7 @@ class Stormzone(CombatStatusEntity):
     When you perform "Switch Character": Spend 1 less Elemental Die.
     Usage(s): 2
     """
+
     name: str = "Stormzone"
     description: str = """When you perform "Switch Character": Spend 1 less Elemental Die.Usage(s): 2"""
     active: bool = True
@@ -60,12 +59,12 @@ class Stormzone(CombatStatusEntity):
 class WindsGrandOde(GenericSkill):
     """Elemental Burst: Wind's Grand Ode
     Deals 2 Anemo DMG, summons 1 Stormeye."""
+
     id: int = 65613
     name: str = "Winds Grand Ode"
     text: str = """Deals 2 Anemo DMG, summons 1 Stormeye."""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {
-        ElementType.ANEMO: 3, ElementType.POWER: 2}
+    costs: dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 2
 
@@ -79,11 +78,13 @@ class Stormeye(AttackSummon):
     If multiple such characters exist, the one with the foremost position will be viewed as being "closest."
     Usage(s): 2
     """
+
     name: str = "Stormeye"
 
 
 class Venti(CharacterCard):
     """Venti"""
+
     id: int = 5651
     name: str = "Sucrose"
     element_type: ElementType = ElementType.ANEMO

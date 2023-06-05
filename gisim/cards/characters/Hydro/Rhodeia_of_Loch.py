@@ -1,5 +1,6 @@
 """纯水精灵·洛蒂娅"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class Surge(GenericSkill):
     """
@@ -20,6 +22,7 @@ class Surge(GenericSkill):
     ~~~~
     造成1点`水元素伤害`。
     """
+
     id: int = 22011
     name: str = "Surge"
     text: str = """
@@ -37,6 +40,7 @@ class OceanidMimicSummoning(GenericSkill):
     ~~~~~~~~
     随机召唤1种`纯水幻形`。（优先生成不同的类型）
     """
+
     id: int = 22012
     name: str = "Oceanid Mimic Summoning"
     text: str = """
@@ -52,6 +56,7 @@ class TheMyriadWilds(GenericSkill):
     ~~~~~~~~
     随机召唤2种`纯水幻形`。（优先生成不同的类型）
     """
+
     id: int = 22013
     name: str = "The Myriad Wilds"
     text: str = """
@@ -67,6 +72,7 @@ class TideandTorrent(GenericSkill):
     ~~~~~~~~~~
     造成2点`水元素伤害`；我方每有1个召唤物，再使此伤害+2。
     """
+
     id: int = 22014
     name: str = "Tide and Torrent"
     text: str = """
@@ -80,6 +86,7 @@ class TideandTorrent(GenericSkill):
 
 class RhodeiaofLoch(CharacterCard):
     """纯水精灵·洛蒂娅"""
+
     id: int = 2201
     name: str = "Rhodeia of Loch"
     element_type: ElementType = ElementType.HYDRO
@@ -94,4 +101,3 @@ class RhodeiaofLoch(CharacterCard):
         TheMyriadWilds(),
         TideandTorrent(),
     ]
-

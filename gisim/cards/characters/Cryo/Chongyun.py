@@ -1,5 +1,6 @@
 """重云"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class Demonbane(GenericSkill):
     """
@@ -20,6 +22,7 @@ class Demonbane(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 11041
     name: str = "Demonbane"
     text: str = """
@@ -37,6 +40,7 @@ class ChonghuasLayeredFrost(GenericSkill):
     ~~~~~~~~
     造成3点`冰元素伤害`，生成`重华叠霜领域`。
     """
+
     id: int = 11042
     name: str = "Chonghua's Layered Frost"
     text: str = """
@@ -55,6 +59,7 @@ class CloudPartingStar(GenericSkill):
     ~~~~~~~~
     造成7点`冰元素伤害`。
     """
+
     id: int = 11043
     name: str = "Cloud-Parting Star"
     text: str = """
@@ -73,6 +78,7 @@ class CombatStatuChonghuaFrostField(CombatStatusEntity):
     `战斗行动`Chonghua Frost Field
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Chonghua Frost Field"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -82,6 +88,7 @@ class CombatStatuChonghuaFrostField(CombatStatusEntity):
 
 class Chongyun(CharacterCard):
     """重云"""
+
     id: int = 1104
     name: str = "Chongyun"
     element_type: ElementType = ElementType.CRYO
@@ -95,4 +102,3 @@ class Chongyun(CharacterCard):
         ChonghuasLayeredFrost(),
         CloudPartingStar(),
     ]
-

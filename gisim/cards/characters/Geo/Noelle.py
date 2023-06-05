@@ -1,5 +1,6 @@
 """诺艾尔"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class FavoniusBladeworkMaid(GenericSkill):
     """
@@ -20,6 +22,7 @@ class FavoniusBladeworkMaid(GenericSkill):
     ~~~~~~~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 16021
     name: str = "Favonius Bladework - Maid"
     text: str = """
@@ -37,6 +40,7 @@ class Breastplate(GenericSkill):
     ~~~~~~
     造成1点`岩元素伤害`，生成`护体岩铠`。
     """
+
     id: int = 16022
     name: str = "Breastplate"
     text: str = """
@@ -55,6 +59,7 @@ class SweepingTime(GenericSkill):
     ~~~~~~
     造成4点`岩元素伤害`，本角色附属`大扫除`。
     """
+
     id: int = 16023
     name: str = "Sweeping Time"
     text: str = """
@@ -73,6 +78,7 @@ class CombatStatuFullPlate(CombatStatusEntity):
     `战斗行动`Full Plate
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Full Plate"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -82,6 +88,7 @@ class CombatStatuFullPlate(CombatStatusEntity):
 
 class Noelle(CharacterCard):
     """诺艾尔"""
+
     id: int = 1602
     name: str = "Noelle"
     element_type: ElementType = ElementType.GEO
@@ -95,4 +102,3 @@ class Noelle(CharacterCard):
         Breastplate(),
         SweepingTime(),
     ]
-

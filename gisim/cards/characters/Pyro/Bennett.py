@@ -1,5 +1,6 @@
 """班尼特"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class StrikeofFortune(GenericSkill):
     """
@@ -20,6 +22,7 @@ class StrikeofFortune(GenericSkill):
     ~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 13031
     name: str = "Strike of Fortune"
     text: str = """
@@ -37,6 +40,7 @@ class PassionOverload(GenericSkill):
     ~~~~~~~~
     造成3点`火元素伤害`。
     """
+
     id: int = 13032
     name: str = "Passion Overload"
     text: str = """
@@ -54,6 +58,7 @@ class FantasticVoyage(GenericSkill):
     ~~~~~~~~
     造成2点`火元素伤害`，生成`鼓舞领域`。
     """
+
     id: int = 13033
     name: str = "Fantastic Voyage"
     text: str = """
@@ -72,6 +77,7 @@ class InspirationField(CombatStatusEntity):
     ~~~~~~
     `战斗行动`Inspiration Field
     """
+
     name: str = "Inspiration Field"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -81,6 +87,7 @@ class InspirationField(CombatStatusEntity):
 
 class Bennett(CharacterCard):
     """班尼特"""
+
     id: int = 1303
     name: str = "Bennett"
     element_type: ElementType = ElementType.PYRO
@@ -94,4 +101,3 @@ class Bennett(CharacterCard):
         PassionOverload(),
         FantasticVoyage(),
     ]
-

@@ -1,7 +1,6 @@
 """Jean"""
-from gisim.cards.characters.base import (CharacterCard, CharacterSkill,
-                                         GenericSkill)
-from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
+from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
+from gisim.classes.enums import CharPos, ElementType, Nation, SkillType, WeaponType
 from gisim.classes.summon import AttackSummon
 
 
@@ -10,6 +9,7 @@ class FavoniusBladework(GenericSkill):
     Normal Attack: Favonius Bladework
     Deals 2 Physical DMG.
     """
+
     id: int = 15021
     name: str = "Favonius Bladework"
     text: str = """
@@ -25,6 +25,7 @@ class GaleBlade(GenericSkill):
     """Elemental Skill: Gale Blade
     Deals 3 Anemo DMG, the target is forcibly switched to the next character.
     """
+
     id: int = 15022
     name: str = "Gale Blade"
     text: str = """
@@ -35,20 +36,21 @@ class GaleBlade(GenericSkill):
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 3
     # TODO: forcibly switched to the next character
+    CharPos.ACTIVE
 
 
 class DandelionBreeze(CharacterSkill):
     """Elemental Burst: Dandelion Breeze
     Heals all your characters for 2 HP, summons 1 Dandelion Field.
     """
+
     id: int = 15023
     name: str = "Dandelion Breeze"
     text: str = """
     Heals all your characters for 2 HP, summons 1 Dandelion Field.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {
-        ElementType.ANEMO: 4, ElementType.POWER: 3}
+    costs: dict[ElementType, int] = {ElementType.ANEMO: 4, ElementType.POWER: 3}
     heal_all_value: int = 2
     summon_name: str = "Dandelion Field"
 
@@ -59,6 +61,7 @@ class DandelionField(AttackSummon):
     End Phase: Deal 2 Anemo DMG, heal your active character for 1 HP.
     Usage(s): 2
     """
+
     name: str = "Dandelion Field"
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 1
@@ -67,6 +70,7 @@ class DandelionField(AttackSummon):
 
 class Jean(CharacterCard):
     """Jean"""
+
     id: int = 1502
     name: str = "Jean"
     element_type: ElementType = ElementType.ANEMO

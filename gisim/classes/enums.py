@@ -1,9 +1,11 @@
 from enum import Enum, IntEnum, auto
 from logging import getLogger
 
+
 class ServiceMessageSender(Enum):
     GAMEOBJ = auto()
     PLAYER = auto()
+
 
 class GameStatus(Enum):
     INITIALIZING = 0
@@ -26,11 +28,14 @@ class GamePhase(Enum):
     def __str__(self):
         return self.name
 
+
 class Occupation(Enum):
     Carry: 1
-    Back:2
+    Back: 2
+
     def __str__(self):
         return self.name
+
 
 class ElementType(IntEnum):
     """Element types (including power, any, omni)"""
@@ -83,6 +88,7 @@ class ElementType(IntEnum):
 
     def __str__(self):
         return self.name
+
 
 class ElementalReactionType(IntEnum):
     NONE = 0

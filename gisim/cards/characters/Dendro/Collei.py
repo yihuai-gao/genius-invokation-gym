@@ -1,5 +1,6 @@
 """柯莱"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class SupplicantsBowmanship(GenericSkill):
     """
@@ -20,6 +22,7 @@ class SupplicantsBowmanship(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 17011
     name: str = "Supplicant's Bowmanship"
     text: str = """
@@ -37,6 +40,7 @@ class FloralBrush(GenericSkill):
     ~~~~~~~~
     造成3点`草元素伤害`。
     """
+
     id: int = 17012
     name: str = "Floral Brush"
     text: str = """
@@ -54,6 +58,7 @@ class TrumpCardKitty(GenericSkill):
     ~~~~~~~~
     造成2点`草元素伤害`，召唤`柯里安巴`。
     """
+
     id: int = 17013
     name: str = "Trump-Card Kitty"
     text: str = """
@@ -73,11 +78,13 @@ class SummonCuileinAnbar(AttackSummon):
     `召唤物`Cuilein-Anbar
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Cuilein-Anbar"
 
 
 class Collei(CharacterCard):
     """柯莱"""
+
     id: int = 1701
     name: str = "Collei"
     element_type: ElementType = ElementType.DENDRO
@@ -91,4 +98,3 @@ class Collei(CharacterCard):
         FloralBrush(),
         TrumpCardKitty(),
     ]
-

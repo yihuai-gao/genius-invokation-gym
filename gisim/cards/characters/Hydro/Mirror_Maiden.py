@@ -1,5 +1,6 @@
 """愚人众·藏镜仕女"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class WaterBall(GenericSkill):
     """
@@ -20,6 +22,7 @@ class WaterBall(GenericSkill):
     ~~~~
     造成1点`水元素伤害`。
     """
+
     id: int = 22021
     name: str = "Water Ball"
     text: str = """
@@ -37,6 +40,7 @@ class InfluxBlast(GenericSkill):
     ~~~~~~~~
     造成3点`水元素伤害`，目标角色附属`水光破镜`。
     """
+
     id: int = 22022
     name: str = "Influx Blast"
     text: str = """
@@ -54,6 +58,7 @@ class RippledReflection(GenericSkill):
     ~~~~~~~~
     造成5点`水元素伤害`。
     """
+
     id: int = 22023
     name: str = "Rippled Reflection"
     text: str = """
@@ -67,6 +72,7 @@ class RippledReflection(GenericSkill):
 
 class MirrorMaiden(CharacterCard):
     """愚人众·藏镜仕女"""
+
     id: int = 2202
     name: str = "Mirror Maiden"
     element_type: ElementType = ElementType.HYDRO
@@ -80,4 +86,3 @@ class MirrorMaiden(CharacterCard):
         InfluxBlast(),
         RippledReflection(),
     ]
-

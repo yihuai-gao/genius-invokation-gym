@@ -1,5 +1,6 @@
 """迪奥娜"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class KtzleinStyle(GenericSkill):
     """
@@ -20,6 +22,7 @@ class KtzleinStyle(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 11021
     name: str = "Kätzlein Style"
     text: str = """
@@ -37,6 +40,7 @@ class IcyPaws(GenericSkill):
     ~~~~~~~~
     造成2点`冰元素伤害`，生成`猫爪护盾`。
     """
+
     id: int = 11022
     name: str = "Icy Paws"
     text: str = """
@@ -55,6 +59,7 @@ class SignatureMix(GenericSkill):
     ~~~~~~~~
     造成1点`冰元素伤害`，治疗此角色2点，召唤`酒雾领域`。
     """
+
     id: int = 11023
     name: str = "Signature Mix"
     text: str = """
@@ -74,6 +79,7 @@ class CombatStatuCatClawShield(CombatStatusEntity):
     `战斗行动`Cat-Claw Shield
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Cat-Claw Shield"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -88,11 +94,13 @@ class SummonDrunkenMist(AttackSummon):
     `召唤物`Drunken Mist
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Drunken Mist"
 
 
 class Diona(CharacterCard):
     """迪奥娜"""
+
     id: int = 1102
     name: str = "Diona"
     element_type: ElementType = ElementType.CRYO
@@ -106,4 +114,3 @@ class Diona(CharacterCard):
         IcyPaws(),
         SignatureMix(),
     ]
-

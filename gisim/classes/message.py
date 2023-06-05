@@ -4,7 +4,7 @@
 import itertools
 from abc import ABC, abstractmethod
 from ast import Param
-from typing import Dict, List, Optional, Tuple, Any
+from typing import Any, Dict, List, Optional, Tuple
 from uuid import UUID
 
 from pydantic import BaseModel, root_validator
@@ -21,9 +21,9 @@ from .enums import (
     MsgPriority,
     PlayerID,
     RegionType,
-    StatusType,
     ServiceMessageSender,
     SkillType,
+    StatusType,
 )
 
 
@@ -66,14 +66,18 @@ class Message(Entity, ABC):
         values["_msg_id"] = next(Message._id_counter)  # Add message id
         return values
 
+
 # Immediate operations
+
 
 class TriggerSummonEffectMsg(Message):
     """Will actively trigger the summon effect, after sending this message"""
+
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
-    summon_list:List[str]
+    summon_list: List[str]
     """Can trigger multiple summoning items at once"""
-    consume_available_times:bool = False
+    consume_available_times: bool = False
+
 
 class GenerateSummonMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
@@ -233,8 +237,7 @@ class PayCardCostMsg(PayCostMsg):
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
                 (values["sender_id"], RegionType.CARD_ZONE),
-                (values["sender_id"], RegionType(
-                    values["card_user_pos"][1].value)),
+                (values["sender_id"], RegionType(values["card_user_pos"][1].value)),
                 (values["sender_id"], RegionType.COMBAT_STATUS_ZONE),
                 (values["sender_id"], RegionType.SUPPORT_ZONE),
                 (values["sender_id"], RegionType.DICE_ZONE),
@@ -351,6 +354,7 @@ class DeclareEndMsg(Message):
 # Changing hp/power/ related
 # This kind of message is usually responded by a lot of entities, from the current character/summon to its target
 
+
 class DealDamageMsg(Message):
     """Send from Character(Skill)/Character Status/Summon/Combat Status"""
 
@@ -363,9 +367,8 @@ class DealDamageMsg(Message):
     """Will be modified if elemental reaction is triggered"""
     all_buffs_included = False
     """Whether every attack/defense buffs are included"""
-    damage_calculation_ended:bool = False
+    damage_calculation_ended: bool = False
     """表示本伤害已经计算完毕，后续状态不应该继续响应这个消息"""
-
 
 
 class AttachElementMsg(Message):
@@ -391,8 +394,7 @@ class ChangePowerMsg(Message):
     @root_validator
     def init_respondent_zones(cls, values):
         change_vals: List[int] = values["change_vals"]
-        change_targets: List[Tuple[PlayerID, CharPos]
-                             ] = values["change_targets"]
+        change_targets: List[Tuple[PlayerID, CharPos]] = values["change_targets"]
 
         if not values["respondent_zones"]:
             values["respondent_zones"] = [
@@ -409,6 +411,7 @@ class ChangePowerMsg(Message):
 
 class ElementalReactionTriggeredMsg(Message):
     """Send from Character(under attack)/Summon"""
+
     priority: MsgPriority = MsgPriority.ELEMENTAL_REACTION_EFFECT
     elemental_reaction_type: ElementalReactionType
     target: Tuple[PlayerID, CharPos]

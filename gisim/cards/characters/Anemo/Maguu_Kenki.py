@@ -1,19 +1,19 @@
 """MaguuKenki: 剑鬼魔偶"""
-        
-from queue import PriorityQueue
-from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 
+from queue import PriorityQueue
+from typing import TYPE_CHECKING, cast
+
+from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
+    AttackType,
+    CharPos,
     ElementType,
     Nation,
     SkillType,
     WeaponType,
-    AttackType,
-    CharPos
 )
-from typing import cast, TYPE_CHECKING
+from gisim.classes.message import DealDamageMsg, TriggerSummonEffectMsg, UseSkillMsg
 from gisim.classes.summon import AttackSummon
-from gisim.classes.message import UseSkillMsg, DealDamageMsg, TriggerSummonEffectMsg
 
 if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
@@ -22,6 +22,7 @@ if TYPE_CHECKING:
 class Ichimonji(GenericSkill):
     """Normal Attack: Ichimonji
     Deals 2 Physical DMG."""
+
     id: int = 25011
     name: str = "Ichimonji"
     text: str = """
@@ -36,6 +37,7 @@ class Ichimonji(GenericSkill):
 class BlusteringBlade(GenericSkill):
     """Elemental Skill: Blustering Blade
     Summons 1 Shadowsword: Lone Gale."""
+
     id: int = 25012
     name: str = "Blustering Blade"
     text: str = """
@@ -50,6 +52,7 @@ class ShadowswordLoneGale(AttackSummon):
     """Summon: Shadowsword: Lone Gale
     End Phase: Deal 1 Anemo DMG.
     Usage(s): 2"""
+
     name: str = "Shadowsword Lone Gale"
     usages: int = 2
     damage_element: ElementType = ElementType.ANEMO
@@ -59,6 +62,7 @@ class ShadowswordLoneGale(AttackSummon):
 class FrostyAssault(GenericSkill):
     """Elemental Skill: Frosty Assault
     Summons 1 Shadowsword: Galloping Frost."""
+
     id: int = 25013
     name: str = "Frosty Assault"
     text: str = """
@@ -73,6 +77,7 @@ class ShadowswordGallopingFrost(AttackSummon):
     """Shadowsword: Galloping Frost
     End Phase: Deal 1 Cryo DMG.
     Usage(s): 2"""
+
     name: str = "Shadowsword Galloping Frost"
     usages: int = 2
     damage_element: ElementType = ElementType.CRYO
@@ -81,14 +86,14 @@ class ShadowswordGallopingFrost(AttackSummon):
 
 class PseudoTenguSweeper(GenericSkill):
     """Elemental Burst: Pseudo Tengu Sweeper
-    Deals 4 Anemo DMG, triggers the effect(s) of all your Shadowsword Summon(s). 
+    Deals 4 Anemo DMG, triggers the effect(s) of all your Shadowsword Summon(s).
     (Does not consume their Usages)"""
+
     id: int = 25014
     name: str = "Pseudo Tengu Sweeper"
     text: str = """Deals 4 Anemo DMG, triggers the effect(s) of all your Shadowsword Summon(s). (Does not consume their Usages)"""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {
-        ElementType.ANEMO: 3, ElementType.POWER: 3}
+    costs: dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 4
 
@@ -114,16 +119,14 @@ class PseudoTenguSweeper(GenericSkill):
         msg_queue.put(new_msg)
         new_msg = TriggerSummonEffectMsg(
             sender_id=parent.player_id,
-            summon_list=[
-                "Shadowsword Galloping Frost",
-                "Shadowsword Lone Gale"
-            ]
+            summon_list=["Shadowsword Galloping Frost", "Shadowsword Lone Gale"],
         )
         msg_queue.put(new_msg)
 
 
 class MaguuKenki(CharacterCard):
     """MaguuKenki"""
+
     id: int = 2501
     name: str = "Maguu Kenki"
     element_type: ElementType = ElementType.ANEMO

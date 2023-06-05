@@ -1,5 +1,6 @@
 """赛诺"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class InvokersSpear(GenericSkill):
     """
@@ -20,6 +22,7 @@ class InvokersSpear(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 14041
     name: str = "Invoker's Spear"
     text: str = """
@@ -37,6 +40,7 @@ class SecretRiteChasmicSoulfarer(GenericSkill):
     ~~~~~~~~~~~~~~
     造成3点`雷元素伤害`。
     """
+
     id: int = 14042
     name: str = "Secret Rite: Chasmic Soulfarer"
     text: str = """
@@ -54,6 +58,7 @@ class SacredRiteWolfsSwiftness(GenericSkill):
     ~~~~~~~~~~~~~~~~
     造成4点`雷元素伤害`，\n`启途誓使`的[凭依]级数+2。
     """
+
     id: int = 14043
     name: str = "Sacred Rite: Wolf's Swiftness"
     text: str = """
@@ -71,6 +76,7 @@ class LawfulEnforcer(GenericSkill):
     ~~~~~~~~
     【被动】战斗开始时，初始附属`启途誓使`。
     """
+
     id: int = 14044
     name: str = "Lawful Enforcer"
     text: str = """
@@ -82,6 +88,7 @@ class LawfulEnforcer(GenericSkill):
 
 class Cyno(CharacterCard):
     """赛诺"""
+
     id: int = 1404
     name: str = "Cyno"
     element_type: ElementType = ElementType.ELECTRO
@@ -96,4 +103,3 @@ class Cyno(CharacterCard):
         SacredRiteWolfsSwiftness(),
         LawfulEnforcer(),
     ]
-

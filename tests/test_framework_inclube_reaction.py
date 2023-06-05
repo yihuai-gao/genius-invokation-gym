@@ -11,12 +11,12 @@ if __name__ == "__main__":
     # }
     # player2_deck = {"characters": ["Fischl", "Collei", "Xiangling"], "cards": []}
     player1_deck = {
-        "characters": ["Kamisato Ayaka","MaguuKenki","Xingqiu"],
+        "characters": ["Kamisato Ayaka", "MaguuKenki", "Xingqiu"],
         # "cards": ["Kanten Senmyou Blessing", "Traveler's Handy Sword"],
         "cards": [],
     }
     player2_deck = {
-        "characters": ["MaguuKenki","MaguuKenki","Xingqiu"],
+        "characters": ["MaguuKenki", "MaguuKenki", "Xingqiu"],
         "cards": [],
     }
     game = Game(player1_deck, player2_deck, seed=10)
@@ -99,7 +99,7 @@ if __name__ == "__main__":
             print(f"    Current Summons:")
             for summon in summons:
                 print(f"          {summon['name']}: usages: {summon['usages']}")
-        
+
         if len(co_status_list) >= 1:
             print(f"    Combat Status:")
             for co_status in co_status_list:

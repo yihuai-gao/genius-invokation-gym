@@ -340,8 +340,7 @@ class Game:
                     self.phase = GamePhase.ROUND_END
                     self.active_player = self.first_move_player
                     self.msg_queue.put(
-                        RoundEndMsg(
-                            first_move_player=self.first_move_player)
+                        RoundEndMsg(first_move_player=self.first_move_player)
                     )
                 elif self.phase == GamePhase.ROUND_END:
                     if self.msg_queue.qsize() > 0:

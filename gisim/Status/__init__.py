@@ -1,12 +1,12 @@
 # from .FrozenEffect import *
 from typing import cast
 
-from gisim.classes.enums import CharPos, ElementType, PlayerID,StatusType
-from gisim.status.base import CharacterStatusEntity,CombatStatusEntity
-from gisim.status.character_status import *
-from gisim.status.reaction_status import *
-from gisim.status.combat_status import get_combat_status_entity
+from gisim.classes.enums import CharPos, ElementType, PlayerID, StatusType
 from gisim.env import INF_INT
+from gisim.status.base import CharacterStatusEntity, CombatStatusEntity
+from gisim.status.character_status import *
+from gisim.status.combat_status import get_combat_status_entity
+from gisim.status.reaction_status import *
 
 
 def get_character_status_entity(
@@ -28,7 +28,7 @@ def get_character_status_entity(
             remaining_round=remaining_round,
             remaining_usage=remaining_usage,
             element=element,
-            status_type=buff_type
+            status_type=buff_type,
         )
         status = cast(CharacterStatusEntity, status)
         return status
@@ -39,6 +39,6 @@ def get_character_status_entity(
         position=position,
         remaining_round=remaining_round,
         remaining_usage=remaining_usage,
-        status_type=buff_type
+        status_type=buff_type,
     )
     return status

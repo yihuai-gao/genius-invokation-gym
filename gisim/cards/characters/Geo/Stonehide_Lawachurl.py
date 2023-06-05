@@ -1,5 +1,6 @@
 """丘丘岩盔王"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class PlamaLawa(GenericSkill):
     """
@@ -20,6 +22,7 @@ class PlamaLawa(GenericSkill):
     ~~~~~~~~~~~~~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 26011
     name: str = "Plama Lawa"
     text: str = """
@@ -37,6 +40,7 @@ class MovoLawa(GenericSkill):
     ~~~~~~~~~~~~~~~~~~
     造成3点`物理伤害`。
     """
+
     id: int = 26012
     name: str = "Movo Lawa"
     text: str = """
@@ -54,6 +58,7 @@ class UpaShato(GenericSkill):
     ~~~~~~~~~~~~~~~~~~
     造成5点`物理伤害`。
     """
+
     id: int = 26013
     name: str = "Upa Shato"
     text: str = """
@@ -71,6 +76,7 @@ class InfusedStonehide(GenericSkill):
     ~~~~~~~~~~
     【被动】战斗开始时，初始附属`岩盔`和`坚岩之力`。
     """
+
     id: int = 26014
     name: str = "Infused Stonehide"
     text: str = """
@@ -82,10 +88,11 @@ class InfusedStonehide(GenericSkill):
 
 class StonehideLawachurl(CharacterCard):
     """丘丘岩盔王"""
+
     id: int = 2601
     name: str = "Stonehide Lawachurl"
     element_type: ElementType = ElementType.GEO
-    nations: list[Nation] = [Nation.Monster,Nation.Hilichurl]
+    nations: list[Nation] = [Nation.Monster, Nation.Hilichurl]
     health_point: int = 8
     power: int = 0
     max_power: int = 2
@@ -96,4 +103,3 @@ class StonehideLawachurl(CharacterCard):
         UpaShato(),
         InfusedStonehide(),
     ]
-

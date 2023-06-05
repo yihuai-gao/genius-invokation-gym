@@ -1,5 +1,6 @@
 """雷泽"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class SteelFang(GenericSkill):
     """
@@ -20,6 +22,7 @@ class SteelFang(GenericSkill):
     ~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 14021
     name: str = "Steel Fang"
     text: str = """
@@ -37,6 +40,7 @@ class ClawandThunder(GenericSkill):
     ~~~~~~~~~~
     造成3点`雷元素伤害`。
     """
+
     id: int = 14022
     name: str = "Claw and Thunder"
     text: str = """
@@ -54,6 +58,7 @@ class LightningFang(GenericSkill):
     ~~~~
     造成5点`雷元素伤害`，本角色附属`雷狼`。
     """
+
     id: int = 14023
     name: str = "Lightning Fang"
     text: str = """
@@ -67,6 +72,7 @@ class LightningFang(GenericSkill):
 
 class Razor(CharacterCard):
     """雷泽"""
+
     id: int = 1402
     name: str = "Razor"
     element_type: ElementType = ElementType.ELECTRO
@@ -80,4 +86,3 @@ class Razor(CharacterCard):
         ClawandThunder(),
         LightningFang(),
     ]
-

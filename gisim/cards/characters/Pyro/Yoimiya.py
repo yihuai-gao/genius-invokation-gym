@@ -1,5 +1,6 @@
 """宵宫"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class FireworkFlareUp(GenericSkill):
     """
@@ -20,6 +22,7 @@ class FireworkFlareUp(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 13051
     name: str = "Firework Flare-Up"
     text: str = """
@@ -37,6 +40,7 @@ class NiwabiFireDance(GenericSkill):
     ~~~~~~~~~~
     本角色附属`庭火焰硝`。（此技能不产生充能）
     """
+
     id: int = 13052
     name: str = "Niwabi Fire-Dance"
     text: str = """
@@ -52,6 +56,7 @@ class RyuukinSaxifrage(GenericSkill):
     ~~~~~~~~~~
     造成4点`火元素伤害`，生成`琉金火光`。
     """
+
     id: int = 13053
     name: str = "Ryuukin Saxifrage"
     text: str = """
@@ -71,6 +76,7 @@ class CombatStatuAurousBlaze(CombatStatusEntity):
     `战斗行动`Aurous Blaze
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Aurous Blaze"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -80,6 +86,7 @@ class CombatStatuAurousBlaze(CombatStatusEntity):
 
 class Yoimiya(CharacterCard):
     """宵宫"""
+
     id: int = 1305
     name: str = "Yoimiya"
     element_type: ElementType = ElementType.PYRO
@@ -93,4 +100,3 @@ class Yoimiya(CharacterCard):
         NiwabiFireDance(),
         RyuukinSaxifrage(),
     ]
-

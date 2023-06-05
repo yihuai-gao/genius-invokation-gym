@@ -1,5 +1,6 @@
 """迪卢克"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class TemperedSword(GenericSkill):
     """
@@ -20,6 +22,7 @@ class TemperedSword(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 13011
     name: str = "Tempered Sword"
     text: str = """
@@ -37,6 +40,7 @@ class SearingOnslaught(GenericSkill):
     ~~~~~~~~
     造成3点`火元素伤害`。每回合第三次使用本技能时，伤害+2。
     """
+
     id: int = 13012
     name: str = "Searing Onslaught"
     text: str = """
@@ -54,6 +58,7 @@ class Dawn(GenericSkill):
     ~~~~
     造成8点`火元素伤害`，本角色附属`火元素附魔`。
     """
+
     id: int = 13013
     name: str = "Dawn"
     text: str = """
@@ -67,6 +72,7 @@ class Dawn(GenericSkill):
 
 class Diluc(CharacterCard):
     """迪卢克"""
+
     id: int = 1301
     name: str = "Diluc"
     element_type: ElementType = ElementType.PYRO
@@ -80,4 +86,3 @@ class Diluc(CharacterCard):
         SearingOnslaught(),
         Dawn(),
     ]
-

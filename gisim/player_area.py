@@ -20,25 +20,26 @@ from gisim.classes.message import (
     AfterUsingSkillMsg,
     ChangeCardsMsg,
     ChangeDiceMsg,
+    DealDamageMsg,
     GenerateCharacterStatusMsg,
     GenerateCombatStatusMsg,
     GenerateEquipmentMsg,
     GenerateSummonMsg,
-    TriggerSummonEffectMsg,
-    DealDamageMsg,
     Message,
     PayCardCostMsg,
     PayCostMsg,
     RoundBeginMsg,
     RoundEndMsg,
+    TriggerSummonEffectMsg,
     UseCardMsg,
 )
+
 # from gisim.classes.status import CharacterStatusEntity, get_character_status_entity
 from gisim.status import (
     CharacterStatusEntity,
-    get_character_status_entity,
     CombatStatusEntity,
-    get_combat_status_entity
+    get_character_status_entity,
+    get_combat_status_entity,
 )
 
 if TYPE_CHECKING:
@@ -316,13 +317,13 @@ class SummonZone(BaseZone):
                 self.summons.append(new_summon)
                 updated = True
                 msg.responded_entities.append(self._uuid)
-                
-        if isinstance(msg,TriggerSummonEffectMsg):
+
+        if isinstance(msg, TriggerSummonEffectMsg):
             for summon in self.summons:
                 if summon.name in msg.summon_list:
                     updated = summon.msg_handler(msg_queue)
                 msg.responded_entities.append(self._uuid)
-            
+
         if isinstance(msg, RoundEndMsg):
             for idx, summon in enumerate(self.summons):
                 updated = summon.msg_handler(msg_queue)
@@ -334,7 +335,7 @@ class SummonZone(BaseZone):
             # None of the summons responded:
             msg.responded_entities.append(self._uuid)
             return False
-        
+
         return updated
 
 
@@ -436,14 +437,14 @@ class CombatStatusZone(BaseZone):
 
     def encode(self):
         return [status_entity.encode() for status_entity in self.status_entities]
-    
+
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
 
         if isinstance(top_msg, GenerateCombatStatusMsg):
             # 创建出战阵营状态
             top_msg = cast(GenerateCombatStatusMsg, top_msg)
-            if top_msg.target_player_id == self._parent.player_id :
+            if top_msg.target_player_id == self._parent.player_id:
                 for idx, entity in enumerate(self.status_entities):
                     if entity.name == top_msg.combat_status_name:
                         self.status_entities.pop(idx)
@@ -451,7 +452,7 @@ class CombatStatusZone(BaseZone):
                     top_msg.combat_status_name,
                     self._parent.player_id,
                     top_msg.remaining_round,
-                    top_msg.remaining_usage
+                    top_msg.remaining_usage,
                 )
                 self.status_entities.append(status_entity)
                 top_msg.responded_entities.append((self._uuid))
@@ -463,7 +464,7 @@ class CombatStatusZone(BaseZone):
         # 删除用完或者到回合次数的出战阵营状态
         if isinstance(top_msg, RoundEndMsg):
             invalid_idxes = [
-                idx 
+                idx
                 for idx, status in enumerate(self.status_entities)
                 if (status.remaining_round == 0 or status.remaining_usage == 0)
                 and status.active == False
@@ -472,8 +473,6 @@ class CombatStatusZone(BaseZone):
             for idx in invalid_idxes:
                 self.status_entities.pop(idx)
         return False
-
-
 
 
 class CharacterZone(BaseZone):
@@ -524,7 +523,6 @@ class CharacterZone(BaseZone):
                         top_msg.status_type,
                         top_msg.remaining_round,
                         top_msg.remaining_usage,
-
                     )
                     self.status.append(status_entity)
                     top_msg.responded_entities.append((self._uuid))
@@ -553,7 +551,6 @@ class CharacterZone(BaseZone):
         under_atk_buff = []
         neg_buff = []
 
-
         for buff in self.status:
             if buff.status_type == StatusType.ATTACK_BUFF:
                 atk_buff.append(buff)
@@ -564,7 +561,6 @@ class CharacterZone(BaseZone):
             elif buff.status_type == StatusType.NEGATIVE_BUFF:
                 neg_buff.append(buff)
 
-
         entities = [
             *under_atk_buff,
             *def_buff,
@@ -573,7 +569,7 @@ class CharacterZone(BaseZone):
             self.weapon,
             self.artifact,
             *atk_buff,
-            *neg_buff
+            *neg_buff,
         ]
         entities = cast(List[Entity], entities)
         for entity in entities:
@@ -627,4 +623,3 @@ class CharacterInfo:
         self.weapon = character_info_dict["weapon"]
         self.artifact = character_info_dict["artifact"]
         self.status = character_info_dict["status"]
-        

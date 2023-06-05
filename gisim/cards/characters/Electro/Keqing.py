@@ -1,5 +1,6 @@
 """刻晴"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class YunlaiSwordsmanship(GenericSkill):
     """
@@ -20,6 +22,7 @@ class YunlaiSwordsmanship(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 14031
     name: str = "Yunlai Swordsmanship"
     text: str = """
@@ -37,6 +40,7 @@ class StellarRestoration(GenericSkill):
     ~~~~~~~~
     造成3点`雷元素伤害`，生成手牌`雷楔`。
     """
+
     id: int = 14032
     name: str = "Stellar Restoration"
     text: str = """
@@ -55,6 +59,7 @@ class StarwardSword(GenericSkill):
     ~~~~~~~~
     造成4点`雷元素伤害`，对所有敌方后台角色造成`3点`穿透伤害``。
     """
+
     id: int = 14033
     name: str = "Starward Sword"
     text: str = """
@@ -74,6 +79,7 @@ class CombatStatuLightningStiletto(CombatStatusEntity):
     `战斗行动`Lightning Stiletto
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Lightning Stiletto"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -83,6 +89,7 @@ class CombatStatuLightningStiletto(CombatStatusEntity):
 
 class Keqing(CharacterCard):
     """刻晴"""
+
     id: int = 1403
     name: str = "Keqing"
     element_type: ElementType = ElementType.ELECTRO
@@ -96,4 +103,3 @@ class Keqing(CharacterCard):
         StellarRestoration(),
         StarwardSword(),
     ]
-

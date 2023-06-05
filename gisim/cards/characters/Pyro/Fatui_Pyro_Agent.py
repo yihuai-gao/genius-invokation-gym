@@ -1,5 +1,6 @@
 """愚人众·火之债务处理人"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class Thrust(GenericSkill):
     """
@@ -20,6 +22,7 @@ class Thrust(GenericSkill):
     ~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 23011
     name: str = "Thrust"
     text: str = """
@@ -37,6 +40,7 @@ class Prowl(GenericSkill):
     ~~~~~~~~
     造成1点`火元素伤害`，本角色附属`潜行`。
     """
+
     id: int = 23012
     name: str = "Prowl"
     text: str = """
@@ -54,6 +58,7 @@ class BladeAblaze(GenericSkill):
     ~~~~~~~~
     造成5点`火元素伤害`。
     """
+
     id: int = 23013
     name: str = "Blade Ablaze"
     text: str = """
@@ -71,6 +76,7 @@ class StealthMaster(GenericSkill):
     ~~~~~~~~
     【被动】战斗开始时，初始附属`潜行`。
     """
+
     id: int = 23014
     name: str = "Stealth Master"
     text: str = """
@@ -82,6 +88,7 @@ class StealthMaster(GenericSkill):
 
 class FatuiPyroAgent(CharacterCard):
     """愚人众·火之债务处理人"""
+
     id: int = 2301
     name: str = "Fatui Pyro Agent"
     element_type: ElementType = ElementType.PYRO
@@ -96,4 +103,3 @@ class FatuiPyroAgent(CharacterCard):
         BladeAblaze(),
         StealthMaster(),
     ]
-

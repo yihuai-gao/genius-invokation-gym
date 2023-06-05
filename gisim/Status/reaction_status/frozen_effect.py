@@ -8,16 +8,17 @@ from gisim.status.base import CharacterStatusEntity
 
 class FrozenEffect(CharacterStatusEntity):
     """
-    [Character Status]the target is unable to perform any Actions this round 
-    (Can be removed in advance after the target receives Physical or Pyro DMG, 
+    [Character Status]the target is unable to perform any Actions this round
+    (Can be removed in advance after the target receives Physical or Pyro DMG,
     in which case they will take +2 DMG)
     """
+
     name: str = "Frozen Effect"
     element: ElementType = ElementType.NONE
     description: str = """[Character Status]the target is unable to perform any Actions this round(Can be removed in advance after the target receives Physical or Pyro DMG, in which case they will take +2 DMG)"""
     value: int = 0
     active: bool = True
-    status_type:StatusType = StatusType.UNDER_ATTACK_BUFF
+    status_type: StatusType = StatusType.UNDER_ATTACK_BUFF
 
     def msg_handler(self, msg_queue: PriorityQueue):
         top_msg = msg_queue.queue[0]
@@ -29,9 +30,17 @@ class FrozenEffect(CharacterStatusEntity):
             top_msg = cast(DealDamageMsg, top_msg)
             if top_msg.damage_calculation_ended:
                 return False
-            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(top_msg.targets):
-                if target_id == self.player_id and target_pos == self.position and element_type in [ElementType.NONE, ElementType.PYRO]:
-                    print(f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + Add: 2\n        {self.player_id.name}-{self.position}\n")
+            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
+                top_msg.targets
+            ):
+                if (
+                    target_id == self.player_id
+                    and target_pos == self.position
+                    and element_type in [ElementType.NONE, ElementType.PYRO]
+                ):
+                    print(
+                        f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + Add: 2\n        {self.player_id.name}-{self.position}\n"
+                    )
 
                     top_msg.targets[idx] = (
                         target_id,

@@ -1,5 +1,6 @@
 """凯亚"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class CeremonialBladework(GenericSkill):
     """
@@ -20,6 +22,7 @@ class CeremonialBladework(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 11031
     name: str = "Ceremonial Bladework"
     text: str = """
@@ -37,6 +40,7 @@ class Frostgnaw(GenericSkill):
     ~~~~
     造成3点`冰元素伤害`。
     """
+
     id: int = 11032
     name: str = "Frostgnaw"
     text: str = """
@@ -54,6 +58,7 @@ class GlacialWaltz(GenericSkill):
     ~~~~~~~~
     造成1点`冰元素伤害`，生成`寒冰之棱`。
     """
+
     id: int = 11033
     name: str = "Glacial Waltz"
     text: str = """
@@ -73,6 +78,7 @@ class CombatStatuIcicle(CombatStatusEntity):
     `战斗行动`Icicle
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Icicle"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -82,6 +88,7 @@ class CombatStatuIcicle(CombatStatusEntity):
 
 class Kaeya(CharacterCard):
     """凯亚"""
+
     id: int = 1103
     name: str = "Kaeya"
     element_type: ElementType = ElementType.CRYO
@@ -95,4 +102,3 @@ class Kaeya(CharacterCard):
         Frostgnaw(),
         GlacialWaltz(),
     ]
-

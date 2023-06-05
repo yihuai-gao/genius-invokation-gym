@@ -1,5 +1,6 @@
 """香菱"""
 from queue import PriorityQueue
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     CharPos,
@@ -11,8 +12,9 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.classes.status import CombatStatusEntity
+from gisim.classes.summon import AttackSummon, Summon
+
 
 class DoughFu(GenericSkill):
     """
@@ -20,6 +22,7 @@ class DoughFu(GenericSkill):
     ~~~~~~~~
     造成2点`物理伤害`。
     """
+
     id: int = 13021
     name: str = "Dough-Fu"
     text: str = """
@@ -37,6 +40,7 @@ class GuobaAttack(GenericSkill):
     ~~~~~~~~
     召唤`锅巴`。
     """
+
     id: int = 13022
     name: str = "Guoba Attack"
     text: str = """
@@ -53,6 +57,7 @@ class Pyronado(GenericSkill):
     ~~~~~~
     造成2点`火元素伤害`，生成`旋火轮`。
     """
+
     id: int = 13023
     name: str = "Pyronado"
     text: str = """
@@ -72,6 +77,7 @@ class SummonGuoba(AttackSummon):
     `召唤物`Guoba
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Guoba"
 
 
@@ -82,6 +88,7 @@ class CombatStatuPyronado(CombatStatusEntity):
     `战斗行动`Pyronado
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
+
     name: str = "Pyronado"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
@@ -91,6 +98,7 @@ class CombatStatuPyronado(CombatStatusEntity):
 
 class Xiangling(CharacterCard):
     """香菱"""
+
     id: int = 1302
     name: str = "Xiangling"
     element_type: ElementType = ElementType.PYRO
@@ -104,4 +112,3 @@ class Xiangling(CharacterCard):
         GuobaAttack(),
         Pyronado(),
     ]
-

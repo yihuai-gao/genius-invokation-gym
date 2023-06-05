@@ -20,6 +20,7 @@ from .Pyro import *
 
 # generate_character_cards_and_skills()
 
+
 # __all__ = ["CHARACTER_CARDS", "CHARACTER_SKILLS", "CHARACTER_NAME2ID"]
 def get_character_card(character_name: str):
     # TODO: Is there any better ways to do this?
