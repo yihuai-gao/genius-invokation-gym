@@ -1,5 +1,7 @@
 """Maguu Kenki"""
+from queue import PriorityQueue
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
+
 from gisim.classes.enums import (
     ElementType,
     Nation,
@@ -8,9 +10,12 @@ from gisim.classes.enums import (
     AttackType,
     CharPos
 )
-from typing import cast
+from typing import cast, TYPE_CHECKING
 from gisim.classes.summon import AttackSummon
-from gisim.classes.message import RoundEndMsg, DealDamageMsg, AfterUsingSkillMsg
+from gisim.classes.message import UseSkillMsg, DealDamageMsg, TriggerSummonEffectMsg
+
+if TYPE_CHECKING:
+    from gisim.classes.character import CharacterEntity
 
 
 class Ichimonji(GenericSkill):
@@ -49,54 +54,6 @@ class ShadowswordLoneGale(AttackSummon):
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 1
 
-    def msg_handler(self, msg_queue):
-        msg = msg_queue.queue[0]
-        if self._uuid in msg.responded_entities:
-            return False
-        updated = False
-        if isinstance(msg, RoundEndMsg):
-            msg = cast(RoundEndMsg, msg)
-            new_msg = DealDamageMsg(
-                attack_type=AttackType.SUMMON,
-                sender_id=self.player_id,
-                attacker=(self.player_id, CharPos.NONE),
-                targets=[
-                    (
-                        ~self.player_id,
-                        CharPos.ACTIVE,
-                        self.damage_element,
-                        self.damage_value,
-                    )
-                ],
-            )
-            msg_queue.put(new_msg)
-            self.usages -= 1
-            if self.usages == 0:
-                self.active = False
-            msg.responded_entities.append(self._uuid)
-            updated = True
-        if isinstance(msg, AfterUsingSkillMsg):
-            # If Maguu Kenki use Element Burst
-            msg = cast(AfterUsingSkillMsg, msg)
-            if msg.skill_name == "Pseudo Tengu Sweeper":
-                new_msg = DealDamageMsg(
-                    attack_type=AttackType.SUMMON,
-                    sender_id=self.player_id,
-                    attacker=(self.player_id, CharPos.NONE),
-                    targets=[
-                        (
-                            ~self.player_id,
-                            CharPos.ACTIVE,
-                            self.damage_element,
-                            self.damage_value,
-                        )
-                    ],
-                )
-            msg_queue.put(new_msg)
-            updated = True
-
-        return updated
-
 
 class FrostyAssault(GenericSkill):
     """Elemental Skill: Frosty Assault
@@ -120,55 +77,6 @@ class ShadowswordGallopingFrost(AttackSummon):
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 1
 
-    def msg_handler(self, msg_queue):
-        msg = msg_queue.queue[0]
-        if self._uuid in msg.responded_entities:
-            return False
-        updated = False
-        if isinstance(msg, RoundEndMsg):
-            msg = cast(RoundEndMsg, msg)
-            new_msg = DealDamageMsg(
-                attack_type=AttackType.SUMMON,
-                sender_id=self.player_id,
-                attacker=(self.player_id, CharPos.NONE),
-                targets=[
-                    (
-                        ~self.player_id,
-                        CharPos.ACTIVE,
-                        self.damage_element,
-                        self.damage_value,
-                    )
-                ],
-            )
-            msg_queue.put(new_msg)
-            self.usages -= 1
-            if self.usages == 0:
-                self.active = False
-            msg.responded_entities.append(self._uuid)
-            updated = True
-            
-        if isinstance(msg, AfterUsingSkillMsg):
-            # If Maguu Kenki use Element Burst
-            msg = cast(AfterUsingSkillMsg, msg)
-            if msg.skill_name == "Pseudo Tengu Sweeper":
-                new_msg = DealDamageMsg(
-                    attack_type=AttackType.SUMMON,
-                    sender_id=self.player_id,
-                    attacker=(self.player_id, CharPos.NONE),
-                    targets=[
-                        (
-                            ~self.player_id,
-                            CharPos.ACTIVE,
-                            self.damage_element,
-                            self.damage_value,
-                        )
-                    ],
-                )
-            msg_queue.put(new_msg)
-            updated = True
-
-        return updated
-
 
 class PseudoTenguSweeper(GenericSkill):
     """Elemental Burst: Pseudo Tengu Sweeper
@@ -183,9 +91,38 @@ class PseudoTenguSweeper(GenericSkill):
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 4
 
+    def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
+        top_msg = msg_queue.queue[0]
+        msg = cast(UseSkillMsg, top_msg)
+
+        target_player_id, target_char_pos = msg.skill_targets[0]
+
+        new_msg = DealDamageMsg(
+            attack_type=AttackType(self.type.value),
+            attacker=(parent.player_id, parent.position),
+            sender_id=parent.player_id,
+            targets=[
+                (
+                    target_player_id,
+                    target_char_pos,
+                    self.damage_element,
+                    self.damage_value,
+                )
+            ],
+        )
+        msg_queue.put(new_msg)
+        new_msg = TriggerSummonEffectMsg(
+            sender_id=parent.player_id,
+            summon_list=[
+                "Shadowsword Galloping Frost",
+                "Shadowsword Lone Gale"
+            ]
+        )
+        msg_queue.put(new_msg)
+
 
 class MaguuKenki(CharacterCard):
-    """魔偶剑鬼"""
+    """MaguuKenki"""
     id: int = 2501
     name: str = "Maguu Kenki"
     element_type: ElementType = ElementType.ANEMO

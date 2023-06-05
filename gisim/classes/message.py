@@ -68,6 +68,12 @@ class Message(Entity, ABC):
 
 # Immediate operations
 
+class TriggerSummonEffectMsg(Message):
+    """Will actively trigger the summon effect, after sending this message"""
+    priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
+    summon_list:List[str]
+    """Can trigger multiple summoning items at once"""
+    consume_available_times:bool = False
 
 class GenerateSummonMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION

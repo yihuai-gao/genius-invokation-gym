@@ -17,12 +17,14 @@ from gisim.classes.entity import Entity
 from gisim.classes.enums import *
 from gisim.classes.equipment import ArtifactEntity, TalentEntity, WeaponEntity
 from gisim.classes.message import (
+    AfterUsingSkillMsg,
     ChangeCardsMsg,
     ChangeDiceMsg,
     GenerateCharacterStatusMsg,
     GenerateCombatStatusMsg,
     GenerateEquipmentMsg,
     GenerateSummonMsg,
+    TriggerSummonEffectMsg,
     DealDamageMsg,
     Message,
     PayCardCostMsg,
@@ -314,6 +316,13 @@ class SummonZone(BaseZone):
                 self.summons.append(new_summon)
                 updated = True
                 msg.responded_entities.append(self._uuid)
+                
+        if isinstance(msg,TriggerSummonEffectMsg):
+            for summon in self.summons:
+                if summon.name in msg.summon_list:
+                    updated = summon.msg_handler(msg_queue)
+                msg.responded_entities.append(self._uuid)
+            
         if isinstance(msg, RoundEndMsg):
             for idx, summon in enumerate(self.summons):
                 updated = summon.msg_handler(msg_queue)
@@ -325,7 +334,7 @@ class SummonZone(BaseZone):
             # None of the summons responded:
             msg.responded_entities.append(self._uuid)
             return False
-
+        
         return updated
 
 
