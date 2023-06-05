@@ -418,6 +418,7 @@ class ElementalReactionTriggeredMsg(Message):
     """发生反应的场所"""
     source: Tuple[PlayerID, CharPos]
     """来源"""
+    reaction_tuple: Tuple[ElementType, ElementType]
 
 
 class CharacterDiedMsg(Message):

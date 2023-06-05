@@ -65,7 +65,6 @@ class AttackSummon(Summon):
                 self.usages -= 1
                 if self.usages == 0:
                     self.active = False
-            msg.responded_entities.append(self._uuid)
             updated = True
 
         if isinstance(msg, RoundEndMsg):
@@ -87,6 +86,7 @@ class AttackSummon(Summon):
             self.usages -= 1
             if self.usages == 0:
                 self.active = False
-            msg.responded_entities.append(self._uuid)
             updated = True
+        if updated:
+            msg.responded_entities.append(self._uuid)
         return updated

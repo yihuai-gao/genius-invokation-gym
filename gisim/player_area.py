@@ -21,6 +21,7 @@ from gisim.classes.message import (
     ChangeCardsMsg,
     ChangeDiceMsg,
     DealDamageMsg,
+    ElementalReactionTriggeredMsg,
     GenerateCharacterStatusMsg,
     GenerateCombatStatusMsg,
     GenerateEquipmentMsg,
@@ -95,8 +96,7 @@ class PlayerArea(BaseZone):
 
     @property
     def background_characters(self):
-        active_pos_val = self.get_active_character_position().value
-        if active_pos_val:
+        if active_pos_val := self.get_active_character_position().value:
             return [
                 self.character_zones[(active_pos_val + 1) % 3],
                 self.character_zones[(active_pos_val + 2) % 3],
@@ -318,10 +318,17 @@ class SummonZone(BaseZone):
                 updated = True
                 msg.responded_entities.append(self._uuid)
 
+        # 请求触发召唤物效果
         if isinstance(msg, TriggerSummonEffectMsg):
             for summon in self.summons:
                 if summon.name in msg.summon_list:
                     updated = summon.msg_handler(msg_queue)
+                msg.responded_entities.append(self._uuid)
+
+        # 触发元素反应
+        if isinstance(msg, ElementalReactionTriggeredMsg):
+            for summon in self.summons:
+                updated = summon.msg_handler(msg_queue)
                 msg.responded_entities.append(self._uuid)
 
         if isinstance(msg, RoundEndMsg):
@@ -394,9 +401,7 @@ class DiceZone(BaseZone):
     def encode(self, viewer_id):
         return {
             "length": len(self._dice),
-            "items": self._dice
-            if viewer_id == self._parent.player_id or viewer_id == 0
-            else None,
+            "items": self._dice if viewer_id in [self._parent.player_id, 0] else None,
         }
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:

@@ -5,3 +5,4 @@ __pycache__
 coverage.xml
 *.egg-info
 tools/*.txt
+.vscode

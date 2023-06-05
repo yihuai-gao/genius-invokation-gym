@@ -158,10 +158,14 @@ class CharacterEntity(Entity):
                 if skill.self_element_attachment is not ElementType.NONE:
                     """Some skills will add elemental attachments to themselves,
                     such as Xingqiu."""
-                    self.elemental_attachment, reaction_effect = element_reaction(
+                    (
+                        self.elemental_attachment,
+                        reaction_effect,
+                        reaction_tuple,
+                    ) = element_reaction(
                         self.elemental_attachment, skill.self_element_attachment
                     )
-                    reaction_effect.to_reaction(msg_queue, parent=self)
+                    reaction_effect.to_reaction(msg_queue, self, reaction_tuple)
 
                 if skill.accumulate_power and skill.type != SkillType.ELEMENTAL_BURST:
                     self.power = min(
@@ -193,11 +197,15 @@ class CharacterEntity(Entity):
                     and target_pos == CharPos.ACTIVE
                 ):
                     # msg_queue.get()
-                    self.elemental_attachment, reaction_effect = element_reaction(
-                        self.elemental_attachment, element_type
-                    )
+                    (
+                        self.elemental_attachment,
+                        reaction_effect,
+                        reaction_tuple,
+                    ) = element_reaction(self.elemental_attachment, element_type)
                     # enumerate 方法迭代出来的值不是实时的数值，请注意
-                    reaction_effect.to_reaction(msg_queue, parent=self)
+                    reaction_effect.to_reaction(
+                        msg_queue, parent=self, reaction_tuple=reaction_tuple
+                    )
                     dmg_val = msg.targets[idx][3]
                     # 标志伤害已经计算完毕了，这个消息不应该继续被处理了
                     msg.damage_calculation_ended = True

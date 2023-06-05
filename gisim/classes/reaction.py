@@ -1,6 +1,6 @@
 import copy
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, List, cast
+from typing import TYPE_CHECKING, List, Tuple, cast
 
 import numpy as np
 from pydantic import BaseModel
@@ -134,7 +134,12 @@ class Reaction(BaseModel):
     summon_name: str = ""
     """生成的召唤物"""
 
-    def to_reaction(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
+    def to_reaction(
+        self,
+        msg_queue: PriorityQueue,
+        parent: "CharacterEntity",
+        reaction_tuple: Tuple[ElementType],
+    ):
         # sourcery skip: low-code-quality
         top_msg = msg_queue.queue[0]
 
@@ -149,6 +154,7 @@ class Reaction(BaseModel):
                 elemental_reaction_type=self.reaction_type,
                 target=(parent.player_id, parent.position),
                 source=(parent.player_id, parent.position),
+                reaction_tuple=reaction_tuple,
             )
             typmsg = "By Self"
             msg_queue.put(new_msg)
@@ -170,6 +176,7 @@ class Reaction(BaseModel):
                         elemental_reaction_type=self.reaction_type,
                         target=(player_id, parent_pos),
                         source=top_msg.attacker,
+                        reaction_tuple=reaction_tuple,
                     )
                     msg_queue.put(new_msg)
                     typmsg = "From Attack"
@@ -376,7 +383,7 @@ def can_attachable(element: ElementType) -> bool:
 
 def sum_element_reaction(
     ElementalAttachment: List[ElementType], AddElement: ElementType
-) -> tuple[ElementalReactionType, int]:
+) -> Tuple[ElementalReactionType, int]:
     """计算发生的元素反应"""
     reaction = RTE[np.ix_(ElementalAttachment, [AddElement])]
     multiple_reaction = dict(enumerate(np.nditer(reaction), start=0))
@@ -392,12 +399,12 @@ def sum_element_reaction(
 
 def element_reaction(
     ElementalAttachment: List[ElementType], AddElement: ElementType
-) -> tuple[list, Reaction]:
+) -> Tuple[list, Reaction, Tuple[ElementType]]:
     """进行元素反应"""
     ElementalAttachment = copy.deepcopy(ElementalAttachment)
     cannot_reaction = get_reaction_system_by_type(ElementalReactionType.NONE)
     if AddElement.value <= 0 or AddElement.value >= 8:
-        return ElementalAttachment, cannot_reaction
+        return ElementalAttachment, cannot_reaction, ()
     if (
         ElementType.GEO in ElementalAttachment
         or ElementType.ANEMO in ElementalAttachment
@@ -405,27 +412,28 @@ def element_reaction(
         raise ValueError("There are non attachable elements in the attachment list")
     if AddElement in ElementalAttachment:
         # 挂已经附着的元素没有效果
-        return ElementalAttachment, cannot_reaction
+        return ElementalAttachment, cannot_reaction, ()
     attachable = can_attachable(AddElement)
     if not ElementalAttachment and attachable:
         # 如果角色没有元素附着，且新挂的元素是可附着元素
         ElementalAttachment.append(AddElement)
-        return ElementalAttachment, cannot_reaction
+        return ElementalAttachment, cannot_reaction, ()
 
     if not ElementalAttachment:
         # 如果角色没有元素附着，且新挂的元素是不可附着元素
-        return ElementalAttachment, cannot_reaction
+        return ElementalAttachment, cannot_reaction, ()
     # 判断元素反应
     reaction_type, index = sum_element_reaction(ElementalAttachment, AddElement)
+    # 获取反应的元素
+    reaction_tuple = (AddElement, ElementalAttachment[index])
     if reaction_type == ElementalReactionType.NONE:
         if not attachable:
-            return ElementalAttachment, cannot_reaction
+            return ElementalAttachment, cannot_reaction, ()
         ElementalAttachment.append(AddElement)
-        return ElementalAttachment, cannot_reaction
-    # 发生了元素反应产生效果 获取效果
+        return ElementalAttachment, cannot_reaction, ()
     ElementalAttachment.pop(index)
     reaction_effect = get_reaction_system_by_type(reaction_type)
-    return ElementalAttachment, reaction_effect
+    return ElementalAttachment, reaction_effect, reaction_tuple
 
 
 def get_reaction_system(reaction_name: str):

@@ -1,6 +1,22 @@
 """Sucrose"""
+from queue import PriorityQueue
+from typing import cast
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
+from gisim.classes.enums import (
+    AttackType,
+    CharPos,
+    ElementalReactionType,
+    ElementType,
+    Nation,
+    SkillType,
+    WeaponType,
+)
+from gisim.classes.message import (
+    DealDamageMsg,
+    ElementalReactionTriggeredMsg,
+    RoundEndMsg,
+)
 from gisim.classes.summon import AttackSummon
 
 
@@ -39,7 +55,7 @@ class ForbiddenCreationIsomer75TypeII(GenericSkill):
     Deals 1 Anemo DMG, summons 1 Large Wind Spirit."""
 
     id: int = 15013
-    name: str = "Forbidden Creation Isomer 75  Type II"
+    name: str = "Forbidden Creation Isomer 75 Type II"
     text: str = """
     Deals 1 Anemo DMG, summons 1 Large Wind Spirit.
     """
@@ -58,6 +74,52 @@ class LargeWindSpirit(AttackSummon):
     """
 
     name: str = "Large Wind Spirit"
+    usages: int = 3
+    damage_element: ElementType = ElementType.ANEMO
+    damage_value: int = 2
+    element_type_change: bool = False
+
+    def msg_handler(self, msg_queue: PriorityQueue):
+        msg = msg_queue.queue[0]
+        if self._uuid in msg.responded_entities:
+            return False
+        updated = False
+
+        if isinstance(msg, ElementalReactionTriggeredMsg):
+            msg = cast(ElementalReactionTriggeredMsg, msg)
+            source_play_id, source_pos = msg.source
+            if (
+                source_play_id == self.player_id
+                and not self.element_type_change
+                and msg.elemental_reaction_type == ElementalReactionType.SWIRL
+            ):
+                self.element_type_change = True
+                self.damage_element = msg.reaction_tuple[1]
+            updated = True
+
+        if isinstance(msg, RoundEndMsg):
+            msg = cast(RoundEndMsg, msg)
+            new_msg = DealDamageMsg(
+                attack_type=AttackType.SUMMON,
+                sender_id=self.player_id,
+                attacker=(self.player_id, CharPos.NONE),
+                targets=[
+                    (
+                        ~self.player_id,
+                        CharPos.ACTIVE,
+                        self.damage_element,
+                        self.damage_value,
+                    )
+                ],
+            )
+            msg_queue.put(new_msg)
+            self.usages -= 1
+            if self.usages == 0:
+                self.active = False
+            updated = True
+        if updated:
+            msg.responded_entities.append(self._uuid)
+        return updated
 
 
 class Sucrose(CharacterCard):
