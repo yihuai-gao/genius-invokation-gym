@@ -13,14 +13,14 @@ class Akara(GenericSkill):
     text: str = """Deals 1 Dendro DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
     costs: dict[ElementType, int] = {ElementType.DENDRO: 1, ElementType.ANY: 2}
-    damage_element: ElementType = ElementType.NONE
+    damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 1
 
 
 class AllSchemestoKnow(GenericSkill):
     """Elemental Skill: All Schemes to Know
-    Deals 2 Dendro DMG, applies the Seed of Skandha to target character. 
-    If the target character already has Seed of Skandha applied to them, 
+    Deals 2 Dendro DMG, applies the Seed of Skandha to target character.
+    If the target character already has Seed of Skandha applied to them,
     then apply Seed of Skandha to all opposing characters instead."""
 
     id: int = 65642
@@ -43,7 +43,8 @@ class AllSchemestoKnowTathata(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.DENDRO: 5}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 3
-    
+
+
 class IllusoryHeart(GenericSkill):
     """Elemental Burst: Illusory Heart
     Deals 4 Dendro DMG. creates 1 Shrine of Maya."""
@@ -52,7 +53,7 @@ class IllusoryHeart(GenericSkill):
     name: str = "Illusory Heart"
     text: str = """Deals 4 Dendro DMG. creates 1 Shrine of Maya."""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 3,ElementType.POWER: 2}
+    costs: dict[ElementType, int] = {ElementType.DENDRO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 4
 
@@ -72,6 +73,5 @@ class Nahida(CharacterCard):
         Akara(),
         AllSchemestoKnow(),
         AllSchemestoKnowTathata(),
-        IllusoryHeart()
-        
+        IllusoryHeart(),
     ]

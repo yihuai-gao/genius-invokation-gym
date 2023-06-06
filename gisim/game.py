@@ -1,5 +1,6 @@
 """Genius Invokation Game class
 """
+import copy
 import os
 from collections import OrderedDict
 from queue import PriorityQueue, Queue
@@ -43,13 +44,16 @@ class Game:
         }
         self.msg_queue = PriorityQueue()
 
-        self.service_queue = Queue()
-        """服务队列是为某些事项提供服务的先入先出队列"""
+    def game_getter(self, player_id: PlayerID, zone_name: str):
+        data = copy.deepcopy(self.player_area[player_id][zone_name])
 
-    def service_process_handel(self):
-        """服务处理事件会为所有玩家提供获取本局游戏对象的方法"""
-        while True:
-            msg: ServiceMessage = self.service_queue.get()
+        def wrap(func):
+            def inner(_self, *args, **kwargs):
+                return func(_self, data, *args, **kwargs)
+
+            return inner
+
+        return wrap
 
     def encode_game_info_dict(self, viewer_id: PlayerID):
         return OrderedDict(
