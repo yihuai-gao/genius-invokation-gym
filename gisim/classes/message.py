@@ -325,6 +325,7 @@ class AfterUsingSkillMsg(Message):
     priority: MsgPriority = MsgPriority.ACTION_DONE
     user_pos: CharPos
     skill_name: str
+    skill_type: SkillType = SkillType.UNKNOWN
     skill_targets: List[Tuple[PlayerID, CharPos]]
     elemental_reaction_triggered: ElementalReactionType
     change_active_player: bool = True

@@ -19,6 +19,7 @@ class FrozenEffect(CharacterStatusEntity):
     value: int = 0
     active: bool = True
     status_type: StatusType = StatusType.UNDER_ATTACK_BUFF
+    remaining_usage = 1
 
     def msg_handler(self, msg_queue: PriorityQueue):
         top_msg = msg_queue.queue[0]
@@ -55,7 +56,6 @@ class FrozenEffect(CharacterStatusEntity):
             self.remaining_round -= 1
             if self.remaining_round == 0:
                 self.active = False
-            updated = True
 
         if updated:
             msg_queue.queue[0].responded_entities.append(self._uuid)

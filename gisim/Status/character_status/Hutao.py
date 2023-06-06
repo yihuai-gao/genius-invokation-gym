@@ -53,6 +53,8 @@ class ParamitaPapilio(CharacterStatusEntity):
                 self.active = False
             updated = True
 
+        # TODO Charged Attack: Apply Blood Blossom to target character.
+
         if updated:
             msg_queue.queue[0].responded_entities.append(self._uuid)
 

@@ -3,7 +3,7 @@ A character in the game should be an instant of the specific character class def
 from abc import ABC, abstractmethod
 from collections import OrderedDict
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, List, Optional, cast
+from typing import List, Optional, cast
 
 from gisim.cards.characters import get_character_card
 from gisim.cards.characters.base import CharacterCard, CharacterSkill
@@ -14,16 +14,10 @@ from gisim.classes.message import (
     ChangeCharacterMsg,
     CharacterDiedMsg,
     DealDamageMsg,
-    ElementalReactionTriggeredMsg,
-    Message,
     PaySkillCostMsg,
     UseSkillMsg,
 )
 from gisim.classes.reaction import element_reaction
-from gisim.classes.status import CombatStatusEntity
-
-if TYPE_CHECKING:
-    from gisim.game import Game
 
 
 class CharacterEntity(Entity):
@@ -36,7 +30,7 @@ class CharacterEntity(Entity):
 
     # elemental_attachment = ElementType.NONE
 
-    elemental_attachment: List[ElementType] = []
+    elemental_attachment: List[ElementType] = [ElementType.HYDRO]
     """
     可附着元素发生元素附着后会在卡牌顶部产生对应元素的图标，不能发生反应的可附着元素会各自独立附着。
     比如冰元素和草元素，之间不可以发生反应，他们会各自独立附着。
@@ -155,6 +149,7 @@ class CharacterEntity(Entity):
             if msg.sender_id == self.player_id and msg.user_pos == self.position:
                 skill_name = msg.skill_name
                 skill = self.get_skill(skill_name=skill_name)
+                msg.skill_type = skill.type
                 if skill.self_element_attachment is not ElementType.NONE:
                     """Some skills will add elemental attachments to themselves,
                     such as Xingqiu."""

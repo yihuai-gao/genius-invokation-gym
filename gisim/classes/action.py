@@ -14,7 +14,7 @@ from typing import List, Tuple
 from pydantic import BaseModel
 
 from gisim.classes.entity import Entity
-from gisim.classes.enums import CharPos, EntityType, PlayerID
+from gisim.classes.enums import CharPos, EntityType, PlayerID, SkillType
 
 
 class Action(Entity, ABC):

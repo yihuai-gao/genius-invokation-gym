@@ -158,6 +158,8 @@ class StatusType(Enum):
 class SkillType(Enum):
     """Skill types"""
 
+    UNKNOWN = 0
+    """未知"""
     NORMAL_ATTACK = 1
     """普通攻击"""
     ELEMENTAL_SKILL = 2

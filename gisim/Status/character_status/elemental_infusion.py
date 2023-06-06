@@ -45,5 +45,5 @@ class ElementalInfusion(CharacterStatusEntity):
             if self.remaining_round == 0:
                 self.active = False
         if updated:
-            msg_queue.queue[0].responded_entities.append(self._uuid)
+            top_msg.responded_entities.append(self._uuid)
         return updated

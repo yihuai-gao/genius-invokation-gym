@@ -44,7 +44,10 @@ poetry run python3 -u tests/test_framework.py
 - [ ] Add message handler to every character, summon, status, ...
     - [x] Finish normal attack, elemental skill, elemental burst of KamisatoAyaka (as a template to generate more characters in the future)
     - [x] Add Summon and Elemental Infusion based on KamisatoAyaka
-
+- [ ] Currently available roles
+    - [x] Kamisato Ayaka
+    - [x] Maguu Kenki
+    - [x] Sucrose
 
 ## Logs
 

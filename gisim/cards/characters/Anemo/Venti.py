@@ -51,8 +51,11 @@ class Stormzone(CombatStatusEntity):
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
-        if isinstance(top_msg, PendingDeprecationWarning):
+        if isinstance(top_msg, PayChangeCharacterCostMsg):
             top_msg = cast(PayChangeCharacterCostMsg, top_msg)
+            if top_msg.sender_id == self.player_id:
+                top_msg.paid_dice_idx -= 1
+                self.remaining_usage -= 1
         # TODO: Spend 1 less Elemental Die
 
 
@@ -80,6 +83,10 @@ class Stormeye(AttackSummon):
     """
 
     name: str = "Stormeye"
+    usages: int = 2
+    damage_element: ElementType = ElementType.ANEMO
+    damage_value: int = 2
+    # TODO: What is the character closest to the current active character
 
 
 class Venti(CharacterCard):

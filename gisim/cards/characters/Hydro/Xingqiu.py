@@ -76,6 +76,7 @@ class Raincutter(GenericSkill):
     combat_status_name: str = "Rainbow Bladework"
     combat_status_remaining_round: int = INF_INT
     combat_status_remaining_usage: int = 3
+    self_element_attachment: ElementType = ElementType.HYDRO
 
 
 class Xingqiu(CharacterCard):

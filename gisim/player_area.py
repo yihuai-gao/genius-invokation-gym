@@ -44,7 +44,7 @@ from gisim.status import (
 )
 
 if TYPE_CHECKING:
-    from gisim.classes.status import CombatStatusEntity
+    from gisim.status import CombatStatusEntity
     from gisim.classes.summon import Summon
     from gisim.classes.support import Support
     from gisim.game import Game
@@ -443,8 +443,20 @@ class CombatStatusZone(BaseZone):
     def encode(self):
         return [status_entity.encode() for status_entity in self.status_entities]
 
+    def remove_status(self, idx: int):
+        target_status = self.status_entities[idx]
+        target_status.active = False
+        target_status.position = -1
+        self.status.pop(idx)
+        for idx, status in enumerate(self.summons):
+            # Reset positions
+            status.position = idx
+
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
+        if self._uuid in top_msg.responded_entities:
+            return False
+        updated = False
 
         if isinstance(top_msg, GenerateCombatStatusMsg):
             # 创建出战阵营状态
@@ -463,7 +475,8 @@ class CombatStatusZone(BaseZone):
                 top_msg.responded_entities.append((self._uuid))
 
         for entity in self.status_entities:
-            if updated := entity.msg_handler(msg_queue):
+            updated = entity.msg_handler(msg_queue)
+            if updated:
                 return True
 
         # 删除用完或者到回合次数的出战阵营状态
@@ -472,7 +485,7 @@ class CombatStatusZone(BaseZone):
                 idx
                 for idx, status in enumerate(self.status_entities)
                 if (status.remaining_round == 0 or status.remaining_usage == 0)
-                and status.active == False
+                and not status.active
             ]
             invalid_idxes.reverse()
             for idx in invalid_idxes:
@@ -527,7 +540,6 @@ class CharacterZone(BaseZone):
                         self.position,
                         top_msg.status_type,
                         top_msg.remaining_round,
-                        top_msg.remaining_usage,
                     )
                     self.status.append(status_entity)
                     top_msg.responded_entities.append((self._uuid))
@@ -580,17 +592,19 @@ class CharacterZone(BaseZone):
         for entity in entities:
             if entity is None:
                 continue
-            if updated := entity.msg_handler(msg_queue):
+            updated = entity.msg_handler(msg_queue)
+            if updated:
                 return True
 
         # Remove
         if isinstance(top_msg, RoundEndMsg):
-            invalid_idxes = [
-                idx
-                for idx, status in enumerate(self.status)
-                if (status.remaining_round == 0 or status.remaining_usage == 0)
-                and status.active == False
-            ]
+            invalid_idxes = []
+            for idx, status in enumerate(self.status):
+                if (
+                    status.remaining_round == 0 or status.remaining_usage == 0
+                ) and status.active == False:
+                    # Remove this status
+                    invalid_idxes.append(idx)
             invalid_idxes.reverse()
             for idx in invalid_idxes:
                 self.status.pop(idx)

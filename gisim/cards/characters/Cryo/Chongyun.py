@@ -1,4 +1,4 @@
-"""重云"""
+"""Chongyun"""
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -14,20 +14,16 @@ from gisim.classes.enums import (
 )
 from gisim.classes.status import CombatStatusEntity
 from gisim.classes.summon import AttackSummon, Summon
+from gisim.env import INF_INT
 
 
 class Demonbane(GenericSkill):
-    """
-    灭邪四式
-    ~~~~~~~~
-    造成2点`物理伤害`。
-    """
+    """Normal Attack: Demonbane
+    Deals 2 Physical DMG."""
 
     id: int = 11041
     name: str = "Demonbane"
-    text: str = """
-    Deals 2 Physical DMG.
-    """
+    text: str = """Deals 2 Physical DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
     costs: dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
@@ -35,17 +31,12 @@ class Demonbane(GenericSkill):
 
 
 class ChonghuasLayeredFrost(GenericSkill):
-    """
-    重华叠霜
-    ~~~~~~~~
-    造成3点`冰元素伤害`，生成`重华叠霜领域`。
-    """
+    """Elemental Skill: Chonghua's Layered Frost
+    Deals 3 Cryo DMG, creates 1 Chonghua Frost Field."""
 
     id: int = 11042
-    name: str = "Chonghua's Layered Frost"
-    text: str = """
-    Deals 3 Cryo DMG, creates 1 Chonghua Frost Field.
-    """
+    name: str = "Chonghuas Layered Frost"
+    text: str = """Deals 3 Cryo DMG, creates 1 Chonghua Frost Field."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.CRYO: 3}
     damage_element: ElementType = ElementType.CRYO
@@ -71,19 +62,18 @@ class CloudPartingStar(GenericSkill):
     damage_value: int = 7
 
 
-class CombatStatuChonghuaFrostField(CombatStatusEntity):
-    """
-    Chonghua Frost Field
-    ~~~~~~
-    `战斗行动`Chonghua Frost Field
-    请完善这个类的效果,应该是召唤物或者战斗效果
+class ChonghuasFrostField(CombatStatusEntity):
+    """Combat Statu: Chonghua's Frost Field
+    Your Sword, Claymore, and Polearm-wielding characters' Physical DMG is converted to Cryo DMG.
+    Duration (Rounds): 2
     """
 
-    name: str = "Chonghua Frost Field"
-
-    def msg_handler(self, msg_queue: PriorityQueue) -> bool:
-        """请编写处理函数"""
-        pass
+    name: str = "Chonghuas Frost Field"
+    description: str = """Your Sword, Claymore, and Polearm-wielding characters' Physical DMG is converted to Cryo DMG.Duration (Rounds): 2"""
+    active: bool = True
+    value: int = 0
+    remaining_round: int = 2
+    remaining_usage: int = INF_INT
 
 
 class Chongyun(CharacterCard):

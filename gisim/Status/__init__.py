@@ -15,7 +15,6 @@ def get_character_status_entity(
     position: CharPos,
     buff_type: StatusType,
     remaining_round: int,
-    remaining_usage: int,
 ):
     stripped_name = name.replace(" ", "")
     if stripped_name.endswith("Infusion"):
@@ -26,7 +25,6 @@ def get_character_status_entity(
             player_id=player_id,
             position=position,
             remaining_round=remaining_round,
-            remaining_usage=remaining_usage,
             element=element,
             status_type=buff_type,
         )
@@ -38,7 +36,6 @@ def get_character_status_entity(
         player_id=player_id,
         position=position,
         remaining_round=remaining_round,
-        remaining_usage=remaining_usage,
         status_type=buff_type,
     )
     return status

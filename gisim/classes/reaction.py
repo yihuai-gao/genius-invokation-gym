@@ -6,6 +6,7 @@ import numpy as np
 from pydantic import BaseModel
 
 from gisim.classes.enums import *
+from gisim.classes.enums import ElementType
 from gisim.classes.message import (
     DealDamageMsg,
     ElementalReactionTriggeredMsg,
@@ -138,7 +139,7 @@ class Reaction(BaseModel):
         self,
         msg_queue: PriorityQueue,
         parent: "CharacterEntity",
-        reaction_tuple: Tuple[ElementType],
+        reaction_tuple: Tuple[ElementType,ElementType],
     ):
         # sourcery skip: low-code-quality
         top_msg = msg_queue.queue[0]
@@ -361,6 +362,40 @@ class Swirl(Reaction):
     effect_text: str = "Swirl: Deals 1 DMG of the involved non-Anemo Element to all opposing characters except the target"
     reaction_type: ElementalReactionType = ElementalReactionType.SWIRL
     increased_bonuses: int = 0
+    
+    def to_reaction(self, msg_queue: PriorityQueue, parent: "CharacterEntity", reaction_tuple: Tuple[ElementType, ElementType]):
+        top_msg = msg_queue.queue[0]
+        player_id, parent_pos = parent.player_id, parent.position
+        if isinstance(top_msg, DealDamageMsg):
+            top_msg = cast(DealDamageMsg, top_msg)
+            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
+                top_msg.targets
+            ):
+                if target_id == player_id and target_pos == parent_pos:
+                    new_msg = ElementalReactionTriggeredMsg(
+                        sender_id=player_id,
+                        elemental_reaction_type=self.reaction_type,
+                        target=(player_id, parent_pos),
+                        source=top_msg.attacker,
+                        reaction_tuple=reaction_tuple,
+                    )
+                    msg_queue.put(new_msg)
+                    new_msg = DealDamageMsg(
+                        attack_type=AttackType.ELEMENTAL_REACTION,
+                        attacker=(parent.player_id, parent.position),
+                        sender_id=parent.player_id,
+                        targets=[
+                            (
+                                target_id,
+                                target_pos + k,
+                                reaction_tuple[1],
+                                self.piercing_damage_value,
+                            )
+                            for k in [1, 2]  # Deals damage to two other characters
+                        ],
+                    )
+                    msg_queue.put(new_msg)
+        
 
 
 class Vaporize(Reaction):
@@ -399,7 +434,7 @@ def sum_element_reaction(
 
 def element_reaction(
     ElementalAttachment: List[ElementType], AddElement: ElementType
-) -> Tuple[list, Reaction, Tuple[ElementType]]:
+) -> Tuple[list, Reaction, Tuple[ElementType,EntityType]]:
     """进行元素反应"""
     ElementalAttachment = copy.deepcopy(ElementalAttachment)
     cannot_reaction = get_reaction_system_by_type(ElementalReactionType.NONE)
