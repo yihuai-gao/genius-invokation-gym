@@ -389,7 +389,7 @@ class Swirl(Reaction):
                                 target_id,
                                 target_pos + k,
                                 reaction_tuple[1],
-                                self.piercing_damage_value,
+                                1,
                             )
                             for k in [1, 2]  # Deals damage to two other characters
                         ],
