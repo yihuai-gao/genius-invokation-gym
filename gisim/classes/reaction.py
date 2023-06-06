@@ -194,7 +194,8 @@ class Reaction(BaseModel):
                                     ElementType.PIERCE,
                                     self.piercing_damage_value,
                                 )
-                                for k in [1, 2]  # Deals damage to two other characters
+                                # Deals damage to two other characters
+                                for k in [1, 2]
                             ],
                         )
                         msg_queue.put(new_msg)
@@ -396,7 +397,8 @@ class Swirl(Reaction):
                                 reaction_tuple[1],
                                 1,
                             )
-                            for k in [1, 2]  # Deals damage to two other characters
+                            # Deals damage to two other characters
+                            for k in [1, 2]
                         ],
                     )
                     msg_queue.put(new_msg)
@@ -440,15 +442,15 @@ def element_reaction(
     ElementalAttachment: List[ElementType], AddElement: ElementType
 ) -> Tuple[list, Reaction, Tuple[ElementType, EntityType]]:
     """进行元素反应"""
+
     ElementalAttachment = copy.deepcopy(ElementalAttachment)
     cannot_reaction = get_reaction_system_by_type(ElementalReactionType.NONE)
     if AddElement.value <= 0 or AddElement.value >= 8:
         return ElementalAttachment, cannot_reaction, ()
-    if (
+    assert (
         ElementType.GEO in ElementalAttachment
         or ElementType.ANEMO in ElementalAttachment
-    ):
-        raise ValueError("There are non attachable elements in the attachment list")
+    ), "There are non attachable elements in the attachment list"
     if AddElement in ElementalAttachment:
         # 挂已经附着的元素没有效果
         return ElementalAttachment, cannot_reaction, ()
