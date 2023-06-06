@@ -28,7 +28,7 @@ class RainSword(CombatStatusEntity):
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
                 top_msg.targets
             ):
-                if target_id == self.player_id and dmg_val >= 1:
+                if target_id == self.player_id and dmg_val >= 3:
                     print(
                         f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} - {1}\n"
                     )
@@ -40,6 +40,7 @@ class RainSword(CombatStatusEntity):
                         dmg_val - 1,
                     )
                     self.remaining_usage -= 1
+                    # updated = True
 
         if self.remaining_usage == 0 or self.remaining_round == 0:
             self.active = False
@@ -63,7 +64,8 @@ class RainbowBladework(CombatStatusEntity):
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
-
+        updated = False
+        
         if isinstance(top_msg, AfterUsingSkillMsg):
             top_msg = cast(AfterUsingSkillMsg, top_msg)
             for targets_player_id, targets_pos in top_msg.skill_targets:
@@ -85,8 +87,10 @@ class RainbowBladework(CombatStatusEntity):
                     )
                     msg_queue.put(new_msg)
                     self.remaining_usage -= 1
+                    
+                    
 
         if self.remaining_usage == 0 or self.remaining_round == 0:
             self.active = False
 
-        return False
+        return updated

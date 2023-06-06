@@ -51,7 +51,6 @@ class ParamitaPapilio(CharacterStatusEntity):
             if self.remaining_round == 0:
                 self.remaining_usage = 0
                 self.active = False
-            updated = True
 
         # TODO Charged Attack: Apply Blood Blossom to target character.
 

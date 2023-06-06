@@ -443,14 +443,6 @@ class CombatStatusZone(BaseZone):
     def encode(self):
         return [status_entity.encode() for status_entity in self.status_entities]
 
-    def remove_status(self, idx: int):
-        target_status = self.status_entities[idx]
-        target_status.active = False
-        target_status.position = -1
-        self.status.pop(idx)
-        for idx, status in enumerate(self.summons):
-            # Reset positions
-            status.position = idx
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
@@ -471,25 +463,20 @@ class CombatStatusZone(BaseZone):
                     top_msg.remaining_round,
                     top_msg.remaining_usage,
                 )
-                self.status_entities.append(status_entity)
+                self.status_entities.insert(0,status_entity)
+                """因为后面都是逆序遍历，为了保证按照buff的添加顺序执行所以在list开头插入。"""
                 top_msg.responded_entities.append((self._uuid))
-
-        for entity in self.status_entities:
+                
+        for idx in range(len(self.status_entities)-1,-1,-1):
+            entity = self.status_entities[idx]
             updated = entity.msg_handler(msg_queue)
+            if (
+                not entity.active
+                and (entity.remaining_round == 0 or entity.remaining_usage == 0)
+                ):
+                    self.status_entities.pop(idx)
             if updated:
                 return True
-
-        # 删除用完或者到回合次数的出战阵营状态
-        if isinstance(top_msg, RoundEndMsg):
-            invalid_idxes = [
-                idx
-                for idx, status in enumerate(self.status_entities)
-                if (status.remaining_round == 0 or status.remaining_usage == 0)
-                and not status.active
-            ]
-            invalid_idxes.reverse()
-            for idx in invalid_idxes:
-                self.status_entities.pop(idx)
         return False
 
 
