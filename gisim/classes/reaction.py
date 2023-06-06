@@ -16,6 +16,7 @@ from gisim.classes.message import (
     UseSkillMsg,
 )
 from gisim.classes.summon import AttackSummon
+from gisim.env import INF_INT
 
 if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
@@ -240,6 +241,9 @@ class Bloom(Reaction):
     effect_text: str = "Bloom: [Increased Bonuses]DMG +1 for this instance, [Character Status]creates a Dendro Core Buff Icon Dendro Core that grants +2 DMG to the next instance of Pyro/Electro DMG"
     reaction_type: ElementalReactionType = ElementalReactionType.BLOOM
     increased_bonuses: int = 1
+    combat_status_name: str = "Dendro Core"
+    combat_status_remaining_round: int = INF_INT
+    combat_status_remaining_usage: int = 1
 
 
 class Burning(Reaction):
@@ -292,6 +296,7 @@ class ElectroCharged(Reaction):
     effect_text: str = "Electro Charged: [Increased Bonuses]DMG +1 for this instance, [Piercing DMG]deal 1 Piercing DMG to all opposing characters except the target"
     reaction_type: ElementalReactionType = ElementalReactionType.ELECTROCHARGED
     increased_bonuses: int = 1
+    piercing_damage_value: int = 0
 
 
 class Frozen(Reaction):
@@ -343,6 +348,9 @@ class Quicken(Reaction):
     effect_text: str = "Quicken: [Increased Bonuses]DMG +1 for this instance, [Combat Status]creates a Catalyzing Field Buff Icon Catalyzing Field that grants +1 DMG to the next 2 instances of Dendro/Electro DMG"
     reaction_type: ElementalReactionType = ElementalReactionType.QUICKEN
     increased_bonuses: int = 1
+    combat_status_name: str = "Catalyzing Field"
+    combat_status_remaining_round: int = INF_INT
+    combat_status_remaining_usage: int = 3
 
 
 class Superconduct(Reaction):
@@ -353,6 +361,7 @@ class Superconduct(Reaction):
     effect_text: str = "Superconduct: [Increased Bonuses]DMG +1 for this instance, [Piercing DMG]deal 1 Piercing DMG to all opposing characters except the target"
     reaction_type: ElementalReactionType = ElementalReactionType.SUPERCONDUCT
     increased_bonuses: int = 1
+    piercing_damage_value: int = 1
 
 
 class Swirl(Reaction):
@@ -438,38 +447,69 @@ def sum_element_reaction(
     return ElementalReactionType(reaction_type), index
 
 
+# def element_reaction(
+#     ElementalAttachment: List[ElementType], AddElement: ElementType
+# ) -> Tuple[list, Reaction, Tuple[ElementType, EntityType]]:
+#     """进行元素反应"""
+
+#     ElementalAttachment = copy.deepcopy(ElementalAttachment)
+#     cannot_reaction = get_reaction_system_by_type(ElementalReactionType.NONE)
+#     if AddElement.value <= 0 or AddElement.value >= 8:
+#         return ElementalAttachment, cannot_reaction, ()
+#     # assert (
+#     #     (ElementType.GEO in ElementalAttachment
+#     #     or ElementType.ANEMO in ElementalAttachment)
+#     # ), "There are non attachable elements in the attachment list"
+#     if AddElement in ElementalAttachment:
+#         # 挂已经附着的元素没有效果
+#         return ElementalAttachment, cannot_reaction, ()
+#     attachable = can_attachable(AddElement)
+#     if not ElementalAttachment and attachable:
+#         # 如果角色没有元素附着，且新挂的元素是可附着元素
+#         ElementalAttachment.append(AddElement)
+#         return ElementalAttachment, cannot_reaction, ()
+
+#     if not ElementalAttachment:
+#         # 如果角色没有元素附着，且新挂的元素是不可附着元素
+#         return ElementalAttachment, cannot_reaction, ()
+#     # 判断元素反应
+#     reaction_type, index = sum_element_reaction(ElementalAttachment, AddElement)
+#     # 获取反应的元素
+#     reaction_tuple = (AddElement, ElementalAttachment[index])
+#     if reaction_type == ElementalReactionType.NONE:
+#         if not attachable:
+#             return ElementalAttachment, cannot_reaction, ()
+#         ElementalAttachment.append(AddElement)
+#         return ElementalAttachment, cannot_reaction, ()
+#     ElementalAttachment.pop(index)
+#     reaction_effect = get_reaction_system_by_type(reaction_type)
+#     return ElementalAttachment, reaction_effect, reaction_tuple
+
+
 def element_reaction(
     ElementalAttachment: List[ElementType], AddElement: ElementType
 ) -> Tuple[list, Reaction, Tuple[ElementType, EntityType]]:
     """进行元素反应"""
-
-    ElementalAttachment = copy.deepcopy(ElementalAttachment)
-    cannot_reaction = get_reaction_system_by_type(ElementalReactionType.NONE)
-    if AddElement.value <= 0 or AddElement.value >= 8:
-        return ElementalAttachment, cannot_reaction, ()
-    assert (
+    assert not (
         ElementType.GEO in ElementalAttachment
         or ElementType.ANEMO in ElementalAttachment
     ), "There are non attachable elements in the attachment list"
-    if AddElement in ElementalAttachment:
-        # 挂已经附着的元素没有效果
-        return ElementalAttachment, cannot_reaction, ()
-    attachable = can_attachable(AddElement)
-    if not ElementalAttachment and attachable:
-        # 如果角色没有元素附着，且新挂的元素是可附着元素
-        ElementalAttachment.append(AddElement)
-        return ElementalAttachment, cannot_reaction, ()
 
-    if not ElementalAttachment:
-        # 如果角色没有元素附着，且新挂的元素是不可附着元素
+    def handle_no_attachment(attachment):
+        if can_attachable(AddElement):
+            ElementalAttachment.append(AddElement)
+        return attachment, cannot_reaction, ()
+
+    cannot_reaction = get_reaction_system_by_type(ElementalReactionType.NONE)
+    if AddElement.value <= 0 or AddElement.value >= 8:
         return ElementalAttachment, cannot_reaction, ()
-    # 判断元素反应
+    if AddElement in ElementalAttachment or not can_attachable(AddElement):
+        return ElementalAttachment, cannot_reaction, ()
+    if not ElementalAttachment:
+        return handle_no_attachment(ElementalAttachment)
     reaction_type, index = sum_element_reaction(ElementalAttachment, AddElement)
-    # 获取反应的元素
     reaction_tuple = (AddElement, ElementalAttachment[index])
     if reaction_type == ElementalReactionType.NONE:
-        if not attachable:
-            return ElementalAttachment, cannot_reaction, ()
         ElementalAttachment.append(AddElement)
         return ElementalAttachment, cannot_reaction, ()
     ElementalAttachment.pop(index)
