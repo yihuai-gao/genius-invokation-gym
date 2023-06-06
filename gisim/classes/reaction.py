@@ -493,7 +493,7 @@ def element_reaction(
     assert not (
         ElementType.GEO in ElementalAttachment
         or ElementType.ANEMO in ElementalAttachment
-    ), "There are non attachable elements in the attachment list"
+    ), "Elements that cannot be attached should not exist in the attachment list."
 
     def handle_no_attachment(attachment):
         if can_attachable(AddElement):
