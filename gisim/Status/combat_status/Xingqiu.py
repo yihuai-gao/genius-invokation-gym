@@ -68,7 +68,6 @@ class RainbowBladework(CombatStatusEntity):
         if self._uuid in top_msg.responded_entities:
             return False
 
-        
         if isinstance(top_msg, AfterUsingSkillMsg):
             top_msg = cast(AfterUsingSkillMsg, top_msg)
             for targets_player_id, targets_pos in top_msg.skill_targets:
@@ -91,11 +90,10 @@ class RainbowBladework(CombatStatusEntity):
                     msg_queue.put(new_msg)
                     self.remaining_usage -= 1
                     updated = True
-                    
 
         if self.remaining_usage == 0 or self.remaining_round == 0:
             self.active = False
-            
+
         if updated:
             top_msg.responded_entities.append(self._uuid)
 

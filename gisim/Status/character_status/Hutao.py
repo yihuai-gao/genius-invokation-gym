@@ -55,7 +55,7 @@ class ParamitaPapilio(CharacterStatusEntity):
         # TODO Charged Attack: Apply Blood Blossom to target character.
 
         if updated:
-            msg_queue.queue[0].responded_entities.append(self._uuid)
+            top_msg.responded_entities.append(self._uuid)
 
         return updated
 
@@ -75,9 +75,9 @@ class BloodBlossom(CharacterStatusEntity):
     remaining_usage: int = 1
 
     def msg_handler(self, msg_queue: PriorityQueue):
+        top_msg = msg_queue.queue[0]
         if self._uuid in top_msg.responded_entities:
             return False
-        top_msg = msg_queue.queue[0]
         updated = False
         if isinstance(top_msg, RoundEndMsg):
             new_msg = DealDamageMsg(
@@ -87,12 +87,12 @@ class BloodBlossom(CharacterStatusEntity):
                 targets=[(self.player_id, self.position, self.element, 1)],
             )
             msg_queue.put(new_msg)
-            updated = True
             self.remaining_usage -= 1
             self.remaining_round -= 1
             self.active = False
+            updated = True
 
         if updated:
-            msg_queue.queue[0].responded_entities.append(self._uuid)
+            top_msg.responded_entities.append(self._uuid)
 
         return updated

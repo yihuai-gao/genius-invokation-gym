@@ -1,8 +1,10 @@
 """迪奥娜"""
 from queue import PriorityQueue
+from typing import cast
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
+    AttackType,
     CharPos,
     ElementType,
     EntityType,
@@ -12,11 +14,12 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
+from gisim.classes.message import DealDamageMsg, HealHpMsg, RoundEndMsg
 from gisim.classes.status import CombatStatusEntity
-from gisim.classes.summon import AttackSummon, Summon
+from gisim.classes.summon import AttackSummon
 
 
-class KtzleinStyle(GenericSkill):
+class KatzleinStyle(GenericSkill):
     """
     猎人射术
     ~~~~~~~~
@@ -24,7 +27,7 @@ class KtzleinStyle(GenericSkill):
     """
 
     id: int = 11021
-    name: str = "Kätzlein Style"
+    name: str = "Katzlein Style"
     text: str = """
     Deals 2 Physical DMG.
     """
@@ -50,7 +53,8 @@ class IcyPaws(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.CRYO: 3}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 2
-    combat_status_name: str = "Cat-Claw Shield"
+    combat_status_name: str = "Shield"
+    combat_status_remaining_usage: int = 1
 
 
 class SignatureMix(GenericSkill):
@@ -72,30 +76,50 @@ class SignatureMix(GenericSkill):
     summon_name: str = "Drunken Mist"
 
 
-class CombatStatuCatClawShield(CombatStatusEntity):
-    """
-    Cat-Claw Shield
-    ~~~~~~
-    `战斗行动`Cat-Claw Shield
-    请完善这个类的效果,应该是召唤物或者战斗效果
-    """
-
-    name: str = "Cat-Claw Shield"
-
-    def msg_handler(self, msg_queue: PriorityQueue) -> bool:
-        """请编写处理函数"""
-        pass
-
-
-class SummonDrunkenMist(AttackSummon):
-    """
-    Drunken Mist
-    ~~~~~~
-    `召唤物`Drunken Mist
-    请完善这个类的效果,应该是召唤物或者战斗效果
-    """
+class DrunkenMist(AttackSummon):
+    """Drunken Mist
+    End Phase: Deal 1 Cryo DMG, heal your active character for 2 HP.
+    Usage(s): 2"""
 
     name: str = "Drunken Mist"
+    usages: int = 2
+    damage_element: ElementType = ElementType.CRYO
+    damage_value: int = 1
+
+    def msg_handler(self, msg_queue):
+        msg = msg_queue.queue[0]
+        if self._uuid in msg.responded_entities:
+            return False
+        updated = False
+
+        if isinstance(msg, RoundEndMsg):
+            msg = cast(RoundEndMsg, msg)
+            new_msg = DealDamageMsg(
+                attack_type=AttackType.SUMMON,
+                sender_id=self.player_id,
+                attacker=(self.player_id, CharPos.NONE),
+                targets=[
+                    (
+                        ~self.player_id,
+                        CharPos.ACTIVE,
+                        self.damage_element,
+                        self.damage_value,
+                    )
+                ],
+            )
+            msg_queue.put(new_msg)
+            new_msg = HealHpMsg(
+                sender_id=self.player_id, targets=[(self.player_id, CharPos.ACTIVE, 2)]
+            )
+            msg_queue.put(new_msg)
+            self.usages -= 1
+            if self.usages == 0:
+                self.active = False
+            updated = True
+
+        if updated:
+            msg.responded_entities.append(self._uuid)
+        return updated
 
 
 class Diona(CharacterCard):
@@ -110,7 +134,7 @@ class Diona(CharacterCard):
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.BOW
     skills: list[CharacterSkill] = [
-        KtzleinStyle(),
+        KatzleinStyle(),
         IcyPaws(),
         SignatureMix(),
     ]

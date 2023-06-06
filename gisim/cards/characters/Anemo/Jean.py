@@ -36,7 +36,6 @@ class GaleBlade(GenericSkill):
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 3
     # TODO: forcibly switched to the next character
-    CharPos.ACTIVE
 
 
 class DandelionBreeze(CharacterSkill):

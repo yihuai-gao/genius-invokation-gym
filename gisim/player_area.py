@@ -44,10 +44,10 @@ from gisim.status import (
 )
 
 if TYPE_CHECKING:
-    from gisim.status import CombatStatusEntity
     from gisim.classes.summon import Summon
     from gisim.classes.support import Support
     from gisim.game import Game
+    from gisim.status import CombatStatusEntity
 
 
 class BaseZone(ABC):
@@ -443,7 +443,6 @@ class CombatStatusZone(BaseZone):
     def encode(self):
         return [status_entity.encode() for status_entity in self.status_entities]
 
-
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
         if self._uuid in top_msg.responded_entities:
@@ -463,18 +462,17 @@ class CombatStatusZone(BaseZone):
                     top_msg.remaining_round,
                     top_msg.remaining_usage,
                 )
-                self.status_entities.insert(0,status_entity)
+                self.status_entities.insert(0, status_entity)
                 """因为后面都是逆序遍历，为了保证按照buff的添加顺序执行所以在list开头插入。"""
                 top_msg.responded_entities.append((self._uuid))
-                
-        for idx in range(len(self.status_entities)-1,-1,-1):
+
+        for idx in range(len(self.status_entities) - 1, -1, -1):
             entity = self.status_entities[idx]
             updated = entity.msg_handler(msg_queue)
-            if (
-                not entity.active
-                and (entity.remaining_round == 0 or entity.remaining_usage == 0)
-                ):
-                    self.status_entities.pop(idx)
+            if not entity.active and (
+                entity.remaining_round == 0 or entity.remaining_usage == 0
+            ):
+                self.status_entities.pop(idx)
             if updated:
                 return True
         return False

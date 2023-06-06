@@ -14,6 +14,7 @@ from gisim.classes.message import (
     ChangeCharacterMsg,
     CharacterDiedMsg,
     DealDamageMsg,
+    HealHpMsg,
     PaySkillCostMsg,
     UseSkillMsg,
 )
@@ -126,6 +127,7 @@ class CharacterEntity(Entity):
         if self._uuid in msg.responded_entities:
             return False
         updated = self.passive_skill_handler(msg_queue)
+
         if isinstance(msg, PaySkillCostMsg):
             msg = cast(PaySkillCostMsg, msg)
             if msg.user_pos == self.position:
@@ -176,6 +178,20 @@ class CharacterEntity(Entity):
                 elif self.position != msg.target[1] and self.active:
                     self.active = False
                     updated = True
+
+        elif isinstance(msg, HealHpMsg):
+            msg = cast(HealHpMsg, msg)
+            for idx, (target_id, target_pos, val) in enumerate(msg.targets):
+                if self.active and target_pos == CharPos.ACTIVE:
+                    msg.targets[idx] = (target_id, self.position, val)
+                if (
+                    self.alive
+                    and target_id == self.player_id
+                    and target_pos == self.position
+                ):
+                    self.health_point = min(10, self.health_point + val)
+                    # TODO: Some Character Max HP is not 10.
+
         elif isinstance(msg, DealDamageMsg):
             msg = cast(DealDamageMsg, msg)
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(

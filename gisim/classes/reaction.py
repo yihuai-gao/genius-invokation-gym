@@ -139,7 +139,7 @@ class Reaction(BaseModel):
         self,
         msg_queue: PriorityQueue,
         parent: "CharacterEntity",
-        reaction_tuple: Tuple[ElementType,ElementType],
+        reaction_tuple: Tuple[ElementType, ElementType],
     ):
         # sourcery skip: low-code-quality
         top_msg = msg_queue.queue[0]
@@ -362,8 +362,13 @@ class Swirl(Reaction):
     effect_text: str = "Swirl: Deals 1 DMG of the involved non-Anemo Element to all opposing characters except the target"
     reaction_type: ElementalReactionType = ElementalReactionType.SWIRL
     increased_bonuses: int = 0
-    
-    def to_reaction(self, msg_queue: PriorityQueue, parent: "CharacterEntity", reaction_tuple: Tuple[ElementType, ElementType]):
+
+    def to_reaction(
+        self,
+        msg_queue: PriorityQueue,
+        parent: "CharacterEntity",
+        reaction_tuple: Tuple[ElementType, ElementType],
+    ):
         top_msg = msg_queue.queue[0]
         player_id, parent_pos = parent.player_id, parent.position
         if isinstance(top_msg, DealDamageMsg):
@@ -395,7 +400,6 @@ class Swirl(Reaction):
                         ],
                     )
                     msg_queue.put(new_msg)
-        
 
 
 class Vaporize(Reaction):
@@ -434,7 +438,7 @@ def sum_element_reaction(
 
 def element_reaction(
     ElementalAttachment: List[ElementType], AddElement: ElementType
-) -> Tuple[list, Reaction, Tuple[ElementType,EntityType]]:
+) -> Tuple[list, Reaction, Tuple[ElementType, EntityType]]:
     """进行元素反应"""
     ElementalAttachment = copy.deepcopy(ElementalAttachment)
     cannot_reaction = get_reaction_system_by_type(ElementalReactionType.NONE)
