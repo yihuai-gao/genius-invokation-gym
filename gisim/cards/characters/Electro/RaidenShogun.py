@@ -1,6 +1,6 @@
 """雷电将军"""
 from queue import PriorityQueue
-from typing import Dict, cast,TYPE_CHECKING
+from typing import TYPE_CHECKING, Dict, cast
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
@@ -15,18 +15,16 @@ from gisim.classes.enums import (
 from gisim.classes.message import (
     ChangePowerMsg,
     DealDamageMsg,
+    GenerateCharacterStatusMsg,
+    RoundBeginMsg,
     RoundEndMsg,
     UseSkillMsg,
-    RoundBeginMsg,
-    GenerateCharacterStatusMsg
 )
 from gisim.classes.summon import AttackSummon
 from gisim.env import INF_INT
 
 if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
-
-    
 
 
 # Skill
@@ -111,7 +109,9 @@ class ChakraDesiderata(GenericSkill):
 
     id: int = 65594
     name: str = "Chakra Desiderata"
-    text: str = """(Passive) When the battle beings, this character gains Chakra Desiderata."""
+    text: str = (
+        """(Passive) When the battle beings, this character gains Chakra Desiderata."""
+    )
     costs: Dict[ElementType, int] = {}
     type: SkillType = SkillType.PASSIVE_SKILL
 
@@ -119,12 +119,12 @@ class ChakraDesiderata(GenericSkill):
     status_remaining_round: int = INF_INT
     status_remaining_usage: int = INF_INT
     status_buff_type: StatusType = StatusType.ATTACK_BUFF
-    
+
     def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         top_msg = msg_queue.queue[0]
         updated = False
         # TODO : How Can Trigger at "Battle Beings"
-        
+
         if isinstance(top_msg, RoundBeginMsg):
             top_msg = cast(RoundBeginMsg, top_msg)
             msg = GenerateCharacterStatusMsg(
@@ -137,9 +137,6 @@ class ChakraDesiderata(GenericSkill):
             )
             updated = True
         return updated
-
-
-
 
 
 # Summon
@@ -197,12 +194,10 @@ class EyeofStormyJudgment(AttackSummon):
                         dmg_val + 1,
                     )
             updated = True
-            
+
         if updated:
             top_msg.responded_entities.append(self._uuid)
         return updated
-
-
 
 
 class RaidenShogun(CharacterCard):
@@ -220,5 +215,5 @@ class RaidenShogun(CharacterCard):
         Origin(),
         TranscendenceBalefulOmen(),
         SecretArtMusouShinsetsu(),
-        ChakraDesiderata()
+        ChakraDesiderata(),
     ]

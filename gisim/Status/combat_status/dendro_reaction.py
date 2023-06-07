@@ -60,7 +60,6 @@ class CatalyzingField(CombatStatusEntity):
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
         if isinstance(top_msg, DealDamageMsg):
-
             top_msg = cast(DealDamageMsg, top_msg)
             attacker_id, attacker_pos = top_msg.attacker
             if attacker_id == self.player_id:

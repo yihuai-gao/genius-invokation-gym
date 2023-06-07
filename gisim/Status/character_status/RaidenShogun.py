@@ -1,11 +1,12 @@
 # Character Status
-from gisim.status import CharacterStatusEntity
 from queue import PriorityQueue
-from typing import  cast
+from typing import cast
 
 from gisim.classes.enums import AttackType, StatusType
-from gisim.env import INF_INT
 from gisim.classes.message import DealDamageMsg
+from gisim.env import INF_INT
+from gisim.status import CharacterStatusEntity
+
 
 class ChakraDesiderata(CharacterStatusEntity):
     """Character Status: Chakra Desiderata
