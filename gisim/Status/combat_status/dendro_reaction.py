@@ -58,25 +58,28 @@ class CatalyzingField(CombatStatusEntity):
     remaining_usage: int = 3
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
-        top_msg = cast(DealDamageMsg, top_msg)
-        attacker_id, attacker_pos = top_msg.attacker
-        if attacker_id == self.player_id:
-            for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                top_msg.targets
-            ):
-                if element_type in [ElementType.DENDRO, ElementType.ELECTRO]:
-                    print(
-                        f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + {2}\n"
-                    )
-                    top_msg.targets[idx] = (
-                        target_id,
-                        target_pos,
-                        element_type,
-                        dmg_val + 1,
-                    )
-                self.remaining_usage -= 1
+        top_msg = msg_queue.queue[0]
+        if isinstance(top_msg, DealDamageMsg):
 
-        if self.remaining_usage == 0 or self.remaining_round == 0:
-            self.active = False
+            top_msg = cast(DealDamageMsg, top_msg)
+            attacker_id, attacker_pos = top_msg.attacker
+            if attacker_id == self.player_id:
+                for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
+                    top_msg.targets
+                ):
+                    if element_type in [ElementType.DENDRO, ElementType.ELECTRO]:
+                        print(
+                            f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + {2}\n"
+                        )
+                        top_msg.targets[idx] = (
+                            target_id,
+                            target_pos,
+                            element_type,
+                            dmg_val + 1,
+                        )
+                    self.remaining_usage -= 1
 
-        return False
+            if self.remaining_usage == 0 or self.remaining_round == 0:
+                self.active = False
+
+            return False

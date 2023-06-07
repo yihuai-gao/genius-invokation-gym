@@ -84,7 +84,7 @@ class RainbowBladework(CombatStatusEntity):
                         attacker=(self.player_id, CharPos.NONE),
                         attack_type=AttackType.COMBAT_STATUS,
                         targets=[
-                            (targets_player_id, targets_pos, ElementType.HYDRO, 1)
+                            (targets_player_id, CharPos.ACTIVE, ElementType.HYDRO, 1)
                         ],
                     )
                     msg_queue.put(new_msg)

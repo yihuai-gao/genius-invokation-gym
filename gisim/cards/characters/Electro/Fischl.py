@@ -1,27 +1,13 @@
 """菲谢尔"""
-from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.enums import (
-    CharPos,
-    ElementType,
-    EntityType,
-    EquipmentType,
-    Nation,
-    PlayerID,
-    SkillType,
-    WeaponType,
-)
-from gisim.classes.status import CombatStatusEntity
-from gisim.classes.summon import AttackSummon, Summon
+from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
+from gisim.classes.summon import AttackSummon
 
 
 class BoltsofDownfall(GenericSkill):
-    """
-    罪灭之矢
-    ~~~~~~~~
-    造成2点`物理伤害`。
-    """
+    """Normal Attack: Bolts of Downfall
+    Deals 2 Physical DMG."""
 
     id: int = 14011
     name: str = "Bolts of Downfall"
@@ -35,11 +21,8 @@ class BoltsofDownfall(GenericSkill):
 
 
 class Nightrider(GenericSkill):
-    """
-    夜巡影翼
-    ~~~~~~~~
-    造成1点`雷元素伤害`，召唤`奥兹`。
-    """
+    """Elemental Skill: Nightrider
+    Deals 1 Electro DMG, summons 1 Oz."""
 
     id: int = 14012
     name: str = "Nightrider"
@@ -47,18 +30,15 @@ class Nightrider(GenericSkill):
     Deals 1 Electro DMG, summons 1 Oz.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.ELECTRO, 3}
+    costs: dict[ElementType, int] = {ElementType.ELECTRO: 3}
     damage_element: ElementType = ElementType.ELECTRO
     damage_value: int = 1
     summon_name: str = "Oz"
 
 
 class MidnightPhantasmagoria(GenericSkill):
-    """
-    至夜幻现
-    ~~~~~~~~
-    造成4点`雷元素伤害`，对所有敌方后台角色造成2点``穿透伤害``。
-    """
+    """Elemental Burst: Midnight Phantasmagoria
+    Deals 4 Electro DMG, deals 2 Piercing DMG to all opposing characters on standby."""
 
     id: int = 14013
     name: str = "Midnight Phantasmagoria"
@@ -72,15 +52,15 @@ class MidnightPhantasmagoria(GenericSkill):
     piercing_damage_value: int = 2
 
 
-class SummonOz(AttackSummon):
-    """
-    Oz
-    ~~~~~~
-    `召唤物`Oz
-    请完善这个类的效果,应该是召唤物或者战斗效果
-    """
+class Oz(AttackSummon):
+    """Summon: Oz
+    End Phase: Deal 1 Electro DMG.
+    Usage(s): 2"""
 
     name: str = "Oz"
+    usages: int = 2
+    damage_element: ElementType = ElementType.ELECTRO
+    damage_value: int = 1
 
 
 class Fischl(CharacterCard):
