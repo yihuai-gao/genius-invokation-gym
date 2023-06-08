@@ -1,33 +1,16 @@
 """雷泽"""
-from queue import PriorityQueue
-
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.enums import (
-    CharPos,
-    ElementType,
-    EntityType,
-    EquipmentType,
-    Nation,
-    PlayerID,
-    SkillType,
-    WeaponType,
-)
-from gisim.classes.status import CombatStatusEntity
-from gisim.classes.summon import AttackSummon, Summon
+from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 
 
 class SteelFang(GenericSkill):
-    """
-    钢脊
-    ~~~~
-    造成2点`物理伤害`。
+    """Normal Attack: Steel Fang
+    Deals 2 Physical DMG.
     """
 
     id: int = 14021
     name: str = "Steel Fang"
-    text: str = """
-    Deals 2 Physical DMG.
-    """
+    text: str = """Deals 2 Physical DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
     costs: dict[ElementType, int] = {ElementType.ELECTRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
@@ -35,17 +18,13 @@ class SteelFang(GenericSkill):
 
 
 class ClawandThunder(GenericSkill):
-    """
-    利爪与苍雷
-    ~~~~~~~~~~
-    造成3点`雷元素伤害`。
+    """Elemental Skill: Claw and Thunder
+    Deals 3 Electro DMG.
     """
 
     id: int = 14022
     name: str = "Claw and Thunder"
-    text: str = """
-    Deals 3 Electro DMG.
-    """
+    text: str = """Deals 3 Electro DMG."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.ELECTRO: 3}
     damage_element: ElementType = ElementType.ELECTRO
@@ -53,25 +32,22 @@ class ClawandThunder(GenericSkill):
 
 
 class LightningFang(GenericSkill):
-    """
-    雷牙
-    ~~~~
-    造成5点`雷元素伤害`，本角色附属`雷狼`。
-    """
+    """Elemental Burst: Lightning Fang
+    Deals 5 Electro DMG. This character gains The Wolf Within."""
 
     id: int = 14023
     name: str = "Lightning Fang"
-    text: str = """
-    Deals 5 Electro DMG. This character gains The Wolf Within.
-    """
+    text: str = """Deals 5 Electro DMG. This character gains The Wolf Within."""
     type: SkillType = SkillType.ELEMENTAL_BURST
     costs: dict[ElementType, int] = {ElementType.ELECTRO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.ELECTRO
     damage_value: int = 5
+    status_name: str = "The Wolf Within"
+    status_remaining_round: int = 2
 
 
 class Razor(CharacterCard):
-    """雷泽"""
+    """Razor"""
 
     id: int = 1402
     name: str = "Razor"
