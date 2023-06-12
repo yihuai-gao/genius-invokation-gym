@@ -41,21 +41,21 @@ class ChonghuasLayeredFrost(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.CRYO: 3}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 3
-    combat_status_name: str = "Chonghua Frost Field"
+    combat_status_name: str = "Chonghuas Frost Field"
+
+    """Chonghua's Frost Field
+Your Sword, Claymore, and Polearm-wielding characters' Physical DMG is converted to Cryo DMG.
+Duration (Rounds): 2
+    """
 
 
 class CloudPartingStar(GenericSkill):
-    """
-    云开星落
-    ~~~~~~~~
-    造成7点`冰元素伤害`。
-    """
+    """Elemental Burst: Cloud Parting Star
+    Deals 7 Cryo DMG."""
 
     id: int = 11043
-    name: str = "Cloud-Parting Star"
-    text: str = """
-    Deals 7 Cryo DMG.
-    """
+    name: str = "Cloud Parting Star"
+    text: str = """Deals 7 Cryo DMG."""
     type: SkillType = SkillType.ELEMENTAL_BURST
     costs: dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.CRYO
@@ -63,7 +63,7 @@ class CloudPartingStar(GenericSkill):
 
 
 class Chongyun(CharacterCard):
-    """重云"""
+    """Chongyun"""
 
     id: int = 1104
     name: str = "Chongyun"

@@ -12,21 +12,23 @@ if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
     from gisim.game import GameInfo
 
-# class LiutianArchery(GenericSkill):
-#     """
-#     流天射术
-#     ~~~~~~~~
-#     `普通攻击` 造成2点`物理伤害`。
-#     """
-#     id: int = 11011
-#     name: str = "Liutian Archery"
-#     text: str = """
-#     Deals 2 Physical DMG.
-#     """
-#     costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
-#     type: SkillType = SkillType.NORMAL_ATTACK
-#     damage_element: ElementType = ElementType.NONE
-#     damage_value: int = 2
+
+class LiutianArchery(GenericSkill):
+    """
+    流天射术
+    ~~~~~~~~
+    `普通攻击` 造成2点`物理伤害`。
+    """
+
+    id: int = 11011
+    name: str = "Liutian Archery"
+    text: str = """
+    Deals 2 Physical DMG.
+    """
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
+    type: SkillType = SkillType.NORMAL_ATTACK
+    damage_element: ElementType = ElementType.NONE
+    damage_value: int = 2
 
 
 class FrostflakeArrow(GenericSkill):
@@ -133,7 +135,7 @@ class Ganyu(CharacterCard):
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.BOW
     skills: List[CharacterSkill] = [
-        # LiutianArchery(),
+        LiutianArchery(),
         FrostflakeArrow(),
         TrailoftheQilin(),
         CelestialShower(),
