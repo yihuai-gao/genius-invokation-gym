@@ -50,6 +50,7 @@ class CombatStatusEntity(Entity, ABC):
 
 
 class ElementalInfusion(CharacterStatusEntity):
+    """元素附魔"""
     name: str
     element: ElementType
     description: str = "Convert physical damage into elemental damage"

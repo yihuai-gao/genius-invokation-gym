@@ -4,7 +4,7 @@ from typing import cast
 from gisim.classes.enums import AttackType, ElementType, StatusType
 from gisim.classes.message import DealDamageMsg, RoundEndMsg
 from gisim.env import INF_INT
-from gisim.status import CharacterStatusEntity
+from gisim.classes.status import CharacterStatusEntity
 
 
 class TheWolfWithin(CharacterStatusEntity):

@@ -3,10 +3,10 @@ from typing import cast
 
 from gisim.classes.enums import CharPos, ElementType, PlayerID, StatusType
 from gisim.env import INF_INT
-from gisim.status.base import CharacterStatusEntity, CombatStatusEntity
-from gisim.status.character_status import *
-from gisim.status.combat_status import get_combat_status_entity
-from gisim.status.reaction_status import *
+from gisim.classes.status import CharacterStatusEntity, CombatStatusEntity
+from gisim.classes.status.character_status import *
+from gisim.classes.status.combat_status import get_combat_status_entity
+from gisim.classes.status.reaction_status import *
 
 
 def get_character_status_entity(

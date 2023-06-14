@@ -7,7 +7,7 @@ from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 from gisim.classes.message import PayChangeCharacterCostMsg
 from gisim.classes.summon import AttackSummon
 from gisim.env import INF_INT
-from gisim.status import CombatStatusEntity
+from gisim.classes.status import CombatStatusEntity
 
 
 class DivineMarksmanship(GenericSkill):

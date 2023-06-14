@@ -1,6 +1,6 @@
 from gisim.classes.enums import PlayerID
 from gisim.env import INF_INT
-from gisim.status.base import CombatStatusEntity
+from gisim.classes.status import CombatStatusEntity
 
 from .Chongyun import *
 from .dendro_reaction import *

@@ -5,7 +5,7 @@ from typing import cast
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, StatusType, WeaponType
 from gisim.classes.message import DealDamageMsg
-from gisim.status import CharacterStatusEntity
+from gisim.classes.status import CharacterStatusEntity
 
 
 class WhirlwindThrust(GenericSkill):
