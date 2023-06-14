@@ -6,7 +6,7 @@ from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSk
 from gisim.classes.enums import ElementType, Nation, SkillType, StatusType, WeaponType
 from gisim.classes.message import DealDamageMsg
 from gisim.classes.summon import AttackSummon
-from gisim.status import CharacterStatusEntity
+from gisim.classes.status import CharacterStatusEntity
 
 
 class FavoniusBladeworkEdel(GenericSkill):

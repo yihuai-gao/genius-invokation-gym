@@ -36,7 +36,7 @@ from gisim.classes.message import (
 )
 
 # from gisim.classes.status import CharacterStatusEntity, get_character_status_entity
-from gisim.status import (
+from gisim.classes.status import (
     CharacterStatusEntity,
     CombatStatusEntity,
     get_character_status_entity,
@@ -47,7 +47,7 @@ if TYPE_CHECKING:
     from gisim.classes.summon import Summon
     from gisim.classes.support import Support
     from gisim.game import Game
-    from gisim.status import CombatStatusEntity
+    from gisim.classes.status import CombatStatusEntity
 
 
 class BaseZone(ABC):

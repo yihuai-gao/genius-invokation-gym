@@ -4,7 +4,7 @@ from typing import cast
 from gisim.classes.enums import *
 from gisim.classes.message import DealDamageMsg, RoundEndMsg
 from gisim.env import INF_INT
-from gisim.status.base import CharacterStatusEntity
+from gisim.classes.status import CharacterStatusEntity
 
 
 class ElementalInfusion(CharacterStatusEntity):

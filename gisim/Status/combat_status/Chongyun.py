@@ -1,7 +1,7 @@
 from queue import PriorityQueue
 
 from gisim.env import INF_INT
-from gisim.status import CombatStatusEntity
+from gisim.classes.status import CombatStatusEntity
 
 
 class ChonghuasFrostField(CombatStatusEntity):

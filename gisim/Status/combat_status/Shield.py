@@ -3,7 +3,7 @@ from typing import cast
 
 from gisim.classes.message import DealDamageMsg
 from gisim.env import INF_INT
-from gisim.status import CombatStatusEntity
+from gisim.classes.status import CombatStatusEntity
 
 
 class Shield(CombatStatusEntity):
