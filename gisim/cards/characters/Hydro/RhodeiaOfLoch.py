@@ -84,7 +84,7 @@ class TideandTorrent(GenericSkill):
     damage_value: int = 2
 
 
-class RhodeiaofLoch(CharacterCard):
+class RhodeiaOfLoch(CharacterCard):
     """纯水精灵·洛蒂娅"""
 
     id: int = 2201
