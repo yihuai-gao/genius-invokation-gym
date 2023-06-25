@@ -19,10 +19,12 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 
 希望可以实现类似openai-gym的API，用于训练ai&评估卡组强度
 
+简单介绍请参考[该Notion页面](https://paladin1013.notion.site/gisim-A-Genius-Invokation-Simulator-4743c9996d094e3088ea91f47e70711b?pvs=4)
+
 # Get Started
 
 Prerequisites:
-* Python >=3.9
+* Python >=3.8
 * [Poetry 1.1.14+](https://python-poetry.org)
 
 Installation: enter the project directory and execute the following command:
@@ -58,6 +60,7 @@ poetry run python3 -u tests/test_framework.py
 顺便好奇一下为什么用invokation而不是invocation，求懂哥指点
 
 新建QQ交流群613071650，欢迎感兴趣的同学入群，欢迎成为Contributor！
+
 
 ## Works Cited
 
