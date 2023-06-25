@@ -2,7 +2,7 @@
 from queue import PriorityQueue
 from typing import TYPE_CHECKING, Dict, List, cast
 
-from classes.status import CharacterStatusEntity
+from gisim.classes.status import CharacterStatusEntity
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
