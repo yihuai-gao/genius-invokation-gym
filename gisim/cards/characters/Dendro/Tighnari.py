@@ -2,7 +2,7 @@ from queue import PriorityQueue
 from typing import cast
 
 from classes.message import DealDamageMsg, RoundEndMsg
-from classes.status import CharacterStatusEntity
+from gisim.classes.status import CharacterStatusEntity
 from env import INF_INT
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
