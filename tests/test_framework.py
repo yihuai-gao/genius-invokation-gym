@@ -18,7 +18,8 @@ if __name__ == "__main__":
         "characters": ["Kamisato Ayaka", "Kamisato Ayaka", "Kamisato Ayaka"],
         "cards": [],
     }
-    game = Game(player1_deck, player2_deck, seed=10)
+    game = Game()
+    game.init_deck(player1_deck, player2_deck, seed=10)
     player1_agent = AttackOnlyAgent(PlayerID.PLAYER1)
     player2_agent = NoAttackAgent(PlayerID.PLAYER2)
     game_end = False

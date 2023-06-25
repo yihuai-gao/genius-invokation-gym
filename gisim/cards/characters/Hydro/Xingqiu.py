@@ -19,6 +19,7 @@ from gisim.classes.enums import (
 from gisim.classes.status import CombatStatusEntity
 from gisim.classes.summon import AttackSummon, Summon
 from gisim.env import INF_INT
+from gisim.get_game_info import get_game_info
 
 
 class GuhuaStyle(GenericSkill):

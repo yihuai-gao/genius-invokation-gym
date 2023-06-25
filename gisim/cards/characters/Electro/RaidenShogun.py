@@ -2,8 +2,6 @@
 from queue import PriorityQueue
 from typing import TYPE_CHECKING, Dict, cast
 
-from gisim.classes.status import CharacterStatusEntity
-
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     AttackType,
@@ -22,6 +20,7 @@ from gisim.classes.message import (
     RoundEndMsg,
     UseSkillMsg,
 )
+from gisim.classes.status import CharacterStatusEntity
 from gisim.classes.summon import AttackSummon
 from gisim.env import INF_INT
 

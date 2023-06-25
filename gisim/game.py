@@ -15,7 +15,13 @@ from .player_area import BaseZone, PlayerArea, PlayerInfo
 
 
 class Game:
-    def __init__(
+    def __new__(cls):
+        """Singleton Mode for global game info access"""
+        if not hasattr(cls, "instance"):
+            cls.instance = super(Game, cls).__new__(cls)
+        return cls.instance
+
+    def init_deck(
         self, player1_deck: dict, player2_deck: dict, seed: Optional[int] = None
     ):
         if seed is None:
