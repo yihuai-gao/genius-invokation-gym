@@ -4,9 +4,10 @@ from gisim.classes.enums import ElementType, ReactionType
 from gisim.classes.reaction import (
     can_attachable,
     element_reaction,
+    get_reaction_system,
+    get_reaction_system_by_type,
     sum_element_reaction,
 )
-from gisim.elemental_reaction import get_reaction_system, get_reaction_system_by_type
 
 # 获取反应体系 多元素反应
 
