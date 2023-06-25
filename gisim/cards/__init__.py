@@ -7,7 +7,7 @@ from gisim.cards.events import *
 from gisim.cards.supports import *
 from gisim.classes.equipment import EquipmentEntity
 
-# from .characters import CHARACTER_CARDS, CHARACTER_SKILLS
+# There might be some better ways to register all the classes into a dictionary
 
 
 def get_summon_entity(summon_name: str, player_id: PlayerID):
@@ -31,3 +31,21 @@ def get_equipment(equipment_name: str, target: Tuple[PlayerID, CharPos]):
         player_id=target[0], char_pos=target[1]
     )
     return equipment
+
+
+def get_combat_status(status_name: str):
+    status_name = status_name.replace(" ", "").replace("'", "")
+    if not status_name.endswith("Status"):
+        status_name += "Status"
+    status_class = globals()[status_name]
+    status: CombatStatusEntity = status_class()
+    return status
+
+
+def get_character_status(status_name: str):
+    status_name = status_name.replace(" ", "").replace("'", "")
+    if not status_name.endswith("Status"):
+        status_name += "Status"
+    status_class = globals()[status_name]
+    status: CharacterStatusEntity = status_class()
+    return status
