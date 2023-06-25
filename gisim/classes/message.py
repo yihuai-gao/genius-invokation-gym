@@ -124,7 +124,6 @@ class GenerateSupportMsg(Message):
 
 class GenerateCharacterStatusMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
-    status_type: StatusType = StatusType.UNDER_ATTACK_BUFF
     target: Tuple[PlayerID, CharPos]
     status_name: str
     remaining_round: int

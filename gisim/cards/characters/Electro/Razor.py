@@ -86,7 +86,6 @@ class TheWolfWithinStatus(CharacterStatusEntity):
 
     name: str = "The Wolf Within"
     element: ElementType = ElementType.ELECTRO
-    status_type: StatusType = StatusType.ATTACK_BUFF
     description: str = """After the character to which this is attached uses a Normal Attack or an Elemental Skill: Deal 2 Electro DMG.Duration (Rounds): 2"""
     value: int = 0
     active: bool = True

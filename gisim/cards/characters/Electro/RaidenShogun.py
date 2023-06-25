@@ -135,7 +135,6 @@ class ChakraDesiderata(GenericSkill):
                 status_name=self.status_name,
                 remaining_round=self.status_remaining_round,
                 remaining_usage=self.status_remaining_usage,
-                status_type=self.status_buff_type,
             )
             updated = True
         return updated
@@ -228,7 +227,6 @@ class ChakraDesiderataStatus(CharacterStatusEntity):
     Musou Shinsetsu: Consume all Resolve and deal +1 DMG per Resolve."""
 
     name: str = "Chakra Desiderata"
-    status_type: StatusType = StatusType.ATTACK_BUFF
     max_resolve: int = 3
     resolve: int = 0
     remaining_round: int = INF_INT

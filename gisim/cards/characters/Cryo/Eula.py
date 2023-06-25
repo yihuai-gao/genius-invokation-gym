@@ -38,7 +38,6 @@ class IcetideVortex(GenericSkill):
 class Grimheart(CharacterStatusEntity):
     name: str = "Grimheart"
     element: ElementType = ElementType.CRYO
-    status_type: StatusType = StatusType.ATTACK_BUFF
     description: str = """After the character to which this is attached uses Icetide Vortex: Remove this status, DMG +2 for this instance."""
     value: int = 0
     active: bool = True

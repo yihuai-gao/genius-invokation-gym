@@ -133,7 +133,6 @@ class ParamitaPapilioStatus(CharacterStatusEntity):
 
     name: str = "Paramita Papilio"
     element: ElementType = ElementType.PYRO
-    status_type: StatusType = StatusType.ATTACK_BUFF
     description: str = """The character to which this is attached has their Physical DMG dealt converted to Pyro DMG, and they will deal +1 Pyro DMG.Some times can Apply [Blood Blossom].Duration (Rounds): 2"""
     value: int = 0
     active: bool = True
@@ -185,7 +184,6 @@ class BloodBlossomStatus(CharacterStatusEntity):
 
     name: str = "Paramita Papilio"
     element: ElementType = ElementType.PYRO
-    status_type: StatusType = StatusType.NEGATIVE_BUFF
     description: str = """End Phase: Deal 1 Pyro DMG to the character to which this is attached. Usage(s): 1"""
     value: int = 0
     active: bool = True
