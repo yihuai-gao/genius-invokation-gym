@@ -3,11 +3,11 @@ from typing import cast
 
 from gisim.classes.enums import *
 from gisim.classes.message import DealDamageMsg
-from gisim.env import INF_INT
 from gisim.classes.status import CombatStatusEntity
+from gisim.env import INF_INT
 
 
-class DendroCore(CombatStatusEntity):
+class DendroCoreStatus(CombatStatusEntity):
     """[Combat Status]When you deal Icon TCG PyroPyro DMG or Icon TCG ElectroElectro DMG to an opposing active character,
     DMG dealt +2. (1 Usage)
     """
@@ -46,7 +46,7 @@ class DendroCore(CombatStatusEntity):
         return False
 
 
-class CatalyzingField(CombatStatusEntity):
+class CatalyzingFieldStatus(CombatStatusEntity):
     """[Combat Status]When you deal Icon TCG ElectroElectro DMG or Icon TCG DendroDendro DMG to an opposing active character,
     DMG dealt +1. (3 Usages)"""
 

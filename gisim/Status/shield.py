@@ -2,11 +2,11 @@ from queue import PriorityQueue
 from typing import cast
 
 from gisim.classes.message import DealDamageMsg
-from gisim.env import INF_INT
 from gisim.classes.status import CombatStatusEntity
+from gisim.env import INF_INT
 
 
-class Shield(CombatStatusEntity):
+class ShieldStatus(CombatStatusEntity):
     """Shield"""
 
     name: str = "Shield"

@@ -5,9 +5,9 @@ from typing import cast
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 from gisim.classes.message import PayChangeCharacterCostMsg
+from gisim.classes.status import CombatStatusEntity
 from gisim.classes.summon import AttackSummon
 from gisim.env import INF_INT
-from gisim.classes.status import CombatStatusEntity
 
 
 class DivineMarksmanship(GenericSkill):

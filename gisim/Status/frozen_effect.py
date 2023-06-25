@@ -6,7 +6,7 @@ from gisim.classes.message import DealDamageMsg, RoundEndMsg
 from gisim.classes.status import CharacterStatusEntity
 
 
-class FrozenEffect(CharacterStatusEntity):
+class FrozenEffectStatus(CharacterStatusEntity):
     """
     [Character Status]the target is unable to perform any Actions this round
     (Can be removed in advance after the target receives Physical or Pyro DMG,
