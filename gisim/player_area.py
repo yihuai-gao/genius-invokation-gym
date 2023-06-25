@@ -35,13 +35,9 @@ from gisim.classes.message import (
     UseCardMsg,
 )
 
-# from gisim.classes.status import CharacterStatusEntity, get_character_status_entity
-from gisim.classes.status import (
-    CharacterStatusEntity,
-    CombatStatusEntity,
-    get_character_status_entity,
-    get_combat_status_entity,
-)
+# from gisim.classes.status import CharacterStatusEntity, get_character_status
+from gisim.classes.status import CharacterStatusEntity, CombatStatusEntity
+from gisim.status import get_character_status, get_combat_status
 
 if TYPE_CHECKING:
     from gisim.classes.status import CombatStatusEntity
@@ -456,7 +452,7 @@ class CombatStatusZone(BaseZone):
                 for idx, entity in enumerate(self.status_entities):
                     if entity.name == top_msg.combat_status_name:
                         self.status_entities.pop(idx)
-                status_entity = get_combat_status_entity(
+                status_entity = get_combat_status(
                     top_msg.combat_status_name,
                     self._parent.player_id,
                     top_msg.remaining_round,
@@ -519,11 +515,10 @@ class CharacterZone(BaseZone):
                         if entity.name == top_msg.status_name:
                             self.status.pop(idx)
 
-                    status_entity = get_character_status_entity(
+                    status_entity = get_character_status(
                         top_msg.status_name,
                         self._parent.player_id,
                         self.position,
-                        top_msg.status_type,
                         top_msg.remaining_round,
                     )
                     self.status.append(status_entity)
@@ -552,16 +547,6 @@ class CharacterZone(BaseZone):
         def_buff = []
         under_atk_buff = []
         neg_buff = []
-
-        for buff in self.status:
-            if buff.status_type == StatusType.ATTACK_BUFF:
-                atk_buff.append(buff)
-            elif buff.status_type == StatusType.DEFENSE_BUFF:
-                def_buff.append(buff)
-            elif buff.status_type == StatusType.UNDER_ATTACK_BUFF:
-                under_atk_buff.append(buff)
-            elif buff.status_type == StatusType.NEGATIVE_BUFF:
-                neg_buff.append(buff)
 
         entities = [
             *under_atk_buff,

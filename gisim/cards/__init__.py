@@ -33,19 +33,27 @@ def get_equipment(equipment_name: str, target: Tuple[PlayerID, CharPos]):
     return equipment
 
 
-def get_combat_status(status_name: str):
+def get_combat_status(
+    status_name: str, player_id: PlayerID, position: CharPos, remaining_round: int
+):
     status_name = status_name.replace(" ", "").replace("'", "")
     if not status_name.endswith("Status"):
         status_name += "Status"
     status_class = globals()[status_name]
-    status: CombatStatusEntity = status_class()
+    status: CombatStatusEntity = status_class(
+        player_id=player_id, position=position, remaining_round=remaining_round
+    )
     return status
 
 
-def get_character_status(status_name: str):
+def get_character_status(
+    status_name: str, player_id: PlayerID, position: CharPos, remaining_round: int
+):
     status_name = status_name.replace(" ", "").replace("'", "")
     if not status_name.endswith("Status"):
         status_name += "Status"
     status_class = globals()[status_name]
-    status: CharacterStatusEntity = status_class()
+    status: CharacterStatusEntity = status_class(
+        player_id=player_id, position=position, remaining_round=remaining_round
+    )
     return status

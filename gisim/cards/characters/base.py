@@ -123,7 +123,6 @@ class GenericSkill(CharacterSkill):
                 status_name=self.status_name,
                 remaining_round=self.status_remaining_round,
                 remaining_usage=self.status_remaining_usage,
-                status_type=self.status_buff_type,
             )
             msg_queue.put(new_msg)
 

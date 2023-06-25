@@ -56,7 +56,6 @@ class YakshasMask(CharacterStatusEntity):
 
     name: str = "Yakshas Mask"
     element: ElementType = ElementType.ANEMO
-    status_type: StatusType = StatusType.ATTACK_BUFF
     description: str = """The character to which this is attached has their Physical DMG dealt converted to Pyro DMG, and they will deal +1 Pyro DMG.Some times can Apply [Blood Blossom].Duration (Rounds): 2"""
     value: int = 0
     active: bool = True
