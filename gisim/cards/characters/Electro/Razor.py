@@ -8,7 +8,6 @@ from gisim.classes.enums import (
     ElementType,
     Nation,
     SkillType,
-    StatusType,
     WeaponType,
 )
 from gisim.classes.message import DealDamageMsg, RoundEndMsg

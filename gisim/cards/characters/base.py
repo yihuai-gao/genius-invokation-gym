@@ -14,7 +14,6 @@ from gisim.classes.message import (
     GenerateSummonMsg,
     HealHpMsg,
     Message,
-    StatusType,
     UseSkillMsg,
 )
 from gisim.classes.reaction import element_reaction
@@ -56,7 +55,6 @@ class GenericSkill(CharacterSkill):
     """Skill description format: this character gains xxx"""
     status_remaining_round: int = 0
     status_remaining_usage: int = 0
-    status_buff_type: StatusType = StatusType.ATTACK_BUFF
 
     combat_status_name: str = ""
     """Skill description format: creates xxx"""
@@ -78,6 +76,8 @@ class GenericSkill(CharacterSkill):
         msg = cast(UseSkillMsg, msg)
         target_player_id, target_char_pos = msg.skill_targets[0]
         if self.damage_value > 0:
+            # if self.type == SkillType.NORMAL_ATTACK:
+                
             new_msg = DealDamageMsg(
                 attack_type=AttackType(self.type.value),
                 attacker=(parent.player_id, parent.position),

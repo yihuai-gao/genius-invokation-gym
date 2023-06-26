@@ -9,7 +9,6 @@ from gisim.classes.enums import (
     ElementType,
     Nation,
     SkillType,
-    StatusType,
     WeaponType,
 )
 from gisim.classes.message import (
@@ -119,7 +118,6 @@ class ChakraDesiderata(GenericSkill):
     status_name: str = "Chakra Desiderata"
     status_remaining_round: int = INF_INT
     status_remaining_usage: int = INF_INT
-    status_buff_type: StatusType = StatusType.ATTACK_BUFF
 
     def use_skill(self, msg_queue: PriorityQueue, parent: "CharacterEntity"):
         top_msg = msg_queue.queue[0]

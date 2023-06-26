@@ -1,7 +1,7 @@
 from queue import PriorityQueue
 from typing import cast
 
-from gisim.classes.enums import CharPos, ElementType, PlayerID, StatusType
+from gisim.classes.enums import CharPos, ElementType, PlayerID
 from gisim.classes.message import DealDamageMsg, Message, RoundEndMsg
 from gisim.classes.status import CharacterStatusEntity, CombatStatusEntity
 from gisim.env import INF_INT
@@ -192,8 +192,9 @@ class ShieldStatus(CombatStatusEntity):
     name: str = "Shield"
     description: str = "Shield"
     active: bool = True
-    value: int = 0
+    value: int
     remaining_round: int = INF_INT
+    remaining_usage: int = 1
 
     def msg_handler(self, msg_queue: PriorityQueue):
         top_msg = msg_queue.queue[0]
@@ -212,7 +213,7 @@ class ShieldStatus(CombatStatusEntity):
                     print(
                         f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} - {1}\n"
                     )
-                    after_dmg = max(0, dmg_val - self.remaining_round)
+                    after_dmg = max(0, dmg_val - self.value)
                     # 护盾只能抵消伤害，改挂元素还是得挂元素
 
                     top_msg.targets[idx] = (
@@ -221,7 +222,9 @@ class ShieldStatus(CombatStatusEntity):
                         element_type,
                         after_dmg,
                     )
-                    self.remaining_usage = max(0, self.remaining_round - dmg_val)
+                    self.value = max(0, self.value - dmg_val)
+                    if self.value == 0:
+                        self.remaining_usage = 0
                     updated = True
 
         if self.remaining_usage == 0:

@@ -3,7 +3,7 @@ from typing import cast
 ### import other status from card files
 from gisim.cards import get_character_status as import_cards_character_status
 from gisim.cards import get_combat_status as import_cards_combat_status
-from gisim.classes.enums import CharPos, ElementType, PlayerID, StatusType
+from gisim.classes.enums import CharPos, ElementType, PlayerID
 from gisim.classes.status import CharacterStatusEntity, CombatStatusEntity
 from gisim.env import INF_INT
 
