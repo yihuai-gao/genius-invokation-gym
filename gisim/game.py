@@ -6,7 +6,6 @@ from collections import OrderedDict
 from queue import PriorityQueue, Queue
 from random import Random
 from typing import List, Optional, cast
-
 from .classes.action import *
 from .classes.action import Action
 from .classes.enums import *
@@ -62,7 +61,7 @@ class Game:
         return wrap
 
     def encode_game_info_dict(self, viewer_id: PlayerID):
-        return OrderedDict(
+        return copy.deepcopy(OrderedDict(
             {
                 "viewer_id": viewer_id,
                 "status": self.status,
@@ -74,13 +73,13 @@ class Game:
                 "player1": self.player_area[PlayerID.PLAYER1].encode(viewer_id),
                 "player2": self.player_area[PlayerID.PLAYER2].encode(viewer_id),
             }
-        )
+        ))
 
     def encode_game_info(self, viewer_id: Optional[PlayerID] = None):
         """Active player by default"""
         if viewer_id is None:
             viewer_id = self.active_player
-        return GameInfo(self.encode_game_info_dict(viewer_id))
+        return copy.deepcopy(GameInfo(self.encode_game_info_dict(viewer_id)))
 
     def judge_action(self, action: Action):
         """The action can only be sent from the active player"""
