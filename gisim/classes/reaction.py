@@ -124,7 +124,6 @@ class Reaction(BaseModel):
     """为角色附加的效果，冻结"""
     status_remaining_round: int = 0
     status_remaining_usage: int = 0
-    status_buff_type: StatusType = StatusType.ATTACK_BUFF
 
     combat_status_name: str = ""
     """为阵营附加的效果 草原核 激化领域"""
@@ -316,7 +315,6 @@ class Frozen(Reaction):
     status_name: str = "Frozen Effect"
     status_remaining_round: int = 1
     status_remaining_usage: int = 1
-    status_buff_type: StatusType = StatusType.UNDER_ATTACK_BUFF
 
 
 class Melt(Reaction):

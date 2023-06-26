@@ -8,7 +8,6 @@ from gisim.classes.enums import (
     ElementType,
     Nation,
     SkillType,
-    StatusType,
     WeaponType,
 )
 from gisim.classes.message import DealDamageMsg, HealHpMsg, RoundEndMsg, UseSkillMsg
@@ -50,7 +49,6 @@ class GuidetoAfterlife(GenericSkill):
     status_name: str = "Paramita Papilio"
     status_remaining_round: int = 2
     status_remaining_usage: int = INF_INT
-    status_buff_type: StatusType = StatusType.ATTACK_BUFF
 
 
 class SpiritSoother(GenericSkill):

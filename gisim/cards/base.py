@@ -9,6 +9,7 @@ from gisim.classes.enums import (
     ElementType,
     EntityType,
     EquipmentType,
+    EventType,
     PlayerID,
     WeaponType,
 )
@@ -29,7 +30,8 @@ class Card(BaseModel):
     costs: Dict[ElementType, int]
     text: str
     card_type: CardType
-
+    combat_action: bool = False
+    """Whether this card contains a combat action. e.g. most of the talents & Plunging Strike"""
     def use_card(
         self,
         msg_queue: PriorityQueue,  # PriorityQueue[Message]
@@ -40,12 +42,14 @@ class Card(BaseModel):
 
 class TalentCard(Card):
     character_name: str
-    card_type: CardType = CardType.TALENT
+    card_type: CardType = CardType.EQUIPMENT
+    equipment_type: EquipmentType = EquipmentType.TALENT
 
 
 class WeaponCard(Card):
     weapon_type: WeaponType
-    card_type: CardType = CardType.WEAPON
+    card_type: CardType = CardType.EQUIPMENT
+    equipment_type: EquipmentType = EquipmentType.WEAPON
 
     def use_card(self, msg_queue: PriorityQueue, game_info: "GameInfo"):
         top_msg = msg_queue.queue[0]
@@ -59,3 +63,11 @@ class WeaponCard(Card):
             equipment_type=EquipmentType.WEAPON,
         )
         msg_queue.put(new_msg)
+
+
+class EventCard(Card):
+    card_type: CardType = CardType.EVENT
+    event_type: EventType = EventType.NORMAL
+    
+class FoodCard(EventCard):
+    event_type: EventType = EventType.FOOD

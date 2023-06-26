@@ -246,15 +246,17 @@ class MsgPriority(IntEnum):
 
 
 class CardType(Enum):
-    ARTIFACT = auto()
-    TALENT = auto()
-    WEAPON = auto()
-    ELEMENTAL_RESONANCE = auto()
-    FOOD = auto()
-    NORMAL_EVENT = auto()
+    EQUIPMENT = auto()
+    EVENT = auto()
+    SUPPORT = auto()
     ANY = auto()
 
 
+class EventType(Enum):
+    NORMAL = auto()
+    FOOD = auto()
+    ELEMENTAL_RESONANCE = auto()
+    
 class EquipmentType(Enum):
     ARTIFACT = auto()
     TALENT = auto()
