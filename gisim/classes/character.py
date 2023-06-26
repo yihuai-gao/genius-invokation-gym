@@ -74,6 +74,8 @@ class CharacterEntity(Entity):
 
     def encode(self):
         properties = [
+            "id",
+            "_uuid",
             "name",
             "active",
             "alive",

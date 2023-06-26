@@ -1,8 +1,10 @@
 from gisim.agent import AttackOnlyAgent, NoAttackAgent  # noqa: E402
-from gisim.classes.enums import GameStatus, PlayerID  # noqa: E402
+from gisim.classes.enums import CharPos, GameStatus, PlayerID  # noqa: E402
 from gisim.game import Game  # noqa: E402
-
+import json
 if __name__ == "__main__":
+    log_file = "data/logs/test_game_log.json"
+    logs = []
     # player1_deck = {"characters": ["宵宫", "神里绫华", "重云"], "cards": []}
     # player2_deck = {"characters": ["菲谢尔", "柯莱", "香菱"], "cards": []}
     # player1_deck = {
@@ -20,6 +22,7 @@ if __name__ == "__main__":
     }
     game = Game()
     game.init_deck(player1_deck, player2_deck, seed=10)
+    logs.append(game.encode_game_info_dict(PlayerID.SPECTATOR))
     player1_agent = AttackOnlyAgent(PlayerID.PLAYER1)
     player2_agent = NoAttackAgent(PlayerID.PLAYER2)
     game_end = False
@@ -37,12 +40,9 @@ if __name__ == "__main__":
 
         if active_player == PlayerID.PLAYER1:
             action = player1_agent.take_action(game_info)
-        else:
-            action = player2_agent.take_action(game_info)
-
-        if active_player == PlayerID.PLAYER1:
             active_player_info = game_info.player1
         else:
+            action = player2_agent.take_action(game_info)
             active_player_info = game_info.player2
 
         if active_player_info.dice_zone:
@@ -57,7 +57,7 @@ if __name__ == "__main__":
         artifact = {}
         cards = active_player_info.hand_cards
         pos = active_player_info.active_character_position
-        if pos.value is not None:
+        if pos is not CharPos.NONE:
             ch = active_player_info.characters[pos.value].character
             ch_status_list = active_player_info.characters[pos.value].status
             weapon = active_player_info.characters[pos.value].weapon
@@ -65,6 +65,7 @@ if __name__ == "__main__":
             artifact = active_player_info.characters[pos.value].artifact
         summons = active_player_info.summon_zone
 
+        logs.append(game.encode_game_info_dict(PlayerID.SPECTATOR))
         action_type = str(type(action)).strip(">'").split(".")[-1]
         print(f"{active_player}")
         print(f"    Current Dice: {dice}")
@@ -117,3 +118,8 @@ if __name__ == "__main__":
         print(f"The game is a draw")
     else:
         print(f"The winner is {winner}")
+    
+    with open(log_file, "w") as f:
+        json.dump(logs, f)
+    # print(json.dumps(logs[1]))
+

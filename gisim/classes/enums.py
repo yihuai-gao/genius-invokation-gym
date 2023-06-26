@@ -1,19 +1,21 @@
-from enum import Enum, IntEnum, auto
+from enum import IntEnum, auto
 from logging import getLogger
 
+from env import INF_INT
 
-class ServiceMessageSender(Enum):
+
+class ServiceMessageSender(IntEnum):
     GAMEOBJ = auto()
     PLAYER = auto()
 
 
-class GameStatus(Enum):
+class GameStatus(IntEnum):
     INITIALIZING = 0
     RUNNING = 1
     ENDED = 2
 
 
-class GamePhase(Enum):
+class GamePhase(IntEnum):
     CHANGE_CARD = 0
     """Only happens during initialization"""
     SELECT_ACTIVE_CHARACTER = 1
@@ -29,9 +31,9 @@ class GamePhase(Enum):
         return self.name
 
 
-class Occupation(Enum):
-    Carry: 1
-    Back: 2
+class Occupation(IntEnum):
+    CARRY =  1
+    Back = 2
 
     def __str__(self):
         return self.name
@@ -109,7 +111,7 @@ class ElementalReactionType(IntEnum):
         return self.name
 
 
-class WeaponType(Enum):
+class WeaponType(IntEnum):
     """Should be either one of `bow`, `claymore`, `sword`, `polearm`, `catalyst`
     应当为`弓`,`双手剑`,`单手剑`,`长柄武器`,`法器`中的一个"""
 
@@ -127,7 +129,7 @@ class WeaponType(Enum):
     """其他武器"""
 
 
-class Nation(Enum):
+class Nation(IntEnum):
     Mondstadt = 1
     """蒙德"""
     Liyue = 2
@@ -144,7 +146,7 @@ class Nation(Enum):
     """丘丘人"""
 
 
-class StatusType(Enum):
+class StatusType(IntEnum):
     ATTACK_BUFF = auto()
     """进攻BUFF"""
     DEFENSE_BUFF = auto()
@@ -155,7 +157,7 @@ class StatusType(Enum):
     """受到攻击后触发的BUFF"""
 
 
-class SkillType(Enum):
+class SkillType(IntEnum):
     """Skill types"""
 
     UNKNOWN = 0
@@ -170,7 +172,7 @@ class SkillType(Enum):
     """被动技能"""
 
 
-class AttackType(Enum):
+class AttackType(IntEnum):
     NORMAL_ATTACK = 1
     ELEMENTAL_SKILL = 2
     ELEMENTAL_BURST = 3
@@ -180,23 +182,23 @@ class AttackType(Enum):
     ELEMENTAL_REACTION = auto()
 
 
-class CharPos(Enum):
+class CharPos(IntEnum):
     """Character position"""
 
     BACKGROUND = -2
     ACTIVE = -1
-    NONE = None
+    NONE = INF_INT
     LEFT = 0
     MIDDLE = 1
     RIGHT = 2
 
     def __add__(self, num: int):
         """Modular addition for `next-character` calculation"""
-        assert self.value is not None
+        assert self.value is INF_INT
         return CharPos((self.value + num) % 3)
 
 
-class PlayerID(Enum):
+class PlayerID(IntEnum):
     SPECTATOR = 0
     PLAYER1 = 1
     PLAYER2 = 2
@@ -216,7 +218,7 @@ class PlayerID(Enum):
 
 
 class MsgPriority(IntEnum):
-    """Higher priority is with lower value (appears earlier in this Enum)
+    """Higher priority is with lower value (appears earlier in this IntEnum)
     Usually there is at most one message for each class in the message queue."""
 
     # Events that almost immediately happens (will not trigger other messages before this message expires)
@@ -245,25 +247,25 @@ class MsgPriority(IntEnum):
     """RoundStart, RoundEnd"""
 
 
-class CardType(Enum):
+class CardType(IntEnum):
     EQUIPMENT = auto()
     EVENT = auto()
     SUPPORT = auto()
     ANY = auto()
 
 
-class EventType(Enum):
+class EventType(IntEnum):
     NORMAL = auto()
     FOOD = auto()
     ELEMENTAL_RESONANCE = auto()
     
-class EquipmentType(Enum):
+class EquipmentType(IntEnum):
     ARTIFACT = auto()
     TALENT = auto()
     WEAPON = auto()
 
 
-class RegionType(Enum):
+class RegionType(IntEnum):
     CHARACTER_BACKGROUND = -2
     CHARACTER_ACTIVE = -1
     CHARACTER_LEFT = 0
@@ -280,7 +282,7 @@ class RegionType(Enum):
     CHARACTER_ACTIVE(talent->weapon->artifact) -> COMBAT_STATUS_ZONE -> CHARACTER_BACKGROUND -> SUMMON_ZONE -> SUPPORT_ZONE"""
 
 
-class EntityType(Enum):
+class EntityType(IntEnum):
     CHARACTER = auto()
     TALENT = auto()
     WEAPON = auto()

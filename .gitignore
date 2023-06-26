@@ -6,3 +6,4 @@ coverage.xml
 *.egg-info
 tools/*.txt
 .vscode
+data/logs

@@ -86,7 +86,7 @@ class PlayerArea(BaseZone):
 
     @property
     def active_character(self):
-        if self.get_active_character_position().value is None:
+        if self.get_active_character_position() is CharPos.NONE:
             return None
         return self.character_zones[self.get_active_character_position().value]
 
