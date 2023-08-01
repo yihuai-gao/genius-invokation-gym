@@ -1,4 +1,5 @@
 """凯亚"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class CeremonialBladework(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +48,7 @@ class Frostgnaw(GenericSkill):
     Deals 3 Cryo DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.CRYO: 3}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 3}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 3
 
@@ -65,7 +66,7 @@ class GlacialWaltz(GenericSkill):
     Deals 1 Cryo DMG, creates 1 Icicle.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.CRYO: 4, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 4, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 1
     combat_status_name: str = "Icicle"
@@ -94,12 +95,12 @@ class Kaeya(CharacterCard):
     id: int = 1103
     name: str = "Kaeya"
     element_type: ElementType = ElementType.CRYO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.SWORD
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         CeremonialBladework(),
         Frostgnaw(),
         GlacialWaltz(),

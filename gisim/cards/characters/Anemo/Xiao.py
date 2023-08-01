@@ -1,6 +1,6 @@
 """Xiao"""
 from queue import PriorityQueue
-from typing import cast
+from typing import cast, Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
@@ -16,7 +16,7 @@ class WhirlwindThrust(GenericSkill):
     name: str = "Whirlwind Thrust"
     text: str = """Deals 2 Physical DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.ANEMO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 2
 
@@ -29,7 +29,7 @@ class LemniscaticWindCycling(GenericSkill):
     name: str = "Lemniscatic Wind Cycling"
     text: str = """Deals 3 Anemo DMG."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 3}
+    costs: Dict[ElementType, int] = {ElementType.ANEMO: 3}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 3
 
@@ -42,7 +42,7 @@ class BaneofAllEvil(GenericSkill):
     name: str = "Bane of All Evil"
     text: str = """Deals 4 Anemo DMG. This character gains Yaksha's Mask."""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 4
     status_id: int = 115041
@@ -97,12 +97,12 @@ class Xiao(CharacterCard):
     id: int = 5652
     name: str = "Sucrose"
     element_type: ElementType = ElementType.ANEMO
-    nations: list[Nation] = [Nation.Liyue]
+    nations: List[Nation] = [Nation.Liyue]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.POLEARM
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         WhirlwindThrust(),
         LemniscaticWindCycling(),
         BaneofAllEvil(),

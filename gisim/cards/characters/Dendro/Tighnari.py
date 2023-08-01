@@ -1,5 +1,5 @@
 from queue import PriorityQueue
-from typing import cast
+from typing import cast, Dict, List
 
 from classes.message import DealDamageMsg, RoundEndMsg
 from env import INF_INT
@@ -19,7 +19,7 @@ class KhandaBarrierBuster(GenericSkill):
     name: str = "Khanda Barrier Buster"
     text: str = """Deals 2 Physical DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 2
 
@@ -32,7 +32,7 @@ class VijnanaPhalaMine(GenericSkill):
     name: str = "Vijnana Phala Mine"
     text: str = """Deals 2 Dendro DMG. This character gains Vijana Suffusion."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 3}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 2
 
@@ -61,7 +61,7 @@ class FashionersTanglevineShaft(GenericSkill):
     name: str = "Fashioners Tanglevine Shaft"
     text: str = """Deals 4 Dendro DMG, deals 1 Piercing DMG to all opposing characters on standby."""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 4
     piercing_damage_value: int = 1
@@ -73,12 +73,12 @@ class Tighnari(CharacterCard):
     id: int = 1702
     name: str = "Tighnari"
     element_type: ElementType = ElementType.DENDRO
-    nations: list[Nation] = [Nation.Sumeru]
+    nations: List[Nation] = [Nation.Sumeru]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.BOW
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         KhandaBarrierBuster(),
         VijnanaPhalaMine(),
         FashionersTanglevineShaft(),
