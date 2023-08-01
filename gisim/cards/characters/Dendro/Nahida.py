@@ -1,3 +1,4 @@
+from typing import Dict, List
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 from gisim.classes.summon import AttackSummon
@@ -12,7 +13,7 @@ class Akara(GenericSkill):
     name: str = "Akara"
     text: str = """Deals 1 Dendro DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 1
 
@@ -27,7 +28,7 @@ class AllSchemestoKnow(GenericSkill):
     name: str = "All Schemes to Know"
     text: str = """Deals 2 Dendro DMG, applies the Seed of Skandha to target character. If the target character already has Seed of Skandha applied to them, then apply Seed of Skandha to all opposing characters instead."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 3}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 2
 
@@ -40,7 +41,7 @@ class AllSchemestoKnowTathata(GenericSkill):
     name: str = "All Schemes to Know Tathata"
     text: str = """Deals 3 Dendro DMG, applies the Seed of Skandha to all opposing characters."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 5}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 5}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 3
 
@@ -53,7 +54,7 @@ class IllusoryHeart(GenericSkill):
     name: str = "Illusory Heart"
     text: str = """Deals 4 Dendro DMG. creates 1 Shrine of Maya."""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 4
 
@@ -64,12 +65,12 @@ class Nahida(CharacterCard):
     id: int = 6564
     name: str = "Nahida"
     element_type: ElementType = ElementType.DENDRO
-    nations: list[Nation] = [Nation.Sumeru]
+    nations: List[Nation] = [Nation.Sumeru]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.CATALYST
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         Akara(),
         AllSchemestoKnow(),
         AllSchemestoKnowTathata(),

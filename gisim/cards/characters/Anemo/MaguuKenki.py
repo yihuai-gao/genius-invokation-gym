@@ -1,7 +1,7 @@
 """MaguuKenki: 剑鬼魔偶"""
 
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, cast
+from typing import TYPE_CHECKING, cast, Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
@@ -29,7 +29,7 @@ class Ichimonji(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.ANEMO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -44,7 +44,7 @@ class BlusteringBlade(GenericSkill):
     Summons 1 Shadowsword: Lone Gale.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 3}
+    costs: Dict[ElementType, int] = {ElementType.ANEMO: 3}
     summon_name: str = "Shadowsword Lone Gale"
     summon_id: int = 125011
 
@@ -71,7 +71,7 @@ class FrostyAssault(GenericSkill):
     Summons 1 Shadowsword: Galloping Frost.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.CRYO: 3}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 3}
     summon_name: str = "Shadowsword Galloping Frost"
 
 
@@ -96,7 +96,7 @@ class PseudoTenguSweeper(GenericSkill):
     name: str = "Pseudo Tengu Sweeper"
     text: str = """Deals 4 Anemo DMG, triggers the effect(s) of all your Shadowsword Summon(s). (Does not consume their Usages)"""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 4
 
@@ -133,12 +133,12 @@ class MaguuKenki(CharacterCard):
     id: int = 2501
     name: str = "Maguu Kenki"
     element_type: ElementType = ElementType.ANEMO
-    nations: list[Nation] = [Nation.Monster]
+    nations: List[Nation] = [Nation.Monster]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.OTHER_WEAPONS
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         Ichimonji(),
         BlusteringBlade(),
         FrostyAssault(),

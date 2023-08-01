@@ -1,6 +1,6 @@
 """Eula"""
 from queue import PriorityQueue
-from typing import cast
+from typing import cast, Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
@@ -17,7 +17,7 @@ class FavoniusBladeworkEdel(GenericSkill):
     name: str = "Favonius Bladework Edel"
     text: str = """Deals 2 Physical DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 2
 
@@ -30,7 +30,7 @@ class IcetideVortex(GenericSkill):
     name: str = "Icetide Vortex"
     text: str = """Deals 2 Cryo DMG. If this character has not yet gained Grimheart, they will gain Grimheart."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.CRYO: 3}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 3}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 2
     # TODO: This is actually not a generic skill (will not generate grimheart if already exist)
@@ -53,7 +53,7 @@ class BaneofAllEvil(GenericSkill):
     name: str = "Glacial Illumination"
     text: str = """Deals 2 Cryo DMG, summons 1 Lightfall Sword."""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 4
     summon_name: str = "Lightfall Sword"
@@ -77,12 +77,12 @@ class Eula(CharacterCard):
     id: int = 6176
     name: str = "Eula"
     element_type: ElementType = ElementType.CRYO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.CLAYMORE
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         FavoniusBladeworkEdel(),
         IcetideVortex(),
         BaneofAllEvil(),

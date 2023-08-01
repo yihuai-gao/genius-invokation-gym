@@ -1,4 +1,5 @@
 """翠翎恐蕈"""
+from typing import Dict, Lict
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class MajesticDance(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +48,7 @@ class VolatileSporeCloud(GenericSkill):
     Deals 3 Dendro DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 3}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 3
 
@@ -65,7 +66,7 @@ class FeatherSpreading(GenericSkill):
     Deals 4 Dendro DMG, then consumes all Radical Vitality stacks. For each stack consumed, this instance deals +1 DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 4
 
@@ -83,7 +84,7 @@ class RadicalVitality(GenericSkill):
     (Passive) When the battle begins, this character gains Radical Vitality.
     """
     type: SkillType = SkillType.PASSIVE_SKILL
-    costs: dict[ElementType, int] = {}
+    costs: Dict[ElementType, int] = {}
 
 
 class JadeplumeTerrorshroom(CharacterCard):
@@ -92,12 +93,12 @@ class JadeplumeTerrorshroom(CharacterCard):
     id: int = 2701
     name: str = "Jadeplume Terrorshroom"
     element_type: ElementType = ElementType.DENDRO
-    nations: list[Nation] = [Nation.Monster]
+    nations: List[Nation] = [Nation.Monster]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.OTHER_WEAPONS
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         MajesticDance(),
         VolatileSporeCloud(),
         FeatherSpreading(),

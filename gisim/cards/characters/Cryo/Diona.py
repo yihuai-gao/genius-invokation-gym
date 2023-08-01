@@ -1,6 +1,6 @@
 """迪奥娜"""
 from queue import PriorityQueue
-from typing import cast
+from typing import cast, Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
@@ -32,7 +32,7 @@ class KatzleinStyle(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -50,7 +50,7 @@ class IcyPaws(GenericSkill):
     Deals 2 Cryo DMG, creates 1 Cat-Claw Shield.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.CRYO: 3}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 3}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 2
     combat_status_name: str = "Shield"
@@ -70,7 +70,7 @@ class SignatureMix(GenericSkill):
     Deals 1 Cryo DMG, heals this character for 2 HP, summons 1 Drunken Mist.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 1
     summon_name: str = "Drunken Mist"
@@ -130,12 +130,12 @@ class Diona(CharacterCard):
     id: int = 1102
     name: str = "Diona"
     element_type: ElementType = ElementType.CRYO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.BOW
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         KatzleinStyle(),
         IcyPaws(),
         SignatureMix(),

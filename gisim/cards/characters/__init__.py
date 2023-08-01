@@ -6,10 +6,10 @@ from gisim.classes.enums import PlayerID
 from .Anemo import *
 from .Cryo import *
 from .Dendro import *
-from .Electro import *
-from .Geo import *
-from .Hydro import *
-from .Pyro import *
+#from .Electro import *
+#from .Geo import *
+#from .Hydro import *
+#from .Pyro import *
 
 # Make isort happy
 ...

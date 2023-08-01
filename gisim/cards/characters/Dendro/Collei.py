@@ -1,4 +1,5 @@
 """柯莱"""
+from typing import Dict, List
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 from gisim.classes.summon import AttackSummon
@@ -13,7 +14,7 @@ class SupplicantsBowmanship(GenericSkill):
     name: str = "Supplicants Bowmanship"
     text: str = """Deals 2 Physical DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -27,7 +28,7 @@ class FloralBrush(GenericSkill):
     name: str = "Floral Brush"
     text: str = """Deals 3 Dendro DMG."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 3}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 3
 
@@ -41,7 +42,7 @@ class TrumpCardKitty(GenericSkill):
     name: str = "Trump Card Kitty"
     text: str = """Deals 2 Dendro DMG, summons 1 Cuilein-Anbar."""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.DENDRO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.DENDRO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 2
     summon_name: str = "Cuilein Anbar"
@@ -66,12 +67,12 @@ class Collei(CharacterCard):
     id: int = 1701
     name: str = "Collei"
     element_type: ElementType = ElementType.DENDRO
-    nations: list[Nation] = [Nation.Sumeru]
+    nations: List[Nation] = [Nation.Sumeru]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.BOW
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         SupplicantsBowmanship(),
         FloralBrush(),
         TrumpCardKitty(),

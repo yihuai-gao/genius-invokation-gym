@@ -1,6 +1,6 @@
 """Venti"""
 from queue import PriorityQueue
-from typing import cast
+from typing import cast, Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
@@ -18,7 +18,7 @@ class DivineMarksmanship(GenericSkill):
     name: str = "Divine Marksmanship"
     text: str = """Deals 2 Physical DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.ANEMO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 2
 
@@ -31,7 +31,7 @@ class SkywardSonnet(GenericSkill):
     name: str = "Skyward Sonnet"
     text: str = """Deals 2 Anemo DMG, creates 1 Stormzone."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 3}
+    costs: Dict[ElementType, int] = {ElementType.ANEMO: 3}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 2
     combat_status_id: int = 115031
@@ -70,7 +70,7 @@ class WindsGrandOde(GenericSkill):
     name: str = "Winds Grand Ode"
     text: str = """Deals 2 Anemo DMG, summons 1 Stormeye."""
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 2
     summon_name: str = "Stormeye"
@@ -101,12 +101,12 @@ class Venti(CharacterCard):
     id: int = 5651
     name: str = "Sucrose"
     element_type: ElementType = ElementType.ANEMO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.BOW
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         DivineMarksmanship(),
         SkywardSonnet(),
         WindsGrandOde(),
