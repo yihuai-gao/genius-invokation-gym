@@ -3,4 +3,3 @@ def get_game_info():
 
     game = Game()
     return game.encode_game_info()
-

@@ -80,7 +80,7 @@ class GenericSkill(CharacterSkill):
         target_player_id, target_char_pos = msg.skill_targets[0]
         if self.damage_value > 0:
             # if self.type == SkillType.NORMAL_ATTACK:
-                
+
             new_msg = DealDamageMsg(
                 attack_type=AttackType(self.type.value),
                 attacker=(parent.player_id, parent.position),
@@ -115,7 +115,9 @@ class GenericSkill(CharacterSkill):
 
         if self.summon_name:
             new_msg = GenerateSummonMsg(
-                sender_id=parent.player_id, summon_name=self.summon_name, summon_id=self.summon_id
+                sender_id=parent.player_id,
+                summon_name=self.summon_name,
+                summon_id=self.summon_id,
             )
             msg_queue.put(new_msg)
 

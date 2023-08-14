@@ -58,6 +58,7 @@ class TranscendenceBalefulOmen(GenericSkill):
     summon_name: str = "Eye of Stormy Judgment"
     summon_id: int = 114071
 
+
 class SecretArtMusouShinsetsu(GenericSkill):
     """Elemental Burst: Secret Art: Musou Shinsetsu
     Deals 3 Electro DMG. All of your other characters gain 2 Energy."""

@@ -61,6 +61,7 @@ class DandelionField(AttackSummon):
     End Phase: Deal 2 Anemo DMG, heal your active character for 1 HP.
     Usage(s): 2
     """
+
     id: int = 115021
     name: str = "Dandelion Field"
     damage_element: ElementType = ElementType.ANEMO

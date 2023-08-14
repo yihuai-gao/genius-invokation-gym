@@ -76,6 +76,7 @@ class SignatureMix(GenericSkill):
     summon_name: str = "Drunken Mist"
     summon_id: int = 111023
 
+
 class DrunkenMist(AttackSummon):
     """Drunken Mist
     End Phase: Deal 1 Cryo DMG, heal your active character for 2 HP.

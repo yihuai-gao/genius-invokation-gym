@@ -209,7 +209,9 @@ class Reaction(BaseModel):
 
         if self.summon_name:
             new_msg = GenerateSummonMsg(
-                sender_id=attacker_id, summon_name=self.summon_name, summon_id=self.summon_id
+                sender_id=attacker_id,
+                summon_name=self.summon_name,
+                summon_id=self.summon_id,
             )
             msg_queue.put(new_msg)
 

@@ -25,7 +25,6 @@ class CharacterStatusEntity(Entity, ABC):
     """E.g. Yoimiya's "Niwabi Enshou" has 2 remaining usages. 宵宫e技能状态有2次使用机会"""
     value: int
     """Passive skills of Raiden Shogun, Cyno, Jadeplume Terrorshroom (aka 鸡哥), etc."""
-    
 
     def msg_handler(self, msg_queue: PriorityQueue):
         ...

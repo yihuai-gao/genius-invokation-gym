@@ -11,189 +11,10 @@ from gisim.classes.message import (
     DealDamageMsg,
     Message,
 )
+from gisim.get_game_info import get_game_info
 
 
-class MagicGuideCard(WeaponCard):
-    id: int = 311101
-    name: str = "Magic Guide"
-    text: str = """The character deals +1 DMG.(Only Catalyst Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
-    weapon_type: WeaponType = WeaponType.CATALYST
-
-
-class MagicGuide(WeaponEntity):
-    name: str = "Magic Guide"
-    weapon_type: WeaponType = WeaponType.CATALYST
-
-
-class SacrificialFragmentsCard(WeaponCard):
-    id: int = 311102
-    name: str = "Sacrificial Fragments"
-    text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Catalyst Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
-    weapon_type: WeaponType = WeaponType.CATALYST
-
-
-class SacrificialFragments(WeaponEntity):
-    name: str = "Sacrificial Fragments"
-    weapon_type: WeaponType = WeaponType.CATALYST
-
-
-class SkywardAtlasCard(WeaponCard):
-    id: int = 311103
-    name: str = "Skyward Atlas"
-    text: str = """The character deals +1 DMG.Once per Round: This character's Normal Attacks deal +1 additional DMG.(Only Catalyst Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
-    weapon_type: WeaponType = WeaponType.CATALYST
-
-
-class SkywardAtlas(WeaponEntity):
-    name: str = "Skyward Atlas"
-    weapon_type: WeaponType = WeaponType.CATALYST
-
-
-class RavenBowCard(WeaponCard):
-    id: int = 311201
-    name: str = "Raven Bow"
-    text: str = """The character deals +1 DMG.(Only Bow Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
-    weapon_type: WeaponType = WeaponType.BOW
-
-
-class RavenBow(WeaponEntity):
-    name: str = "Raven Bow"
-    weapon_type: WeaponType = WeaponType.BOW
-
-
-class SacrificialBowCard(WeaponCard):
-    id: int = 311202
-    name: str = "Sacrificial Bow"
-    text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Bow Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
-    weapon_type: WeaponType = WeaponType.BOW
-
-
-class SacrificialBow(WeaponEntity):
-    name: str = "Sacrificial Bow"
-    weapon_type: WeaponType = WeaponType.BOW
-
-
-class SkywardHarpCard(WeaponCard):
-    id: int = 311203
-    name: str = "Skyward Harp"
-    text: str = """The character deals +1 DMG.Once per Round: This character's Normal Attacks deal +1 additional DMG.(Only Bow Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
-    weapon_type: WeaponType = WeaponType.BOW
-
-
-class SkywardHarp(WeaponEntity):
-    name: str = "Skyward Harp"
-    weapon_type: WeaponType = WeaponType.BOW
-
-
-class WhiteIronGreatswordCard(WeaponCard):
-    id: int = 311301
-    name: str = "White Iron Greatsword"
-    text: str = """The character deals +1 DMG.(Only Claymore Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
-    weapon_type: WeaponType = WeaponType.CLAYMORE
-
-
-class WhiteIronGreatsword(WeaponEntity):
-    name: str = "White Iron Greatsword"
-    weapon_type: WeaponType = WeaponType.CLAYMORE
-
-
-class SacrificialGreatswordCard(WeaponCard):
-    id: int = 311302
-    name: str = "Sacrificial Greatsword"
-    text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Claymore Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
-    weapon_type: WeaponType = WeaponType.CLAYMORE
-
-
-class SacrificialGreatsword(WeaponEntity):
-    name: str = "Sacrificial Greatsword"
-    weapon_type: WeaponType = WeaponType.CLAYMORE
-
-
-class WolfsGravestoneCard(WeaponCard):
-    id: int = 311303
-    name: str = "Wolf's Gravestone"
-    text: str = """The character deals +1 DMG.Deal +2 additional DMG if the target's remaining HP is equal to or less than 6.(Only Claymore Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
-    weapon_type: WeaponType = WeaponType.CLAYMORE
-
-
-class WolfsGravestone(WeaponEntity):
-    name: str = "Wolf's Gravestone"
-    weapon_type: WeaponType = WeaponType.CLAYMORE
-
-
-class WhiteTasselCard(WeaponCard):
-    id: int = 311401
-    name: str = "White Tassel"
-    text: str = """The character deals +1 DMG.(Only Polearm Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
-    weapon_type: WeaponType = WeaponType.POLEARM
-
-
-class WhiteTassel(WeaponEntity):
-    name: str = "White Tassel"
-    weapon_type: WeaponType = WeaponType.POLEARM
-
-
-class LithicSpearCard(WeaponCard):
-    id: int = 311402
-    name: str = "Lithic Spear"
-    text: str = """The character deals +1 DMG.When played: For each party member from Liyue, grant 1 Shield point to the character to which this is attached. (Max 3 points)(Only Polearm Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
-    weapon_type: WeaponType = WeaponType.POLEARM
-
-
-class LithicSpear(WeaponEntity):
-    name: str = "Lithic Spear"
-    weapon_type: WeaponType = WeaponType.POLEARM
-
-
-class SkywardSpineCard(WeaponCard):
-    id: int = 311403
-    name: str = "Skyward Spine"
-    text: str = """The character deals +1 DMG.Once per Round: This character's Normal Attacks deal +1 additional DMG.(Only Polearm Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
-    weapon_type: WeaponType = WeaponType.POLEARM
-
-
-class SkywardSpine(WeaponEntity):
-    name: str = "Skyward Spine"
-    weapon_type: WeaponType = WeaponType.POLEARM
-
-
-class TravelersHandySwordCard(WeaponCard):
-    id: int = 311501
-    name: str = "Traveler's Handy Sword"
-    text: str = """The character deals +1 DMG.(Only Sword Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
-    weapon_type: WeaponType = WeaponType.SWORD
-
-
-class TravelersHandySword(WeaponEntity):
-    name: str = "Traveler's Handy Sword"
-    weapon_type: WeaponType = WeaponType.SWORD
-
-
-class SacrificialSwordCard(WeaponCard):
-    id: int = 311502
-    name: str = "Sacrificial Sword"
-    text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Sword Characters can equip this. A character can equip a maximum of 1 Weapon)"""
-    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
-    weapon_type: WeaponType = WeaponType.SWORD
-
-
-class SacrificialSword(WeaponEntity):
-    name: str = "Sacrificial Sword"
-    weapon_type: WeaponType = WeaponType.SWORD
-
+class GenericSacrificialWeapon(WeaponEntity):
     def msg_handler(self, msg_queue: PriorityQueue):
         # Increase 1 dmg by default without any advanced effects
         top_msg = msg_queue.queue[0]
@@ -222,11 +43,18 @@ class SacrificialSword(WeaponEntity):
         ):
             top_msg = cast(AfterUsingSkillMsg, top_msg)
             if get_skill_type(top_msg.skill_name) == SkillType.ELEMENTAL_SKILL:
-                # TODO: Get the element type of the current character (Essentially one need to get all the game information visible for all entities)
+                game_info = get_game_info()
+                current_player_info = game_info.get_player_info()
+                active_character_position = (
+                    current_player_info.active_character_position
+                )
+                new_element = current_player_info.characters[
+                    active_character_position.value
+                ].character.element_type
                 new_msg = ChangeDiceMsg(
                     sender_id=self.player_id,
                     remove_dice_idx=[],
-                    new_target_element=[ElementType.OMNI],
+                    new_target_element=[new_element],
                 )
                 msg_queue.put(new_msg)
                 updated = True
@@ -238,6 +66,202 @@ class SacrificialSword(WeaponEntity):
         return updated
 
 
+class MagicGuideCard(WeaponCard):
+    id: int = 311101
+    name: str = "Magic Guide"
+    text: str = """The character deals +1 DMG.(Only Catalyst Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
+    weapon_type: WeaponType = WeaponType.CATALYST
+
+
+class MagicGuide(WeaponEntity):
+    id: int = 311101
+    name: str = "Magic Guide"
+    weapon_type: WeaponType = WeaponType.CATALYST
+
+
+class SacrificialFragmentsCard(WeaponCard):
+    id: int = 311102
+    name: str = "Sacrificial Fragments"
+    text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Catalyst Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
+    weapon_type: WeaponType = WeaponType.CATALYST
+
+
+class SacrificialFragments(GenericSacrificialWeapon):
+    id: int = 311102
+    name: str = "Sacrificial Fragments"
+    weapon_type: WeaponType = WeaponType.CATALYST
+
+
+class SkywardAtlasCard(WeaponCard):
+    id: int = 311103
+    name: str = "Skyward Atlas"
+    text: str = """The character deals +1 DMG.Once per Round: This character's Normal Attacks deal +1 additional DMG.(Only Catalyst Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
+    weapon_type: WeaponType = WeaponType.CATALYST
+
+
+class SkywardAtlas(WeaponEntity):
+    id: int = 311103
+    name: str = "Skyward Atlas"
+    weapon_type: WeaponType = WeaponType.CATALYST
+
+
+class RavenBowCard(WeaponCard):
+    id: int = 311201
+    name: str = "Raven Bow"
+    text: str = """The character deals +1 DMG.(Only Bow Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
+    weapon_type: WeaponType = WeaponType.BOW
+
+
+class RavenBow(WeaponEntity):
+    id: int = 311201
+    name: str = "Raven Bow"
+    weapon_type: WeaponType = WeaponType.BOW
+
+
+class SacrificialBowCard(WeaponCard):
+    id: int = 311202
+    name: str = "Sacrificial Bow"
+    text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Bow Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
+    weapon_type: WeaponType = WeaponType.BOW
+
+
+class SacrificialBow(GenericSacrificialWeapon):
+    id: int = 311202
+    name: str = "Sacrificial Bow"
+    weapon_type: WeaponType = WeaponType.BOW
+
+
+class SkywardHarpCard(WeaponCard):
+    id: int = 311203
+    name: str = "Skyward Harp"
+    text: str = """The character deals +1 DMG.Once per Round: This character's Normal Attacks deal +1 additional DMG.(Only Bow Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
+    weapon_type: WeaponType = WeaponType.BOW
+
+
+class SkywardHarp(WeaponEntity):
+    id: int = 311203
+    name: str = "Skyward Harp"
+    weapon_type: WeaponType = WeaponType.BOW
+
+
+class WhiteIronGreatswordCard(WeaponCard):
+    id: int = 311301
+    name: str = "White Iron Greatsword"
+    text: str = """The character deals +1 DMG.(Only Claymore Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
+    weapon_type: WeaponType = WeaponType.CLAYMORE
+
+
+class WhiteIronGreatsword(WeaponEntity):
+    id: int = 311301
+    name: str = "White Iron Greatsword"
+    weapon_type: WeaponType = WeaponType.CLAYMORE
+
+
+class SacrificialGreatswordCard(WeaponCard):
+    id: int = 311302
+    name: str = "Sacrificial Greatsword"
+    text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Claymore Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
+    weapon_type: WeaponType = WeaponType.CLAYMORE
+
+
+class SacrificialGreatsword(GenericSacrificialWeapon):
+    id: int = 311302
+    name: str = "Sacrificial Greatsword"
+    weapon_type: WeaponType = WeaponType.CLAYMORE
+
+
+class WolfsGravestoneCard(WeaponCard):
+    id: int = 311303
+    name: str = "Wolf's Gravestone"
+    text: str = """The character deals +1 DMG.Deal +2 additional DMG if the target's remaining HP is equal to or less than 6.(Only Claymore Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
+    weapon_type: WeaponType = WeaponType.CLAYMORE
+
+
+class WolfsGravestone(WeaponEntity):
+    id: int = 311303
+    name: str = "Wolf's Gravestone"
+    weapon_type: WeaponType = WeaponType.CLAYMORE
+
+
+class WhiteTasselCard(WeaponCard):
+    id: int = 311401
+    name: str = "White Tassel"
+    text: str = """The character deals +1 DMG.(Only Polearm Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
+    weapon_type: WeaponType = WeaponType.POLEARM
+
+
+class WhiteTassel(WeaponEntity):
+    id: int = 311401
+    name: str = "White Tassel"
+    weapon_type: WeaponType = WeaponType.POLEARM
+
+
+class LithicSpearCard(WeaponCard):
+    id: int = 311402
+    name: str = "Lithic Spear"
+    text: str = """The character deals +1 DMG.When played: For each party member from Liyue, grant 1 Shield point to the character to which this is attached. (Max 3 points)(Only Polearm Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
+    weapon_type: WeaponType = WeaponType.POLEARM
+
+
+class LithicSpear(WeaponEntity):
+    id: int = 311402
+    name: str = "Lithic Spear"
+    weapon_type: WeaponType = WeaponType.POLEARM
+
+
+class SkywardSpineCard(WeaponCard):
+    id: int = 311403
+    name: str = "Skyward Spine"
+    text: str = """The character deals +1 DMG.Once per Round: This character's Normal Attacks deal +1 additional DMG.(Only Polearm Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
+    weapon_type: WeaponType = WeaponType.POLEARM
+
+
+class SkywardSpine(WeaponEntity):
+    id: int = 311403
+    name: str = "Skyward Spine"
+    weapon_type: WeaponType = WeaponType.POLEARM
+
+
+class TravelersHandySwordCard(WeaponCard):
+    id: int = 311501
+    name: str = "Traveler's Handy Sword"
+    text: str = """The character deals +1 DMG.(Only Sword Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 2}
+    weapon_type: WeaponType = WeaponType.SWORD
+
+
+class TravelersHandySword(WeaponEntity):
+    id: int = 311501
+    name: str = "Traveler's Handy Sword"
+    weapon_type: WeaponType = WeaponType.SWORD
+
+
+class SacrificialSwordCard(WeaponCard):
+    id: int = 311502
+    name: str = "Sacrificial Sword"
+    text: str = """The character deals +1 DMG.After the character uses an Elemental Skill: Create 1 Elemental Die of the same Elemental Type as this character. (Once per Round)(Only Sword Characters can equip this. A character can equip a maximum of 1 Weapon)"""
+    costs: Dict[ElementType, int] = {ElementType.SAME: 3}
+    weapon_type: WeaponType = WeaponType.SWORD
+
+
+class SacrificialSword(GenericSacrificialWeapon):
+    id: int = 311502
+    name: str = "Sacrificial Sword"
+    weapon_type: WeaponType = WeaponType.SWORD
+
+
 class AquilaFavoniaCard(WeaponCard):
     id: int = 311503
     name: str = "Aquila Favonia"
@@ -247,5 +271,6 @@ class AquilaFavoniaCard(WeaponCard):
 
 
 class AquilaFavonia(WeaponEntity):
+    id: int = 311503
     name: str = "Aquila Favonia"
     weapon_type: WeaponType = WeaponType.SWORD

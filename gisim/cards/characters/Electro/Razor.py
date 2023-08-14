@@ -3,13 +3,7 @@ from queue import PriorityQueue
 from typing import cast
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
-from gisim.classes.enums import (
-    AttackType,
-    ElementType,
-    Nation,
-    SkillType,
-    WeaponType,
-)
+from gisim.classes.enums import AttackType, ElementType, Nation, SkillType, WeaponType
 from gisim.classes.message import DealDamageMsg, RoundEndMsg
 from gisim.classes.status import CharacterStatusEntity, CombatStatusEntity
 from gisim.classes.summon import AttackSummon, Summon

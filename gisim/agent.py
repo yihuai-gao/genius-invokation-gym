@@ -269,6 +269,22 @@ class AttackOnlyAgent(Agent):
                             dice_idx=dice_idx,
                             card_user_pos=active_pos,
                         )
+                if "Sacrificial Sword" in player_info.hand_cards:
+                    dice_idx = self.get_dice_idx_greedy(
+                        current_dice, {ElementType.SAME: 3}, character_card.element_type
+                    )
+                    if len(dice_idx) > 0:
+                        card_idx = player_info.hand_cards.index(
+                            "Sacrificial Sword"
+                        )
+                        return UseCardAction(
+                            card_idx=card_idx,
+                            card_target=[
+                                (self.player_id, EntityType.WEAPON, active_pos.value)
+                            ],
+                            dice_idx=dice_idx,
+                            card_user_pos=active_pos,
+                        )
                 if (
                     character_info.character.power
                     == elemental_burst.costs[ElementType.POWER]

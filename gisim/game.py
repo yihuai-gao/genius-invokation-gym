@@ -6,6 +6,7 @@ from collections import OrderedDict
 from queue import PriorityQueue, Queue
 from random import Random
 from typing import List, Optional, cast
+
 from .classes.action import *
 from .classes.action import Action
 from .classes.enums import *
@@ -61,19 +62,21 @@ class Game:
         return wrap
 
     def encode_game_info_dict(self, viewer_id: PlayerID):
-        return copy.deepcopy(OrderedDict(
-            {
-                "viewer_id": viewer_id,
-                "status": self.status,
-                "winner": self.winner,
-                "phase": self.phase,
-                "round_num": self.round_num,
-                "first_move_player": self.first_move_player,
-                "active_player": self.active_player,
-                "player1": self.player_area[PlayerID.PLAYER1].encode(viewer_id),
-                "player2": self.player_area[PlayerID.PLAYER2].encode(viewer_id),
-            }
-        ))
+        return copy.deepcopy(
+            OrderedDict(
+                {
+                    "viewer_id": viewer_id,
+                    "status": self.status,
+                    "winner": self.winner,
+                    "phase": self.phase,
+                    "round_num": self.round_num,
+                    "first_move_player": self.first_move_player,
+                    "active_player": self.active_player,
+                    "player1": self.player_area[PlayerID.PLAYER1].encode(viewer_id),
+                    "player2": self.player_area[PlayerID.PLAYER2].encode(viewer_id),
+                }
+            )
+        )
 
     def encode_game_info(self, viewer_id: Optional[PlayerID] = None):
         """Active player by default"""

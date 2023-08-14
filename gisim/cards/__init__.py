@@ -1,4 +1,4 @@
-from typing import Tuple, Optional, Type
+from typing import Optional, Tuple, Type
 
 from gisim.cards.base import Card
 from gisim.cards.characters import *
