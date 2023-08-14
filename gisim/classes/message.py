@@ -80,6 +80,7 @@ class TriggerSummonEffectMsg(Message):
 
 class GenerateSummonMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
+    summon_id: int
     summon_name: str
     target_id: PlayerID = PlayerID.SPECTATOR
     """Will be set to the sender_id by default; It can also be the opponent's id in special cases"""

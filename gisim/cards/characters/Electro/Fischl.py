@@ -34,6 +34,7 @@ class Nightrider(GenericSkill):
     damage_element: ElementType = ElementType.ELECTRO
     damage_value: int = 1
     summon_name: str = "Oz"
+    summon_id: int = 114011
 
 
 class MidnightPhantasmagoria(GenericSkill):
@@ -57,6 +58,7 @@ class Oz(AttackSummon):
     End Phase: Deal 1 Electro DMG.
     Usage(s): 2"""
 
+    id: int = 114011
     name: str = "Oz"
     usages: int = 2
     damage_element: ElementType = ElementType.ELECTRO

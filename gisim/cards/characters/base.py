@@ -50,13 +50,16 @@ class GenericSkill(CharacterSkill):
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 0
     summon_name: str = ""
+    summon_id: int = -1
 
     status_name: str = ""
+    status_id: int = -1
     """Skill description format: this character gains xxx"""
     status_remaining_round: int = 0
     status_remaining_usage: int = 0
 
     combat_status_name: str = ""
+    combat_status_id: int = -1
     """Skill description format: creates xxx"""
     combat_status_remaining_round: int = 0
     combat_status_remaining_usage: int = 0
@@ -112,7 +115,7 @@ class GenericSkill(CharacterSkill):
 
         if self.summon_name:
             new_msg = GenerateSummonMsg(
-                sender_id=parent.player_id, summon_name=self.summon_name
+                sender_id=parent.player_id, summon_name=self.summon_name, summon_id=self.summon_id
             )
             msg_queue.put(new_msg)
 

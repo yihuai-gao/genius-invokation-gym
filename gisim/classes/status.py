@@ -15,6 +15,7 @@ class CharacterStatusEntity(Entity, ABC):
 
     player_id: PlayerID
     position: CharPos
+    # id: int
     name: str
     description: str
     active: bool
@@ -39,6 +40,7 @@ class CombatStatusEntity(Entity, ABC):
 
     player_id: PlayerID
     # position: CharPos = CharPos.ACTIVE
+    # id: int
     name: str
     description: str
     active: bool

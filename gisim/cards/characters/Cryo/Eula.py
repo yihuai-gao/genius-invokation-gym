@@ -54,7 +54,8 @@ class BaneofAllEvil(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.CRYO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 4
-
+    summon_name: str = "Lightfall Sword"
+    summon_id: int = 111062
 
 class LightfallSword(AttackSummon):
     """Summon: Lightfall Sword
@@ -63,6 +64,7 @@ class LightfallSword(AttackSummon):
     Each Zeal stack adds 1 DMG to this damage instance.
     (Effects on this card's Usage will apply to Zeal.)"""
 
+    id: int = 111062
     name: str = "Lightfall Sword"
 
 

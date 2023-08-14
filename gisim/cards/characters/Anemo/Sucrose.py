@@ -64,6 +64,7 @@ class ForbiddenCreationIsomer75TypeII(GenericSkill):
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 1
     summon_name: str = "Large Wind Spirit"
+    summon_id: int = 115011
 
 
 class LargeWindSpirit(AttackSummon):
@@ -73,6 +74,7 @@ class LargeWindSpirit(AttackSummon):
     After your character or Summon triggers a Swirl reaction: Convert the Elemental Type of this card and change its DMG dealt to the element Swirled. (Can only be converted once before leaving the field)
     """
 
+    id: int = 115011
     name: str = "Large Wind Spirit"
     usages: int = 3
     damage_element: ElementType = ElementType.ANEMO

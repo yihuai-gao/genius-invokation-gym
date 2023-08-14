@@ -44,6 +44,7 @@ class VijanaSuffusion(AttackSummon):
     Usage(s): 1
     """
 
+    id: int = 1008
     name: str = "Vijana Suffusion"
     usages: int = 2
     damage_element: ElementType = ElementType.DENDRO

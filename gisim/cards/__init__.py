@@ -1,4 +1,4 @@
-from typing import Tuple
+from typing import Tuple, Optional, Type
 
 from gisim.cards.base import Card
 from gisim.cards.characters import *
@@ -9,12 +9,44 @@ from gisim.classes.equipment import EquipmentEntity
 
 # There might be some better ways to register all the classes into a dictionary
 
+CLASS_ID_REGISTER = {
+    entity_cls.__fields__["id"].default: entity_cls
+    for entity_cls in globals().values()
+    if hasattr(entity_cls, "__fields__") and "id" in entity_cls.__fields__.keys()
+}
 
-def get_summon_entity(summon_name: str, player_id: PlayerID):
-    summon_name = summon_name.replace(" ", "").replace("'", "")
-    summon_class = globals()[summon_name]
-    summon: Summon = summon_class(player_id=player_id)
-    return summon
+
+def search_class_by_id(class_id: int, class_name: Type):
+    entity_cls = CLASS_ID_REGISTER[class_id]
+    if issubclass(entity_cls, class_name):
+        return entity_cls
+    # for entity_cls in globals().values():
+    #     if (
+    #         hasattr(entity_cls, "__fields__")
+    #         and "id" in entity_cls.__fields__.keys()
+    #         and entity_cls.__fields__["id"].default == class_id
+    #     ):
+    #         if issubclass(entity_cls, class_name):
+    #             return entity_cls
+    raise (KeyError(f"Cannot find entity of type {class_name} with id {class_id}"))
+
+
+def get_summon_entity(
+    player_id: PlayerID,
+    summon_id: Optional[int] = None,
+    summon_name: Optional[str] = None,
+):
+    if summon_id is not None:
+        summon_class = search_class_by_id(summon_id, Summon)
+        summon: Summon = summon_class(player_id=player_id)
+        return summon
+    elif summon_name is not None:
+        summon_name = summon_name.replace(" ", "").replace("'", "")
+        summon_class = globals()[summon_name]
+        summon: Summon = summon_class(player_id=player_id)
+        return summon
+    else:
+        raise (ValueError("Either summon_id or summon_name should be provided."))
 
 
 def get_card(card_name: str):

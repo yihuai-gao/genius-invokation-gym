@@ -56,7 +56,7 @@ class TranscendenceBalefulOmen(GenericSkill):
     costs: Dict[ElementType, int] = {ElementType.ELECTRO: 3}
     damage_element: ElementType = ElementType.ELECTRO
     summon_name: str = "Eye of Stormy Judgment"
-
+    summon_id: int = 114071
 
 class SecretArtMusouShinsetsu(GenericSkill):
     """Elemental Burst: Secret Art: Musou Shinsetsu
@@ -144,6 +144,7 @@ class EyeofStormyJudgment(AttackSummon):
     When this Summon is on the field: Your characters' Elemental Bursts deal +1 DMG.
     Usage(s): 3."""
 
+    id: int = 114071
     name: str = "Eye of Stormy Judgment"
     usages: int = 3
     damage_element: ElementType = ElementType.ELECTRO

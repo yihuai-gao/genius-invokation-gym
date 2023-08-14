@@ -308,7 +308,7 @@ class SummonZone(BaseZone):
                     """Remove the first summon in the zone"""
                     self.remove_summon(0)
 
-                new_summon = get_summon_entity(msg.summon_name, msg.target_id)
+                new_summon = get_summon_entity(msg.target_id, summon_id=msg.summon_id)
                 new_summon.position = len(self.summons)
                 self.summons.append(new_summon)
                 updated = True
