@@ -57,6 +57,7 @@ class BaneofAllEvil(GenericSkill):
     summon_name: str = "Lightfall Sword"
     summon_id: int = 111062
 
+
 class LightfallSword(AttackSummon):
     """Summon: Lightfall Sword
     When Eula uses a Normal Attack or Elemental Skill, this card will accumulate 2 Zeal stacks, but Eula will not gain Energy.

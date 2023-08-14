@@ -1,8 +1,10 @@
+import json
 from uuid import UUID
+
 from gisim.agent import AttackOnlyAgent, NoAttackAgent  # noqa: E402
 from gisim.classes.enums import CharPos, GameStatus, PlayerID  # noqa: E402
 from gisim.game import Game  # noqa: E402
-import json
+
 if __name__ == "__main__":
     log_file = "data/logs/test_game_log.json"
     logs = []
@@ -15,7 +17,7 @@ if __name__ == "__main__":
     # player2_deck = {"characters": ["Fischl", "Collei", "Xiangling"], "cards": []}
     player1_deck = {
         "characters": ["Kamisato Ayaka", "Kamisato Ayaka", "Kamisato Ayaka"],
-        "cards": ["Kanten Senmyou Blessing", "Traveler's Handy Sword"],
+        "cards": ["Kanten Senmyou Blessing", "Sacrificial Sword"],
     }
     player2_deck = {
         "characters": ["Kamisato Ayaka", "Kamisato Ayaka", "Kamisato Ayaka"],
@@ -119,15 +121,14 @@ if __name__ == "__main__":
         print(f"The game is a draw")
     else:
         print(f"The winner is {winner}")
-    
+
     class UUIDEncoder(json.JSONEncoder):
         def default(self, obj):
             if isinstance(obj, UUID):
                 # if the obj is uuid, we simply return the value of uuid
                 return obj.hex
             return json.JSONEncoder.default(self, obj)
-    
+
     with open(log_file, "w") as f:
         json.dump(logs, f, cls=UUIDEncoder)
     # print(json.dumps(logs[1]))
-

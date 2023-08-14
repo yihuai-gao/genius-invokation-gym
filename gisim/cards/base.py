@@ -32,6 +32,7 @@ class Card(BaseModel):
     card_type: CardType
     combat_action: bool = False
     """Whether this card contains a combat action. e.g. most of the talents & Plunging Strike"""
+
     def use_card(
         self,
         msg_queue: PriorityQueue,  # PriorityQueue[Message]
@@ -68,6 +69,7 @@ class WeaponCard(Card):
 class EventCard(Card):
     card_type: CardType = CardType.EVENT
     event_type: EventType = EventType.NORMAL
-    
+
+
 class FoodCard(EventCard):
     event_type: EventType = EventType.FOOD

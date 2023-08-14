@@ -79,6 +79,7 @@ class ShadowswordGallopingFrost(AttackSummon):
     """Shadowsword: Galloping Frost
     End Phase: Deal 1 Cryo DMG.
     Usage(s): 2"""
+
     id: int = 125012
     name: str = "Shadowsword Galloping Frost"
     usages: int = 2

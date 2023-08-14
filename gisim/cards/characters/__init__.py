@@ -33,7 +33,7 @@ def get_character_card(character_name: str):
 
 
 def get_skill_type(skill_name: str):
-    skill_name = skill_name.replace(" ", "").replace("'", "")
+    skill_name = skill_name.replace(" ", "").replace("'", "").replace(":", "")
     skill_class = globals()[skill_name]
     skill: CharacterSkill = skill_class()
     return skill.type

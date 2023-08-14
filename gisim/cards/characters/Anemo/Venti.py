@@ -83,6 +83,7 @@ class Stormeye(AttackSummon):
     If multiple such characters exist, the one with the foremost position will be viewed as being "closest."
     Usage(s): 2
     """
+
     id: int = 115034
     name: str = "Stormeye"
     usages: int = 2

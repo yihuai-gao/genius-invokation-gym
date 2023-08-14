@@ -52,7 +52,7 @@ class CuileinAnbar(AttackSummon):
     """Summon: Cuilein Anbar
     End Phase: Deal 2 Dendro DMG.Usage(s): 2
     """
-    
+
     id: int = 117011
     name: str = "Cuilein Anbar"
     usages: int = 2

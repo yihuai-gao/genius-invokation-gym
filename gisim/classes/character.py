@@ -83,6 +83,9 @@ class CharacterEntity(Entity):
             "health_point",
             "power",
             "max_power",
+            "element_type",
+            "nationalities",
+            "weapon_type",
         ]
         return {key: getattr(self, key) for key in properties}
 
@@ -155,6 +158,7 @@ class CharacterEntity(Entity):
                 skill = self.get_skill(skill_name=skill_name)
                 msg.skill_type = skill.type
                 if skill.self_element_attachment is not ElementType.NONE:
+                    # TODO: this process should be done inside the use_skill method
                     """Some skills will add elemental attachments to themselves,
                     such as Xingqiu."""
                     (
@@ -252,3 +256,6 @@ class CharacterEntityInfo:
         self.health_point: int = character_entity_info_dict["health_point"]
         self.power: int = character_entity_info_dict["power"]
         self.max_power: int = character_entity_info_dict["max_power"]
+        self.element_type: ElementType = character_entity_info_dict["element_type"]
+        self.nationalities: List[Nation] = character_entity_info_dict["nationalities"]
+        self.weapon_type: WeaponType = character_entity_info_dict["weapon_type"]

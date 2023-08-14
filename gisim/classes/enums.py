@@ -32,7 +32,7 @@ class GamePhase(IntEnum):
 
 
 class Occupation(IntEnum):
-    CARRY =  1
+    CARRY = 1
     Back = 2
 
     def __str__(self):
@@ -138,11 +138,11 @@ class Nation(IntEnum):
     """稻妻"""
     Sumeru = 4
     """须弥"""
-    Monster = 5
+    Monster = 8
     """魔物"""
-    Fatui = 6
+    Fatui = 9
     """愚人众"""
-    Hilichurl = 7
+    Hilichurl = 10
     """丘丘人"""
 
 
@@ -258,7 +258,8 @@ class EventType(IntEnum):
     NORMAL = auto()
     FOOD = auto()
     ELEMENTAL_RESONANCE = auto()
-    
+
+
 class EquipmentType(IntEnum):
     ARTIFACT = auto()
     TALENT = auto()
