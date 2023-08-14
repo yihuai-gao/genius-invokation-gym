@@ -126,6 +126,7 @@ class GenerateCharacterStatusMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
     target: Tuple[PlayerID, CharPos]
     status_name: str
+    status_id: int
     remaining_round: int = 1
     remaining_usage: int = 1
     value: int = 0
@@ -143,6 +144,7 @@ class GenerateCombatStatusMsg(Message):
     priority: MsgPriority = MsgPriority.IMMEDIATE_OPERATION
     target_player_id: PlayerID
     combat_status_name: str
+    combat_status_id: int
     remaining_round: int
     remaining_usage: int
 

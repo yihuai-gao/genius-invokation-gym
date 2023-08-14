@@ -131,6 +131,7 @@ class ChakraDesiderata(GenericSkill):
                 sender_id=parent.player_id,
                 target=(parent.player_id, parent.position),
                 status_name=self.status_name,
+                status_id=self.status_id,
                 remaining_round=self.status_remaining_round,
                 remaining_usage=self.status_remaining_usage,
             )

@@ -118,6 +118,7 @@ class KamisatoArtSenho(CharacterSkill):
                 new_msg = GenerateCharacterStatusMsg(
                     sender_id=parent.player_id,
                     status_name="Cryo Infusion",
+                    status_id=111052,
                     target=(parent.player_id, parent.position),
                     remaining_round=1,
                     remaining_usage=INF_INT,

@@ -57,7 +57,6 @@ def get_equipment(equipment_name: str, target: Tuple[PlayerID, CharPos]):
 
 def get_combat_status(
     player_id: PlayerID,
-    position: CharPos,
     remaining_round: int,
     status_id: Optional[int] = None,
     status_name: Optional[str] = None,
@@ -73,7 +72,7 @@ def get_combat_status(
         raise (ValueError("Either status_id or status_name should be provided."))
 
     status: CombatStatusEntity = status_class(
-        player_id=player_id, position=position, remaining_round=remaining_round
+        player_id=player_id, remaining_round=remaining_round
     )
     return status
 
