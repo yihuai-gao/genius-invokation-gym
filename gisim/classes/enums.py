@@ -217,6 +217,16 @@ class PlayerID(IntEnum):
         return self.name
 
 
+class Winner(IntEnum):
+    UNFINISHED = -1
+    DRAW = 0
+    PLAYER1 = 1
+    PLAYER2 = 2
+
+    def __str__(self):
+        return self.name
+
+
 class MsgPriority(IntEnum):
     """Higher priority is with lower value (appears earlier in this IntEnum)
     Usually there is at most one message for each class in the message queue."""
