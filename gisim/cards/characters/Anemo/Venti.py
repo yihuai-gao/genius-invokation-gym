@@ -70,6 +70,8 @@ class WindsGrandOde(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 2
+    summon_name: str = "Stormeye"
+    summon_id: int = 115034
 
 
 class Stormeye(AttackSummon):
@@ -81,7 +83,7 @@ class Stormeye(AttackSummon):
     If multiple such characters exist, the one with the foremost position will be viewed as being "closest."
     Usage(s): 2
     """
-
+    id: int = 115034
     name: str = "Stormeye"
     usages: int = 2
     damage_element: ElementType = ElementType.ANEMO

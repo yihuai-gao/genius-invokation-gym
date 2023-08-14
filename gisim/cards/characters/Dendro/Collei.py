@@ -45,13 +45,15 @@ class TrumpCardKitty(GenericSkill):
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 2
     summon_name: str = "Cuilein Anbar"
+    summon_id: int = 117011
 
 
 class CuileinAnbar(AttackSummon):
     """Summon: Cuilein Anbar
     End Phase: Deal 2 Dendro DMG.Usage(s): 2
     """
-
+    
+    id: int = 117011
     name: str = "Cuilein Anbar"
     usages: int = 2
     damage_element: ElementType = ElementType.DENDRO

@@ -87,6 +87,7 @@ class KamisatoArtSoumetsu(GenericSkill):
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 4
     summon_name: str = "Frostflake Seki no To"
+    summon_id: int = 111051
 
 
 class KamisatoArtSenho(CharacterSkill):
@@ -153,6 +154,7 @@ class FrostflakeSekinoTo(AttackSummon):
     `召唤物`在结束阶段造成两点`冰元素伤害`，该召唤物可以被使用两次。
     """
 
+    id: int = 111051
     name: str = "Frostflake Seki no To"
     usages: int = 2
     damage_element: ElementType = ElementType.CRYO
@@ -189,6 +191,7 @@ class KantenSenmyouBlessingCard(TalentCard):
 
 
 class KantenSenmyouBlessing(TalentEntity):
+    id: int = 211051
     name: str = "Kanten Senmyou Blessing"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:

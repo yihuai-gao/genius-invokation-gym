@@ -46,6 +46,7 @@ class BlusteringBlade(GenericSkill):
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.ANEMO: 3}
     summon_name: str = "Shadowsword Lone Gale"
+    summon_id: int = 125011
 
 
 class ShadowswordLoneGale(AttackSummon):
@@ -53,6 +54,7 @@ class ShadowswordLoneGale(AttackSummon):
     End Phase: Deal 1 Anemo DMG.
     Usage(s): 2"""
 
+    id: int = 125011
     name: str = "Shadowsword Lone Gale"
     usages: int = 2
     damage_element: ElementType = ElementType.ANEMO
@@ -77,7 +79,7 @@ class ShadowswordGallopingFrost(AttackSummon):
     """Shadowsword: Galloping Frost
     End Phase: Deal 1 Cryo DMG.
     Usage(s): 2"""
-
+    id: int = 125012
     name: str = "Shadowsword Galloping Frost"
     usages: int = 2
     damage_element: ElementType = ElementType.CRYO

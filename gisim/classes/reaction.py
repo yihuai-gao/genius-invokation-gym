@@ -121,11 +121,13 @@ class Reaction(BaseModel):
     """反应的（对伤害）增益:本伤害+2"""
 
     status_name: str = ""
+    status_id: int = -1
     """为角色附加的效果，冻结"""
     status_remaining_round: int = 0
     status_remaining_usage: int = 0
 
     combat_status_name: str = ""
+    combat_status_id: int = -1
     """为阵营附加的效果 草原核 激化领域"""
     combat_status_remaining_round: int = 0
     combat_status_remaining_usage: int = 0
@@ -133,6 +135,7 @@ class Reaction(BaseModel):
     piercing_damage_value: int = 0
 
     summon_name: str = ""
+    summon_id: int = -1
     """生成的召唤物"""
 
     def to_reaction(
@@ -206,7 +209,7 @@ class Reaction(BaseModel):
 
         if self.summon_name:
             new_msg = GenerateSummonMsg(
-                sender_id=attacker_id, summon_name=self.summon_name
+                sender_id=attacker_id, summon_name=self.summon_name, summon_id=self.summon_id
             )
             msg_queue.put(new_msg)
 
@@ -258,6 +261,7 @@ class Burning(Reaction):
 class BurningFlame(AttackSummon):
     """燃烧烈焰"""
 
+    id: int = 115
     name: str = "Burning Flame"
     usages: int = 2
     damage_element: ElementType = ElementType.CRYO

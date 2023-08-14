@@ -59,10 +59,11 @@ class {weapon_str}Card(WeaponCard):
     id: int = {weapon['id']}
     name: str = "{weapon['name']}"
     text: str = """{weapon['content']}"""
-    costs: dict[ElementType, int] = {cost_str}
+    costs: Dict[ElementType, int] = {cost_str}
     weapon_type: WeaponType = WeaponType.{weapon_type_str.upper()}
 
 class {weapon_str}(WeaponEntity):
+    id: int = {weapon['id']}
     name: str = "{weapon['name']}"
     weapon_type: WeaponType = WeaponType.{weapon_type_str.upper()}
 '''

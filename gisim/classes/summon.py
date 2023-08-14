@@ -20,6 +20,7 @@ from .entity import Entity
 
 
 class Summon(Entity, ABC):
+    id: int
     name: str
     usages: int
     player_id: PlayerID

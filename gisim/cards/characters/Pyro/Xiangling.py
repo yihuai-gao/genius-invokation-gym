@@ -49,6 +49,7 @@ class GuobaAttack(GenericSkill):
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.PYRO: 3}
     summon_name: str = "Guoba"
+    summon_id: int = 113021
 
 
 class Pyronado(GenericSkill):
@@ -70,7 +71,7 @@ class Pyronado(GenericSkill):
     combat_status_name: str = "Pyronado"
 
 
-class SummonGuoba(AttackSummon):
+class Guoba(AttackSummon):
     """
     Guoba
     ~~~~~~
@@ -78,6 +79,7 @@ class SummonGuoba(AttackSummon):
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
 
+    id: int = 113021
     name: str = "Guoba"
 
 

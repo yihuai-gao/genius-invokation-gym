@@ -51,6 +51,7 @@ class MirrorReflectionofDoom(GenericSkill):
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
     summon_name: str = "Reflection"
+    summon_id: int = 112031
 
 
 class StellarisPhantasm(GenericSkill):
@@ -88,7 +89,7 @@ class IllusoryTorrent(GenericSkill):
     costs: dict[ElementType, int] = {}
 
 
-class SummonReflection(AttackSummon):
+class Reflection(AttackSummon):
     """
     Reflection
     ~~~~~~
@@ -96,6 +97,7 @@ class SummonReflection(AttackSummon):
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
 
+    id: int = 112031
     name: str = "Reflection"
 
 

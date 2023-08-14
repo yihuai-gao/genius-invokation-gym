@@ -16,6 +16,7 @@ from gisim.classes.message import DealDamageMsg, Message
 
 
 class EquipmentEntity(Entity):
+    id: int
     name: str
     active: bool = True
     player_id: PlayerID

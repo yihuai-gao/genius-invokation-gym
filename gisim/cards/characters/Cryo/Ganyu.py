@@ -107,6 +107,7 @@ class CelestialShower(GenericSkill):
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 1
     summon_name: str = "Sacred Cryo Pearl"
+    summon_id: int = 111011
 
 
 class SacredCryoPearl(AttackSummon):
@@ -116,6 +117,7 @@ class SacredCryoPearl(AttackSummon):
     `召唤物`在结束阶段造成1点`冰元素伤害`，对所有`后台角色`造成1点`穿透伤害`，该召唤物可以被使用2次。
     """
 
+    id: int = 111011
     name: str = "Sacred Cryo Pearl"
     usages: int = 2
     damage_element: ElementType = ElementType.CRYO

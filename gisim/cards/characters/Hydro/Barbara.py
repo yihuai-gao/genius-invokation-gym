@@ -51,6 +51,7 @@ class LettheShowBegin(GenericSkill):
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
     summon_name: str = "Melody Loop"
+    summon_id: int = 112011
 
 
 class ShiningMiracle(GenericSkill):
@@ -69,7 +70,7 @@ class ShiningMiracle(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 3}
 
 
-class SummonMelodyLoop(AttackSummon):
+class MelodyLoop(AttackSummon):
     """
     Melody Loop
     ~~~~~~
@@ -77,6 +78,7 @@ class SummonMelodyLoop(AttackSummon):
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
 
+    id: int = 112011
     name: str = "Melody Loop"
 
 
