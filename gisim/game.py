@@ -32,7 +32,7 @@ class Game:
         self._random_state = Random(seed)
         self.status = GameStatus.INITIALIZING
         self.phase = GamePhase.CHANGE_CARD
-        self.winner = PlayerID.SPECTATOR
+        self.winner = Winner.UNFINISHED
         self.round_num = 1
         self.first_move_player = PlayerID(self._random_state.choice([1, 2]))
         """Toss coin to determine who act first for the first round;\n
@@ -340,7 +340,7 @@ class Game:
                         ]
                         if not any(char_alive):
                             self.status = GameStatus.ENDED
-                            self.winner = ~current_player
+                            self.winner = Winner((~current_player).value)
                         break
                     if (
                         not self.player_area[PlayerID.PLAYER1].declare_end
@@ -369,7 +369,7 @@ class Game:
                             ]
                             if not any(char_alive):
                                 self.status = GameStatus.ENDED
-                                self.winner = ~current_player
+                                self.winner = Winner((~current_player).value)
                             break
                     else:
                         # All calculations are done
@@ -382,7 +382,7 @@ class GameInfo:
     def __init__(self, game_info_dict: OrderedDict):
         self.game_info_dict = game_info_dict
         self.viewer_id: PlayerID = game_info_dict["viewer_id"]
-        self.winner: PlayerID = game_info_dict["winner"]
+        self.winner: Winner = game_info_dict["winner"]
         self.status: GameStatus = game_info_dict["status"]
         self.phase: GamePhase = game_info_dict["phase"]
         self.round_num: int = game_info_dict["round_num"]

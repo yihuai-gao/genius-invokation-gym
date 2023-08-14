@@ -2,7 +2,7 @@ import json
 from uuid import UUID
 
 from gisim.agent import AttackOnlyAgent, NoAttackAgent  # noqa: E402
-from gisim.classes.enums import CharPos, GameStatus, PlayerID  # noqa: E402
+from gisim.classes.enums import CharPos, GameStatus, PlayerID, Winner  # noqa: E402
 from gisim.game import Game  # noqa: E402
 
 if __name__ == "__main__":
@@ -31,7 +31,7 @@ if __name__ == "__main__":
     game_end = False
     game_info = game.encode_game_info(PlayerID.SPECTATOR)
 
-    winner = PlayerID.SPECTATOR
+    winner = Winner.UNFINISHED
     action_cnt = 0
     game_round = 0
     while True:
@@ -112,12 +112,12 @@ if __name__ == "__main__":
                 break
         else:
             print(f"The action of {active_player} is invalid. Game End.")
-            winner = ~active_player
+            winner = Winner((~active_player).value)
             break
         if action_cnt >= 100:
             break
 
-    if winner is PlayerID.SPECTATOR:
+    if winner is Winner.DRAW:
         print(f"The game is a draw")
     else:
         print(f"The winner is {winner}")
