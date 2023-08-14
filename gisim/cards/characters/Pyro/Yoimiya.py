@@ -12,7 +12,7 @@ from gisim.classes.enums import (
     SkillType,
     WeaponType,
 )
-from gisim.classes.status import CombatStatusEntity
+from gisim.classes.status import CharacterStatusEntity, CombatStatusEntity
 from gisim.classes.summon import AttackSummon, Summon
 
 
@@ -67,9 +67,16 @@ class RyuukinSaxifrage(GenericSkill):
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 4
     combat_status_name: str = "Aurous Blaze"
+    combat_status_id: int = 113052
 
 
-class CombatStatuAurousBlaze(CombatStatusEntity):
+class NiwabiEnshouStatus(CharacterStatusEntity):
+
+    id: int = 113051
+    name: str = "Niwabi Enshou"
+
+
+class AurousBlazeStatus(CombatStatusEntity):
     """
     Aurous Blaze
     ~~~~~~
@@ -77,6 +84,7 @@ class CombatStatuAurousBlaze(CombatStatusEntity):
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
 
+    id: int = 113052
     name: str = "Aurous Blaze"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:

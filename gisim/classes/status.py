@@ -39,7 +39,7 @@ class CombatStatusEntity(Entity, ABC):
 
     player_id: PlayerID
     # position: CharPos = CharPos.ACTIVE
-    # id: int
+    id: int
     name: str
     description: str
     active: bool

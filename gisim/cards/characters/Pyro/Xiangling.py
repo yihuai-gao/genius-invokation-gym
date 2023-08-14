@@ -69,6 +69,7 @@ class Pyronado(GenericSkill):
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 2
     combat_status_name: str = "Pyronado"
+    combat_status_id: int = 113022
 
 
 class Guoba(AttackSummon):
@@ -83,7 +84,7 @@ class Guoba(AttackSummon):
     name: str = "Guoba"
 
 
-class CombatStatuPyronado(CombatStatusEntity):
+class PyronadoStatus(CombatStatusEntity):
     """
     Pyronado
     ~~~~~~
@@ -91,6 +92,7 @@ class CombatStatuPyronado(CombatStatusEntity):
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
 
+    id: int = 113022
     name: str = "Pyronado"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:

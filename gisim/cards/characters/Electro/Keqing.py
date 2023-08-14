@@ -46,6 +46,7 @@ class StellarRestoration(GenericSkill):
     text: str = """
     Deals 3 Electro DMG, creates 1 Lightning Stiletto.
     """
+    # TODO: 生成雷楔牌，而非状态
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.ELECTRO: 3}
     damage_element: ElementType = ElementType.ELECTRO
@@ -72,7 +73,7 @@ class StarwardSword(GenericSkill):
     piercing_damage_value: int = 3
 
 
-class CombatStatuLightningStiletto(CombatStatusEntity):
+class LightningStilettoStatus(CombatStatusEntity):
     """
     Lightning Stiletto
     ~~~~~~

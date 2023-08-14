@@ -15,7 +15,7 @@ class KhandaBarrierBuster(GenericSkill):
     Deals 2 Physical DMG.
     """
 
-    id: int = 63211
+    id: int = 17021
     name: str = "Khanda Barrier Buster"
     text: str = """Deals 2 Physical DMG."""
     type: SkillType = SkillType.NORMAL_ATTACK
@@ -28,13 +28,15 @@ class VijnanaPhalaMine(GenericSkill):
     """Elemental Skill: Vijnana-Phala Mine
     Deals 2 Dendro DMG. This character gains Vijana Suffusion."""
 
-    id: int = 63212
+    id: int = 17022
     name: str = "Vijnana Phala Mine"
     text: str = """Deals 2 Dendro DMG. This character gains Vijana Suffusion."""
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.DENDRO: 3}
     damage_element: ElementType = ElementType.DENDRO
     damage_value: int = 2
+
+    status_id: int = 117021
 
 
 class VijanaSuffusion(AttackSummon):
@@ -55,7 +57,7 @@ class FashionersTanglevineShaft(GenericSkill):
     """Elemental Burst: Fashioner's Tanglevine Shaft
     Deals 4 Dendro DMG, deals 1 Piercing DMG to all opposing characters on standby."""
 
-    id: int = 63214
+    id: int = 17023
     name: str = "Fashioners Tanglevine Shaft"
     text: str = """Deals 4 Dendro DMG, deals 1 Piercing DMG to all opposing characters on standby."""
     type: SkillType = SkillType.ELEMENTAL_BURST
@@ -68,7 +70,7 @@ class FashionersTanglevineShaft(GenericSkill):
 class Tighnari(CharacterCard):
     """Tighnari"""
 
-    id: int = 6321
+    id: int = 1702
     name: str = "Tighnari"
     element_type: ElementType = ElementType.DENDRO
     nations: list[Nation] = [Nation.Sumeru]
@@ -84,6 +86,7 @@ class Tighnari(CharacterCard):
 
 
 class VijanaSuffusionStatus(CharacterStatusEntity):
+    id: int = 117021
     name: str = "VijanaSuffusion"
     element: ElementType = ElementType.DENDRO
     description: str = "Convert physical damage into elemental damage"

@@ -45,16 +45,19 @@ class BaneofAllEvil(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.ANEMO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 4
+    status_id: int = 115041
+    status_name: str = "Yaksha's Mask"
 
 
-class YakshasMask(CharacterStatusEntity):
+class YakshasMaskStatus(CharacterStatusEntity):
     """Character Status: Yaksha's Mask
     The character to which this is attached has their Physical DMG dealt converted to Anemo DMG and they will deal +1 Anemo DMG.
     When the character to which this is attached uses a Plunging Attack: +2 additional DMG.
     If the character this card is attached to is the active character, when you perform "Switch Character": Spend 1 less Elemental Die. (Once per Round)
     Duration (Rounds): 2"""
 
-    name: str = "Yakshas Mask"
+    id: int = 115041
+    name: str = "Yaksha's Mask"
     element: ElementType = ElementType.ANEMO
     description: str = """The character to which this is attached has their Physical DMG dealt converted to Pyro DMG, and they will deal +1 Pyro DMG.Some times can Apply [Blood Blossom].Duration (Rounds): 2"""
     value: int = 0

@@ -48,7 +48,7 @@ class Breastplate(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.GEO: 3}
-    damage_element: ElementType = ElementType.Geo
+    damage_element: ElementType = ElementType.GEO
     damage_value: int = 1
     combat_status_name: str = "Full Plate"
 
@@ -67,11 +67,11 @@ class SweepingTime(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
     costs: dict[ElementType, int] = {ElementType.GEO: 4, ElementType.POWER: 2}
-    damage_element: ElementType = ElementType.Geo
+    damage_element: ElementType = ElementType.GEO
     damage_value: int = 4
 
 
-class CombatStatuFullPlate(CombatStatusEntity):
+class FullPlateStatus(CombatStatusEntity):
     """
     Full Plate
     ~~~~~~
@@ -79,6 +79,7 @@ class CombatStatuFullPlate(CombatStatusEntity):
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
 
+    id: int = 116021
     name: str = "Full Plate"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:

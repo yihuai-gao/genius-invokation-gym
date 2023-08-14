@@ -225,6 +225,7 @@ class ChakraDesiderataStatus(CharacterStatusEntity):
     When the character to which this is attached uses Secret Art:
     Musou Shinsetsu: Consume all Resolve and deal +1 DMG per Resolve."""
 
+    id: int = 114072
     name: str = "Chakra Desiderata"
     max_resolve: int = 3
     resolve: int = 0

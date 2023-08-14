@@ -69,15 +69,17 @@ class FantasticVoyage(GenericSkill):
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 2
     combat_status_name: str = "Inspiration Field"
+    combat_status_id: int = 113031
 
 
-class InspirationField(CombatStatusEntity):
+class InspirationFieldStatus(CombatStatusEntity):
     """
     Inspiration Field
     ~~~~~~
     `战斗行动`Inspiration Field
     """
 
+    id: int = 113031
     name: str = "Inspiration Field"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:

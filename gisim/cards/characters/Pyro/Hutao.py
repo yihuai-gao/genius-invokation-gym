@@ -41,6 +41,8 @@ class GuidetoAfterlife(GenericSkill):
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.PYRO: 2}
     status_name: str = "Paramita Papilio"
+    status_id: int = 113071
+
     status_remaining_round: int = 2
     status_remaining_usage: int = INF_INT
 
@@ -122,6 +124,7 @@ class ParamitaPapilioStatus(CharacterStatusEntity):
     Duration (Rounds): 2
     """
 
+    id: int = 113071
     name: str = "Paramita Papilio"
     element: ElementType = ElementType.PYRO
     description: str = """The character to which this is attached has their Physical DMG dealt converted to Pyro DMG, and they will deal +1 Pyro DMG.Some times can Apply [Blood Blossom].Duration (Rounds): 2"""
@@ -173,6 +176,7 @@ class BloodBlossomStatus(CharacterStatusEntity):
     Usage(s): 1
     """
 
+    id: int = 1009
     name: str = "Paramita Papilio"
     element: ElementType = ElementType.PYRO
     description: str = """End Phase: Deal 1 Pyro DMG to the character to which this is attached. Usage(s): 1"""

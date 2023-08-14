@@ -33,9 +33,11 @@ class IcetideVortex(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.CRYO: 3}
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 2
+    # TODO: This is actually not a generic skill (will not generate grimheart if already exist)
 
 
-class Grimheart(CharacterStatusEntity):
+class GrimheartStatus(CharacterStatusEntity):
+    id: int = 111061
     name: str = "Grimheart"
     element: ElementType = ElementType.CRYO
     description: str = """After the character to which this is attached uses Icetide Vortex: Remove this status, DMG +2 for this instance."""
