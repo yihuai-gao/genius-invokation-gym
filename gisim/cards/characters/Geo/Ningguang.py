@@ -48,9 +48,10 @@ class JadeScreen(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
     costs: dict[ElementType, int] = {ElementType.GEO: 3}
-    damage_element: ElementType = ElementType.Geo
+    damage_element: ElementType = ElementType.GEO
     damage_value: int = 2
     combat_status_name: str = "Jade Screen"
+    combat_status_id: int = 116011
 
 
 class Starshatter(GenericSkill):
@@ -67,11 +68,11 @@ class Starshatter(GenericSkill):
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
     costs: dict[ElementType, int] = {ElementType.GEO: 3, ElementType.POWER: 3}
-    damage_element: ElementType = ElementType.Geo
+    damage_element: ElementType = ElementType.GEO
     damage_value: int = 6
 
 
-class CombatStatuJadeScreen(CombatStatusEntity):
+class JadeScreenStatus(CombatStatusEntity):
     """
     Jade Screen
     ~~~~~~
@@ -79,6 +80,7 @@ class CombatStatuJadeScreen(CombatStatusEntity):
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
 
+    id: int = 116011
     name: str = "Jade Screen"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:

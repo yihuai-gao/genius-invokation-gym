@@ -42,6 +42,7 @@ class ChonghuasLayeredFrost(GenericSkill):
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 3
     combat_status_name: str = "Chonghuas Frost Field"
+    combat_status_id: int = 111041
 
     """Chonghua's Frost Field
 Your Sword, Claymore, and Polearm-wielding characters' Physical DMG is converted to Cryo DMG.
@@ -86,6 +87,7 @@ class ChonghuasFrostFieldStatus(CombatStatusEntity):
     Duration (Rounds): 2
     """
 
+    id: int = 111041
     name: str = "Chonghuas Frost Field"
     description: str = """Your Sword, Claymore, and Polearm-wielding characters' Physical DMG is converted to Cryo DMG.Duration (Rounds): 2"""
     active: bool = True

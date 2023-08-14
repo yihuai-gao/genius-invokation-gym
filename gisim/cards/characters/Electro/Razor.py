@@ -50,6 +50,7 @@ class LightningFang(GenericSkill):
     damage_element: ElementType = ElementType.ELECTRO
     damage_value: int = 5
     status_name: str = "The Wolf Within"
+    status_id: int = 114021
     status_remaining_round: int = 2
 
 
@@ -77,6 +78,7 @@ class TheWolfWithinStatus(CharacterStatusEntity):
     Deal 2 Electro DMG.
     Duration (Rounds): 2"""
 
+    id: int = 114021
     name: str = "The Wolf Within"
     element: ElementType = ElementType.ELECTRO
     description: str = """After the character to which this is attached uses a Normal Attack or an Elemental Skill: Deal 2 Electro DMG.Duration (Rounds): 2"""

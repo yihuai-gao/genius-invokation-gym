@@ -63,7 +63,6 @@ class TrailoftheQilin(GenericSkill):
     text: str = """
     Deals 1 Cryo DMG, creates 1 Ice Lotus.
     """
-    combat_status_name: str = "Ice Lotus"
 
     costs: Dict[ElementType, int] = {ElementType.CRYO: 3}
     type: SkillType = SkillType.ELEMENTAL_SKILL
@@ -71,14 +70,18 @@ class TrailoftheQilin(GenericSkill):
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 1
 
+    combat_status_name: str = "Ice Lotus"
+    combat_status_id: int = 111012
 
-class IceLotus(CombatStatusEntity):
+
+class IceLotusStatus(CombatStatusEntity):
     """
     冰莲
     ~~~
     `战斗行动`给出战角色 添加一个护盾 盾值为1，最多可以使用2次
     """
 
+    id: int = 111012
     name: str = "Ice Lotus"
     description: str = "给出战角色 添加一个护盾 盾值为1，最多可以使用2次。"
     value: int = 2

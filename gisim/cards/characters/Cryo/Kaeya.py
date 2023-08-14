@@ -69,9 +69,10 @@ class GlacialWaltz(GenericSkill):
     damage_element: ElementType = ElementType.CRYO
     damage_value: int = 1
     combat_status_name: str = "Icicle"
+    combat_status_id: int = 111031
 
 
-class CombatStatuIcicle(CombatStatusEntity):
+class IcicleStatus(CombatStatusEntity):
     """
     Icicle
     ~~~~~~
@@ -79,6 +80,7 @@ class CombatStatuIcicle(CombatStatusEntity):
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
 
+    id: int = 111031
     name: str = "Icicle"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:

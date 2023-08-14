@@ -34,14 +34,17 @@ class SkywardSonnet(GenericSkill):
     costs: dict[ElementType, int] = {ElementType.ANEMO: 3}
     damage_element: ElementType = ElementType.ANEMO
     damage_value: int = 2
+    combat_status_id: int = 115031
+    combat_status_name: str = "Stormzone"
 
 
-class Stormzone(CombatStatusEntity):
+class StormzoneStatus(CombatStatusEntity):
     """Combat Status: Stormzone
     When you perform "Switch Character": Spend 1 less Elemental Die.
     Usage(s): 2
     """
 
+    id: int = 115031
     name: str = "Stormzone"
     description: str = """When you perform "Switch Character": Spend 1 less Elemental Die.Usage(s): 2"""
     active: bool = True

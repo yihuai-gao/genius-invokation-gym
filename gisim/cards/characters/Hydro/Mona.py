@@ -71,6 +71,7 @@ class StellarisPhantasm(GenericSkill):
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 4
     combat_status_name: str = "Illusory Bubble"
+    combat_status_id: int = 112032
 
 
 class IllusoryTorrent(GenericSkill):
@@ -101,7 +102,7 @@ class Reflection(AttackSummon):
     name: str = "Reflection"
 
 
-class CombatStatuIllusoryBubble(CombatStatusEntity):
+class IllusoryBubbleStatus(CombatStatusEntity):
     """
     Illusory Bubble
     ~~~~~~
@@ -109,6 +110,7 @@ class CombatStatuIllusoryBubble(CombatStatusEntity):
     请完善这个类的效果,应该是召唤物或者战斗效果
     """
 
+    id: int = 112032
     name: str = "Illusory Bubble"
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:

@@ -274,9 +274,7 @@ class AttackOnlyAgent(Agent):
                         current_dice, {ElementType.SAME: 3}, character_card.element_type
                     )
                     if len(dice_idx) > 0:
-                        card_idx = player_info.hand_cards.index(
-                            "Sacrificial Sword"
-                        )
+                        card_idx = player_info.hand_cards.index("Sacrificial Sword")
                         return UseCardAction(
                             card_idx=card_idx,
                             card_target=[

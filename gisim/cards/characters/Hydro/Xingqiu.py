@@ -57,6 +57,7 @@ class FatalRainscreen(GenericSkill):
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 2
     combat_status_name: str = "Rain Sword"
+    combat_status_id: int = 112021
     combat_status_remaining_round: int = INF_INT
     combat_status_remaining_usage: int = 2
     self_element_attachment: ElementType = ElementType.HYDRO
@@ -79,6 +80,8 @@ class Raincutter(GenericSkill):
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
     combat_status_name: str = "Rainbow Bladework"
+    combat_status_id: int = 112022
+
     combat_status_remaining_round: int = INF_INT
     combat_status_remaining_usage: int = 3
     self_element_attachment: ElementType = ElementType.HYDRO
@@ -108,6 +111,7 @@ class RainSwordStatus(CombatStatusEntity):
     Usage(s): 2
     """
 
+    id: int = 112021
     name: str = "Rain Sword"
     description: str = """When your active character receives at least 3 DMG: Decrease DMG taken by 1.Usage(s): 2"""
     active: bool = True
@@ -148,7 +152,8 @@ class RainbowBladeworkStatus(CombatStatusEntity):
     Deal 1 Hydro DMG.
     Usage(s): 3"""
 
-    name = "Rainbow Bladework"
+    id: int = 112022
+    name: str = "Rainbow Bladework"
     description = (
         "After your character uses a Normal Attack: Deal 1 Hydro DMG.Usage(s): 3"
     )
