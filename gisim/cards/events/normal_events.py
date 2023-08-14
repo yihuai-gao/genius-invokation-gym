@@ -23,11 +23,13 @@ class HeavyStrikeCard(EventCard):
             sender_id=player_id,
             target=(player_id, CharPos.ACTIVE),
             status_name="HeavyStrikeStatus",
+            status_id=303220,
         )
         msg_queue.put(new_msg)
 
 
 class HeavyStrikeStatus(CharacterStatusEntity):
+    id: int = 303220
     name: str = "Heavy Strike"
     description: str = """During this round, your current active character's next Normal Attack deals +1 DMG.
     When this Normal Attack is a Charged Attack: Deal +1 additional DMG."""

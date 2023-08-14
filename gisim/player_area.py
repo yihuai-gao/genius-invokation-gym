@@ -453,10 +453,10 @@ class CombatStatusZone(BaseZone):
                     if entity.name == top_msg.combat_status_name:
                         self.status_entities.pop(idx)
                 status_entity = get_combat_status(
-                    top_msg.combat_status_name,
                     self._parent.player_id,
                     top_msg.remaining_round,
                     top_msg.remaining_usage,
+                    status_name=top_msg.combat_status_name,
                 )
                 self.status_entities.insert(0, status_entity)
                 """因为后面都是逆序遍历，为了保证按照buff的添加顺序执行所以在list开头插入。"""
@@ -516,10 +516,10 @@ class CharacterZone(BaseZone):
                             self.status.pop(idx)
 
                     status_entity = get_character_status(
-                        top_msg.status_name,
                         self._parent.player_id,
                         self.position,
                         top_msg.remaining_round,
+                        status_name=top_msg.status_name,
                     )
                     self.status.append(status_entity)
                     top_msg.responded_entities.append((self._uuid))

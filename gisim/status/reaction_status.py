@@ -10,6 +10,7 @@ from gisim.env import INF_INT
 class ElementalInfusionStatus(CharacterStatusEntity):
     """元素附魔"""
 
+    id: int
     name: str
     element: ElementType
     description: str = "Convert physical damage into elemental damage"

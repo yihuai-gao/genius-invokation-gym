@@ -15,7 +15,7 @@ class CharacterStatusEntity(Entity, ABC):
 
     player_id: PlayerID
     position: CharPos
-    # id: int
+    id: int
     name: str
     description: str
     active: bool
