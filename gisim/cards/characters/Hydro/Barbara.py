@@ -1,5 +1,5 @@
 """芭芭拉"""
-from queue import PriorityQueue
+from typing import Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
@@ -29,7 +29,7 @@ class WhisperofWater(GenericSkill):
     Deals 1 Hydro DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
 
@@ -47,7 +47,7 @@ class LettheShowBegin(GenericSkill):
     Deals 1 Hydro DMG, summons 1 Melody Loop.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
     summon_name: str = "Melody Loop"
@@ -67,7 +67,7 @@ class ShiningMiracle(GenericSkill):
     Heals all of your characters for 4 HP.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 3}
 
 
 class MelodyLoop(AttackSummon):
@@ -88,12 +88,12 @@ class Barbara(CharacterCard):
     id: int = 1201
     name: str = "Barbara"
     element_type: ElementType = ElementType.HYDRO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.CATALYST
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         WhisperofWater(),
         LettheShowBegin(),
         ShiningMiracle(),

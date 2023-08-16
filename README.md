@@ -31,6 +31,10 @@ Installation: enter the project directory and execute the following command:
 ```bash
 poetry install
 ```
+(Optional) You can also try to install this package with pip:
+```bash
+pip3 install .
+```
 
 Runnable basic demo locally: give the following a try:
 ```bash

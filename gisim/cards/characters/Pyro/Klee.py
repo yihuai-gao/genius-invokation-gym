@@ -1,5 +1,5 @@
 """可莉"""
-from queue import PriorityQueue
+from typing import Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
@@ -29,7 +29,7 @@ class Kaboom(GenericSkill):
     Deals 1 Pyro DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 1
 
@@ -47,7 +47,7 @@ class JumpyDumpty(GenericSkill):
     Deals 3 Pyro DMG. This character gains Explosive Spark.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.PYRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 3}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 3
 
@@ -65,7 +65,7 @@ class SparksnSplash(GenericSkill):
     Deals 3 Pyro DMG, creates 1 Sparks 'n' Splash at the opponent's play area.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.PYRO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 3
 
@@ -76,12 +76,12 @@ class Klee(CharacterCard):
     id: int = 1306
     name: str = "Klee"
     element_type: ElementType = ElementType.PYRO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.CATALYST
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         Kaboom(),
         JumpyDumpty(),
         SparksnSplash(),

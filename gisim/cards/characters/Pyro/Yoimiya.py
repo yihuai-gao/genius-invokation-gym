@@ -1,4 +1,5 @@
 """宵宫"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class FireworkFlareUp(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +48,7 @@ class NiwabiFireDance(GenericSkill):
     This character gains Niwabi Enshou. (This Skill does not grant Energy)
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.PYRO: 1}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 1}
 
 
 class RyuukinSaxifrage(GenericSkill):
@@ -63,7 +64,7 @@ class RyuukinSaxifrage(GenericSkill):
     Deals 4 Pyro DMG, creates 1 Aurous Blaze.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.PYRO: 4, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 4, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 4
     combat_status_name: str = "Aurous Blaze"
@@ -98,12 +99,12 @@ class Yoimiya(CharacterCard):
     id: int = 1305
     name: str = "Yoimiya"
     element_type: ElementType = ElementType.PYRO
-    nations: list[Nation] = [Nation.Inazuma]
+    nations: List[Nation] = [Nation.Inazuma]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.BOW
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         FireworkFlareUp(),
         NiwabiFireDance(),
         RyuukinSaxifrage(),

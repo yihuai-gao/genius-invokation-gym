@@ -1,4 +1,5 @@
 """诺艾尔"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class FavoniusBladeworkMaid(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.GEO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.GEO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +48,7 @@ class Breastplate(GenericSkill):
     Deals 1 Geo DMG, creates 1 Full Plate.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.GEO: 3}
+    costs: Dict[ElementType, int] = {ElementType.GEO: 3}
     damage_element: ElementType = ElementType.GEO
     damage_value: int = 1
     combat_status_name: str = "Full Plate"
@@ -66,7 +67,7 @@ class SweepingTime(GenericSkill):
     Deals 4 Geo DMG. This character gains Sweeping Time.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.GEO: 4, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.GEO: 4, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.GEO
     damage_value: int = 4
 
@@ -93,12 +94,12 @@ class Noelle(CharacterCard):
     id: int = 1602
     name: str = "Noelle"
     element_type: ElementType = ElementType.GEO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.CLAYMORE
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         FavoniusBladeworkMaid(),
         Breastplate(),
         SweepingTime(),

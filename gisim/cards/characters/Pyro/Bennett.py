@@ -1,4 +1,5 @@
 """班尼特"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class StrikeofFortune(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +48,7 @@ class PassionOverload(GenericSkill):
     Deals 3 Pyro DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.PYRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 3}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 3
 
@@ -65,7 +66,7 @@ class FantasticVoyage(GenericSkill):
     Deals 2 Pyro DMG, creates 1 Inspiration Field.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.PYRO: 4, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 4, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 2
     combat_status_name: str = "Inspiration Field"
@@ -93,12 +94,12 @@ class Bennett(CharacterCard):
     id: int = 1303
     name: str = "Bennett"
     element_type: ElementType = ElementType.PYRO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.SWORD
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         StrikeofFortune(),
         PassionOverload(),
         FantasticVoyage(),

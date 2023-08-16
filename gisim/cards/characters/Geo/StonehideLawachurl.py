@@ -1,4 +1,5 @@
 """丘丘岩盔王"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class PlamaLawa(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.GEO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.GEO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +48,7 @@ class MovoLawa(GenericSkill):
     Deals 3 Physical DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.GEO: 3}
+    costs: Dict[ElementType, int] = {ElementType.GEO: 3}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 3
 
@@ -65,7 +66,7 @@ class UpaShato(GenericSkill):
     Deals 5 Physical DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.GEO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.GEO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 5
 
@@ -83,7 +84,7 @@ class InfusedStonehide(GenericSkill):
     (Passive) When the battle begins, this character gains Stonehide and Stone Force.
     """
     type: SkillType = SkillType.PASSIVE_SKILL
-    costs: dict[ElementType, int] = {}
+    costs: Dict[ElementType, int] = {}
 
 
 class StonehideLawachurl(CharacterCard):
@@ -92,12 +93,12 @@ class StonehideLawachurl(CharacterCard):
     id: int = 2601
     name: str = "Stonehide Lawachurl"
     element_type: ElementType = ElementType.GEO
-    nations: list[Nation] = [Nation.Monster, Nation.Hilichurl]
+    nations: List[Nation] = [Nation.Monster, Nation.Hilichurl]
     health_point: int = 8
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.OTHER_WEAPONS
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         PlamaLawa(),
         MovoLawa(),
         UpaShato(),

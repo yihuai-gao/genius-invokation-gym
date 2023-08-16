@@ -1,4 +1,5 @@
 """愚人众·藏镜仕女"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class WaterBall(GenericSkill):
     Deals 1 Hydro DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
 
@@ -47,7 +48,7 @@ class InfluxBlast(GenericSkill):
     Deals 3 Hydro DMG. The target character receives Refraction.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 3
 
@@ -65,7 +66,7 @@ class RippledReflection(GenericSkill):
     Deals 5 Hydro DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 5
 
@@ -76,12 +77,12 @@ class MirrorMaiden(CharacterCard):
     id: int = 2202
     name: str = "Mirror Maiden"
     element_type: ElementType = ElementType.HYDRO
-    nations: list[Nation] = [Nation.Fatui]
+    nations: List[Nation] = [Nation.Fatui]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.OTHER_WEAPONS
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         WaterBall(),
         InfluxBlast(),
         RippledReflection(),

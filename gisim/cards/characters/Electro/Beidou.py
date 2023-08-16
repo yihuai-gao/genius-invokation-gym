@@ -1,4 +1,5 @@
 """北斗"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class Oceanborne(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.ELECTRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +48,7 @@ class Tidecaller(GenericSkill):
     This character gains a Tidecaller: Surf Embrace. Prepare Skill: Wavestrider.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.ELECTRO, 3}
+    costs: Dict[ElementType, int] = {ElementType.ELECTRO, 3}
 
 
 class Stormbreaker(GenericSkill):
@@ -63,7 +64,7 @@ class Stormbreaker(GenericSkill):
     Deals 3 Electro DMG, creates 1 Thunderbeast's Targe.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.ELECTRO, 4, ElementType.POWER, 3}
+    costs: Dict[ElementType, int] = {ElementType.ELECTRO, 4, ElementType.POWER, 3}
     damage_element: ElementType = ElementType.ELECTRO
     damage_value: int = 3
 
@@ -81,7 +82,7 @@ class Wavestrider(GenericSkill):
     (Prepare for 1 turn)Deals 2 Electro DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {}
+    costs: Dict[ElementType, int] = {}
 
 
 class Beidou(CharacterCard):
@@ -90,12 +91,12 @@ class Beidou(CharacterCard):
     id: int = 1405
     name: str = "Beidou"
     element_type: ElementType = ElementType.ELECTRO
-    nations: list[Nation] = [Nation.Liyue]
+    nations: List[Nation] = [Nation.Liyue]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.CLAYMORE
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         Oceanborne(),
         Tidecaller(),
         Stormbreaker(),
