@@ -1,4 +1,5 @@
 """莫娜"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class RippleofFate(GenericSkill):
     Deals 1 Hydro DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
 
@@ -47,7 +48,7 @@ class MirrorReflectionofDoom(GenericSkill):
     Deals 1 Hydro DMG, summons 1 Reflection.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
     summon_name: str = "Reflection"
@@ -67,7 +68,7 @@ class StellarisPhantasm(GenericSkill):
     Deals 4 Hydro DMG, creates 1 Illusory Bubble.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 4
     combat_status_name: str = "Illusory Bubble"
@@ -87,7 +88,7 @@ class IllusoryTorrent(GenericSkill):
     (Passive) When you perform "Switch Character" while Mona is your active character: This switch is considered a Fast Action instead of a Combat Action. (Once per Round)
     """
     type: SkillType = SkillType.PASSIVE_SKILL
-    costs: dict[ElementType, int] = {}
+    costs: Dict[ElementType, int] = {}
 
 
 class Reflection(AttackSummon):
@@ -124,12 +125,12 @@ class Mona(CharacterCard):
     id: int = 1203
     name: str = "Mona"
     element_type: ElementType = ElementType.HYDRO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.CATALYST
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         RippleofFate(),
         MirrorReflectionofDoom(),
         StellarisPhantasm(),

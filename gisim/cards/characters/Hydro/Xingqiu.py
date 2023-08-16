@@ -1,8 +1,8 @@
 """行秋"""
+from typing import cast, Dict, List
 from queue import PriorityQueue
-from typing import cast
 
-from classes.message import AfterUsingSkillMsg, DealDamageMsg
+from gisim.classes.message import AfterUsingSkillMsg, DealDamageMsg
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
@@ -35,7 +35,7 @@ class GuhuaStyle(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -53,7 +53,7 @@ class FatalRainscreen(GenericSkill):
     Deals 2 Hydro DMG, grants this character Hydro Application, creates 1 Rain Sword.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 2
     combat_status_name: str = "Rain Sword"
@@ -76,7 +76,7 @@ class Raincutter(GenericSkill):
     Deals 1 Hydro DMG, grants this character Hydro Application, creates 1 Rainbow Bladework.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
     combat_status_name: str = "Rainbow Bladework"
@@ -93,12 +93,12 @@ class Xingqiu(CharacterCard):
     id: int = 1202
     name: str = "Xingqiu"
     element_type: ElementType = ElementType.HYDRO
-    nations: list[Nation] = [Nation.Liyue]
+    nations: List[Nation] = [Nation.Liyue]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.SWORD
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         GuhuaStyle(),
         FatalRainscreen(),
         Raincutter(),

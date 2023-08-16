@@ -1,4 +1,5 @@
 """刻晴"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class YunlaiSwordsmanship(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.ELECTRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -48,7 +49,7 @@ class StellarRestoration(GenericSkill):
     """
     # TODO: 生成雷楔牌，而非状态
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.ELECTRO: 3}
     damage_element: ElementType = ElementType.ELECTRO
     damage_value: int = 3
     combat_status_name: str = "Lightning Stiletto"
@@ -67,7 +68,7 @@ class StarwardSword(GenericSkill):
     Deals 4 Electro DMG, deals 3 Piercing DMG to all opposing characters on standby.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 4, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.ELECTRO: 4, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.ELECTRO
     damage_value: int = 4
     piercing_damage_value: int = 3
@@ -94,12 +95,12 @@ class Keqing(CharacterCard):
     id: int = 1403
     name: str = "Keqing"
     element_type: ElementType = ElementType.ELECTRO
-    nations: list[Nation] = [Nation.Liyue]
+    nations: List[Nation] = [Nation.Liyue]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.SWORD
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         YunlaiSwordsmanship(),
         StellarRestoration(),
         StarwardSword(),

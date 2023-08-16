@@ -1,5 +1,5 @@
 """愚人众·火之债务处理人"""
-from queue import PriorityQueue
+from typing import Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
@@ -29,7 +29,7 @@ class Thrust(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +47,7 @@ class Prowl(GenericSkill):
     Deals 1 Pyro DMG. This character gains Stealth.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.PYRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 3}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 1
 
@@ -65,7 +65,7 @@ class BladeAblaze(GenericSkill):
     Deals 5 Pyro DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.PYRO: 3, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 3, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 5
 
@@ -83,7 +83,7 @@ class StealthMaster(GenericSkill):
     (Passive) When the battle begins, this character gains Stealth.
     """
     type: SkillType = SkillType.PASSIVE_SKILL
-    costs: dict[ElementType, int] = {}
+    costs: Dict[ElementType, int] = {}
 
 
 class FatuiPyroAgent(CharacterCard):
@@ -92,12 +92,12 @@ class FatuiPyroAgent(CharacterCard):
     id: int = 2301
     name: str = "Fatui Pyro Agent"
     element_type: ElementType = ElementType.PYRO
-    nations: list[Nation] = [Nation.Fatui]
+    nations: List[Nation] = [Nation.Fatui]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.OTHER_WEAPONS
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         Thrust(),
         Prowl(),
         BladeAblaze(),

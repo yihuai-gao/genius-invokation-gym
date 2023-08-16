@@ -1,4 +1,5 @@
 """雷电将军"""
+from typing import Dict, List
 from queue import PriorityQueue
 from typing import TYPE_CHECKING, Dict, cast
 
@@ -207,12 +208,12 @@ class RaidenShogun(CharacterCard):
     id: int = 6559
     name: str = "Raiden Shogun"
     element_type: ElementType = ElementType.ELECTRO
-    nations: list[Nation] = [Nation.Inazuma]
+    nations: List[Nation] = [Nation.Inazuma]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.POLEARM
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         Origin(),
         TranscendenceBalefulOmen(),
         SecretArtMusouShinsetsu(),

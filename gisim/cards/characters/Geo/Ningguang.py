@@ -1,4 +1,5 @@
 """凝光"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class SparklingScatter(GenericSkill):
     Deals 1 Geo DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.GEO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.GEO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.Geo
     damage_value: int = 1
 
@@ -47,7 +48,7 @@ class JadeScreen(GenericSkill):
     Deals 2 Geo DMG, creates 1 Jade Screen.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.GEO: 3}
+    costs: Dict[ElementType, int] = {ElementType.GEO: 3}
     damage_element: ElementType = ElementType.GEO
     damage_value: int = 2
     combat_status_name: str = "Jade Screen"
@@ -67,7 +68,7 @@ class Starshatter(GenericSkill):
     Deals 6 Geo DMG. If Jade Screen is on the field, deals +2 DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.GEO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.GEO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.GEO
     damage_value: int = 6
 
@@ -94,12 +95,12 @@ class Ningguang(CharacterCard):
     id: int = 1601
     name: str = "Ningguang"
     element_type: ElementType = ElementType.GEO
-    nations: list[Nation] = [Nation.Liyue]
+    nations: List[Nation] = [Nation.Liyue]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.CATALYST
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         SparklingScatter(),
         JadeScreen(),
         Starshatter(),

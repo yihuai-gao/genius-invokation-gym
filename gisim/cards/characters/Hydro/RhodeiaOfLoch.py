@@ -1,4 +1,5 @@
 """纯水精灵·洛蒂娅"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class Surge(GenericSkill):
     Deals 1 Hydro DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 1
 
@@ -47,7 +48,7 @@ class OceanidMimicSummoning(GenericSkill):
     Randomly summons 1 Oceanid Mimic (Prioritizes summoning a different type from preexisting ones).
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3}
 
 
 class TheMyriadWilds(GenericSkill):
@@ -63,7 +64,7 @@ class TheMyriadWilds(GenericSkill):
     Randomly summons 2 Oceanid Mimic (Prioritizes summoning different types).
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 5}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 5}
 
 
 class TideandTorrent(GenericSkill):
@@ -79,7 +80,7 @@ class TideandTorrent(GenericSkill):
     Deals 2 Hydro DMG. For each friendly Summon on the field, deals +2 additional DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.HYDRO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.HYDRO
     damage_value: int = 2
 
@@ -90,12 +91,12 @@ class RhodeiaOfLoch(CharacterCard):
     id: int = 2201
     name: str = "Rhodeia of Loch"
     element_type: ElementType = ElementType.HYDRO
-    nations: list[Nation] = [Nation.Monster]
+    nations: List[Nation] = [Nation.Monster]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.OTHER_WEAPONS
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         Surge(),
         OceanidMimicSummoning(),
         TheMyriadWilds(),

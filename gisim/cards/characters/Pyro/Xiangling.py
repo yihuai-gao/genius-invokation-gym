@@ -1,4 +1,5 @@
 """香菱"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class DoughFu(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +48,7 @@ class GuobaAttack(GenericSkill):
     Summons 1 Guoba.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.PYRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 3}
     summon_name: str = "Guoba"
     summon_id: int = 113021
 
@@ -65,7 +66,7 @@ class Pyronado(GenericSkill):
     Deals 2 Pyro DMG, creates 1 Pyronado.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.PYRO: 4, ElementType.POWER: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 4, ElementType.POWER: 2}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 2
     combat_status_name: str = "Pyronado"
@@ -106,12 +107,12 @@ class Xiangling(CharacterCard):
     id: int = 1302
     name: str = "Xiangling"
     element_type: ElementType = ElementType.PYRO
-    nations: list[Nation] = [Nation.Liyue]
+    nations: List[Nation] = [Nation.Liyue]
     health_point: int = 10
     power: int = 0
     max_power: int = 2
     weapon_type: WeaponType = WeaponType.POLEARM
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         DoughFu(),
         GuobaAttack(),
         Pyronado(),

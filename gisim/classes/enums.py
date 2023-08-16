@@ -1,7 +1,7 @@
 from enum import IntEnum, auto
 from logging import getLogger
 
-from env import INF_INT
+from gisim.env import INF_INT
 
 
 class ServiceMessageSender(IntEnum):

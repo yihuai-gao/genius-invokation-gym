@@ -1,4 +1,5 @@
 """菲谢尔"""
+from typing import Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
@@ -15,7 +16,7 @@ class BoltsofDownfall(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.ELECTRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -30,7 +31,7 @@ class Nightrider(GenericSkill):
     Deals 1 Electro DMG, summons 1 Oz.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.ELECTRO: 3}
     damage_element: ElementType = ElementType.ELECTRO
     damage_value: int = 1
     summon_name: str = "Oz"
@@ -47,7 +48,7 @@ class MidnightPhantasmagoria(GenericSkill):
     Deals 4 Electro DMG, deals 2 Piercing DMG to all opposing characters on standby.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.ELECTRO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.ELECTRO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.ELECTRO
     damage_value: int = 4
     piercing_damage_value: int = 2
@@ -71,12 +72,12 @@ class Fischl(CharacterCard):
     id: int = 1401
     name: str = "Fischl"
     element_type: ElementType = ElementType.ELECTRO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.BOW
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         BoltsofDownfall(),
         Nightrider(),
         MidnightPhantasmagoria(),

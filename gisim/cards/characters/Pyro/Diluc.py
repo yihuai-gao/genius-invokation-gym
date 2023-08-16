@@ -1,4 +1,5 @@
 """迪卢克"""
+from typing import Dict, List
 from queue import PriorityQueue
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
@@ -29,7 +30,7 @@ class TemperedSword(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -47,7 +48,7 @@ class SearingOnslaught(GenericSkill):
     Deals 3 Pyro DMG. For the third use of this Skill each Round, deals +2 DMG.
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.PYRO: 3}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 3}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 3
 
@@ -65,7 +66,7 @@ class Dawn(GenericSkill):
     Deals 8 Pyro DMG. This character gains Pyro Infusion.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.PYRO: 4, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 4, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 8
 
@@ -76,12 +77,12 @@ class Diluc(CharacterCard):
     id: int = 1301
     name: str = "Diluc"
     element_type: ElementType = ElementType.PYRO
-    nations: list[Nation] = [Nation.Mondstadt]
+    nations: List[Nation] = [Nation.Mondstadt]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.CLAYMORE
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         TemperedSword(),
         SearingOnslaught(),
         Dawn(),

@@ -23,7 +23,7 @@ class SecretSpearofWangsheng(GenericSkill):
     Deals 2 Physical DMG.
     """
     type: SkillType = SkillType.NORMAL_ATTACK
-    costs: dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 1, ElementType.ANY: 2}
     damage_element: ElementType = ElementType.NONE
     damage_value: int = 2
 
@@ -39,7 +39,7 @@ class GuidetoAfterlife(GenericSkill):
     This character gains [Paramita Papilio].
     """
     type: SkillType = SkillType.ELEMENTAL_SKILL
-    costs: dict[ElementType, int] = {ElementType.PYRO: 2}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 2}
     status_name: str = "Paramita Papilio"
     status_id: int = 113071
 
@@ -60,7 +60,7 @@ class SpiritSoother(GenericSkill):
     Deals 4 Pyro DMG, heals herself for 2 HP. If this character's HP is no more than 6, DMG dealt and Healing are increased by 1.
     """
     type: SkillType = SkillType.ELEMENTAL_BURST
-    costs: dict[ElementType, int] = {ElementType.PYRO: 3, ElementType.POWER: 3}
+    costs: Dict[ElementType, int] = {ElementType.PYRO: 3, ElementType.POWER: 3}
     damage_element: ElementType = ElementType.PYRO
     damage_value: int = 4
     heal_value: int = 2
@@ -106,12 +106,12 @@ class Hutao(CharacterCard):
     id: int = 6558
     name: str = "Hutao"
     element_type: ElementType = ElementType.PYRO
-    nations: list[Nation] = [Nation.Liyue]
+    nations: List[Nation] = [Nation.Liyue]
     health_point: int = 10
     power: int = 0
     max_power: int = 3
     weapon_type: WeaponType = WeaponType.POLEARM
-    skills: list[CharacterSkill] = [
+    skills: List[CharacterSkill] = [
         SecretSpearofWangsheng(),
         GuidetoAfterlife(),
         SpiritSoother(),
