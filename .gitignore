@@ -7,3 +7,6 @@ coverage.xml
 tools/*.txt
 .vscode
 data/logs
+.python-version
+.idea
+/venv

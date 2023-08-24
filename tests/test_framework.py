@@ -1,4 +1,5 @@
 import json
+import os.path
 from uuid import UUID
 
 from gisim.agent import AttackOnlyAgent, NoAttackAgent  # noqa: E402
@@ -122,6 +123,7 @@ if __name__ == "__main__":
     else:
         print(f"The winner is {winner}")
 
+
     class UUIDEncoder(json.JSONEncoder):
         def default(self, obj):
             if isinstance(obj, UUID):
@@ -129,6 +131,9 @@ if __name__ == "__main__":
                 return obj.hex
             return json.JSONEncoder.default(self, obj)
 
+
+    if os.path.dirname(log_file):
+        os.makedirs(os.path.dirname(log_file), exist_ok=True)
     with open(log_file, "w") as f:
         json.dump(logs, f, cls=UUIDEncoder)
     # print(json.dumps(logs[1]))
