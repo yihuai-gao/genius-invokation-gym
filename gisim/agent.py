@@ -51,20 +51,33 @@ class Agent(ABC):
         return DeclareEndAction()
 
     def take_action_on_init_change_card(self, game_info: GameInfo):
+        # default behaviour: do nothing
         _ = game_info
         return ChangeCardsAction(cards_idx=[])
 
     def take_action_on_init_select_character(self, game_info: GameInfo):
+        # default behaviour: push the middle one up
         _ = game_info
         return ChangeCharacterAction(position=CharPos.MIDDLE, dice_idx=[])
 
     def take_action_on_roll_dice(self, game_info: GameInfo):
-        raise NotImplementedError
+        # default behaviour: use the current activate character's element
+        player_info = game_info.get_player_info()
+        current_character = player_info.characters[player_info.active_character_position]
+        character_card = get_character_card(current_character.character.name)
+        character_element = character_card.element_type
+        current_dice = player_info.dice_zone
+        reroll_dice_idx = []
+        for k, element_type in enumerate(current_dice):
+            if element_type not in [character_element, ElementType.OMNI]:
+                reroll_dice_idx.append(k)
+        return RollDiceAction(dice_idx=reroll_dice_idx)
 
     def take_action_on_play_cards(self, game_info: GameInfo):
         raise NotImplementedError
 
     def take_action_on_round_end(self, game_info: GameInfo):
+        # default behaviour: change character when the current one is down
         player_info = game_info.get_player_info()
         active_pos = player_info.active_character_position
         character_info = player_info.characters[active_pos.value]
@@ -236,17 +249,6 @@ class AttackOnlyAgent(Agent):
 
         return dice_idx
 
-    def take_action_on_roll_dice(self, game_info: GameInfo):
-        player_info = game_info.get_player_info()
-        character_card = get_character_card("Kamisato Ayaka")
-        character_element = character_card.element_type
-        current_dice = player_info.dice_zone
-        reroll_dice_idx = []
-        for k, element_type in enumerate(current_dice):
-            if element_type not in [character_element, ElementType.OMNI]:
-                reroll_dice_idx.append(k)
-        return RollDiceAction(dice_idx=reroll_dice_idx)
-
     def take_action_on_play_cards(self, game_info: GameInfo):
         player_info = game_info.get_player_info()
         active_pos = player_info.active_character_position
@@ -366,17 +368,6 @@ class AttackOnlyAgent(Agent):
 class NoAttackAgent(Agent):
     def __init__(self, player_id: PlayerID):
         super().__init__(player_id)
-
-    def take_action_on_roll_dice(self, game_info: GameInfo):
-        player_info = game_info.get_player_info()
-        character_card = get_character_card("Kamisato Ayaka")
-        character_element = character_card.element_type
-        current_dice = player_info.dice_zone
-        reroll_dice_idx = []
-        for k, element_type in enumerate(current_dice):
-            if element_type not in [character_element, ElementType.OMNI]:
-                reroll_dice_idx.append(k)
-        return RollDiceAction(dice_idx=reroll_dice_idx)
 
     def take_action_on_play_cards(self, game_info: GameInfo):
         return self.take_action_on_round_end(game_info)

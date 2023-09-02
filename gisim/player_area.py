@@ -4,10 +4,9 @@ Note that player agents does not directly talk to this area, but through the gam
 
 from abc import ABC, abstractmethod
 from collections import OrderedDict
-from logging import getLogger
 from queue import PriorityQueue
 from random import Random
-from typing import TYPE_CHECKING, Generic, List, Optional, TypeVar, cast
+from typing import TYPE_CHECKING, List, Optional, cast
 from uuid import uuid4
 
 from gisim.cards import get_card, get_equipment, get_summon_entity
@@ -17,26 +16,21 @@ from gisim.classes.entity import Entity
 from gisim.classes.enums import *
 from gisim.classes.equipment import ArtifactEntity, TalentEntity, WeaponEntity
 from gisim.classes.message import (
-    AfterUsingSkillMsg,
     ChangeCardsMsg,
     ChangeDiceMsg,
-    DealDamageMsg,
     ElementalReactionTriggeredMsg,
     GenerateCharacterStatusMsg,
     GenerateCombatStatusMsg,
     GenerateEquipmentMsg,
     GenerateSummonMsg,
-    Message,
     PayCardCostMsg,
     PayCostMsg,
-    RoundBeginMsg,
     RoundEndMsg,
     TriggerSummonEffectMsg,
     UseCardMsg,
 )
-
 # from gisim.classes.status import CharacterStatusEntity, get_character_status
-from gisim.classes.status import CharacterStatusEntity, CombatStatusEntity
+from gisim.classes.status import CharacterStatusEntity
 from gisim.status import get_character_status, get_combat_status
 
 if TYPE_CHECKING:
@@ -60,11 +54,11 @@ class PlayerArea(BaseZone):
     declare_end: bool
 
     def __init__(
-        self,
-        parent: "Game",
-        random_state: "Random",
-        player_id: "PlayerID",
-        deck: dict,
+            self,
+            parent: "Game",
+            random_state: "Random",
+            player_id: "PlayerID",
+            deck: dict,
     ):
         super().__init__()
         self.declare_end = False
@@ -466,7 +460,7 @@ class CombatStatusZone(BaseZone):
             entity = self.status_entities[idx]
             updated = entity.msg_handler(msg_queue)
             if not entity.active and (
-                entity.remaining_round == 0 or entity.remaining_usage == 0
+                    entity.remaining_round == 0 or entity.remaining_usage == 0
             ):
                 self.status_entities.pop(idx)
             if updated:
@@ -571,7 +565,7 @@ class CharacterZone(BaseZone):
             invalid_idxes = []
             for idx, status in enumerate(self.status):
                 if (
-                    status.remaining_round == 0 or status.remaining_usage == 0
+                        status.remaining_round == 0 or status.remaining_usage == 0
                 ) and status.active == False:
                     # Remove this status
                     invalid_idxes.append(idx)
@@ -612,3 +606,8 @@ class CharacterInfo:
         self.weapon = character_info_dict["weapon"]
         self.artifact = character_info_dict["artifact"]
         self.status = character_info_dict["status"]
+
+    def __repr__(self):
+        return f'<{self.__class__.__name__} {self.character.name}, ' \
+               f'talent: {self.talent!r}, weapon: {self.weapon!r}, ' \
+               f'artifact: {self.artifact!r}>'

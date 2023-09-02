@@ -1,9 +1,8 @@
 """Base class of each character: abstract class
 A character in the game should be an instant of the specific character class defined in each file"""
-from abc import ABC, abstractmethod
 from collections import OrderedDict
 from queue import PriorityQueue
-from typing import Any, List, Optional, cast
+from typing import List, Optional, cast
 
 from gisim.cards.characters import get_character_card
 from gisim.cards.characters.base import CharacterCard, CharacterSkill
@@ -90,10 +89,10 @@ class CharacterEntity(Entity):
         return {key: getattr(self, key) for key in properties}
 
     def get_skill(
-        self,
-        id: Optional[int] = None,
-        skill_name: Optional[str] = None,
-        skill_type: Optional[SkillType] = None,
+            self,
+            id: Optional[int] = None,
+            skill_name: Optional[str] = None,
+            skill_type: Optional[SkillType] = None,
     ):
         """Get the character's skill through either id (0, 1, 2, ...), name (str), or skill_type
         Returns:
@@ -101,12 +100,12 @@ class CharacterEntity(Entity):
         """
         if id is not None:
             assert (
-                0 <= id <= self.skill_num - 1
-            ), f"id should be from 0 to {self.skill_num-1}"
+                    0 <= id <= self.skill_num - 1
+            ), f"id should be from 0 to {self.skill_num - 1}"
             return self.skills[id]
         elif skill_name is not None:
             assert (
-                skill_name in self.skill_names
+                    skill_name in self.skill_names
             ), f"Skill {skill_name} does not exist in {self.name}'s skill set."
             return self.skills[self.skill_names.index(skill_name)]
         else:
@@ -114,7 +113,7 @@ class CharacterEntity(Entity):
             skill_types = [skill.type for skill in self.skills]
             assert skill_type in skill_types, f"Skill type {skill_type} does not exist."
             assert (
-                skill_types.count(skill_type) == 1
+                    skill_types.count(skill_type) == 1
             ), f"Skill type {skill_type} is not unique."
             return self.skills[skill_types.index(skill_type)]
 
@@ -191,9 +190,9 @@ class CharacterEntity(Entity):
                 if self.active and target_pos == CharPos.ACTIVE:
                     msg.targets[idx] = (target_id, self.position, val)
                 if (
-                    self.alive
-                    and target_id == self.player_id
-                    and target_pos == self.position
+                        self.alive
+                        and target_id == self.player_id
+                        and target_pos == self.position
                 ):
                     self.health_point = min(10, self.health_point + val)
                     # TODO: Some Character Max HP is not 10.
@@ -201,7 +200,7 @@ class CharacterEntity(Entity):
         elif isinstance(msg, DealDamageMsg):
             msg = cast(DealDamageMsg, msg)
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                msg.targets
+                    msg.targets
             ):
                 if not self.player_id == target_id:
                     continue
@@ -209,9 +208,9 @@ class CharacterEntity(Entity):
                     # Modify the target position of the message to the correct character. In case the active character changed due to character death.
                     msg.targets[idx] = (target_id, self.position, element_type, dmg_val)
                 if (
-                    self.position == target_pos
-                    or self.active
-                    and target_pos == CharPos.ACTIVE
+                        self.position == target_pos
+                        or self.active
+                        and target_pos == CharPos.ACTIVE
                 ):
                     # msg_queue.get()
                     (
@@ -259,3 +258,8 @@ class CharacterEntityInfo:
         self.element_type: ElementType = character_entity_info_dict["element_type"]
         self.nationalities: List[Nation] = character_entity_info_dict["nationalities"]
         self.weapon_type: WeaponType = character_entity_info_dict["weapon_type"]
+
+    def __repr__(self):
+        return f'<{self.__class__.__name__} {self.name}, ' \
+               f'element: {self.element_type!r}, weapon: {self.weapon_type!r}, ' \
+               f'HP: {self.health_point}, SP: {self.power}/{self.max_power}>'
