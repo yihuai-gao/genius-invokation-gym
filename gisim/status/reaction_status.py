@@ -1,8 +1,9 @@
+import logging
 from queue import PriorityQueue
 from typing import cast
 
-from gisim.classes.enums import CharPos, ElementType, PlayerID
-from gisim.classes.message import DealDamageMsg, Message, RoundEndMsg
+from gisim.classes.enums import ElementType
+from gisim.classes.message import DealDamageMsg, RoundEndMsg
 from gisim.classes.status import CharacterStatusEntity, CombatStatusEntity
 from gisim.env import INF_INT
 
@@ -28,7 +29,7 @@ class ElementalInfusionStatus(CharacterStatusEntity):
             if top_msg.attacker == (self.player_id, self.position):
                 for idx, target in enumerate(top_msg.targets):
                     if target[2] == ElementType.NONE:
-                        print(
+                        logging.info(
                             f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {target[2]} -> {target[3]} + Add: 0\n        {self.player_id.name}-{self.position}\n"
                         )
                         top_msg.targets[idx] = (
@@ -42,7 +43,7 @@ class ElementalInfusionStatus(CharacterStatusEntity):
         if isinstance(top_msg, RoundEndMsg):
             top_msg = cast(RoundEndMsg, top_msg)
             assert (
-                self.remaining_round >= 1
+                    self.remaining_round >= 1
             ), "Remaining round should not be lower than 1!"
             self.remaining_round -= 1
             if self.remaining_round == 0:
@@ -74,10 +75,10 @@ class DendroCoreStatus(CombatStatusEntity):
             attacker_id, attacker_pos = top_msg.attacker
             if attacker_id == self.player_id:
                 for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                    top_msg.targets
+                        top_msg.targets
                 ):
                     if element_type in [ElementType.PYRO, ElementType.ELECTRO]:
-                        print(
+                        logging.info(
                             f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + {2}\n"
                         )
                         top_msg.targets[idx] = (
@@ -112,10 +113,10 @@ class CatalyzingFieldStatus(CombatStatusEntity):
             attacker_id, attacker_pos = top_msg.attacker
             if attacker_id == self.player_id:
                 for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                    top_msg.targets
+                        top_msg.targets
                 ):
                     if element_type in [ElementType.DENDRO, ElementType.ELECTRO]:
-                        print(
+                        logging.info(
                             f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + {2}\n"
                         )
                         top_msg.targets[idx] = (
@@ -157,14 +158,14 @@ class FrozenEffectStatus(CharacterStatusEntity):
             if top_msg.damage_calculation_ended:
                 return False
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                top_msg.targets
+                    top_msg.targets
             ):
                 if (
-                    target_id == self.player_id
-                    and target_pos == self.position
-                    and element_type in [ElementType.NONE, ElementType.PYRO]
+                        target_id == self.player_id
+                        and target_pos == self.position
+                        and element_type in [ElementType.NONE, ElementType.PYRO]
                 ):
-                    print(
+                    logging.info(
                         f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + Add: 2\n        {self.player_id.name}-{self.position}\n"
                     )
 
@@ -208,10 +209,10 @@ class ShieldStatus(CombatStatusEntity):
             top_msg = cast(DealDamageMsg, top_msg)
 
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                top_msg.targets
+                    top_msg.targets
             ):
                 if target_id == self.player_id and dmg_val > 0:
-                    print(
+                    logging.info(
                         f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} - {1}\n"
                     )
                     after_dmg = max(0, dmg_val - self.value)

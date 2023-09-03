@@ -1,5 +1,6 @@
 """Base class of each character: abstract class
 A character in the game should be an instant of the specific character class defined in each file"""
+import logging
 from collections import OrderedDict
 from queue import PriorityQueue
 from typing import List, Optional, cast
@@ -226,7 +227,7 @@ class CharacterEntity(Entity):
                     # 标志伤害已经计算完毕了，这个消息不应该继续被处理了
                     msg.damage_calculation_ended = True
                     self.health_point -= min(self.health_point, dmg_val)
-                    print(
+                    logging.info(
                         f"    Cause Damage:\n        Elemental :{element_type}\n        Attacker: {msg.attacker}\n        Target :{(target_id, target_pos)}\n        Val: {dmg_val}\n"
                     )
 
