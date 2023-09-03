@@ -1,16 +1,15 @@
 """甘雨"""
+import logging
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, Dict, List, cast
+from typing import TYPE_CHECKING, Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
-from gisim.classes.message import ChangeCharacterMsg, GenerateCombatStatusMsg
 from gisim.classes.status import CombatStatusEntity
-from gisim.classes.summon import AttackSummon, Summon
+from gisim.classes.summon import AttackSummon
 
 if TYPE_CHECKING:
-    from gisim.classes.character import CharacterEntity
-    from gisim.game import GameInfo
+    pass
 
 
 class LiutianArchery(GenericSkill):
@@ -88,7 +87,7 @@ class IceLotusStatus(CombatStatusEntity):
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         top_msg = msg_queue.queue[0]
-        print(top_msg)
+        logging.info(top_msg)
         return True
 
 

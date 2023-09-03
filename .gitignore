@@ -10,3 +10,4 @@ data/logs
 .python-version
 .idea
 /venv
+/test_*

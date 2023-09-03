@@ -1,13 +1,13 @@
+import logging
 from queue import PriorityQueue
 from typing import cast, Dict, List
 
-from classes.message import DealDamageMsg, RoundEndMsg
-from env import INF_INT
-
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
+from gisim.classes.message import DealDamageMsg, RoundEndMsg
 from gisim.classes.status import CharacterStatusEntity
 from gisim.classes.summon import AttackSummon
+from gisim.env import INF_INT
 
 
 class KhandaBarrierBuster(GenericSkill):
@@ -104,7 +104,7 @@ class VijanaSuffusionStatus(CharacterStatusEntity):
             if top_msg.attacker == (self.player_id, self.position):
                 for idx, target in enumerate(top_msg.targets):
                     if target[2] == ElementType.NONE:
-                        print(
+                        logging.info(
                             f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {target[2]} -> {target[3]} + Add: 0\n        {self.player_id.name}-{self.position}\n"
                         )
                         top_msg.targets[idx] = (
@@ -118,7 +118,7 @@ class VijanaSuffusionStatus(CharacterStatusEntity):
         if isinstance(top_msg, RoundEndMsg):
             top_msg = cast(RoundEndMsg, top_msg)
             assert (
-                self.remaining_round >= 1
+                    self.remaining_round >= 1
             ), "Remaining round should not be lower than 1!"
             self.remaining_round -= 1
             if self.remaining_round == 0:

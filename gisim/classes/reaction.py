@@ -1,4 +1,4 @@
-import copy
+import logging
 from queue import PriorityQueue
 from typing import TYPE_CHECKING, List, Tuple, cast
 
@@ -20,7 +20,6 @@ from gisim.env import INF_INT
 
 if TYPE_CHECKING:
     from gisim.classes.character import CharacterEntity
-
 
 RTE = np.zeros((8, 8), dtype="int")
 
@@ -139,10 +138,10 @@ class Reaction(BaseModel):
     """生成的召唤物"""
 
     def to_reaction(
-        self,
-        msg_queue: PriorityQueue,
-        parent: "CharacterEntity",
-        reaction_tuple: Tuple[ElementType, ElementType],
+            self,
+            msg_queue: PriorityQueue,
+            parent: "CharacterEntity",
+            reaction_tuple: Tuple[ElementType, ElementType],
     ):
         # sourcery skip: low-code-quality
         top_msg = msg_queue.queue[0]
@@ -166,7 +165,7 @@ class Reaction(BaseModel):
         elif isinstance(top_msg, DealDamageMsg):
             top_msg = cast(DealDamageMsg, top_msg)
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                top_msg.targets
+                    top_msg.targets
             ):
                 if target_id == player_id and target_pos == parent_pos:
                     top_msg.targets[idx] = (
@@ -203,7 +202,7 @@ class Reaction(BaseModel):
                         )
                         msg_queue.put(new_msg)
 
-        print(
+        logging.info(
             f"    Initiate Elemental Reactions:\n        Elemental Reaction :{self.reaction_type.name}\n        Target :{(player_id, parent_pos)}\n        Reaction Type:{typmsg}\n"
         )
 
@@ -379,17 +378,17 @@ class Swirl(Reaction):
     increased_bonuses: int = 0
 
     def to_reaction(
-        self,
-        msg_queue: PriorityQueue,
-        parent: "CharacterEntity",
-        reaction_tuple: Tuple[ElementType, ElementType],
+            self,
+            msg_queue: PriorityQueue,
+            parent: "CharacterEntity",
+            reaction_tuple: Tuple[ElementType, ElementType],
     ):
         top_msg = msg_queue.queue[0]
         player_id, parent_pos = parent.player_id, parent.position
         if isinstance(top_msg, DealDamageMsg):
             top_msg = cast(DealDamageMsg, top_msg)
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                top_msg.targets
+                    top_msg.targets
             ):
                 if target_id == player_id and target_pos == parent_pos:
                     new_msg = ElementalReactionTriggeredMsg(
@@ -437,7 +436,7 @@ def can_attachable(element: ElementType) -> bool:
 
 
 def sum_element_reaction(
-    ElementalAttachment: List[ElementType], AddElement: ElementType
+        ElementalAttachment: List[ElementType], AddElement: ElementType
 ) -> Tuple[ElementalReactionType, int]:
     """计算发生的元素反应"""
     reaction = RTE[np.ix_(ElementalAttachment, [AddElement])]
@@ -492,12 +491,12 @@ def sum_element_reaction(
 
 
 def element_reaction(
-    ElementalAttachment: List[ElementType], AddElement: ElementType
+        ElementalAttachment: List[ElementType], AddElement: ElementType
 ) -> Tuple[list, Reaction, Tuple[ElementType, EntityType]]:
     """进行元素反应"""
     assert not (
-        ElementType.GEO in ElementalAttachment
-        or ElementType.ANEMO in ElementalAttachment
+            ElementType.GEO in ElementalAttachment
+            or ElementType.ANEMO in ElementalAttachment
     ), "Elements that cannot be attached should not exist in the attachment list."
 
     def handle_no_attachment(attachment):

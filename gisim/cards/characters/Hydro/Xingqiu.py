@@ -1,25 +1,20 @@
 """行秋"""
-from typing import cast, Dict, List
+import logging
 from queue import PriorityQueue
-
-from gisim.classes.message import AfterUsingSkillMsg, DealDamageMsg
+from typing import cast, Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
     AttackType,
     CharPos,
     ElementType,
-    EntityType,
-    EquipmentType,
     Nation,
-    PlayerID,
     SkillType,
     WeaponType,
 )
+from gisim.classes.message import AfterUsingSkillMsg, DealDamageMsg
 from gisim.classes.status import CombatStatusEntity
-from gisim.classes.summon import AttackSummon, Summon
 from gisim.env import INF_INT
-from gisim.get_game_info import get_game_info
 
 
 class GuhuaStyle(GenericSkill):
@@ -125,10 +120,10 @@ class RainSwordStatus(CombatStatusEntity):
             top_msg = cast(DealDamageMsg, top_msg)
 
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                top_msg.targets
+                    top_msg.targets
             ):
                 if target_id == self.player_id and dmg_val >= 3:
-                    print(
+                    logging.info(
                         f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} - {1}\n"
                     )
 
@@ -172,10 +167,10 @@ class RainbowBladeworkStatus(CombatStatusEntity):
             top_msg = cast(AfterUsingSkillMsg, top_msg)
             for targets_player_id, targets_pos in top_msg.skill_targets:
                 if (
-                    top_msg.skill_type == SkillType.NORMAL_ATTACK
-                    and top_msg.sender_id == self.player_id
+                        top_msg.skill_type == SkillType.NORMAL_ATTACK
+                        and top_msg.sender_id == self.player_id
                 ):
-                    print(
+                    logging.info(
                         f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        PutDMG: HYDRO -> 1\n"
                     )
 
