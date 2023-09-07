@@ -3,17 +3,22 @@ from typing import Type
 
 from hbutils.string import ordinalize
 
-from .agent import Agent
-from .classes.enums import PlayerID, Winner, GameStatus, CharPos
+from gisim.agent import Agent
+from gisim.classes.enums import CharPos, GameStatus, PlayerID, Winner
 
 
-def run_game(game, player1_agent_cls: Type[Agent], player2_agent_cls: Type[Agent], max_action_count: int = 100):
-    logging.info(f'Game initializing: {game!r}')
+def run_game(
+    game,
+    player1_agent_cls: Type[Agent],
+    player2_agent_cls: Type[Agent],
+    max_action_count: int = 100,
+):
+    logging.info(f"Game initializing: {game!r}")
 
     player1_agent = player1_agent_cls(PlayerID.PLAYER1)
     player2_agent = player2_agent_cls(PlayerID.PLAYER2)
-    logging.info(f'Player 1: {player1_agent!r}')
-    logging.info(f'Player 2: {player2_agent!r}')
+    logging.info(f"Player 1: {player1_agent!r}")
+    logging.info(f"Player 2: {player2_agent!r}")
 
     game_info = game.encode_game_info(PlayerID.SPECTATOR)
 
@@ -23,7 +28,9 @@ def run_game(game, player1_agent_cls: Type[Agent], player2_agent_cls: Type[Agent
     while True:
         if game_round != game_info.round_num:
             game_round = game_info.round_num
-            logging.info(f'-------------- {ordinalize(game_round)} Round --------------')
+            logging.info(
+                f"-------------- {ordinalize(game_round)} Round --------------"
+            )
 
         action_cnt += 1
         active_player = game_info.active_player
@@ -100,10 +107,12 @@ def run_game(game, player1_agent_cls: Type[Agent], player2_agent_cls: Type[Agent
             break
 
         if action_cnt >= max_action_count:
-            logging.warning(f'Max action count ({max_action_count}) exceeded, quit the game.')
+            logging.warning(
+                f"Max action count ({max_action_count}) exceeded, quit the game."
+            )
             break
 
     if winner is Winner.DRAW:
-        logging.info(f'The game is a draw.')
+        logging.info(f"The game is a draw.")
     else:
         logging.info(f"The winner is {winner}")

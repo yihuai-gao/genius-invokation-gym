@@ -1,6 +1,6 @@
 """Sucrose"""
 from queue import PriorityQueue
-from typing import cast, Dict, List
+from typing import Dict, List, cast
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (

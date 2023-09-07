@@ -1,6 +1,6 @@
 import logging
 from queue import PriorityQueue
-from typing import cast, Dict, List
+from typing import Dict, List, cast
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
@@ -118,7 +118,7 @@ class VijanaSuffusionStatus(CharacterStatusEntity):
         if isinstance(top_msg, RoundEndMsg):
             top_msg = cast(RoundEndMsg, top_msg)
             assert (
-                    self.remaining_round >= 1
+                self.remaining_round >= 1
             ), "Remaining round should not be lower than 1!"
             self.remaining_round -= 1
             if self.remaining_round == 0:

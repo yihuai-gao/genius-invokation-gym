@@ -63,7 +63,9 @@ class Agent(ABC):
     def take_action_on_roll_dice(self, game_info: GameInfo):
         # default behaviour: use the current activate character's element
         player_info = game_info.get_player_info()
-        current_character = player_info.characters[player_info.active_character_position]
+        current_character = player_info.characters[
+            player_info.active_character_position
+        ]
         character_card = get_character_card(current_character.character.name)
         character_element = character_card.element_type
         current_dice = player_info.dice_zone
@@ -87,9 +89,7 @@ class Agent(ABC):
                 for k, character in enumerate(player_info.characters)
                 if character.character.alive
             ]
-            return ChangeCharacterAction(
-                position=alive_positions[0], dice_idx=[]
-            )
+            return ChangeCharacterAction(position=alive_positions[0], dice_idx=[])
 
         return DeclareEndAction()
 
@@ -99,10 +99,10 @@ class AttackOnlyAgent(Agent):
         super().__init__(player_id)
 
     def get_dice_idx_greedy(
-            self,
-            dice: List[ElementType],
-            cost: Dict[ElementType, int],
-            char_element: ElementType = ElementType.NONE,
+        self,
+        dice: List[ElementType],
+        cost: Dict[ElementType, int],
+        char_element: ElementType = ElementType.NONE,
     ):
         # First determine whether the current dice are enough
         dice_idx = []
@@ -260,15 +260,11 @@ class AttackOnlyAgent(Agent):
                 for k, character in enumerate(player_info.characters)
                 if character.character.alive
             ]
-            return ChangeCharacterAction(
-                position=alive_positions[0], dice_idx=[]
-            )
+            return ChangeCharacterAction(position=alive_positions[0], dice_idx=[])
         character_element = character_card.element_type
         current_dice = player_info.dice_zone
         skill_names = [skill.name for skill in character_card.skills]
-        elemental_burst = character_card.get_skill(
-            skill_type=SkillType.ELEMENTAL_BURST
-        )
+        elemental_burst = character_card.get_skill(skill_type=SkillType.ELEMENTAL_BURST)
         skill_name = ""
         dice_idx = []
 
@@ -278,9 +274,7 @@ class AttackOnlyAgent(Agent):
                 current_dice, {ElementType.CRYO: 2}, character_card.element_type
             )
             if len(dice_idx) > 0:
-                card_idx = player_info.hand_cards.index(
-                    "Kanten Senmyou Blessing"
-                )
+                card_idx = player_info.hand_cards.index("Kanten Senmyou Blessing")
                 return UseCardAction(
                     card_idx=card_idx,
                     card_target=[
@@ -294,14 +288,10 @@ class AttackOnlyAgent(Agent):
                 current_dice, {ElementType.SAME: 2}, character_card.element_type
             )
             if len(dice_idx) > 0:
-                card_idx = player_info.hand_cards.index(
-                    "Traveler's Handy Sword"
-                )
+                card_idx = player_info.hand_cards.index("Traveler's Handy Sword")
                 return UseCardAction(
                     card_idx=card_idx,
-                    card_target=[
-                        (self.player_id, EntityType.WEAPON, active_pos.value)
-                    ],
+                    card_target=[(self.player_id, EntityType.WEAPON, active_pos.value)],
                     dice_idx=dice_idx,
                     card_user_pos=active_pos,
                 )
@@ -313,16 +303,11 @@ class AttackOnlyAgent(Agent):
                 card_idx = player_info.hand_cards.index("Sacrificial Sword")
                 return UseCardAction(
                     card_idx=card_idx,
-                    card_target=[
-                        (self.player_id, EntityType.WEAPON, active_pos.value)
-                    ],
+                    card_target=[(self.player_id, EntityType.WEAPON, active_pos.value)],
                     dice_idx=dice_idx,
                     card_user_pos=active_pos,
                 )
-        if (
-                character_info.character.power
-                == elemental_burst.costs[ElementType.POWER]
-        ):
+        if character_info.character.power == elemental_burst.costs[ElementType.POWER]:
             dice_idx = self.get_dice_idx_greedy(
                 current_dice, elemental_burst.costs, character_card.element_type
             )
@@ -340,9 +325,7 @@ class AttackOnlyAgent(Agent):
                 skill_name = elemental_skill.name
         if not dice_idx:
             # Insufficient dice for elemental skill
-            normal_attack = character_card.get_skill(
-                skill_type=SkillType.NORMAL_ATTACK
-            )
+            normal_attack = character_card.get_skill(skill_type=SkillType.NORMAL_ATTACK)
             dice_idx = self.get_dice_idx_greedy(
                 current_dice, normal_attack.costs, character_card.element_type
             )

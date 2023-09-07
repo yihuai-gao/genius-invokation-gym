@@ -1,6 +1,6 @@
 """翠翎恐蕈"""
-from typing import Dict, Lict
 from queue import PriorityQueue
+from typing import Dict, Lict
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (

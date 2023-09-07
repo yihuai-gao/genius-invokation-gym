@@ -1,6 +1,6 @@
 """宵宫"""
-from typing import Dict, List
 from queue import PriorityQueue
+from typing import Dict, List
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (

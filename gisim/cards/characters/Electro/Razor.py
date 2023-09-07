@@ -1,7 +1,6 @@
 """雷泽"""
-from typing import Dict, List
 from queue import PriorityQueue
-from typing import cast
+from typing import Dict, List, cast
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import AttackType, ElementType, Nation, SkillType, WeaponType
