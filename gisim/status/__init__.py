@@ -14,7 +14,6 @@ from .reaction_status import *
 
 def get_combat_status(
     player_id: PlayerID,
-    remaining_round: int,
     status_id: Optional[int] = None,
     status_name: Optional[str] = None,
 ):
@@ -24,14 +23,10 @@ def get_combat_status(
             status_name += "Status"
         if status_name in globals():
             status_class = globals()[status_name]
-            status: CombatStatusEntity = status_class(
-                player_id=player_id, remaining_round=remaining_round
-            )
+            status: CombatStatusEntity = status_class(player_id=player_id)
             return status
 
-    return import_cards_combat_status(
-        player_id, remaining_round, status_id, status_name
-    )
+    return import_cards_combat_status(player_id, status_id, status_name)
 
 
 def get_character_status(
@@ -63,7 +58,7 @@ def get_character_status(
         if status_name in globals():
             status_class = globals()[status_name]
             status: CharacterStatusEntity = status_class(
-                player_id=player_id, position=position, remaining_round=remaining_round
+                player_id=player_id, position=position
             )
             return status
 

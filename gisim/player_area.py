@@ -14,7 +14,12 @@ from gisim.cards.base import Card
 from gisim.classes.character import CharacterEntity, CharacterEntityInfo
 from gisim.classes.entity import Entity
 from gisim.classes.enums import *
-from gisim.classes.equipment import ArtifactEntity, TalentEntity, WeaponEntity
+from gisim.classes.equipment import (
+    ArtifactEntity,
+    EquipmentEntity,
+    TalentEntity,
+    WeaponEntity,
+)
 from gisim.classes.message import (
     ChangeCardsMsg,
     ChangeDiceMsg,
@@ -449,8 +454,6 @@ class CombatStatusZone(BaseZone):
                         self.status_entities.pop(idx)
                 status_entity = get_combat_status(
                     self._parent.player_id,
-                    top_msg.remaining_round,
-                    top_msg.remaining_usage,
                     status_name=top_msg.combat_status_name,
                 )
                 self.status_entities.insert(0, status_entity)
@@ -490,6 +493,19 @@ class CharacterZone(BaseZone):
             "artifact": self.artifact.encode() if self.artifact else None,
             "status": [status.encode() for status in self.status],
         }
+
+    def get_ordered_equipments(self):
+        """Return a list of equipments ordered by their time_tag. The equipment with the smallest time_tag will be triggered first."""
+        equipments = []
+        if self.talent:
+            equipments.append(self.talent)
+        if self.weapon:
+            equipments.append(self.weapon)
+        if self.artifact:
+            equipments.append(self.artifact)
+        equipments.sort(key=lambda x: x.time_tag)
+        equipments = cast(List[EquipmentEntity], equipments)
+        return equipments
 
     def msg_handler(self, msg_queue: PriorityQueue) -> bool:
         if not self.character.alive and not self.character.active:
@@ -538,28 +554,18 @@ class CharacterZone(BaseZone):
                         raise ValueError("Wrong equipment type!")
                     top_msg.responded_entities.append((self._uuid))
 
-        atk_buff = []
-        def_buff = []
-        under_atk_buff = []
-        neg_buff = []
-
-        entities = [
-            *under_atk_buff,
-            *def_buff,
-            self.character,
-            self.talent,
-            self.weapon,
-            self.artifact,
-            *atk_buff,
-            *neg_buff,
-        ]
+        entities = [self.character]
+        entities += self.get_ordered_equipments()
+        entities += self.status
         entities = cast(List[Entity], entities)
         for entity in entities:
             if entity is None:
                 continue
-            updated = entity.msg_handler(msg_queue)
-            if updated:
-                return True
+            if entity.respond_to_earlier_msg or entity.time_tag < top_msg.time_tag:
+                # If the entity will respond to earlier messages, or it is triggered by a message with bigger time_tag (generated later than the entity)
+                updated = entity.msg_handler(msg_queue)
+                if updated:
+                    return True
 
         # Remove
         if isinstance(top_msg, RoundEndMsg):
@@ -588,10 +594,8 @@ class PlayerInfo:
         self.dice_zone_len: int = player_info_dict["dice_zone"]["length"]
         self.dice_zone: List[ElementType] = player_info_dict["dice_zone"]["items"]
         self.summon_zone: List[dict] = player_info_dict["summon_zone"]
-        self.support_zone: List[Support] = player_info_dict["support_zone"]
-        self.combat_status_zone: List[CombatStatusEntity] = player_info_dict[
-            "combat_status_zone"
-        ]
+        self.support_zone: List[dict] = player_info_dict["support_zone"]
+        self.combat_status_zone: List[dict] = player_info_dict["combat_status_zone"]
         self.characters: List[CharacterInfo] = [
             CharacterInfo(player_info_dict["character_zones"][k]) for k in range(3)
         ]

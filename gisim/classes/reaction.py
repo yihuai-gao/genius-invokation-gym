@@ -319,7 +319,7 @@ class Frozen(Reaction):
     reaction_type: ElementalReactionType = ElementalReactionType.FROZEN
     increased_bonuses: int = 1
 
-    status_name: str = "Frozen Effect"
+    status_name: str = "Frozen"
     status_remaining_round: int = 1
     status_remaining_usage: int = 1
 

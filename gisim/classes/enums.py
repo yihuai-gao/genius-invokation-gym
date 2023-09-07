@@ -194,7 +194,7 @@ class CharPos(IntEnum):
 
     def __add__(self, num: int):
         """Modular addition for `next-character` calculation"""
-        assert self.value is INF_INT
+        assert self.value is not INF_INT
         return CharPos((self.value + num) % 3)
 
 

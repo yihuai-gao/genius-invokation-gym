@@ -24,12 +24,14 @@ def print_player_info(player_info: PlayerInfo):
     artifact = {}
     cards = player_info.hand_cards
     pos = player_info.active_character_position
+    combat_status_list = []
     if pos is not CharPos.NONE:
         ch = player_info.characters[pos.value].character
         ch_status_list = player_info.characters[pos.value].status
         weapon = player_info.characters[pos.value].weapon
         talent = player_info.characters[pos.value].talent
         artifact = player_info.characters[pos.value].artifact
+        combat_status_list = player_info.combat_status_zone
     summons = player_info.summon_zone
 
     logging.info(f"{player_info.player_id}")
@@ -62,6 +64,13 @@ def print_player_info(player_info: PlayerInfo):
         logging.info(f"    Current Summons:")
         for summon in summons:
             logging.info(f"          {summon['name']}: usages: {summon['usages']}")
+
+    if len(combat_status_list) >= 1:
+        logging.info(f"    Combat Status:")
+        for combat_status in combat_status_list:
+            logging.info(
+                f"      {combat_status['player_id']},{combat_status['name']}, active: {combat_status['active']}, remaining round: {combat_status['remaining_round']}, remaining usage: {combat_status['remaining_usage']}"
+            )
 
 
 def run_game(
