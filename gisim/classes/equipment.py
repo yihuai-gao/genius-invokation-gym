@@ -26,7 +26,7 @@ class EquipmentEntity(Entity):
     equipment_type: EquipmentType
 
     def encode(self):
-        return self.dict().update({"_uuid": self._uuid})
+        return self.dict()
 
 
 class TalentEntity(EquipmentEntity):

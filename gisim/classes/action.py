@@ -13,11 +13,10 @@ from typing import List, Tuple
 
 from pydantic import BaseModel
 
-from gisim.classes.entity import Entity
 from gisim.classes.enums import CharPos, EntityType, PlayerID, SkillType
 
 
-class Action(Entity, ABC):
+class Action(BaseModel, ABC):
     """Action includes cost information."""
 
     def _check_cards_index(self, cards_idx: List[int]):

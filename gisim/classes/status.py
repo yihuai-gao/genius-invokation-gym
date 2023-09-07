@@ -30,7 +30,7 @@ class CharacterStatusEntity(Entity, ABC):
         ...
 
     def encode(self):
-        return OrderedDict(self.dict(exclude={"_uuid", "_logger"}))
+        return self.dict()
 
 
 class CombatStatusEntity(Entity, ABC):
@@ -54,4 +54,4 @@ class CombatStatusEntity(Entity, ABC):
         ...
 
     def encode(self):
-        return OrderedDict(self.dict(exclude={"_uuid", "_logger"}))
+        return self.dict()
