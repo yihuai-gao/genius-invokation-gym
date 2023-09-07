@@ -228,7 +228,7 @@ class CharacterEntity(Entity):
                     msg.damage_calculation_ended = True
                     self.health_point -= min(self.health_point, dmg_val)
                     logging.info(
-                        f"    Cause Damage:\n        Elemental :{element_type}\n        Attacker: {msg.attacker}\n        Target :{(target_id, target_pos)}\n        Val: {dmg_val}\n"
+                        f"    Cause Damage:\n        Elemental: {element_type}\n        Attacker: {msg.attacker}\n        Target: {(target_id, target_pos)}\n        Val: {dmg_val}\n"
                     )
 
                     if self.health_point == 0:

@@ -7,11 +7,11 @@ from queue import PriorityQueue
 from random import Random
 from typing import cast
 
-from .classes.action import *
-from .classes.action import Action
-from .classes.enums import *
-from .classes.message import *
-from .player_area import BaseZone, PlayerArea, PlayerInfo
+from gisim.classes.action import *
+from gisim.classes.action import Action
+from gisim.classes.enums import *
+from gisim.classes.message import *
+from gisim.player_area import BaseZone, PlayerArea, PlayerInfo
 
 
 class Game:
