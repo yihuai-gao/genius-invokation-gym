@@ -22,7 +22,7 @@ class Game:
         return cls.instance
 
     def init_deck(
-            self, player1_deck: dict, player2_deck: dict, seed: Optional[int] = None
+        self, player1_deck: dict, player2_deck: dict, seed: Optional[int] = None
     ):
         if seed is None:
             # Use system random to generate a seed if not provided
@@ -251,9 +251,9 @@ class Game:
                 else:
                     opponent_ended = self.player_area[~self.active_player].declare_end
                     if (
-                            top_msg.change_active_player
-                            and not opponent_ended
-                            and self.active_player == top_msg.sender_id
+                        top_msg.change_active_player
+                        and not opponent_ended
+                        and self.active_player == top_msg.sender_id
                     ):
                         self.active_player = ~self.active_player
                 # TODO: Other impact on the game FSM
@@ -313,10 +313,10 @@ class Game:
                 elif self.phase == GamePhase.ROLL_DICE:
                     self.process_msg_queue()
                     if (
-                            self.player_area[
-                                self.active_player
-                            ].dice_zone.remaining_reroll_chance
-                            > 0
+                        self.player_area[
+                            self.active_player
+                        ].dice_zone.remaining_reroll_chance
+                        > 0
                     ):
                         # Let this player continue to reroll dices
                         break
@@ -343,8 +343,8 @@ class Game:
                             self.winner = Winner((~current_player).value)
                         break
                     if (
-                            not self.player_area[PlayerID.PLAYER1].declare_end
-                            or not self.player_area[PlayerID.PLAYER2].declare_end
+                        not self.player_area[PlayerID.PLAYER1].declare_end
+                        or not self.player_area[PlayerID.PLAYER2].declare_end
                     ):
                         break
 
@@ -379,6 +379,7 @@ class Game:
 
     def run(self, player1_agent_cls, player2_agent_cls, max_action_count: int = 100):
         from .run import run_game
+
         return run_game(self, player1_agent_cls, player2_agent_cls, max_action_count)
 
 

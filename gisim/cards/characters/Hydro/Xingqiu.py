@@ -1,7 +1,7 @@
 """行秋"""
 import logging
 from queue import PriorityQueue
-from typing import cast, Dict, List
+from typing import Dict, List, cast
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (
@@ -120,7 +120,7 @@ class RainSwordStatus(CombatStatusEntity):
             top_msg = cast(DealDamageMsg, top_msg)
 
             for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                    top_msg.targets
+                top_msg.targets
             ):
                 if target_id == self.player_id and dmg_val >= 3:
                     logging.info(
@@ -167,8 +167,8 @@ class RainbowBladeworkStatus(CombatStatusEntity):
             top_msg = cast(AfterUsingSkillMsg, top_msg)
             for targets_player_id, targets_pos in top_msg.skill_targets:
                 if (
-                        top_msg.skill_type == SkillType.NORMAL_ATTACK
-                        and top_msg.sender_id == self.player_id
+                    top_msg.skill_type == SkillType.NORMAL_ATTACK
+                    and top_msg.sender_id == self.player_id
                 ):
                     logging.info(
                         f"    Combat Status Effect By {self.player_id.name}:\n        {self.name}:{self.description}\n        PutDMG: HYDRO -> 1\n"

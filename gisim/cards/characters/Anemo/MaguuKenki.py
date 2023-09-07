@@ -1,7 +1,7 @@
 """MaguuKenki: 剑鬼魔偶"""
 
 from queue import PriorityQueue
-from typing import TYPE_CHECKING, cast, Dict, List
+from typing import TYPE_CHECKING, Dict, List, cast
 
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import (

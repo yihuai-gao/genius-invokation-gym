@@ -123,14 +123,12 @@ if __name__ == "__main__":
     else:
         print(f"The winner is {winner}")
 
-
     class UUIDEncoder(json.JSONEncoder):
         def default(self, obj):
             if isinstance(obj, UUID):
                 # if the obj is uuid, we simply return the value of uuid
                 return obj.hex
             return json.JSONEncoder.default(self, obj)
-
 
     if os.path.dirname(log_file):
         os.makedirs(os.path.dirname(log_file), exist_ok=True)

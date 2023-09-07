@@ -1,5 +1,6 @@
 """柯莱"""
 from typing import Dict, List
+
 from gisim.cards.characters.base import CharacterCard, CharacterSkill, GenericSkill
 from gisim.classes.enums import ElementType, Nation, SkillType, WeaponType
 from gisim.classes.summon import AttackSummon

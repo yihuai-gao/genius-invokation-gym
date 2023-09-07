@@ -142,7 +142,7 @@ class ParamitaPapilioStatus(CharacterStatusEntity):
             top_msg = cast(DealDamageMsg, top_msg)
             if top_msg.attacker == (self.player_id, self.position):
                 for idx, (target_id, target_pos, element_type, dmg_val) in enumerate(
-                        top_msg.targets
+                    top_msg.targets
                 ):
                     logging.info(
                         f"    Character Status Effect:\n        {self.name}:{self.description}\n        Origin DMG: {element_type.name} -> {dmg_val} + Add: 1\n        {self.player_id.name}-{self.position}\n"
