@@ -1,6 +1,6 @@
 from typing import List
 
-from gisim.classes.enums import ElementType, ReactionType
+from gisim.classes.enums import ElementType
 from gisim.classes.reaction import (
     can_attachable,
     element_reaction,

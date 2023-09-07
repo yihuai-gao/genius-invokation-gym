@@ -133,19 +133,21 @@ class CatalyzingFieldStatus(CombatStatusEntity):
             return False
 
 
-class FrozenEffectStatus(CharacterStatusEntity):
+class FrozenStatus(CharacterStatusEntity):
     """
     [Character Status]the target is unable to perform any Actions this round
     (Can be removed in advance after the target receives Physical or Pyro DMG,
     in which case they will take +2 DMG)
     """
 
-    name: str = "Frozen Effect"
+    id: int = 106
+    name: str = "Frozen"
     element: ElementType = ElementType.NONE
     description: str = """[Character Status]the target is unable to perform any Actions this round(Can be removed in advance after the target receives Physical or Pyro DMG, in which case they will take +2 DMG)"""
     value: int = 0
     active: bool = True
     remaining_usage = 1
+    remaining_round = 1
 
     def msg_handler(self, msg_queue: PriorityQueue):
         top_msg = msg_queue.queue[0]
