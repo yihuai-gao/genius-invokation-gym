@@ -5,6 +5,11 @@
  https://opensource.org/licenses/MIT
 -->
 
+
+非常抱歉，由于作者近期时间有限，本项目暂停开发。
+
+请关注[谷雨同学](https://guyutongxue.site/)已完成开发且持续更新的[七圣召唤模拟器](https://github.com/Guyutongxue/genius-invokation)，欢迎[试玩](https://gi-tcg.vercel.app/)
+
 # Genius Invokation Gym
 
 A simple simulator of the Genius Invokation TCG in Genshin impact
@@ -20,6 +25,7 @@ Package name `gisim` stands for both `Genshin Impact` and `Genius Invokation`
 希望可以实现类似openai-gym的API，用于训练ai&评估卡组强度
 
 简单介绍请参考[该Notion页面](https://paladin1013.notion.site/gisim-A-Genius-Invokation-Simulator-4743c9996d094e3088ea91f47e70711b?pvs=4)
+
 
 # Get Started
 
@@ -55,13 +61,6 @@ poetry run python3 -u tests/test_framework.py
     - [x] Maguu Kenki
     - [x] Sucrose
 
-## Logs
-
-应该会采用[rlcard](https://github.com/datamllab/rlcard)相近的API接口进行设计，参考[DouZero](https://github.com/kwai/DouZero)，目前正在调研中
-
-参考炉石传说模拟器[fireplace](https://github.com/jleclanche/fireplace)完成了卡牌及框架的初始化（目前仍为空文件）
-
-顺便好奇一下为什么用invokation而不是invocation，求懂哥指点
 
 新建QQ交流群613071650，欢迎感兴趣的同学入群，欢迎成为Contributor！
 
